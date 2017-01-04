@@ -16,9 +16,9 @@ use Symfony\Component\HttpFoundation\Request;
 class VideoController extends Controller
 {
     /**
-     * @Route("video")
+     * @Route("/watch?video/{slug}",name="video_show")
      */
-    public function indexAction(Request $request)
+    public function showAction($id)
     { 
       return $this->render('View/video.html.php');
     }

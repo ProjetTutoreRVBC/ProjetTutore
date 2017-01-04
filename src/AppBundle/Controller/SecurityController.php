@@ -34,6 +34,7 @@ class SecurityController extends Controller
      */
     public function loginAction()
     { 
+      $error = "";
       if(isset($_POST) && $_POST != null){
         if(isset($_POST['login'])){
           $user = new Nostreamer();
@@ -44,10 +45,13 @@ class SecurityController extends Controller
           {
             return $this->redirectToRoute('home');
           }
+          else
+            $error = "Wrong username or password. Try again.";
+            
         }
         
       }       
-      return $this->render('View/formulaire.html.php');
+      return $this->render('View/formulaire.html.php',array("error"=>$error));
     }
   
     /**

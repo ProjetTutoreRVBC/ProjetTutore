@@ -1,5 +1,10 @@
 <?php
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    echo "Thank you " . $first_name . " " . $last_name . " for your submission.";
+$destinataire = 'michael.reilhac@live.fr';
+$expediteur   = 'noreply@nostream.com';
+echo "Ce script envoie un mail à $destinataire ".
+     "en précisant que l'expediteur est $expediteur ";
+mail($destinataire,
+     'test email 1bis',
+     'merci pour ton tutorial',
+     "From: $expediteur");
 ?>

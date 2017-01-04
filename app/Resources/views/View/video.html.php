@@ -10,88 +10,45 @@
     <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+    <script src="/web/bundles/framework/js/top-bar.js"></script>
 </head>
 
-<body>
-    <div data-sticky-container>
-        <div class="top-bar" data-sticky>
-            <div class="top-bar-left">
-                <ul class="menu">
-                    <li><img href="homepage.html" src="/web/bundles/framework/images/logo.png " style="width:135px;height:75px; "></li>
-                    <li><input type="search" placeholder="Search Here" style="margin-left:15px;width:250px;" ;></li>
-                    <li><button type="button" class="button">Search</button></li>
+<body onresize="handleWindow()" onload="handleWindow()">
+    <div class="top-bar">
+            <div style="display: inline-block;width:100%;">
+              <div id="left-search" style="float:left;">
+                <ul id="menu" class="menu" style="">
+                    <li><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></li>
+                    <li><input id ="search-bar" class="search-bar" type="search" placeholder="Search Here"></li>
+                    <li><button id="button-search-bar" class="button" type="button">Search</button></li>
                 </ul>
-            </div>
-            <div class="top-bar-right">
-                <img class="thumbnail " data-open="exampleModal1" src="profile.jpg ">
-                <div class="reveal xlarge" id="exampleModal1" data-reveal>
-                    <div style="float: right;">
-                        <h2>Connexion</h2>
-                        <form>
-                            <div class="row">
-                                <div class="small-8 columns">
-                                    <div class="row">
-                                        <div class="small-3 columns">
-                                            <label>Pseudo</label>
-                                            <input type="text" id="right-label" placeholder="pseudo">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="small-8 columns">
-                                    <div class="row">
-                                        <div class="small-3 columns">
-                                            <label>Pass</label>
-                                            <input type="text" id="right-label" placeholder="mot de passe">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="expanded button" type="submit">Submit</button>
-                        </form>
-                    </div>
-                    <div style="float: left;">
-                        <h2>Inscription</h2>
-                        <form>
-                            <fieldset>
-                                <div class="row">
-                                    <div class="large-4 columns">
-                                        <label>Adresse mail</label>
-                                        <input type="email" placeholder="Entrez votre adresse mail">
-                                    </div>
-                                    <div class="medium-4 columns">
-                                        <label>Date de naissance</label>
-                                        <input type="date">
-                                    </div>
-                                    <div class="large-4 columns">
-                                        <label>Avatar</label>
-                                        <label for="exampleFileUpload" class="button">Upload File</label>
-                                        <input type="file" id="exampleFileUpload" class="show-for-sr">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="large-4 columns">
-                                        <label>Pseudo</label>
-                                        <input type="text" placeholder="Choisissez votre pseudo">
-                                    </div>
-                                    <div class="large-4 columns">
-                                        <label>Mot de passe</label>
-                                        <input type="password" placeholder="Entrez votre mot de passe">
-                                    </div>
-                                    <div class="large-4 columns">
-                                        <label>Confirmer mot de passe</label>
-                                        <input type="password" placeholder="Confirmez votre mot de passe">
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <button class="expanded button" type="submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+              </div>
+                        <?php
+                          $href="login";
+                          $log="Login";
+                          if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
+                          {
+                            $href = "logout";
+                            $log = "Logout";
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            echo '<li id="signed"><a href="channel"><button class="button" type="button">Channel</button></li>';
+                            echo '<li id="signed-1"><a href="profile"><button class="button" type="button">Profile</button></li>';
+                          }else
+                          {
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            echo '<li id="signIn" ><a href="register"><button class="button" type="button">Sign Up</button></a></li>';
+                          }
+                            
+                          echo '<li id ="logIn">';
+                          echo '<a href="'.$href.'">';
+                          echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
+                        ?>
+                    </li>  
+                </ul>
+              </div>
+            </div>  
     <!-------------------------------------------------------TOP BAR------------------------------------------------------>
     <div class="video-titre" style="height:5%;width:100%;">
         <h3 style="text-align:center;">Metallica - Atlas, Rise! Teaser</h3>
@@ -161,7 +118,7 @@
 
         <div class="video-container " style="height:65%;width:60%!important; ">
             <video id="my-video " class="video-js " controls preload="auto " style="width:100%; height:100%; " poster="atlas.jpg " data-setup="{} ">
-                <source src="/web/bundles/framework/mp4/atlas.mp4 " type='video/mp4'>
+                <source src="http://163.172.55.152/585a2ae03f6d4_enc.mp4?st=mDEHm2wj--BsrQPQ2Awo4g&e=1482424043" type='video/mp4'>
                 <p class="vjs-no-js ">
                   To view this video please enable JavaScript, and consider upgrading to a web browser that
                   <a href="http://videojs.com/html5-video-support/ " target="_blank ">supports HTML5 video</a>

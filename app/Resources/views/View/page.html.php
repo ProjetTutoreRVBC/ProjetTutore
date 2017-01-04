@@ -1,0 +1,133 @@
+<!-- app/Resources/views/View/page.html.php-->  
+<!doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nostream</title>
+    <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
+    <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+</head>
+
+<body>
+    <div data-sticky-container>
+        <div class="top-bar" data-sticky>
+            <div class="top-bar-left">
+                <ul class="menu">
+                    <li><img href="homepage.html" src="logo.png " style="width:135px;height:75px; "></li>
+                    <li><input type="search" placeholder="Search Here" style="margin-left:15px;width:250px;" ;></li>
+                    <li><button type="button" class="button">Search</button></li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <img class="thumbnail " data-open="exampleModal1" src="profile.jpg ">
+                <div class="reveal xlarge" id="exampleModal1" data-reveal>
+                    <div style="float: right;">
+                        <h2>Connexion</h2>
+                        <form>
+                            <div class="row">
+                                <div class="small-8 columns">
+                                    <div class="row">
+                                        <div class="small-3 columns">
+                                            <label>Pseudo</label>
+                                            <input type="text" id="right-label" placeholder="pseudo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-8 columns">
+                                    <div class="row">
+                                        <div class="small-3 columns">
+                                            <label>Pass</label>
+                                            <input type="text" id="right-label" placeholder="mot de passe">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="expanded button" type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div style="float: left;">
+                        <h2>Inscription</h2>
+                        <form>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="large-4 columns">
+                                        <label>Adresse mail</label>
+                                        <input type="email" placeholder="Entrez votre adresse mail">
+                                    </div>
+                                    <div class="medium-4 columns">
+                                        <label>Date de naissance</label>
+                                        <input type="date">
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <label>Avatar</label>
+                                        <label for="exampleFileUpload" class="button">Upload File</label>
+                                        <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="large-4 columns">
+                                        <label>Pseudo</label>
+                                        <input type="text" placeholder="Choisissez votre pseudo">
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <label>Mot de passe</label>
+                                        <input type="password" placeholder="Entrez votre mot de passe">
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <label>Confirmer mot de passe</label>
+                                        <input type="password" placeholder="Confirmez votre mot de passe">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button class="expanded button" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="position:relative;height:40%;padding:1px;border-bottom:1px solid #021a40;border-color:grey;">
+        <img src="banner.jpeg " style="height:300px;width:100%;text-align:center;"><br>
+        <img src="metstudio.jpg " style="top:225px;left:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
+        <img src="met.jpg " style="top:225px;right:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
+        <h2 style="margin-left:250px;position:absolute;">MetallicaStudio</h2>
+        <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
+    </div>
+
+    <div style="margin-left:auto;margin-right:auto;width:50%;height:1000%;background-color:white;">
+        <div style="margin-top:25px;">
+            <div style="margin-top:15px;border-bottom: solid 1px;">
+                <img style="width:50px;height:50px;" src="met.jpg">
+                <span style="margin-left:10px;">MetallicaTV <small>via MetallicaStudio</small></span>
+            </div>
+            <div style="margin-top:15px;width:100%;overflow:hidden;">
+                <p>Hardwired... To Self Destruct available everywhere ! Maras diaconus fucandae purpurae diaconus ut non et sermone celerari textrini pectoralem purpurae et Tyrii ad regale est inductus ad autem diaconus speciem idem fucandae denique vexatus
+                    vitae Christiani pectoralem inductus quaerebatur celerari celerari Maras vitae ministris ministris prolatae diaconus haec est regale indumentum vexatus non nihil textam pectoralem ad indumentum textrini fateri sermone Maras appellant
+                    purpurae diaconus ut etiam Tyrii vexatus ad idem confessisque usque perurgebant ministris litterae sermone Maras prolatae ad purpurae fucandae confessisque Christiani vitae quam idem praepositum speciem indicabant regale ad cuius ministris
+                    ut manicis usque ut fucandae Maras perurgebant confessisque ut litterae etiam quaerebatur sermone.
+                </p>
+            </div>
+            <img style="max-height:100%" src="post.jpg">
+        </div>
+        <div style="margin-top:25px;">
+            <div style="margin-top:15px;border-bottom: solid 1px;">
+                <img style="width:50px;height:50px;" src="met.jpg">
+                <span style="margin-left:10px;">MetallicaTV <small>via MetallicaStudio</small></span>
+            </div>
+            <div style="margin-top:15px;width:100%;overflow:hidden;">
+                <p>Hardwired... To Self Destruct available everywhere ! Maras diaconus fucandae purpurae diaconus ut non et sermone celerari textrini pectoralem purpurae et Tyrii ad regale est inductus ad autem diaconus speciem idem fucandae denique vexatus
+                    vitae Christiani pectoralem inductus quaerebatur celerari celerari Maras vitae ministris ministris prolatae diaconus haec est regale indumentum vexatus non nihil textam pectoralem ad indumentum textrini fateri sermone Maras appellant
+                    purpurae diaconus ut etiam Tyrii vexatus ad idem confessisque usque perurgebant ministris litterae sermone Maras prolatae ad purpurae fucandae confessisque Christiani vitae quam idem praepositum speciem indicabant regale ad cuius ministris
+                    ut manicis usque ut fucandae Maras perurgebant confessisque ut litterae etiam quaerebatur sermone.
+                </p>
+            </div>
+            <img style="max-height:100%" src="post.jpg">
+        </div>
+    </div>
+</body>

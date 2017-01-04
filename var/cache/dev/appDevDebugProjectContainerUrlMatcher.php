@@ -110,6 +110,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
+        // app_profile_index
+        if ($pathinfo === '/profile') {
+            return array (  '_controller' => 'AppBundle\\Controller\\ProfileController::indexAction',  '_route' => 'app_profile_index',);
+        }
+
         // app_security_register
         if ($pathinfo === '/register') {
             return array (  '_controller' => 'AppBundle\\Controller\\SecurityController::registerAction',  '_route' => 'app_security_register',);
@@ -128,22 +133,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // app_video_index
-        if ($pathinfo === '/video') {
-            return array (  '_controller' => 'AppBundle\\Controller\\VideoController::indexAction',  '_route' => 'app_video_index',);
-        }
-
-        if (0 === strpos($pathinfo, '/blog')) {
-            // blog_list
-            if (preg_match('#^/blog(?:/(?P<page>\\d+))?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_list')), array (  '_controller' => 'AppBundle:Blog:list',  'page' => 1,));
-            }
-
-            // blog_show
-            if (preg_match('#^/blog/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'blog_show')), array (  '_controller' => 'AppBundle:Blog:show',));
-            }
-
+        // video_show
+        if (0 === strpos($pathinfo, '/video') && preg_match('#^/video/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'video_show')), array (  '_controller' => 'AppBundle\\Controller\\VideoController::showAction',));
         }
 
         // login

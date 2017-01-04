@@ -6,87 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nostream</title>
     <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
+    <link rel="stylesheet" href="/web/bundles/framework/css/top-bar.css">
+    <script src="/web/bundles/framework/js/top-bar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/validation/form.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/display/upload.js') ?>"></script>
-    <script>
-      var width;
-      var type;
-      function handleWindow() {
-          width =   500;
-          document.getElementById("search-bar").style.marginLeft= "15px";
-          document.getElementById("right-log").style.padding= "10px";
-          document.getElementById("left-search").style.padding= "2px";
-            document.getElementById("right-log").style.display= "";
-        if(window.outerWidth < 1000) {
-            type = "px";
-            document.getElementById("videos").style.marginTop= "130px";
-            document.getElementById("logo").style.display= "";
-            document.getElementById("logIn").style.display= "";
-            document.getElementById("signIn").style.display= "";
-            width = window.outerWidth - 495;
-        }
-          if(window.outerWidth < 660){
-            document.getElementById("videos").style.marginTop= "100px";
-            document.getElementById("logo").style.display= "none";
-            document.getElementById("right-log").style.padding= "0px";
-            document.getElementById("left-search").style.padding= "10px";
-            type="px";
-            width = 200;
-          }
-          if(window.outerWidth < 540){
-            
-            document.getElementById("videos").style.marginTop= "150px";
-            document.getElementById("liste").style.display= "block";
-          }
-          
-          if(window.outerWidth < 555){
-            document.getElementById("signIn").style.display= "none";
-            document.getElementById("right-log").style.padding= "3%";
-          }
-          
-          if(window.outerWidth < 460){
-            document.getElementById("right-log").style.display= "none";
-            document.getElementById("logIn").style.display= "none";
-            document.getElementById("search-bar").style.marginLeft= "40px";
-          }
-        
-          document.getElementById("search-bar").style.width = width+type;
-      }
-    </script>
 </head>
 
 <body onresize="handleWindow()" onload="handleWindow()"> 
-    <div class="top-bar"  style="position:fixed;width:100%;top:0px;padding:0;">
-            <div style=";display: inline-block;width:100%;">
+    <div class="top-bar">
+            <div style="display: inline-block;width:100%;">
               <div id="left-search" style="float:left;">
-                <ul id="menu" class="menu">
-                    <li><img id="logo" class="top-bar-profile-pic" href="/homepage.html" src="/web/bundles/framework/images/logo.png "></li>
-                    <li><input id ="search-bar" type="search" placeholder="Search Here" style="margin-right:0px;width:500px;height:40px;"></li>
-                    <li><button id="afficher" type="button" class="button">Search</button></li>
+                <ul id="menu" class="menu" style="">
+                    <li><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></li>
+                    <li><input id ="search-bar" class="search-bar" type="search" placeholder="Search Here"></li>
+                    <li><button id="button-search-bar" class="button" type="button">Search</button></li>
                 </ul>
               </div>
-              <div id ="right-log" style="float:right;">
-                <ul id="menu" class="menu">
-                  <li id="signIn"   style="height:40xp;"  ><a href="register"><button type ="button" class="button" >Sign Up</button></a></li>
-                    <li id ="logIn" style="height:40xp;">
                         <?php
                           $href="login";
-                          $log="Log In";
+                          $log="Login";
                           if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
                           {
                             $href = "logout";
-                            $log = "Log Out";
-                          }    
-                          echo '<a href="'.$href.'" style="padding:0;">';
+                            $log = "Logout";
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            echo '<li id="signed"><a href="channel"><button class="button" type="button">Channel</button></li>';
+                            echo '<li id="signed-1"><a href="profile"><button class="button" type="button">Profile</button></li>';
+                          }else
+                          {
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            echo '<li id="signIn" ><a href="register"><button class="button" type="button">Sign Up</button></a></li>';
+                          }
+                            
+                          echo '<li id ="logIn">';
+                          echo '<a href="'.$href.'">';
                           echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
                         ?>
                     </li>  
                 </ul>
               </div>
             </div>  
-            <div id="liste" class="liste" style="width:100%;display: inline-block;border-color: grey;border-style: solid; border-width: 1px 0px 1px 0px;">
+            <div id="liste" class="liste">
               <ul class="tabs " data-tabs id="tabs_example">
                 <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
                 <li class="tabs-title "><a href="#tab3 ">Chaînes</a></li>
@@ -101,33 +65,39 @@
           <div  class="tabs-panel is-active " id="tab1" >
             <div class ="defilement-video" style="text-align: center;">
               <?php
-              for($i = 0; $i < 50; $i++)
+              $id = "Metallica";
+              $vues = 1500;
+              $titre="test";
+              $userChannel="test";
+              $userPage="test";
+              $date="00/00/0000";
+              for($i = 0; $i < 30; $i++)
                 {
-              echo '
-                <a href ="video">
-                  <div style="height:125px;width:225px;display:inline-block;margin:4px;">
-                    <div style="height:35px;overflow:hidden;">
-                        <font size="2" class="titres"><strong>Metallica - Atlas, Rise! Teaser from Hardwired...To self Destruct</strong></font><br>
-                    </div>
-                    <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"><br>
-                    <div>
+                  echo '
+                  <a href ="video/'.$id.'">
+                    <div style="height:125px;width:225px;display:inline-block;margin:4px;">
+                      <div style="height:35px;overflow:hidden;">
+                          <font size="2" class="titres"><strong>'.$titre.'</strong></font><br>
+                      </div>
+                      <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"><br>
+                      <div>
 
-                    </div>
+                      </div>
 
-                    <div style="width:225px;">
-                        <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                            <font size="1">MetallicaTV</font>
-                        </a>
-                        <a href="#" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                            <font size="1">Metallica Studio</font>
-                        </a>
-                    </div>
-                    <div style="text-align:center;">
-                        <font size="1 ">1 234 992 vues -</font>
-                        <font size="1 ">le 29/10/16</font>
-                    </div>
-                </div>
-              </a>';
+                      <div style="width:225px;">
+                          <a href="channel/" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                              <font size="1">'.$userChannel.'</font>
+                          </a>
+                          <a href="#" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                              <font size="1">'.$userPage.'</font>
+                          </a>
+                      </div>
+                      <div style="text-align:center;">
+                          <font size="1 ">'.$vues.' vues -</font>
+                          <font size="1 ">le '.$date.'</font>
+                      </div>
+                  </div>
+                </a>';
                 }
               ?>
             </div>  

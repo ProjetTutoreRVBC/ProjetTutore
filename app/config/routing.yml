@@ -1,14 +1,9 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-blog_list:
-    path:      /blog/{page}
-    defaults:  { _controller: AppBundle:Blog:list, page: 1 }
-    requirements:
-      page: '\d+'
-blog_show:
-    path:      /blog/{slug}
-    defaults:  { _controller: AppBundle:Blog:show }
+video_show:
+    path:      /video/{slug}
+    defaults:  { _controller: AppBundle:Video:show }
 login:
     path:      /login/
     defaults:  { _controller: AppBundle:Security:login }
