@@ -52,26 +52,27 @@
               </div>
             </div>
           </div>
-    <div style="height:100%;width:100%">
-        <div style="position:relative;height:40%;padding:1px;">
-            <img src="/web/bundles/framework/images/banner.jpeg " style="height:75%;width:100%;text-align:center;"><br>
-            <img src="/web/bundles/framework/images/metstudio.jpg " style="top:55%;left:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
-            <img src="/web/bundles/framework/images/met.jpg " style="top:55%;right:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
-            <h2 style="margin-left:250px;position:absolute;">MetallicaStudio</h2>
-            <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
-        </div>
 
-        <div style="margin-top:5%;margin-left:auto;margin-right:auto;text-align:center;width:50%;height:1000%;background-color:white;padding:1px;border:1px solid;border-color:grey;">
+    <div style="height:40%;padding:1px;border-bottom:1px solid #021a40;border-color:grey;">
+        <img src="/web/bundles/framework/images/banner.jpeg " style="z-index:1;height:300px;width:100%;text-align:center;"><br>
+        <img src="/web/bundles/framework/images/metstudio.jpg " style="z-index:1;top:225px;left:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
+        <img src="/web/bundles/framework/images/met.jpg " style="top:225px;right:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
+        <h2 style="margin-left:250px;position:absolute;">MetallicaStudio</h2>
+        <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
+    </div>
+
+
+        <div style="margin-top:5%;margin-left:auto;margin-right:auto;text-align:center;width:65%;height:1000%;background-color:white;padding:1px;">
             <div  class="tabs-panel is-active " id="tab1" >
               <div class ="defilement-video" style="text-align: center;">
                 <?php
                 $id = "Metallica - Atlas, Rise! Teaser";
-                $vues = 1500;
+                $vues = 234432;
                 $titre="Metallica - Atlas, Rise! Teaser";
-                $userChannel="channel";
-                $userPage="profile";
-                $date="00/00/0000";
-                for($i = 0; $i < 10; $i++)
+                $userChannel="MetallicaStudio";
+                $userPage="MetallicaTV";
+                $date="23/10/2016";
+                for($i = 0; $i < 30; $i++)
                   {
                     echo '
                     <a href ="video/'.$id.'">

@@ -68,8 +68,8 @@
               $id = "Metallica - Atlas, Rise! Teaser";
               $vues = 234432;
               $titre="Metallica - Atlas, Rise! Teaser";
-              $userChannel="MetallicaTV";
-              $userPage="MetallicaStudio";
+              $userChannel="MetallicaStudio";
+              $userPage="MetallicaTV";
               $date="23/10/2016";
               for($i = 0; $i < 30; $i++)
                 {
