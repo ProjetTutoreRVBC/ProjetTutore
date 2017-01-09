@@ -35,6 +35,7 @@ class SecurityController extends Controller
     public function loginAction()
     { 
       $error = "";
+      $email="";
       if(isset($_POST) && $_POST != null){
         if(isset($_POST['login'])){
           $user = new Nostreamer();
@@ -51,7 +52,7 @@ class SecurityController extends Controller
         }
         
       }       
-      return $this->render('View/formulaire.html.php',array("error"=>$error));
+      return $this->render('View/formulaire.html.php',array("error"=>$error, "lastusername"=>$email));
     }
   
     /**
