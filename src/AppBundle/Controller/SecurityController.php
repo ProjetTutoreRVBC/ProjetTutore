@@ -22,7 +22,8 @@ class SecurityController extends Controller
           $password = $_POST['passwd'];
           $email = $_POST['email'];
           $avatar = $_POST['avatar'];
-          $user->register($email,$pseudo,$password,$avatar);
+          $birth = $_POST['birth'];
+          $user->register($email,$pseudo,$password,$avatar,$birth);
           return $this->redirectToRoute('home');
         }
         
