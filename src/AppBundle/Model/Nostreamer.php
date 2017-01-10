@@ -34,7 +34,7 @@ class Nostreamer
     public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer, $birthNostreamer)
     {
       $db = Database::getInstance();
-		  $sql = "INSERT INTO Nostreamer VALUES (:mail, :pseudo, :pass, :birth, :avatar)";
+		  $sql = "INSERT INTO Nostreamer (mailnostreamer,pseudonostreamer,passnostreamer,avatarnostreamer,birthNostreamer) VALUES (:mail, :pseudo, :pass, :avatar, :birth)";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':mail', $mailNostreamer);
 		  $stmt->bindParam(':pseudo', $pseudoNostreamer);
