@@ -27,7 +27,7 @@
                 </div>
                 <div class="row" style="width:60%;">
                   <br>
-                  <input name="_password" type="password" id="right-label" placeholder="Password">
+                  <input name="_password" type="password" id="right-label" placeholder="password">
                 </div>
                 <div class="row" style="width:60%;">
                   <br>
