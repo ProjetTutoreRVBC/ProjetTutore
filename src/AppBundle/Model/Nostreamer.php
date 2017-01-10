@@ -33,6 +33,8 @@ class Nostreamer
 	
     public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer, $birthNostreamer)
     {
+			mkdir('http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/'.$pseudoNostreamer,0755);
+			$path = 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
       $db = Database::getInstance();
 		  $sql = "INSERT INTO Nostreamer (mailnostreamer,pseudonostreamer,passnostreamer,avatarnostreamer,birthNostreamer) VALUES (:mail, :pseudo, :pass, :avatar, :birth)";
 		  $stmt = $db->prepare($sql);
@@ -40,9 +42,8 @@ class Nostreamer
 		  $stmt->bindParam(':pseudo', $pseudoNostreamer);
 		  $stmt->bindParam(':pass', $passNostreamer);
 			$stmt->bindParam(':birth', $birthNostreamer);
-			$stmt->bindParam(':avatar', $avatarNostreamer);
+			$stmt->bindParam(':avatar', $path);
 		  $stmt->execute();
-			mkdir('http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/'.$pseudoNostreamer,0755);
 			move_uploaded_file($avatarNostreamer, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
 			
     }

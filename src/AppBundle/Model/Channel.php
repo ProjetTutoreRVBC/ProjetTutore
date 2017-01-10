@@ -17,8 +17,31 @@ class Channel
   
     public function getFromid($idNostreamer)
     {
-      
+      $db = Database::getInstance();
+		  $sql = "SELECT idChannel FROM channel WHERE idNostreamer = :id";
+		  $stmt = $db->query($sql);
+		  $stmt->setFetchMode(PDO::FETCH_CLASS, "Channel");
+		  $stmt->bindParam(':id',$idNostreamer);
+		  $stmt->execute(); 
+		  return $stmt->fetchAll();
     }
+	
+			public function addChannel($nameChannel,$avatarChannel,$banniereChannel,$descriptionChannel)
+		{
+			$db = Database::getInstance();
+		  $sql = "INSERT INTO Channel (nameChannel, avatarChannel, banniereChannel, descriptionChannel) VALUES (:name, :avatar, :bann, :desc)";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':name', $nameChannel);
+		  $stmt->bindParam(':avatar', $avatarChannel);
+		  $stmt->bindParam(':bann', $banniereChannel);
+			$stmt->bindParam(':desc', $descriptionChannel);
+		  $stmt->execute();
+			mkdir('http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/'.$pseudoNostreamer.'/'.$nameChannel,0755);
+			move_uploaded_file($avatarChannel, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$nameChannel.'_avatar');
+			move_uploaded_file($banniereChannel, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$nameChannel.'_banniere');
+
+		}
+	
     public function getOwnerName()
     {
       return $this->nostreamer;
