@@ -33,7 +33,7 @@
                   <div class="row">
                     <div style="width:95%;">
                       <label>Date de naissance</label>
-                      <input id="user_birth" name="user[birth]" required="required" type="date">
+                      <input id="user_birth" name="birth" required="required" type="date">
                     </div>  
                   </div>
                   <div class="row">

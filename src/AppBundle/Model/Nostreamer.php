@@ -7,10 +7,10 @@ class Nostreamer
     private $mailNostreamer;
     private $pseudoNostreamer;
     private $passNostreamer;
-		private $birthNostreamer;
+		private $avatarNostreamer;
     private $avatarNoStreamer;
     private $page;
-	
+	/*
     public function __construct($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
     {
       $this->mailNostreamer = $mailNostreamer;
@@ -19,7 +19,7 @@ class Nostreamer
 		  $this->avatarNostreamer = $avatarNostreamer;
 			$this->birthNostreamer = $birthNostreamer;
     }
-  
+  	
     public function getFromPseudo($pseudo)
     {
       $db = Database::getInstance();
@@ -29,7 +29,7 @@ class Nostreamer
 		  $stmt->bindParam(':pseudo',$pseudo)
 		  $stmt->execute();
 		  return $stmt->fetch();
-    }
+    }*/
 	
     public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer, $birthNostreamer)
     {
@@ -63,7 +63,7 @@ class Nostreamer
 	  	  return false;
 	  	}
     }
-
+/*
     public function getMail()
     {
       return $this->mailNostreamer;
@@ -178,5 +178,5 @@ class Nostreamer
 			$stmt->bindParam(':pseudo',$pseudoNostreamer);
 			$stmt->execute();
 			$this->birthNostreamer = $birth;
-		}
+		}*/
 }
