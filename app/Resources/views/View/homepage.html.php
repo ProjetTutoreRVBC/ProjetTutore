@@ -390,16 +390,13 @@
         </div>
 
         <div class="tabs-panel " id="tab3 ">
-            <p>Third Player</p>
-            <p>Shane Warne</p>
+            
         </div>
         <div class="tabs-panel " id="tab4 ">
-            <p>Fourth Player</p>
-            <p>Shaun Pollock</p>
+            
         </div>
         <div class="tabs-panel " id="tab5 ">
-            <p>Five Player</p>
-            <p>Adam Gilchrist</p>
+            
         </div>
     </div>
     <script>

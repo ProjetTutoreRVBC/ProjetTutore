@@ -1,18 +1,18 @@
-var width;
-      var type;
-      var space = 150;
-      var element;
-      var element1;
-        function handleWindow() {
-          
-          if(document.getElementById("signIn"))
+   function handleWindow() {
+          var width;
+          var type;
+          var space = 150;
+          var element;
+          var element1;          
+          if(document.getElementById("signIn")){
             element = "signIn";
+          }
           if(document.getElementById("signed")){
             space = 50; 
             element = "signed";
             element1 = "signed-1"
             }
-          
+       
           width =   500;
           document.getElementById("search-bar").style.marginLeft= "16px";
           document.getElementById("right-log").style.display= "";
@@ -23,8 +23,7 @@ var width;
           if(window.outerWidth < (1000 - space) ) {
             type = "px";
             document.getElementById("videos").style.marginTop= "130px";
-            width = window.outerWidth - (500 - space);
-            
+            width = window.outerWidth - (509 - space);
           if(space === 50){
             document.getElementById(element1).style.display= "";
           }

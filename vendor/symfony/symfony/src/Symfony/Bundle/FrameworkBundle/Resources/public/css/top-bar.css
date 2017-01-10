@@ -3,11 +3,13 @@
       }
       
       .top-bar {
+        z-index: 2;
         position:fixed;
         width:100%;
         top:0px;
         padding:0;
       }
+      
       
       #signIn {
         padding-right: 5px;
@@ -20,9 +22,6 @@
       #signed-1 {
         padding-right: 5px;
       }
-      
-      
-      
       
       
       #liste {

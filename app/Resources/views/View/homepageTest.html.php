@@ -7,7 +7,7 @@
     <title>nostream</title>
     <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
     <link rel="stylesheet" href="/web/bundles/framework/css/top-bar.css">
-    <script src="/web/bundles/framework/js/top-bar.js"></script>
+    <script type="text/javascript" src="/web/bundles/framework/js/top-bar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/validation/form.js') ?>"></script>
@@ -18,10 +18,10 @@
     <div class="top-bar">
             <div style="display: inline-block;width:100%;">
               <div id="left-search" style="float:left;">
-                <ul id="menu" class="menu" style="">
-                    <li><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></li>
+                <ul id="menu" class="menu">
+                    <li><a href="/web/app_dev.php/" ><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></a></li>
                     <li><input id ="search-bar" class="search-bar" type="search" placeholder="Search Here"></li>
-                    <li><button id="button-search-bar" class="button" type="button">Search</button></li>
+                    <li><button id="button-search" class="button" type="button">Search</button></li>
                 </ul>
               </div>
                         <?php
@@ -48,8 +48,8 @@
                         ?>
                     </li>  
                 </ul>
-              </div>
-            </div>  
+            </div>
+          </div>
             <div id="liste" class="liste">
               <ul class="tabs " data-tabs id="tabs_example">
                 <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
@@ -58,19 +58,19 @@
                 <li class="tabs-title "><a href="#tab5 ">Abonnements</a></li>
                 <li class="tabs-title is-active "><a href="#tab1">Tendances</a></li>
               </ul>
-            </div>
-      </div>
+              </div>
+        </div>
         <div  id="videos" class="tabs-content " data-tabs-content="tabs_example"  style="margin-top:130px;">
         <!------------------------------------------------------------Section Tendances---------------------------->
           <div  class="tabs-panel is-active " id="tab1" >
             <div class ="defilement-video" style="text-align: center;">
               <?php
-              $id = "Metallica";
-              $vues = 1500;
-              $titre="test";
-              $userChannel="test";
-              $userPage="test";
-              $date="00/00/0000";
+              $id = "Metallica - Atlas, Rise! Teaser";
+              $vues = 234432;
+              $titre="Metallica - Atlas, Rise! Teaser";
+              $userChannel="MetallicaStudio";
+              $userPage="MetallicaTV";
+              $date="23/10/2016";
               for($i = 0; $i < 30; $i++)
                 {
                   echo '
@@ -85,10 +85,10 @@
                       </div>
 
                       <div style="width:225px;">
-                          <a href="channel/" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                          <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
                               <font size="1">'.$userChannel.'</font>
                           </a>
-                          <a href="#" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                          <a href="profile" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
                               <font size="1">'.$userPage.'</font>
                           </a>
                       </div>
@@ -105,21 +105,17 @@
         <!------------------------------------------------------------Section Vidéastes---------------------------->
 
         <div class="tabs-panel" id="tab2">
-            <h1>bonjour</h1>
 
         </div>
 
         <div class="tabs-panel " id="tab3">
-            <p>Third Player</p>
-            <p>Shane Warne</p>
+            
         </div>
         <div class="tabs-panel " id="tab4">
-            <p>Fourth Player</p>
-            <p>Shaun Pollock</p>
+            
         </div>
         <div class="tabs-panel " id="tab5">
-            <p>Five Player</p>
-            <p>Adam Gilchrist</p>
+           
         </div>
     </div>
     <script>
