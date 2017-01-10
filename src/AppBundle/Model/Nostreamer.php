@@ -7,15 +7,17 @@ class Nostreamer
     private $mailNostreamer;
     private $pseudoNostreamer;
     private $passNostreamer;
+		private $birthNostreamer;
     private $avatarNoStreamer;
     private $page;
-	/*
+	
     public function __construct($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
     {
       $this->mailNostreamer = $mailNostreamer;
 		  $this->pseudoNostreamer = $pseudoNostreamer;
 		  $this->passNostreamer = $passNostreamer;
 		  $this->avatarNostreamer = $avatarNostreamer;
+			$this->birthNostreamer = $birthNostreamer;
     }
   
     public function getFromPseudo($pseudo)
@@ -28,16 +30,21 @@ class Nostreamer
 		  $stmt->execute();
 		  return $stmt->fetch();
     }
-  */
-    public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
+	
+    public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer, $birthNostreamer)
     {
       $db = Database::getInstance();
-		  $sql = "INSERT INTO Nostreamer VALUES (:mail, :pseudo, :pass)";
+		  $sql = "INSERT INTO Nostreamer VALUES (:mail, :pseudo, :pass, :birth, :avatar)";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':mail', $mailNostreamer);
 		  $stmt->bindParam(':pseudo', $pseudoNostreamer);
 		  $stmt->bindParam(':pass', $passNostreamer);
+			$stmt->bindParam(':birth', $birthNostreamer);
+			$stmt->bindParam(':avatar', $avatarNostreamer);
 		  $stmt->execute();
+			mkdir('http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/'.$pseudoNostreamer,0755);
+			move_uploaded_file($avatarNostreamer, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
+			
     }
   
     public function signIn($mailNostreamer, $passNostreamer)
@@ -56,7 +63,7 @@ class Nostreamer
 	  	  return false;
 	  	}
     }
-	/*
+
     public function getMail()
     {
       return $this->mailNostreamer;
@@ -76,6 +83,10 @@ class Nostreamer
     {
       return $this->avatarNostreamer
     }
+		public function getBirth()
+		{
+			return $this->birthNostreamer
+		}
   
     public function getChannels()
     {
@@ -157,5 +168,15 @@ class Nostreamer
 		  $stmt->execute();
 		  $this->avatarNostreamer = $avatar;
     }
-		*/
+		public function setBirth($birthNostreamer)
+		{
+			$db = Database::getInstance();
+			$sql = 'UPDATE nostreamer SET birtNostreamer = :birth WHERE pseudoNostreamer = :pseudo';
+			$stmt = $db->prepare($sql);
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$stmt->bindParam(':birth',$birthNostreamer);
+			$stmt->bindParam(':pseudo',$pseudoNostreamer);
+			$stmt->execute();
+			$this->birthNostreamer = $birth;
+		}
 }
