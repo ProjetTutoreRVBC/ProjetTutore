@@ -33,8 +33,9 @@
                             $log = "Logout";
                             echo '<div id ="right-log" style="float:right;">
                             <ul id="menu" class="menu">';
-                            echo '<li id="signed"><a href="channel"><button class="button" type="button">Channel</button></li>';
-                            echo '<li id="signed-1"><a href="profile"><button class="button" type="button">Profile</button></li>';
+                            
+                            echo '<li id="signed"><a  href="channel"><span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="You see?  Im open!"><img src="/web/bundles/framework/images/metstudio.jpg" alt="" style="height:40px;"></span></li>';
+                            echo '<li id="signed-1"><a href="profile"><button class="button" type="button">Profile</button></a></li>';
                           }else
                           {
                             echo '<div id ="right-log" style="float:right;">
