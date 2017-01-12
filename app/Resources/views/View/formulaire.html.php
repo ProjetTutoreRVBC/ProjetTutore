@@ -16,22 +16,26 @@
    <div style="width:100%;position: absolute; top:40%;">
      <div style="width:500px;text-align:center;margin: 0 auto;">
         <div>
-          <h2>nostream</h2>
+          <a href="/web/app_dev.php/"><h2>nostream</h2></a>
         </div>
         <div>
           <form class="form-horizontal" method="POST" action="login" id="contact_form">
               <div style="display: block;">
                 <div class="row" style="width:60%;">
                   <br>
-                  <input name="_email" type="text" id="right-label" placeholder="Email">
+                  <input name="_email" type="text" id="right-label" placeholder="email" value="<?php echo $lastusername;?>">
                 </div>
                 <div class="row" style="width:60%;">
                   <br>
-                  <input name="_password" type="password" id="right-label" placeholder="Password">
+                  <input name="_password" type="password" id="right-label" placeholder="password">
                 </div>
                 <div class="row" style="width:60%;">
                   <br>
                   <button  name="login" id="submitForm" class="expanded button" type="submit">Log In</button>
+                </div>
+                <div class="row" style="width:60%;">
+                  <br>
+                  <p style="color:red;"><?php echo $error;?></p>
                 </div>
               </div>
           </form>

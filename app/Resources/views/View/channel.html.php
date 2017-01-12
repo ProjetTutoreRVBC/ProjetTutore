@@ -67,11 +67,11 @@
               <div class ="defilement-video" style="text-align: center;">
                 <?php
                 $id = "Metallica - Atlas, Rise! Teaser";
-                $vues = 1500;
+                $vues = 234432;
                 $titre="Metallica - Atlas, Rise! Teaser";
-                $userChannel="channel";
-                $userPage="profile";
-                $date="00/00/0000";
+                $userChannel="MetallicaStudio";
+                $userPage="MetallicaTV";
+                $date="23/10/2016";
                 for($i = 0; $i < 30; $i++)
                   {
                     echo '

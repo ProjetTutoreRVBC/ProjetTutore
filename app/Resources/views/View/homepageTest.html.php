@@ -48,8 +48,8 @@
                         ?>
                     </li>  
                 </ul>
-              </div>
-            </div>  
+            </div>
+          </div>
             <div id="liste" class="liste">
               <ul class="tabs " data-tabs id="tabs_example">
                 <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
@@ -58,8 +58,8 @@
                 <li class="tabs-title "><a href="#tab5 ">Abonnements</a></li>
                 <li class="tabs-title is-active "><a href="#tab1">Tendances</a></li>
               </ul>
-            </div>
-      </div>
+              </div>
+        </div>
         <div  id="videos" class="tabs-content " data-tabs-content="tabs_example"  style="margin-top:130px;">
         <!------------------------------------------------------------Section Tendances---------------------------->
           <div  class="tabs-panel is-active " id="tab1" >
@@ -68,8 +68,8 @@
               $id = "Metallica - Atlas, Rise! Teaser";
               $vues = 234432;
               $titre="Metallica - Atlas, Rise! Teaser";
-              $userChannel="MetallicaTV";
-              $userPage="MetallicaStudio";
+              $userChannel="MetallicaStudio";
+              $userPage="MetallicaTV";
               $date="23/10/2016";
               for($i = 0; $i < 30; $i++)
                 {

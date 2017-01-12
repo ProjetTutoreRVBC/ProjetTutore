@@ -60,7 +60,7 @@
         <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
     </div>
 
-    <div style="margin-left:auto;margin-right:auto;width:50%;height:1000%;background-color:white;">
+    <div style="margin-top:5%;margin-left:auto;margin-right:auto;width:50%;height:1000%;background-color:white;">
         <div style="margin-top:50px;">
             <div style="margin-top:15px;border-bottom: solid 1px;">
                 <img style="width:50px;height:50px;" src="/web/bundles/framework/images/met.jpg">

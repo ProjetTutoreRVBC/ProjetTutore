@@ -4,9 +4,11 @@ class Page
     private $idPage;
     private $nostreamer;
     private $descriptionPage;
-    public function __construct($idPage, $idNostreamer, $descriptionPage) //WATCH OUT WATCH OUT WATCH OUT
+		private $idChannel;
+    public function __construct($idPage, $idNostreamer, $descriptionPage,$idChannel) //WATCH OUT WATCH OUT WATCH OUT
     {
       $this->nostreamer = $nostreamer;
+			$this->idChannel = $idChannel;
 		  $this->description = $description;
 		  $db = Database::getInstance();
 		  $sql = "INSERT INTO page VALUES (:idNostreamer, :description);"
@@ -16,7 +18,7 @@ class Page
 		  return $stmt->execute();
     }
   
-    public function getFromId($idNostreamer)
+    public function getFromIdNostreamer($idNostreamer)
     {
 			$db = Database::getInstance();
 			$sql = "SELECT idPage FROM Page WHERE idNostreamer =:idNostreamer";
@@ -26,6 +28,17 @@ class Page
 			$stmt->execute();
 			return $stmt->fetch();
     }
+	
+		public function getFromIdChannel($idChannel)
+		{
+			$db = Database::getInstance();
+			$sql = "SELECT idPage FROM Page WHERE idChannel =:idChannel";
+		  $stmt = $db->prepare($sql);
+		  $stmt->setFetchMode(PDO::FETCH_CLASS, "Page");
+		  $stmt->bindParam(':idChannel',$idChannel);
+			$stmt->execute();
+			return $stmt->fetch();
+		}
 	
     public function getOwnerName()
     {

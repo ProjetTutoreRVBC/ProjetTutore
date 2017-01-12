@@ -22,7 +22,8 @@ class SecurityController extends Controller
           $password = $_POST['passwd'];
           $email = $_POST['email'];
           $avatar = $_POST['avatar'];
-          $user->register($email,$pseudo,$password,$avatar);
+          $birth = $_POST['birth'];
+          $user->register($email,$pseudo,$password,$avatar,$birth);
           return $this->redirectToRoute('home');
         }
         
@@ -35,6 +36,7 @@ class SecurityController extends Controller
     public function loginAction()
     { 
       $error = "";
+      $email="";
       if(isset($_POST) && $_POST != null){
         if(isset($_POST['login'])){
           $user = new Nostreamer();
@@ -51,7 +53,7 @@ class SecurityController extends Controller
         }
         
       }       
-      return $this->render('View/formulaire.html.php',array("error"=>$error));
+      return $this->render('View/formulaire.html.php',array("error"=>$error, "lastusername"=>$email));
     }
   
     /**
