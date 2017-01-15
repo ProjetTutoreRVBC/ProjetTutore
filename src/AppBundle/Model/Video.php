@@ -21,6 +21,7 @@ class Video
   */
 		public function addVideo($nameVideo,$fileVideo,$miniVideo,$descriptionVideo)
 		{
+<<<<<<< HEAD
 			$db = Database::getInstance();
 		  $sql = "INSERT INTO Video (nameVideo, descriptionVideo) VALUES (:name, :desc)";
 		  $stmt = $db->prepare($sql);
@@ -52,6 +53,34 @@ class Video
 		}
 		
 		/*
+=======
+			$tabextImg = array('jpg','jpeg','png','gif');
+			$tabextVideo = array('mp4','wma','avi','mpg','mpeg','webm');
+			$extVideo = pathinfo($fileVideo, PATHINFO_EXTENSION);
+			$extMini = pathinfo($miniVideo, PATHINFO_EXTENSION);
+			if(!in_array($extVideo,$tabextVideo) || !in_array($extMini,$tabextImg)){
+				return false;
+			}
+			else{
+				$db = Database::getInstance();
+		  	$sql = "INSERT INTO Video (nameVideo, fileVideo, miniVideo, descriptionVideo) VALUES (:name, :file, :mini, :desc)";
+		  	$stmt = $db->prepare($sql);
+		  	$stmt->bindParam(':name', $nameVideo);
+		  	$stmt->bindParam(':file', $fileVideo);
+		  	$stmt->bindParam(':mini', $miniVideo);
+				$stmt->bindParam(':desc', $descriptionVideo);
+		  	$stmt->execute();
+				$sql = "SELECT id from Video where nameVideo = :name";
+				$stmt = $db->prepare($sql);
+				$stmt->setFetchMode(PDO::FETCH_CLASS, "Video");
+				$stmt->bindParam(':name', $nameVideo);
+				$stmt->execute();
+				$idVideo = $stmt->fetch();
+				move_uploaded_file($fileVideo, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$id.'.mp4');
+			}
+		}
+			
+>>>>>>> 88a70fac3f9d81aa6325f2a735c9046af7e6cfdf
     public function getName()
     {
       return $this->nameVideo;
