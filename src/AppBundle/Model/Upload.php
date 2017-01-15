@@ -21,18 +21,14 @@ class Upload
       && in_array($extension, $allowedExts)) {
         if ($_FILE["file"]["error"] > 0)
           {
-          echo "Return Code: " . $_FILE["file"]["error"] . "<br />";
+          return "Return Code: " . $_FILE["file"]["error"] . "<br />";
           }
         else
           {
-          echo "Upload: " . $_FILE["file"]["name"] . "<br />";
-          echo "Type: " . $_FILE["file"]["type"] . "<br />";
-          echo "Size: " . ($_FILE["file"]["size"] / 1024) . " Kb<br />";
-          echo "Temp file: " . $_FILE["file"]["tmp_name"] . "<br />";
 
           if ($video->exist($_FILE["file"]["name"]))
             {
-            echo $_FILE["file"]["name"] . " already exists. ";
+            	return $_FILE["file"]["name"] . " already exists. ";
             }
           else
             {
@@ -41,13 +37,13 @@ class Upload
             move_uploaded_file($_FILE["file"]["tmp_name"],
             $PATH . $id_video);
             chmod($PATH . $id_video, $perm);  
-            echo "Stored in: " . $PATH . $id_video;
+            return "Stored in: " . $PATH . $id_video;
             }
           }
         }
       else
         {
-        echo "Invalid file";
+        	return "Invalid file";
           
         }
 		}

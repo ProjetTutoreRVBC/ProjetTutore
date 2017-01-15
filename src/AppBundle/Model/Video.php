@@ -21,7 +21,6 @@ class Video
   */
 		public function addVideo($nameVideo,$fileVideo,$miniVideo,$descriptionVideo)
 		{
-<<<<<<< HEAD
 			$db = Database::getInstance();
 		  $sql = "INSERT INTO Video (nameVideo, descriptionVideo) VALUES (:name, :desc)";
 		  $stmt = $db->prepare($sql);
