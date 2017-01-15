@@ -33,7 +33,6 @@ class Nostreamer
 	
     public function register($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer, $birthNostreamer)
     {
-<<<<<<< HEAD
 			//mkdir('http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/'.$pseudoNostreamer,0755);
 			//$path = 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
       $db = Database::getInstance();
@@ -45,9 +44,8 @@ class Nostreamer
 			$stmt->bindParam(':birth', $birthNostreamer);
 			$stmt->bindParam(':avatar', $path);
 		  $stmt->execute();
-			move_uploaded_file($avatarNostreamer, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
-			
-=======
+			//move_uploaded_file($avatarNostreamer, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
+			/*
 			$tabext = array('jpg','jpeg','png','gif');
 			$ext = pathinfo($avatarNostreamer, PATHINFO_EXTENSION);
 			if(!in_array($ext,$tabext)){
@@ -65,17 +63,16 @@ class Nostreamer
 				$stmt->bindParam(':birth', $birthNostreamer);
 				$stmt->bindParam(':avatar', $path);
 		  	$stmt->execute();
-				move_uploaded_file($avatarNostreamer, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
-			}
->>>>>>> 88a70fac3f9d81aa6325f2a735c9046af7e6cfdf
+				//move_uploaded_file($avatarNostreamer, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$pseudoNostreamer.'_profile');
+			}*/
     }
   
-    public function signIn($mailNostreamer, $passNostreamer)
+    public function signIn($pseudoNostreamer, $passNostreamer)
     {
       $db = Database::getInstance();
-	  	$sql = "SELECT * FROM Nostreamer WHERE mailNostreamer = :mail";
+	  	$sql = "SELECT * FROM Nostreamer WHERE pseudoNostreamer = :pseudo or mailNostreamer = :pseudo";
 	  	$stmt = $db->prepare($sql);
-	  	$stmt->bindParam(':mail',$mailNostreamer);
+	  	$stmt->bindParam(':pseudo',$pseudoNostreamer);
 	  	$stmt->execute();
 	  	$res = $stmt->fetch();
 	  	if ($res['passNostreamer'] == $passNostreamer ) {

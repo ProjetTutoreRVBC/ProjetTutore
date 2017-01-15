@@ -19,14 +19,12 @@ class SecurityController extends Controller
       if(isset($_POST) && $_POST != null){
         if(isset($_POST['register'])){
           $user = new Nostreamer();
-          $video = new Video();
           $pseudo = $_POST['name'];
           $password = $_POST['passwd'];
           $email = $_POST['email'];
           $avatar = $_FILES['avatar'];
           $birth = $_POST['birth'];
-          $video->addVideo("tt",$avatar,"ddd","klklk");
-          //$user->register($email,$pseudo,$password,$avatar,$birth);
+          $user->register($email,$pseudo,$password,$avatar,$birth);
           return $this->redirectToRoute('home');
         }
         
@@ -39,14 +37,14 @@ class SecurityController extends Controller
     public function loginAction()
     { 
       $error = "";
-      $email="";
+      $pseudo="";
       if(isset($_POST) && $_POST != null){
         if(isset($_POST['login'])){
           $user = new Nostreamer();
-          $email = $_POST['_email'];
+          $pseudo = $_POST['_pseudo'];
           $password = $_POST['_password'];
-          $user->signIn($email,$password);
-          if($user->signIn($email,$password) == true)
+          $user->signIn($pseudo,$password);
+          if($user->signIn($pseudo,$password) == true)
           {
             return $this->redirectToRoute('home');
           }
@@ -56,7 +54,7 @@ class SecurityController extends Controller
         }
         
       }       
-      return $this->render('View/formulaire.html.php',array("error"=>$error, "lastusername"=>$email));
+      return $this->render('View/formulaire.html.php',array("error"=>$error, "lastusername"=>$pseudo));
     }
   
     /**

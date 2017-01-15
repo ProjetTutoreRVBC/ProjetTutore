@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nostream</title>
     <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
-    <link rel="stylesheet" href="/web/bundles/framework/css/top-bar.css">
     <script type="text/javascript" src="/web/bundles/framework/js/top-bar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/validation/form.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/display/upload.js') ?>"></script>
+    <link rel="stylesheet" href="/web/bundles/framework/css/top-bar.css">
 </head>
 
 <body onresize="handleWindow()" onload="handleWindow()"> 
@@ -21,7 +21,7 @@
                 <ul id="menu" class="menu">
                     <li><a href="/web/app_dev.php/" ><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></a></li>
                     <li><input id ="search-bar" class="search-bar" type="search" placeholder="Search Here"></li>
-                    <li><button id="button-search" class="button" type="button">Search</button></li>
+                    <li><button class="button" type="button">Search</button></li>
                 </ul>
               </div>
                         <?php
@@ -34,8 +34,8 @@
                             echo '<div id ="right-log" style="float:right;">
                             <ul id="menu" class="menu">';
                             
-                            echo '<li id="signed"><a  href="channel"><span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="You see?  Im open!"><img src="/web/bundles/framework/images/metstudio.jpg" alt="" style="height:40px;"></span></li>';
-                            echo '<li id="signed-1"><a href="profile"><button class="button" type="button">Profile</button></a></li>';
+                            echo '<li id="signed"><a href="channel"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/metstudio.jpg"></a></li>';
+                            echo '<li id="signed-1"><a href="profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
                           }else
                           {
                             echo '<div id ="right-log" style="float:right;">

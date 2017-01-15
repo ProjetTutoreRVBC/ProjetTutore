@@ -15,16 +15,14 @@ class UploadController extends Controller
      */
     public function uploadAction()
     {
+      $size ="";
       $msg="";
-      $size="";
       if(isset($_FILES['file'])) {
         $file = new Upload();
         $msg = $file->add($_FILES);
         $size = $_FILES["file"]["size"] / 1024;
       }
-      echo $msg;
-      echo $size;
-      return $this->render('View/upload.html.php');
+      return $this->render('View/upload.html.php',array("size"=>$size,"status"=>$msg));
       
     }
 }
