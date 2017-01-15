@@ -1,4 +1,6 @@
 <?php
+namespace AppBundle\Model;
+
 class Video
 {
     private $idVideo;
@@ -9,33 +11,47 @@ class Video
     private $descriptionVideo;
     private $positiveVote;
 		private $negativeVote;
-	
+		/*
     public function __construct($nameVideo, $channel, $descriptionVideo)
     {
       $this->nameVideo = $nameVideo;
       $this->channel = $channel;
       $this->descriptionVideo = $descriptionVideo;
     }
-  
+  */
 		public function addVideo($nameVideo,$fileVideo,$miniVideo,$descriptionVideo)
 		{
 			$db = Database::getInstance();
-		  $sql = "INSERT INTO Video (nameVideo, fileVideo, miniVideo, descriptionVideo) VALUES (:name, :file, :mini, :desc)";
+		  $sql = "INSERT INTO Video (nameVideo, descriptionVideo) VALUES (:name, :desc)";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':name', $nameVideo);
-		  $stmt->bindParam(':file', $fileVideo);
-		  $stmt->bindParam(':mini', $miniVideo);
 			$stmt->bindParam(':desc', $descriptionVideo);
 		  $stmt->execute();
-			$sql = "SELECT id from Video where nameVideo = :name";
+			$sql = "SELECT idVideo from Video where nameVideo = :name";
 			$stmt = $db->prepare($sql);
-			$stmt->setFetchMode(PDO::FETCH_CLASS, "Video");
 			$stmt->bindParam(':name', $nameVideo);
 			$stmt->execute();
-			$idVideo = $stmt->fetch();
-			move_uploaded_file($fileVideo, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$id.'.mp4');
+			$id = $stmt->fetch();
+			return $id['idVideo'];
+			//move_uploaded_file($fileVideo, '/web/bundles/framework/mp4/'.$id['idVideo'].'.mp4');
 			
 		}
+		
+		public function exist($nameVideo)
+		{
+			$db = Database::getInstance();
+			$sql = "SELECT idVideo from Video where nameVideo = :name";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':name', $nameVideo);
+			$stmt->execute();
+			$id = $stmt->fetch();
+			if($id)
+				return true;
+			else
+				return false;
+		}
+		
+		/*
     public function getName()
     {
       return $this->nameVideo;
@@ -143,4 +159,5 @@ class Video
 			$stmt->execute();
 			$this->descriptionVideo = $descriptionVideo;
     }
+		*/
 }

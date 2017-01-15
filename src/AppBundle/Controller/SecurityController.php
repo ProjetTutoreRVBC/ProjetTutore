@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -18,12 +19,14 @@ class SecurityController extends Controller
       if(isset($_POST) && $_POST != null){
         if(isset($_POST['register'])){
           $user = new Nostreamer();
+          $video = new Video();
           $pseudo = $_POST['name'];
           $password = $_POST['passwd'];
           $email = $_POST['email'];
-          $avatar = $_POST['avatar'];
+          $avatar = $_FILES['avatar'];
           $birth = $_POST['birth'];
-          $user->register($email,$pseudo,$password,$avatar,$birth);
+          $video->addVideo("tt",$avatar,"ddd","klklk");
+          //$user->register($email,$pseudo,$password,$avatar,$birth);
           return $this->redirectToRoute('home');
         }
         

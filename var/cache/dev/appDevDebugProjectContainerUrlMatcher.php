@@ -133,6 +133,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // app_upload_upload
+        if ($pathinfo === '/upload') {
+            return array (  '_controller' => 'AppBundle\\Controller\\UploadController::uploadAction',  '_route' => 'app_upload_upload',);
+        }
+
         // video_show
         if (0 === strpos($pathinfo, '/video') && preg_match('#^/video/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'video_show')), array (  '_controller' => 'AppBundle\\Controller\\VideoController::showAction',));

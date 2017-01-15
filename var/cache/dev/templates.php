@@ -137,6 +137,7 @@
   ':View:video.html.php' => '/home/cabox/workspace/app/Resources/views/View/video.html.php',
   ':View/css:foundation.min.css' => '/home/cabox/workspace/app/Resources/views/View/css/foundation.min.css',
   ':View/css/video-js:video-js.min.css' => '/home/cabox/workspace/app/Resources/views/View/css/video-js/video-js.min.css',
+  ':View:upload.html.php' => '/home/cabox/workspace/app/Resources/views/View/upload.html.php',
   ':View:homepage.html.php' => '/home/cabox/workspace/app/Resources/views/View/homepage.html.php',
   ':View:inscription.html.php' => '/home/cabox/workspace/app/Resources/views/View/inscription.html.php',
   ':View:channel.html.php' => '/home/cabox/workspace/app/Resources/views/View/channel.html.php',

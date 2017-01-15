@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=pagerank.js"></script>
+<script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=logins.js"></script>
+<script>
+//var votes = {"A" : {"A" :["B","C"]}, "B" : {"A" :["C"]} ,"C" : {"A" :["A"]},"D" : {"A" :["C"]} };
+  //  var logins = {"A" : "AA","B" :"BB","C" :"dd","D":"edd",};                                                                                                      
+
+     function votePour(login,matiere) {
+      var liste = [];
+      var texte = "";
+      var i = 0;
+      for(var key in votes) {
+      	voteur = Object.keys(votes)[i];
+      	for(var j = 0; j < votes[key][matiere].length; j++){
+        	if(votes[key][matiere][j] === login) {
+            	liste.push(voteur);
+            }
+        }
+        i++;
+      }
+    	return liste;
+    }  
+  
+    function nbVotePour(login,matiere) {
+    	var i = 0;
+        var texte = "";
+    	for(var key in votes){
+        	voteur = Object.keys(votes)[i];
+            //texte += voteur +" "+votes[key][matiere].length+"<br>";
+     		//document.getElementById("demo").innerHTML = texte;	
+            if(voteur === login){
+            	return votes[key][matiere].length;
+            }
+            i++;
+        }	
+    }
+    
+    function classer(liste){
+    	
+    	for(var key in liste){
+    	}
+    }
+
+
+function pagerank(){
+
+    var value = 0;                                                                                                                    
+    var listeClassement = [];                                                                                                                  
+    var matiere = "SPORT";                                                                                                   
+    var listeTriee = [];
+    
+    var texte = "";
+    
+    var value_dep = 0;
+    
+    var add = 0;
+    
+    var iterations = 20;
+    
+    for( var i = 0; i < iterations; i++){                                                                                                          
+        for(var log in  logins) {                                                                                       	
+            listeTriee = votePour(log,matiere);
+            
+            for( var name in listeTriee){
+            	if(listeClassement[listeTriee[name]])
+                		add += (listeClassement[listeTriee[name]] / nbVotePour(listeTriee[name],matiere));
+            		else
+                    	add += value_dep;
+                    //texte += log+" : "+add+" = "+listeClassement[listeTriee[name]]+" / "+ nbVotePour(listeTriee[name],matiere)+"<br>";
+            //if(i==1)
+            	//texte += log+" a--> "+value+" "+listeClassement[listeTriee[name]]+"<br>";
+            }
+            value = 0.15 + 0.85 * add;
+            //texte += log+" : 0.15 + 0.85 * "+add+" =============>  "+value+"<br>";
+            if(i === iterations -1)
+            	texte += log+" =============>  "+value+" votes : "+listeTriee.length+"<br>";
+           	listeClassement.push(log);
+            listeClassement[log] = value;
+            
+            add = 0;
+    	    //texte += log+" : "+listeClassement[log]+"<br>";
+            
+
+            
+        }                                                                                                                            
+    }
+    		
+            
+            document.getElementById("demo").innerHTML = texte;
+}
+  function add(a, b) {
+    return a + b;
+}
+</script>
+<h1>Classement</h1>
+<p><button onclick="pagerank()">Calculez</button></p>
+<p id="demo"></p>
+</body>
+</html>
