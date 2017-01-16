@@ -21,18 +21,12 @@
 <body>
 
   <form action="upload" method="post" enctype="multipart/form-data">
-<<<<<<< HEAD
-    
-=======
->>>>>>> fa14912bbb2972a986e76301fa2d11827a709cfa
   <label for="file"><span>Filename:</span></label>
   <input type="file" name="file" id="file"/><br>
   <input type="submit" name="submit" value="Upload"/>
   </form>
   <p><?php echo " status : ".$status."<br>size : ".$size." Kb";?></p>  
-<<<<<<< HEAD
   <div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-=======
   <p>
     <?php
       echo var_dump(ini_get('upload_max_filesize'));
@@ -83,10 +77,7 @@
       }); 
 
       })();     
-<<<<<<< HEAD
     </script> 
-=======
     </script>  -->
->>>>>>> fa14912bbb2972a986e76301fa2d11827a709cfa
 </body>
 </html>
