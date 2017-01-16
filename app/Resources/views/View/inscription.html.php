@@ -19,7 +19,7 @@
           <h2>nostream</h2>
         </div>
         <div>
-          <form action="register" method="POST">
+          <form action="register" method="POST" enctype="multipart/form-data">
               <fieldset>
                   <div class="row">
                     <div style="float: left;width:95%;">

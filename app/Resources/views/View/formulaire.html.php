@@ -23,7 +23,7 @@
               <div style="display: block;">
                 <div class="row" style="width:60%;">
                   <br>
-                  <input name="_email" type="text" id="right-label" placeholder="email" value="<?php echo $lastusername;?>">
+                  <input name="_pseudo" type="text" id="right-label" placeholder="pseudo or email" value="<?php echo $lastusername;?>">
                 </div>
                 <div class="row" style="width:60%;">
                   <br>

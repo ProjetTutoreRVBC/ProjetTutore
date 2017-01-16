@@ -5,7 +5,7 @@ class Upload
 { 
 	  public function add($_FILE){
       $video = new Video();
-			$max_file_size = 900000;
+			$max_file_size = 1024*5000;
       $PATH = "/home/cabox/workspace/web/bundles/framework/mp4/";
       $perm = 777;
       $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
@@ -17,7 +17,7 @@ class Upload
       || ($_FILE["file"]["type"] == "image/pjpeg")
       || ($_FILE["file"]["type"] == "image/gif")
       || ($_FILE["file"]["type"] == "image/jpeg"))
-      && ($_FILE["file"]["size"] < $max_file_size)
+      //&& ($_FILE["file"]["size"] < $max_file_size) PAS DE LIMITE
       && in_array($extension, $allowedExts)) {
         if ($_FILE["file"]["error"] > 0)
           {

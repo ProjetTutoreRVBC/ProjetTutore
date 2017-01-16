@@ -1,4 +1,4 @@
-.menu li a {
+      .menu li a {
         padding:0px;
       }
       
@@ -32,7 +32,7 @@
         border-width: 1px 0px 1px 0px;
       }
       
-      #search-bar, #button-search-bar, #logo {
+      #search-bar, .button, #logo {
         height: 40px;
       }
       
@@ -47,3 +47,4 @@
         margin-left: 5px;
         margin-bottom : 2px;
       } 
+    
