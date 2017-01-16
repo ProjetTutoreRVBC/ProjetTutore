@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nostream</title>
-    <!--<style>
+    <style>
       
       body { padding: 30px }
       form { display: block; margin: 20px auto; background: #eee; border-radius: 10px; padding: 15px }
@@ -15,26 +15,19 @@
       .bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
       .percent { position:absolute; display:inline-block; top:3px; left:48%; }
 
-    </style>-->
+    </style>
 
 </head>
 <body>
 
   <form action="upload" method="post" enctype="multipart/form-data">
+    
   <label for="file"><span>Filename:</span></label>
   <input type="file" name="file" id="file"/><br>
   <input type="submit" name="submit" value="Upload"/>
   </form>
   <p><?php echo " status : ".$status."<br>size : ".$size." Kb";?></p>  
-  <p>
-    <?php
-      echo var_dump(ini_get('upload_max_filesize'));
-      echo var_dump(ini_get('post_max_size'));
-      echo var_dump(ini_get('memory_limit'));
-    ?>
-  
-  </p>
-<!--<div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
     <div class="bar"></div>
     <div class="percent">0%</div>
 </div>
@@ -75,6 +68,6 @@
       }); 
 
       })();     
-    </script>  -->
+    </script> 
 </body>
 </html>

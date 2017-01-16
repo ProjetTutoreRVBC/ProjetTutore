@@ -115,7 +115,7 @@
 
             <div class="video-container " style="height:65%;width:60%!important; ">
                 <video id="my-video " class="video-js " controls preload="auto " style="width:100%; height:100%; " poster="atlas.jpg " data-setup="{} ">
-                    <source src="/web/bundles/framework/mp4/atlas.mp4" type='video/mp4'>
+                    <source src="<?php echo '/web/bundles/framework/mp4/'.$id.'.mp4';?>" type='video/mp4'>
                     <p class="vjs-no-js ">
                       To view this video please enable JavaScript, and consider upgrading to a web browser that
                       <a href="http://videojs.com/html5-video-support/ " target="_blank ">supports HTML5 video</a>

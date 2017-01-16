@@ -4,6 +4,8 @@ app:
 video_show:
     path:      /video/{slug}
     defaults:  { _controller: AppBundle:Video:show }
+    requirements:
+        page: '\d+'    
 login:
     path:      /login/
     defaults:  { _controller: AppBundle:Security:login }

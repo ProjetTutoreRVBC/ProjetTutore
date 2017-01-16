@@ -66,16 +66,17 @@
           <div  class="tabs-panel is-active " id="tab1" >
             <div class ="defilement-video" style="text-align: center;">
               <?php
-              $id = "Metallica - Atlas, Rise! Teaser";
-              $vues = 234432;
-              $titre="Metallica - Atlas, Rise! Teaser";
-              $userChannel="MetallicaStudio";
-              $userPage="MetallicaTV";
-              $date="23/10/2016";
-              for($i = 0; $i < 30; $i++)
+              $Page = "";
+              foreach($video as $v)
                 {
+                  $titre= $v['nameVideo'];
+                  $id = $v['idVideo'];
+                  $date = $v['dateVideo'];
+                  $vues = $v['viewsVideo'];
+                  $Page = $page[$titre];
+                  $Channel = $channel[$titre];
                   echo '
-                  <a href ="video/'.$id.'">
+                  <a href ="watch?v='.$id.'">
                     <div style="height:125px;width:225px;display:inline-block;margin:4px;">
                       <div style="height:35px;overflow:hidden;">
                           <font size="2" class="titres"><strong>'.$titre.'</strong></font><br>
@@ -87,10 +88,10 @@
 
                       <div style="width:225px;">
                           <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                              <font size="1">'.$userChannel.'</font>
+                              <font size="1">'.$Channel.'</font>
                           </a>
                           <a href="profile" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                              <font size="1">'.$userPage.'</font>
+                              <font size="1">'.$Page.'</font>
                           </a>
                       </div>
                       <div style="text-align:center;">

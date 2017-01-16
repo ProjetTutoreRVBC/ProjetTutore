@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
 
@@ -30,6 +31,10 @@ class HomeController extends Controller
      */
     public function indexAction(Request $request)
     { 
+      $video = new Video(); 
+      $list_v = $video->getListVideo();
+      $list_c = $video->getListChannelByIdVideo();
+      $list_p = $video->getListPageByIdVideo();
       if(isset($_POST) && $_POST != null){
         if(isset($_POST['register'])){
           $user = new Nostreamer();
@@ -49,7 +54,7 @@ class HomeController extends Controller
             return $this->render('home/register.html.php');
         }
         
-      }       
-      return $this->render('View/homepageTest.html.php');
+      }
+      return $this->render('View/homepageTest.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
     }
 }

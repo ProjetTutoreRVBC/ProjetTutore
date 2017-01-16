@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
 
@@ -16,10 +17,29 @@ use Symfony\Component\HttpFoundation\Request;
 class VideoController extends Controller
 {
     /**
-     * @Route("/watch?video/{slug}",name="video_show")
+     * @Route("/watch")
      */
-    public function showAction($id)
+    public function showAction(Request $request)
     { 
-      return $this->render('View/video.html.php');
+      $id = $request->query->get('v');
+      $video = new Video(); 
+      $v = $video->getVideo($id);
+      $user = $video->getUserByIdVideo($id);
+      $list_v = $video->getListVideo();
+      $list_c = $video->getListChannelByIdVideo();
+      $list_p = $video->getListPageByIdVideo();
+      return $this->render('View/videotest.html.php',
+      array(
+        "title" => $v['nameVideo'],
+         "views" => $v['viewsVideo'],
+          "info_date" => $v['dateVideo'],
+          "description" => $v['descriptionVideo'],
+          "video_channel"=>$user['nameChannel'],
+          "video_page"=>$user['namePage'],
+          "v"=>$id,
+          "video" => $list_v,
+          "channel"=>$list_c,
+          "page"=>$list_p
+      ));
     }
 }

@@ -50,9 +50,67 @@ class Video
 			else
 				return false;
 		}
+		public function getListVideo(){
+			
+			$db = Database::getInstance();
+			$sql = "SELECT * from Video";
+			$stmt = $db->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			return $result;	
+		}
+	
+		public function getListChannelByIdVideo(){
+			
+			$db = Database::getInstance();
+			$sql = "SELECT nameVideo,nameChannel from Video,Channel where Video.idChannel = Channel.idChannel";
+			$stmt = $db->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			$channel = array();
+			foreach($result as $row){
+				$channel[$row['nameVideo']]=$row['nameChannel'];
+			}
+			return $channel;
+		}
+	
+		public function getListPageByIdVideo(){
+			
+			$db = Database::getInstance();
+			$sql = "SELECT nameVideo,namePage from Page,Channel,Video where Page.idNostreamer = Channel.idNostreamer and Video.idChannel = Channel.idChannel";
+			$stmt = $db->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			$page = array();
+			foreach($result as $row){
+				$page[$row['nameVideo']]=$row['namePage'];
+			}
+			return $page;
+		}
 		
+		public function getUserByIdVideo($id){
+			
+			$db = Database::getInstance();
+			$sql = "SELECT * from Video,Channel,Page where Page.idNostreamer = Channel.idNostreamer and Video.idChannel = Channel.idChannel and idVideo = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			$user = $result[0];
+			return $user;
+		}
+	
+		public function getVideo($id){
+			$db = Database::getInstance();
+			$sql = "SELECT * from Video where idVideo = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			$video = $result[0];
+			return $video;	
+		}
 		/*
-=======
 			$tabextImg = array('jpg','jpeg','png','gif');
 			$tabextVideo = array('mp4','wma','avi','mpg','mpeg','webm');
 			$extVideo = pathinfo($fileVideo, PATHINFO_EXTENSION);
@@ -79,7 +137,6 @@ class Video
 			}
 		}
 			
->>>>>>> 88a70fac3f9d81aa6325f2a735c9046af7e6cfdf
     public function getName()
     {
       return $this->nameVideo;
