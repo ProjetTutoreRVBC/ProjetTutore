@@ -1,0 +1,173 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nostream</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link href="css/video-js/video-js.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+</head>
+
+<body>
+    <div data-sticky-container>
+        <div class="top-bar" data-sticky>
+            <div class="top-bar-left">
+                <ul class="menu">
+                    <li><img href="homepage.html" src="logo.png " style="width:135px;height:75px; "></li>
+                    <li><input type="search" placeholder="Search Here" style="margin-left:15px;width:250px;" ;></li>
+                    <li><button type="button" class="button">Search</button></li>
+                </ul>
+            </div>
+            <div class="top-bar-right">
+                <img class="thumbnail " data-open="exampleModal1" src="profile.jpg ">
+                <div class="reveal xlarge" id="exampleModal1" data-reveal>
+                    <div style="float: right;">
+                        <h2>Connexion</h2>
+                        <form>
+                            <div class="row">
+                                <div class="small-8 columns">
+                                    <div class="row">
+                                        <div class="small-3 columns">
+                                            <label>Pseudo</label>
+                                            <input type="text" id="right-label" placeholder="pseudo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-8 columns">
+                                    <div class="row">
+                                        <div class="small-3 columns">
+                                            <label>Pass</label>
+                                            <input type="text" id="right-label" placeholder="mot de passe">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="expanded button" type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div style="float: left;">
+                        <h2>Inscription</h2>
+                        <form>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="large-4 columns">
+                                        <label>Adresse mail</label>
+                                        <input type="email" placeholder="Entrez votre adresse mail">
+                                    </div>
+                                    <div class="medium-4 columns">
+                                        <label>Date de naissance</label>
+                                        <input type="date">
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <label>Avatar</label>
+                                        <label for="exampleFileUpload" class="button">Upload File</label>
+                                        <input type="file" id="exampleFileUpload" class="show-for-sr">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="large-4 columns">
+                                        <label>Pseudo</label>
+                                        <input type="text" placeholder="Choisissez votre pseudo">
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <label>Mot de passe</label>
+                                        <input type="password" placeholder="Entrez votre mot de passe">
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <label>Confirmer mot de passe</label>
+                                        <input type="password" placeholder="Confirmez votre mot de passe">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button class="expanded button" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width:100%;height:90%;display:inline-block;">
+        <div style="text-align:center;width:100%">
+            <h2 style="font-family='proxima_novalight'">Bienvenue, Vidéaste !</h2>
+            <h5> 2 938 292 personnes sont abonnés à cette chaîne </h5>
+        </div>
+        <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:5%;width:85%;height:60%;">
+            <div style="width:100%;height:10%;margin-top:5px;">
+                <h4 style="text-align:center;">Vos Vidéos</h4>
+            </div>
+
+            <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
+                <div style="float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
+                </div>
+
+                <div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
+                    <div style="width:50%;float:left;overflow:hidden;">
+                        <img src=" atlas.jpg " style="height:125px;width:225px;text-align:center;">
+                        <font style="font-size:110%;margin-left:10px;overflow:hidden; ">Metallica - Atlas, Rise! Teaser</font>
+                    </div>
+                    <table style="float:left;height:100%;width:30%;">
+                        <tr>
+                            <th class="tg-yw4l" colspan="2">
+                                2 839 923 vues
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;background-color:#2199e8;">
+                                24 543 j'aime
+                            </td>
+                            <td style="background-color:#da3116;text-align:center;">
+                                456 j'aime pas
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;" colspan=" 2 ">
+                                143 commentaires
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="text-align:center;width:18%;margin-left:20px;float:left;height:100%;">
+                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver commentaires</a>
+                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver le chat</a>
+                        <a class="alert button" style="width:100%;margin-bottom:2px;">Supprimer la vidéo</a>
+                    </div>
+                </div>
+                <div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
+                    <div style="width:50%;float:left;overflow:hidden;">
+                        <img src=" atlas.jpg " style="height:125px;width:225px;text-align:center;">
+                        <font style="font-size:110%;margin-left:10px;overflow:hidden; ">Metallica - Atlas, Rise! Teaser avec un nom beaucoup trop long </font>
+                    </div>
+                    <table style="float:left;height:100%;width:30%;">
+                        <tr>
+                            <th class="tg-yw4l" colspan="2">
+                                2 839 923 vues
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;background-color:#2199e8;">
+                                24 543 j'aime
+                            </td>
+                            <td style="background-color:#da3116;text-align:center;">
+                                456 j'aime pas
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;" colspan=" 2 ">
+                                143 commentaires
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="text-align:center;width:18%;margin-left:20px;float:left;height:100%;">
+                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver commentaires</a>
+                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver le chat</a>
+                        <a class="alert button" style="width:100%;margin-bottom:2px;">Supprimer la vidéo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
