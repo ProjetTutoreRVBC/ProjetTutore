@@ -35,26 +35,6 @@ class HomeController extends Controller
       $list_v = $video->getListVideo();
       $list_c = $video->getListChannelByIdVideo();
       $list_p = $video->getListPageByIdVideo();
-      if(isset($_POST) && $_POST != null){
-        if(isset($_POST['register'])){
-          $user = new Nostreamer();
-          $pseudo = $_POST['name'];
-          $password = $_POST['passwd'];
-          $email = $_POST['email'];
-          $avatar = $_POST['avatar'];
-          $user->register($email,$pseudo,$password,$avatar);
-        }
-        if(isset($_POST['login'])){
-          $_SESSION['pseudoNostreamer'] = null;
-          $user = new Nostreamer();
-          $email = $_POST['_email'];
-          $password = $_POST['_password'];
-          echo $user->signIn($email,$password);
-          if($user->signIn($email,$password) == true)
-            return $this->render('home/register.html.php');
-        }
-        
-      }
       return $this->render('View/homepageTest.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
     }
 }

@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Video;
+use AppBundle\Model\Channel;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
 
@@ -16,10 +18,18 @@ use Symfony\Component\HttpFoundation\Request;
 class ChannelController extends Controller
 {
     /**
-     * @Route("channel")
+     * Matches /channel/*
+     *
+     * @Route("/channel/{slug}",name="channel_index")
      */
-    public function indexAction(Request $request)
+    public function showAction($slug)
     { 
-      return $this->render('View/channel.html.php');
+      $user = new Channel();
+      $info_c = $user->getChannel($slug);
+      $video = new Video(); 
+      $list_v = $video->getListVideo();
+      $list_c = $video->getListChannelByIdVideo();
+      $list_p = $video->getListPageByIdVideo();
+      return $this->render('View/channel.html.php',array("name_channel"=>$info_c['nameChannel'],"video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
     }
 }

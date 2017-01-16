@@ -25,28 +25,29 @@
                       <li><button id="button-search-bar" class="button" type="button">Search</button></li>
                   </ul>
                </div>
-                      <?php
-                        $href="login";
-                        $log="Login";
-                        if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
-                        {
-                          $href = "logout";
-                          $log = "Logout";
-                          echo '<div id ="right-log" style="float:right;">
-                          <ul id="menu" class="menu">';
-                          echo '<li id="signed"><a href="channel"><button class="button" type="button">Channel</button></li>';
-                          echo '<li id="signed-1"><a href=""><button class="button" type="button">Profile</button></li>';
-                        }else
-                        {
-                          echo '<div id ="right-log" style="float:right;">
-                          <ul id="menu" class="menu">';
-                          echo '<li id="signIn" ><a href="../register"><button class="button" type="button">Sign Up</button></a></li>';
-                        }
-
-                        echo '<li id ="logIn">';
-                        echo '<a href="../'.$href.'">';
-                        echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
-                      ?>
+                     <?php
+                          $href="login";
+                          $log="Login";
+                          if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
+                          {
+                            $href = "logout";
+                            $log = "Logout";
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            
+                            echo '<li id="signed"><a href="../channel"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/metstudio.jpg"></a></li>';
+                            echo '<li id="signed-1"><a href="../profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+                          }else
+                          {
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            echo '<li id="signIn" ><a href="register"><button class="button" type="button">Sign Up</button></a></li>';
+                          }
+                            
+                          echo '<li id ="logIn">';
+                          echo '<a href=../'.$href.'>';
+                          echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
+                        ?>
                     </li>  
                 </ul>
               </div>
@@ -57,7 +58,7 @@
         <img src="/web/bundles/framework/images/banner.jpeg " style="z-index:1;height:300px;width:100%;text-align:center;"><br>
         <img src="/web/bundles/framework/images/metstudio.jpg " style="z-index:1;top:225px;left:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
         <img src="/web/bundles/framework/images/met.jpg " style="top:225px;right:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
-        <h2 style="margin-left:250px;position:absolute;">MetallicaStudio</h2>
+        <h2 style="margin-left:250px;position:absolute;"><?php echo $name_channel; ?></h2>
         <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
     </div>
 
@@ -66,16 +67,17 @@
             <div  class="tabs-panel is-active " id="tab1" >
               <div class ="defilement-video" style="text-align: center;">
                 <?php
-                $id = "Metallica - Atlas, Rise! Teaser";
-                $vues = 234432;
-                $titre="Metallica - Atlas, Rise! Teaser";
-                $userChannel="MetallicaStudio";
-                $userPage="MetallicaTV";
-                $date="23/10/2016";
-                for($i = 0; $i < 30; $i++)
-                  {
+              foreach($video as $v)
+                {
+                  if($channel[$v['nameVideo']] == $name_channel){
+                    $titre = $v['nameVideo'];
+                    $id = $v['idVideo'];
+                    $date = $v['dateVideo'];
+                    $vues = $v['viewsVideo'];
+                    $Page = $page[$titre];
+                    $Channel = $channel[$titre];
                     echo '
-                    <a href ="video/'.$id.'">
+                    <a href ="../watch?v='.$id.'">
                       <div style="height:125px;width:225px;display:inline-block;margin:4px;">
                         <div style="height:35px;overflow:hidden;">
                             <font size="2" class="titres"><strong>'.$titre.'</strong></font><br>
@@ -86,11 +88,11 @@
                         </div>
 
                         <div style="width:225px;">
-                            <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                                <font size="1">'.$userChannel.'</font>
+                            <a href="" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                                <font size="1">'.$Channel.'</font>
                             </a>
-                            <a href="profile" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
-                                <font size="1">'.$userPage.'</font>
+                            <a href="../profile/'.$Page.'" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                                <font size="1">'.$Page.'</font>
                             </a>
                         </div>
                         <div style="text-align:center;">
@@ -100,7 +102,8 @@
                     </div>
                   </a>';
                   }
-                ?>
+                }
+              ?>
               </div>  
             </div>
         </div>

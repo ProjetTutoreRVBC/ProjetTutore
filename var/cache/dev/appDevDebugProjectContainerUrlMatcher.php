@@ -100,14 +100,19 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // app_channel_index
-        if ($pathinfo === '/channel') {
-            return array (  '_controller' => 'AppBundle\\Controller\\ChannelController::indexAction',  '_route' => 'app_channel_index',);
+        // channel_index
+        if (0 === strpos($pathinfo, '/channel') && preg_match('#^/channel/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'channel_index')), array (  '_controller' => 'AppBundle\\Controller\\ChannelController::showAction',));
         }
 
         // homepage
         if ($pathinfo === '/home') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+        }
+
+        // app_gestion_index
+        if ($pathinfo === '/gestion') {
+            return array (  '_controller' => 'AppBundle\\Controller\\GestionController::indexAction',  '_route' => 'app_gestion_index',);
         }
 
         // app_profile_index
@@ -143,9 +148,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\VideoController::showAction',  '_route' => 'app_video_show',);
         }
 
-        // video_show
-        if (0 === strpos($pathinfo, '/video') && preg_match('#^/video/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'video_show')), array (  '_controller' => 'AppBundle\\Controller\\VideoController::showAction',));
+        // channel
+        if (0 === strpos($pathinfo, '/channel') && preg_match('#^/channel/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'channel')), array (  '_controller' => 'AppBundle\\Controller\\ChannelController::showAction',));
         }
 
         // login
@@ -164,6 +169,15 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             return array (  '_controller' => 'AppBundle\\Controller\\HomeController::indexAction',  '_route' => 'home',);
+        }
+
+        // gestion
+        if (rtrim($pathinfo, '/') === '/gestion') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'gestion');
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\GestionController::indexAction',  '_route' => 'gestion',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

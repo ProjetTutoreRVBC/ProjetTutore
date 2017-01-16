@@ -1,14 +1,15 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-video_show:
-    path:      /video/{slug}
-    defaults:  { _controller: AppBundle:Video:show }
-    requirements:
-        page: '\d+'    
+channel:
+    path:      /channel/{slug}
+    defaults:  { _controller: AppBundle:Channel:show }
 login:
     path:      /login/
     defaults:  { _controller: AppBundle:Security:login }
 home:
     path: /
     defaults: { _controller: AppBundle:Home:index }
+gestion:
+    path:     /gestion/
+    defaults: { _controller: AppBundle:Gestion:index }
