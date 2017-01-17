@@ -78,7 +78,7 @@
                 <?php
                 $space= "&nbsp;&nbsp;&nbsp;&nbsp;";
                 foreach($channels as $channel){
-                echo '<a href="../channel/'.$channel['nameChannel'].'">
+                echo '<a href="../gestion_channel/'.$channel['nameChannel'].'">
                       <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
                         <img src="/web/bundles/framework/images/metstudio.jpg " style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
                         <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$channel['subscribersChannel'].' abonnés</small></font>

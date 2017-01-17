@@ -11,7 +11,7 @@ class Database
       $host="dwarves.iut-fbleau.fr";
       $servername="brassele";
       $username="brassele";
-      $password;
+      $password="";
       return new \PDO("mysql:host=$host;dbname=$servername",$username,$password);  
     }
   
