@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:5%;width:85%;height:60%;">
+    <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:5%;width:85%;height:85%;">
         <div style="width:100%;height:10%;margin-top:5px;">
             <h4 style="text-align:center;">Ajouter une vidéo</h4>
         </div>
@@ -33,11 +33,16 @@
                 <label for=" nom ">Nom de la vidéo :</label>
                 <input type="text " name="nom " id="nom " /><br /><br>
 
-                <label for="file" class="button">Upload File</label>
+                <label for="file" class="button">Choisir la vidéo</label>
                 <input style="text-align:center;" class="show-for-sr" type="file" name="file" id="file" /><br><br>
 
                 <label for="description ">Description :</label>
                 <textarea name="description " id="description " style="display:inline-block;width:50%;text-align:center;"></textarea><br />
+
+                <label>Image de miniature :</label>
+                <label for="exampleFileUpload" class="button">Choisir image (125x225)</label>
+                <input type='file' name="profile" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
+                <span id="display-parent"></span><br><br>
 
                 <fieldset class="">
                     <legend>Commentaires :</legend>
