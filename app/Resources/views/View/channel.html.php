@@ -88,11 +88,19 @@
                         </div>
 
                         <div style="width:225px;">
+<<<<<<< HEAD
+                            <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
+                                <font size="1">'.$userChannel.'</font>
+                            </a>
+                            <a href="profile" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
+                                <font size="1">'.$userPage.'</font>
+=======
                             <a href="" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
                                 <font size="1">'.$Channel.'</font>
                             </a>
                             <a href="../profile/'.$Page.'" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
                                 <font size="1">'.$Page.'</font>
+>>>>>>> 3519b5915c2c9d86b53a2bca69f9059768f070e6
                             </a>
                         </div>
                         <div style="text-align:center;">

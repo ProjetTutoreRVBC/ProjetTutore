@@ -95,10 +95,10 @@
                       </div>
 
                       <div style="width:225px;">
-                          <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                          <a href="channel" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
                               <font size="1">'.$Channel.'</font>
                           </a>
-                          <a href="profile" class="button tiny" style="margin-left:none;margin-right:none;width:49%">
+                          <a href="profile" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
                               <font size="1">'.$Page.'</font>
                           </a>
                       </div>
