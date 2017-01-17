@@ -3,9 +3,11 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Channel;
 use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
+
 
 //Others
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -24,17 +26,24 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class HomeController extends Controller
+class GestionChannelController extends Controller
 {
     /**
-     * @Route("/",name="home")
+     * Matches /gestion_channel/*
+     *
+     * @Route("/gestion_channel/{slug}")
      */
-    public function indexAction(Request $request)
+    public function indexAction($slug)
     { 
-      $video = new Video(); 
-      $list_v = $video->getListVideo();
-      $list_c = $video->getListChannelByIdVideo();
-      $list_p = $video->getListPageByIdVideo();
-      return $this->render('View/homepageTest.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
+      if(isset($_COOKIE["pseudo"])) {
+        $video = new Video(); 
+        $list_v = $video->getListVideo();
+        $list_c = $video->getListChannelByIdVideo();
+        $list_p = $video->getListPageByIdVideo();
+        $user = new Channel();
+        $info_c = $user->getChannel($slug);
+        return $this->render('View/gestionchannel.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p,"name_channel"=>$info_c['nameChannel']));
+      }
+      redirectToRoute('home');
     }
 }

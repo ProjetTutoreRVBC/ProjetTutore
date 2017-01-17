@@ -24,17 +24,19 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class HomeController extends Controller
+class GestionController extends Controller
 {
     /**
-     * @Route("/",name="home")
+     * @Route("/gestion")
      */
     public function indexAction(Request $request)
     { 
-      $video = new Video(); 
-      $list_v = $video->getListVideo();
-      $list_c = $video->getListChannelByIdVideo();
-      $list_p = $video->getListPageByIdVideo();
-      return $this->render('View/homepageTest.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
+      if(isset($_COOKIE["pseudo"])) {
+        $user = new Nostreamer();
+        $list_p = $user->getPages($_COOKIE["pseudo"]);
+        $list_c = $user->getChannels($_COOKIE["pseudo"]);
+        return $this->render('View/gestion.html.php',array("pages" => $list_p,"channels"=>$list_c));
+      }
+      redirectToRoute('home');
     }
 }
