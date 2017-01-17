@@ -118,7 +118,6 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 
-
 img.top-bar-profile-pic {
     width: 135px;
     height: 75px;
@@ -1723,7 +1722,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-family: "proxima_novalight";
     font-weight: normal;
     font-style: normal;
     color: inherit;
@@ -3800,8 +3799,6 @@ body {
 }
 
 .progress {
-    margin-left: 10px;
-    margin-right: 10px;
     background-color: red;
     height: 1rem;
     margin-bottom: 1rem;

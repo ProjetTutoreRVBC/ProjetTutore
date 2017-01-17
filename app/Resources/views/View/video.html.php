@@ -25,28 +25,29 @@
                       <li><button id="button-search-bar" class="button" type="button">Search</button></li>
                   </ul>
                </div>
-                      <?php
-                        $href="login";
-                        $log="Login";
-                        if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
-                        {
-                          $href = "logout";
-                          $log = "Logout";
-                          echo '<div id ="right-log" style="float:right;">
-                          <ul id="menu" class="menu">';
-                          echo '<li id="signed"><a href="../channel"><button class="button" type="button">Channel</button></li>';
-                          echo '<li id="signed-1"><a href="../profile"><button class="button" type="button">Profile</button></li>';
-                        }else
-                        {
-                          echo '<div id ="right-log" style="float:right;">
-                          <ul id="menu" class="menu">';
-                          echo '<li id="signIn" ><a href="../register"><button class="button" type="button">Sign Up</button></a></li>';
-                        }
-
-                        echo '<li id ="logIn">';
-                        echo '<a href="../'.$href.'">';
-                        echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
-                      ?>
+                       <?php
+                          $href="login";
+                          $log="Login";
+                          if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
+                          {
+                            $href = "logout";
+                            $log = "Logout";
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            
+                            echo '<li id="signed"><a href="channel"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/metstudio.jpg"></a></li>';
+                            echo '<li id="signed-1"><a href="profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+                          }else
+                          {
+                            echo '<div id ="right-log" style="float:right;">
+                            <ul id="menu" class="menu">';
+                            echo '<li id="signIn" ><a href="register"><button class="button" type="button">Sign Up</button></a></li>';
+                          }
+                            
+                          echo '<li id ="logIn">';
+                          echo '<a href=../'.$href.'>';
+                          echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
+                        ?>
                     </li>  
                 </ul>
               </div>

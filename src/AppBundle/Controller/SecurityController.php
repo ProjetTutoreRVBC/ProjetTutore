@@ -46,7 +46,7 @@ class SecurityController extends Controller
           $user->signIn($pseudo,$password);
           if($user->signIn($pseudo,$password) == true)
           {
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('gestion');
           }
           else
             $error = "Wrong username or password. Try again.";
@@ -63,6 +63,7 @@ class SecurityController extends Controller
     public function logoutAction()
     {
       setcookie("pseudo","");
+      setcookie("channel","");
       return $this->redirectToRoute('home');
     }
 }

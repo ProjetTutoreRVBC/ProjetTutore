@@ -2,7 +2,7 @@
 namespace AppBundle\Model;
 
 class Nostreamer
-{
+{/*
     private $idNostreamer;
     private $mailNostreamer;
     private $pseudoNostreamer;
@@ -10,7 +10,7 @@ class Nostreamer
 		private $avatarNostreamer;
     private $avatarNoStreamer;
     private $page;
-	/*
+	
     public function __construct($mailNostreamer, $pseudoNostreamer, $passNostreamer, $avatarNostreamer)
     {
       $this->mailNostreamer = $mailNostreamer;
@@ -107,29 +107,29 @@ class Nostreamer
 		{
 			return $this->birthNostreamer
 		}
-  
-    public function getChannels()
+  	*/
+    public function getChannels($pseudoNostreamer)
     {
       $db = Database::getInstance();
-		  $sql = "SELECT * FROM channel WHERE pseudoNostreamer = :pseudo";
-		  $stmt = $db->query($sql);
-		  $stmt->setFetchMode(PDO::FETCH_CLASS, "Channel");
+		  $sql = "SELECT * FROM Channel,Nostreamer WHERE Channel.idNostreamer = Nostreamer.idNostreamer and ( mailNostreamer = :pseudo or pseudoNostreamer = :pseudo)";
+		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':pseudo',$pseudoNostreamer);
 		  $stmt->execute(); 
-		  return $stmt->fetchAll();
+		  $result = $stmt->fetchAll();
+			return $result;
     }
   
-    public function getPage()
+    public function getPages($pseudoNostreamer)
     {
       $db = Database::getInstance();
-		  $sql = "SELECT * FROM page WHERE owner = :pseudo";
-		  $stmt = $db->query($sql);
-		  $stmt->setFetchMode(PDO::FETCH_CLASS, "Page");
+		  $sql = "SELECT * FROM Page,Nostreamer WHERE Page.idNostreamer = Nostreamer.idNostreamer and ( mailNostreamer = :pseudo or pseudoNostreamer = :pseudo)";
+		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':pseudo',$pseudoNostreamer);
 		  $stmt->execute();
-		  return $stmt->fetchAll();
+		  $result = $stmt->fetchAll();
+			return $result;
     }
-
+/*
     public function setMail($mailNostreamer)
     {
       $db = Database::getInstance();

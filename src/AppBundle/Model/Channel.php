@@ -1,4 +1,6 @@
 <?php
+namespace AppBundle\Model;
+
 class Channel
 {
     private $idChannel;
@@ -8,7 +10,18 @@ class Channel
     private $descriptionChannel;
     private $creationDateChannel;
     private $viewsChannel;
-    public function __construct($nameChannel, $idNostreamer, $descriptionChannel)
+    
+	
+		public function getChannel($name){
+			$db = Database::getInstance();
+		  $sql = "SELECT * FROM Nostreamer,Channel WHERE Channel.idNostreamer = Nostreamer.idNostreamer and Channel.nameChannel = :name";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':name',$name);
+		  $stmt->execute(); 
+		 	$channel = $stmt->fetchAll();
+			return $channel[0];
+		}
+		/*public function __construct($nameChannel, $idNostreamer, $descriptionChannel)
     {
       $this->nameChannel = $nameChannel;
 		  $this->idNostreamer = $idNostreamer;
@@ -83,5 +96,5 @@ class Channel
 			$stmt->bindParam(':id',$idChannel);
 			$stmt->execute();
 			$this->descriptionPage = $descriptionChannel;
-    }
+    }*/
 }
