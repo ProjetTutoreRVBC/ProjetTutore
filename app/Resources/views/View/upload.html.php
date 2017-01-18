@@ -1,11 +1,15 @@
-<!-- app/Resources/views/View/upload.html.php-->  
+<!-- app/Resources/views/View/upload.html.php-->
 <!DOCTYPE html>
 
 <head>
- <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nostream</title>
+    <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
+    <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
     <!--<style>
       
       body { padding: 30px }
@@ -18,25 +22,46 @@
     </style>-->
 
 </head>
-<body>
 
-  <form action="upload" method="post" enctype="multipart/form-data">
-  <label for="file"><span>Filename:</span></label>
-  <input type="file" name="file" id="file"/><br>
-  <input type="submit" name="submit" value="Upload"/>
-  </form>
-  <p><?php echo " status : ".$status."<br>size : ".$size." Kb";?></p>  
-  <div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-  <p>
-    <?php
-      echo var_dump(ini_get('upload_max_filesize'));
-      echo var_dump(ini_get('post_max_size'));
-      echo var_dump(ini_get('memory_limit'));
-    ?>
-  
-  </p>
-<!--<div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
->>>>>>> fa14912bbb2972a986e76301fa2d11827a709cfa
+<body>
+    <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:5%;width:85%;height:75%;">
+        <div style="width:100%;height:10%;margin-top:5px;">
+            <h4 style="text-align:center;">Ajouter une vidéo</h4>
+        </div>
+        <div style="width:100%;height:100%;">
+            <form action="upload" method="post" enctype="multipart/form-data" style="text-align:center">
+                <label for=" nom ">Nom de la vidéo :</label>
+                <input type="text " name="nom " id="nom " /><br /><br>
+
+                <label for="file" class="button">Upload File</label>
+                <input style="text-align:center;" class="show-for-sr" type="file" name="file" id="file" /><br><br>
+                  
+                 <label>Image de miniature :</label>
+                <label for="exampleFileUpload" class="button">Choisir image (125x225)</label>
+                <input type='file' name="profile" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
+                <span id="display-parent"></span><br><br>
+
+                
+                <label for="description ">Description :</label>
+                <textarea name="description " id="description " style="display:inline-block;width:50%;text-align:center;"></textarea><br />
+
+                <fieldset class="">
+                    <label>Commentaires :</label>
+                    <input type="radio" name="commentaires" value="oui" id="com_oui" required checked><label for="com_oui">Activés</label>
+                    <input type="radio" name="commentaires" value="non" id="com_non"><label for="com_non">Désactivés</label>
+                </fieldset>
+
+                <fieldset class="">
+                    <label>Chat :</label>
+                    <input type="radio" name="chat" value="oui" id="chat_oui" required checked><label for="chat_oui">Activé</label>
+                    <input type="radio" name="chat" value="non" id="chat_non"><label for="chat_non">Désactivé</label>
+                </fieldset>
+
+                <input type="submit" name="submit" class="button" style="margin-top:10px;" value="Upload" />
+            </form>
+        </div>
+        
+            <!--<div class="progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
     <div class="bar"></div>
     <div class="percent">0%</div>
 </div>
@@ -76,8 +101,11 @@
           }
       }); 
 
-      })();     
+      })();    
     </script> 
     </script>  -->
+        </div>
+
 </body>
+
 </html>

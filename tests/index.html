@@ -1,0 +1,43 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nostream</title>
+    <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+    <script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=pagerank.js"></script>
+    <script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=logins.js"></script>
+    <script src="classement.js"></script>
+</head>
+
+<body>
+    <div style="position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;height:400px;width:700px;border: solid black;">
+        <h2 style="margin-left:15px;"> Projet Maths : Algo PageRank</h2>
+        <label>Choissez vos matières (plusieurs matières avec touche CTRL)</label>
+        <select id="option" multiple>
+            <option value="ACDA">ACDA</option>
+            <option value="ANG">ANG</option>
+            <option value="APL">APL</option>
+            <option value="ART">ART</option>
+            <option value="ASR">ASR</option>
+            <option value="EC">EC</option>
+            <option value="EGOD">EGOD</option>
+            <option value="MAT">MAT</option>
+            <option value="SGBD">SGBD</option>
+            <option value="SPORT">SPORT</option>
+        </select>
+        <input type="submit" name="submit" class="button" style="margin-top:10px;width:100%;" value="Rechercher" onclick="pagerank();"/>
+        <span id="demo"></span>  
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(document).foundation();
+        })
+    </script>
+
+</body>
+
+</html>

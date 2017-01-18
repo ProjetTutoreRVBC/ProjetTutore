@@ -4,8 +4,8 @@
 <script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=pagerank.js"></script>
 <script src="http://www.iut-fbleau.fr/projet/maths/?rah_external_output=logins.js"></script>
 <script>
-//var votes = {"A" : {"A" :["B","C"]}, "B" : {"A" :["C"]} ,"C" : {"A" :["A"]},"D" : {"A" :["C"]} };
-  //  var logins = {"A" : "AA","B" :"BB","C" :"dd","D":"edd",};                                                                                                      
+//var votes = {"A" : {"A" :["B"]}, "B" : {"A" :["E"]} ,"C" : {"A" :["A","B","D","E"]},"D" :{"A" :["C","E"]} , "E" :{"A" :["D"]} };
+  //var logins = {"A" : "AA","B" :"BB","C" :"dd","D":"aa", "E":"ddA"};                                                                                                      
 
      function votePour(login,matiere) {
       var liste = [];
@@ -37,10 +37,25 @@
         }	
     }
     
-    function classer(liste){
-    	
+    function classement(liste){
+    	var max = 0;
+      var classer = [];
+      var i = 0;
+      var tmp;
+      while(classer.length < liste.length){
     	for(var key in liste){
+        if(max <= liste[key]){
+          max=liste[key];
+          tmp = key;
+        }
+          
     	}
+        classer[tmp] = max;
+        liste[tmp] = 0;
+        max = 0;
+        tmp = 0;
+      }
+      return classer;
     }
 
 
@@ -57,13 +72,18 @@ function pagerank(){
     
     var add = 0;
     
-    var iterations = 20;
-    
-    for( var i = 0; i < iterations; i++){                                                                                                          
-        for(var log in  logins) {                                                                                       	
+    var iterations = 40;
+    var res=0;
+    var nb=0;
+    var temp = [];
+    var liste = [];
+    for( var i = 0; i < iterations; i++){ 
+        //Calcul du PageRank
+        for(var log in  logins) {
             listeTriee = votePour(log,matiere);
             
             for( var name in listeTriee){
+              if(listeTriee[name] != log) {
             	if(listeClassement[listeTriee[name]])
                 		add += (listeClassement[listeTriee[name]] / nbVotePour(listeTriee[name],matiere));
             		else
@@ -71,27 +91,42 @@ function pagerank(){
                     //texte += log+" : "+add+" = "+listeClassement[listeTriee[name]]+" / "+ nbVotePour(listeTriee[name],matiere)+"<br>";
             //if(i==1)
             	//texte += log+" a--> "+value+" "+listeClassement[listeTriee[name]]+"<br>";
+              if(i === iterations -1){
+                //texte += "("+listeClassement[listeTriee[name]]+"/"+nbVotePour(listeTriee[name],matiere)+") + ";
+              }
+              }
             }
-            value = 0.15 + 0.85 * add;
-            //texte += log+" : 0.15 + 0.85 * "+add+" =============>  "+value+"<br>";
-            if(i === iterations -1)
-            	texte += log+" =============>  "+value+" votes : "+listeTriee.length+"<br>";
-           	listeClassement.push(log);
-            listeClassement[log] = value;
-            
+            temp[log] = add;
             add = 0;
+         }
+          for(var log in  logins) {
+            value = 0.15 +(0.85 * temp[log]);
+            //texte += log+" : 0.15 + 0.85 * "+add+" =============>  "+value+"<br>";
+            if(i === iterations - 1){
+              
+             
+            if(votePour(log,matiere) != 0 || nbVotePour(log,matiere) != null){
+              res += value;
+              nb++;
+              var vote = votePour(log,matiere);
+            	texte += logins[log]+" =============>  "+value+" votes : "+vote.length+" || a voté : "+nbVotePour(log,matiere)+"<br>";
+            } 
+              
+            }
+            listeClassement[log] = value;
     	    //texte += log+" : "+listeClassement[log]+"<br>";
             
-
+      }
             
-        }                                                                                                                            
     }
-    		
-            
-            document.getElementById("demo").innerHTML = texte;
-}
-  function add(a, b) {
-    return a + b;
+    console.log(listeClassement);
+    texte+= listeClassement+" "+res+ "  "+nb+"<br><br>";
+    liste = classement(listeClassement);
+     for(var key in liste){
+          texte += liste[key]+"<br>";
+      }
+    
+    document.getElementById("demo").innerHTML = texte;
 }
 </script>
 <h1>Classement</h1>
