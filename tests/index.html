@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div style="position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;height:400px;width:700px;border: solid black;">
+    <div style="position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;height:400px;width:700px;">
         <h2 style="margin-left:15px;"> Projet Maths : Algo PageRank</h2>
         <label>Choissez vos matières (plusieurs matières avec touche CTRL)</label>
         <select id="option" multiple>
@@ -30,7 +30,7 @@
             <option value="SPORT">SPORT</option>
         </select>
         <input type="submit" name="submit" class="button" style="margin-top:10px;width:100%;" value="Rechercher" onclick="pagerank();"/>
-        <span id="demo"></span>  
+        <table style="width:100%;margin-top:15px;"><td style="text-align:center;" id="demo"></td></table>  
     </div>
     <script>
         $(document).ready(function() {

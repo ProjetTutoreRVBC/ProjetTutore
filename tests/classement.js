@@ -91,7 +91,7 @@
 
         var add = 0;
 
-        var iterations = 10;
+        var iterations = 40;
         var res=0;
         var nb=0;
         var liste = [];
@@ -170,7 +170,7 @@
             }
 
           }
-            texte += "<p>"+tmp1+" : "+max+"</p><br>";
+            texte += "<tr style='width:100%;'>"+(tmp+1)+" : "+logins[tmp1]+"</tr><br>";
             t[tmp1] = 0;
             max = 0;
           
