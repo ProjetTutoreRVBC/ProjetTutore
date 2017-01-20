@@ -9,6 +9,10 @@
     <link href="css/video-js/video-js.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/css/foundation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
 </head>
 
 <body>
@@ -127,6 +131,20 @@
                 </p>
             </div>
             <img style="max-height:100%" src="post.jpg">
+            <div style="display:inline-block;width:100%;height:40px;">
+                <button class="button" data-toggle="toggle2" style="width:50%;float:right;margin-right:0px;height:100%;">Voir commentaires</button>
+                <button type="button" class="button" style="width:20%;float:left;margin-right:1%;height:100%">J'aime(10293)</button>
+                <button type=" button " class="alert button " style="width:20%;float:left;margin-right:1%;height:100%">Je n'aime pas(134)</button>
+            </div>
+            <div class="callout" id="toggle2" data-toggler data-animate="fade-in fade-out" style="display:none;">
+                <h4>Simon le thug</h4>
+                <p>Respect or die</p>
+            </div>
+            <script>
+                $(document).ready(function() {
+                    $(document).foundation();
+                })
+            </script>
         </div>
     </div>
 </body>
