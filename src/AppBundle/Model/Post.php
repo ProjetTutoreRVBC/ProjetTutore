@@ -1,6 +1,9 @@
 <?php
+namespace AppBundle\Model;
+
 class Post
 {
+	/*
     private $idPost;
     private $page;
     private $channel;
@@ -97,7 +100,7 @@ class Post
 		  $sql = "UPDATE user SET messagePost = :message WHERE idPost = :id";
 		  $stmt = $db->prepare($sql);
 		  $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		  $stmt->bindParam(':message',$messagePost;
+		  $stmt->bindParam(':message',$messagePost);
 		  $stmt->bindParam(':id',$idPost);
 		  $stmt->execute();
 		  $this->messagePost = $messagePost;
@@ -113,5 +116,16 @@ class Post
 		  $stmt->bindParam(':id',$idPost);
 		  $stmt->execute();
 		  $this->imagePost = $imagePost;
-    }
+    }*/
+	
+		public function getListPost($id){
+			$db = Database::getInstance();
+		  $sql = "SELECT * FROM Post WHERE Post.idPage = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute();
+		  $posts = $stmt->fetchAll();
+			return $posts;
+		}
+	
 }

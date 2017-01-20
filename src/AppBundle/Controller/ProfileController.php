@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Post;
+use AppBundle\Model\Page;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
 
@@ -16,10 +18,16 @@ use Symfony\Component\HttpFoundation\Request;
 class ProfileController extends Controller
 {
     /**
-     * @Route("profile")
+     * Matches /profile/*
+     *
+     * @Route("/profile/{slug}",name="profile_index")
      */
-    public function indexAction(Request $request)
+    public function showAction($slug)
     { 
-      return $this->render('View/page.html.php');
+      $user_page = new Page();
+      $info_page = $user_page->getPage($slug); 
+      $user_post = new Post();
+      $info_post = $user_post->getListPost($info_page["idPage"]);
+      return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post));
     }
 }
