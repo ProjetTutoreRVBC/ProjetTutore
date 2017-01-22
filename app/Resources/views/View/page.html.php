@@ -68,7 +68,7 @@
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
             echo '
-        <div style="box-shadow: 1px 1px 10px 1px #656565;padding:10px;display: inline-block;width:100%;">
+        <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;display: inline-block;width:100%;">
           <form action="" method="post">
           <div>
           <input name="slug" id="slug" value="'.$profile['namePage'].'" hidden>
@@ -84,7 +84,7 @@
             }
         foreach($posts as $post){
         echo '
-        <div style="margin-top:25px;margin-bottom: 25px;box-shadow: 1px 1px 10px 1px #656565;padding:10px;display: inline-block;width:100%;" '.$param_delete_post.'>
+        <div style="margin-top:25px;margin-bottom: 25px;box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;display: inline-block;width:100%;" '.$param_delete_post.'>
             <div style="border-bottom: solid 1px;padding:10px;padding-left:0px;">
                 <h>Publié le '.$post['datePost'].' </h>';
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
@@ -106,7 +106,7 @@
                 <button type="button" class="button" style="width:20%;float:left;margin:1%;padding:1%;height:100%">J&#8216aime</button>
                 <button type=" button " class="alert button " style="width:20%;float:left;margin:1%;padding:1%height:100%">Je n&#8216aime pas</button>
             </div>
-            <div class="callout" id="toggle2" data-toggler data-animate="fade-in fade-out" style="display:none;">
+            <div class="callout" id="toggle2" data-toggler data-animate="fade-in fade-out" style="display:none;margin-top:20px;">
                 <h4>Simon le thug</h4>
                 <p>Respect or die</p>
             </div>
