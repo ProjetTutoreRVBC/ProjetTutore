@@ -100,7 +100,7 @@
             <div style="margin-top:15px;width:100%;overflow:hidden;">
                 <p>'.$post['messagePost'].'</p>
             </div>
-            <img style="max-height:100%" src="/web/bundles/framework/images/post.jpg">
+            
             <div style="display:inline-block;width:100%;height:40px;">
                 <button class="button" data-toggle="toggle2" style="width:50%;float:right;margin:1%;height:100%;">Voir commentaires</button>
                 <button type="button" class="button" style="width:20%;float:left;margin:1%;padding:1%;height:100%">J&#8216aime</button>
