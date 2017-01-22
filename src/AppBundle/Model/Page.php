@@ -79,7 +79,7 @@ class Page
 	
 		public function getPage($name){
 			$db = Database::getInstance();
-		  $sql = "SELECT * FROM Nostreamer,Page,Channel WHERE Page.idNostreamer = Nostreamer.idNostreamer and Page.namePage = :name";
+		  $sql = "SELECT * FROM Nostreamer,Page WHERE Page.idNostreamer = Nostreamer.idNostreamer and Page.namePage = :name";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':name',$name);
 		  $stmt->execute(); 

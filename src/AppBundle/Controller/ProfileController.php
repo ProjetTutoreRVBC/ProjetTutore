@@ -28,6 +28,26 @@ class ProfileController extends Controller
       $info_page = $user_page->getPage($slug); 
       $user_post = new Post();
       $info_post = $user_post->getListPost($info_page["idPage"]);
+      $recurence = false;
+      if(isset($_POST) && $_POST != null){
+       if(isset($_COOKIE['last_post']) && isset($_POST['new_post'])){
+        if($_COOKIE['last_post'] == $_POST['new_post'])
+         $recurence = true;
+       }
+       if(isset($_POST['new_post']) && $recurence == false){
+         $post = new Post();
+         $post->add($info_page['idPage'],$info_page['idChannel'],$_POST['new_post']);
+         $info_post = $user_post->getListPost($info_page["idPage"]);
+         setcookie("last_post",$_POST['new_post']);;
+        }
+        if(isset($_POST['delete_post'])){
+         $post = new Post();
+         $post->delete($_POST['idPost']);
+         $info_post = $user_post->getListPost($info_page["idPage"]);
+        }
+      }
       return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post));
     }
+  
+    
 }

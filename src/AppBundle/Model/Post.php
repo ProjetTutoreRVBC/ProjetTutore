@@ -93,19 +93,29 @@ class Post
 		  $stmt->execute();
 		  $this->titlePost = $titlePost;
     }
-  
-    public function setMessagePost($messagePost)
+  	*/
+    public function add($idPage,$idChannel,$messagePost)
     {
       $db = Database::getInstance();
-		  $sql = "UPDATE user SET messagePost = :message WHERE idPost = :id";
+		  $sql = "INSERT INTO `Post`(`idPage`, `idChannel`, `datePost`, `messagePost`) VALUES (:idPage,:idChannel,:datePost,:messagePost)";
+			$datePost = date("Y/m/d H:i:s");
 		  $stmt = $db->prepare($sql);
-		  $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		  $stmt->bindParam(':message',$messagePost);
+		  $stmt->bindParam(':idPage',$idPage);
+		  $stmt->bindParam(':idChannel',$idChannel);
+			$stmt->bindParam(':datePost',$datePost);
+			$stmt->bindParam(':messagePost',$messagePost);
+		  $stmt->execute();
+    }
+	
+		public function delete($idPost)
+    {
+      $db = Database::getInstance();
+		  $sql = "DELETE FROM Post where idPost= :id";
+		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$idPost);
 		  $stmt->execute();
-		  $this->messagePost = $messagePost;
     }
-                       
+    /*                   
     public function setImagePost($imagePost)
     {
       $db = Database::getInstance();
@@ -120,7 +130,7 @@ class Post
 	
 		public function getListPost($id){
 			$db = Database::getInstance();
-		  $sql = "SELECT * FROM Post WHERE Post.idPage = :id";
+		  $sql = "SELECT * FROM Post WHERE Post.idPage = :id order by datePost desc";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute();
