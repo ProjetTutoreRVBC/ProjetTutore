@@ -46,7 +46,7 @@
                             echo '<div id ="right-log" style="float:right;">
                             <ul id="menu" class="menu">';
                             
-                            echo '<li id="signed"><a href="channel"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/metstudio.jpg"></a></li>';
+                             echo '<li id="signed"><a href="gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
                             echo '<li id="signed-1"><a href="profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
                           }else
                           {
@@ -111,11 +111,11 @@
                 echo '<a href="../profile/'.$page['namePage'].'">
                       <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
                         <img src="/web/bundles/framework/images/met.jpg" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
-                        <font style="font-size:150%;margin-left:10px; ">'.$page['namePage'].'<small> // 2 938 292 abonnés</small></font>
+                        <font style="font-size:150%;margin-left:10px; ">'.$page['namePage'].'<small></small></font>
                       </div></a>';
                 }
                 ?>
-                <a href="#">
+                <a href="">
                   <div class="selection" style="width:100%;display:inline-block;margin-top:3%;">
                       <div style="float:left;border: 1px solid grey; border-radius:20%;height:125px;width:125px;text-align:center;background-color:white;">
                       </div>
