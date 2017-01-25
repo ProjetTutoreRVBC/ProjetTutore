@@ -140,13 +140,8 @@
                     <div style="height:100%;width:30%;float:left;">
                         <div style="text-align:center;">
                             <h3><?php echo $views." vues"; ?></h3><br>
-<<<<<<< HEAD
-                            <button type="button" class="button" style="width:40%;margin:1%;">J'aime</button>
-                            <button type=" button " class="alert button " style="width:40%;margin:1%;">Je n'aime pas</button>
-=======
                             <button type="button" class="button" style="width:40%;height:inherit;">J'aime <br>(10293)</button>
                             <button type=" button " class="alert button " style="width:40%;height:inherit;">Je n'aime pas<br> (134)</button>
->>>>>>> 3ff06ff464e3f02e13eb6b6916a6af4103dcc32b
                         </div>
                     </div>
 

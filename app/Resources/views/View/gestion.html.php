@@ -108,7 +108,7 @@
                 </div>
                 */
                 foreach($pages as $page){
-                echo '<a href="../profile/'.$page['namePage'].'">
+                echo '<a href="profile/'.$page['namePage'].'">
                       <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
                         <img src="/web/bundles/framework/images/met.jpg" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
                         <font style="font-size:150%;margin-left:10px; ">'.$page['namePage'].'<small></small></font>
