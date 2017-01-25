@@ -1,0 +1,50 @@
+      .menu li a {
+        padding:0px;
+      }
+      
+      .top-bar {
+        z-index: 2;
+        position:fixed;
+        width:100%;
+        top:0px;
+        padding:0;
+      }
+      
+      
+      #signIn {
+        padding-right: 5px;
+      }
+      
+      #signed {
+        padding-right: 5px;
+      }
+      
+      #signed-1 {
+        padding-right: 5px;
+      }
+      
+      
+      #liste {
+        width:100%;
+        display: inline-block;
+        border-color: grey;
+        border-style: solid; 
+        border-width: 1px 0px 1px 0px;
+      }
+      
+      #search-bar, .button, #logo {
+        height: 40px;
+      }
+      
+      #search-bar {
+        margin-right:0px;
+        width: 500px;
+      }
+      
+      #left-search, #right-log {
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-bottom : 2px;
+      } 
+    

@@ -140,8 +140,8 @@
                     <div style="height:100%;width:30%;float:left;">
                         <div style="text-align:center;">
                             <h3><?php echo $views." vues"; ?></h3><br>
-                            <button type="button" class="button" style="width:40%;">J'aime <br>(10293)</button>
-                            <button type=" button " class="alert button " style="width:40%;">Je n'aime pas<br> (134)</button>
+                            <button type="button" class="button" style="width:40%;margin:1%;">J'aime</button>
+                            <button type=" button " class="alert button " style="width:40%;margin:1%;">Je n'aime pas</button>
                         </div>
                     </div>
 
