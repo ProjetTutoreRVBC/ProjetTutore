@@ -45,7 +45,7 @@
                           }
                             
                           echo '<li id ="logIn">';
-                          echo '<a href=../'.$href.'>';
+                          echo '<a href="'.$href.'">';
                           echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
                         ?>
                     </li>  

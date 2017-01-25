@@ -50,9 +50,9 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
 
         }
 
-        // app_profile_index
-        if ($pathinfo === '/profile') {
-            return array (  '_controller' => 'AppBundle\\Controller\\ProfileController::indexAction',  '_route' => 'app_profile_index',);
+        // profile_index
+        if (0 === strpos($pathinfo, '/profile') && preg_match('#^/profile/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'profile_index')), array (  '_controller' => 'AppBundle\\Controller\\ProfileController::showAction',));
         }
 
         // app_security_register
@@ -86,6 +86,11 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
         // channel
         if (0 === strpos($pathinfo, '/channel') && preg_match('#^/channel/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'channel')), array (  '_controller' => 'AppBundle\\Controller\\ChannelController::showAction',));
+        }
+
+        // profile
+        if (0 === strpos($pathinfo, '/profile') && preg_match('#^/profile/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'profile')), array (  '_controller' => 'AppBundle\\Controller\\ProfileController::showAction',));
         }
 
         // login

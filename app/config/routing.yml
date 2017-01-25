@@ -4,6 +4,9 @@ app:
 channel:
     path:      /channel/{slug}
     defaults:  { _controller: AppBundle:Channel:show }
+profile:
+    path:      /profile/{slug}
+    defaults:  { _controller: AppBundle:Profile:show }    
 login:
     path:      /login/
     defaults:  { _controller: AppBundle:Security:login }
