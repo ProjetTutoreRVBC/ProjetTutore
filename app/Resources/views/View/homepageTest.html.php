@@ -34,7 +34,11 @@
                             echo '<div id ="right-log" style="float:right;">
                             <ul id="menu" class="menu">';
                             
+<<<<<<< HEAD
                             echo '<li id="signed"><a href="channel"><i style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/settings.ico"></i></a></li>';
+=======
+                            echo '<li id="signed"><a href="gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
+>>>>>>> 3ff06ff464e3f02e13eb6b6916a6af4103dcc32b
                             echo '<li id="signed-1"><a href="profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
                           }else
                           {
