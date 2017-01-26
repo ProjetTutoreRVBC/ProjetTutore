@@ -45,6 +45,19 @@ class ProfileController extends Controller
          $post->delete($_POST['idPost']);
          $info_post = $user_post->getListPost($info_page["idPage"]);
         }
+        
+        if(isset($_POST['like'])){
+         $post = new Post();
+         $post->setLike($_POST['id-post-like']);
+         $info_post = $user_post->getListPost($info_page["idPage"]);
+        }
+        
+        if(isset($_POST['dislike'])){
+         $post = new Post();
+         $post->setDislike($_POST['id-post-dislike']); 
+         $info_post = $user_post->getListPost($info_page["idPage"]);
+        }
+        
       }
       return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post));
     }

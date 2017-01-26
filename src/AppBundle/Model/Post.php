@@ -94,6 +94,23 @@ class Post
 		  $this->titlePost = $titlePost;
     }
   	*/
+		public function setLike($id){
+			$db = Database::getInstance();
+		  $sql = "UPDATE `Post` set likes = likes + 1 where idPost = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute();
+		}
+	
+		public function setDislike($id){
+			$db = Database::getInstance();
+		  $sql = "UPDATE `Post` set dislikes = dislikes + 1  where idPost = :id";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute();
+		}
+	
+	
     public function add($idPage,$idChannel,$messagePost)
     {
       $db = Database::getInstance();

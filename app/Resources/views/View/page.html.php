@@ -13,9 +13,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
     <script type="text/javascript" src="/web/bundles/framework/js/top-bar.js"></script>
+    <script type="text/javascript">
+        function changeIconUp(id){
+          var icon = document.getElementById(id);
+            icon.src = "/web/bundles/framework/images/thumbs-up-hand-symbol.png";
+            
+        }
+        function resetIconUp(id){
+          var icon = document.getElementById(id);
+            icon.src = "/web/bundles/framework/images/thumbs-up.png";
+        }
+        
+        function changeIconDown(id){
+          var icon = document.getElementById(id);
+            icon.src = "/web/bundles/framework/images/thumbs-down-silhouette.png";
+            
+        }
+        function resetIconDown(id){
+          var icon = document.getElementById(id);
+            icon.src = "/web/bundles/framework/images/thumb-down.png";  
+        }
+        
+        
+    </script>
 </head>
 
-<body onresize="handleWindow();" onload="handleWindow();">
+<body onresize="handleWindow()" onload="handleWindow()">
     <div>
         <div class="top-bar" style="z-index: 2;">
               <div style="display: inline-block;width:100%;">
@@ -82,7 +105,11 @@
         $param_delete_post = ' class ="callout" data-closable';
             
             }
+        $id = 0;
+        $type1='';
+        $type2='';  
         foreach($posts as $post){
+          
         echo '
         <div style="margin-top:25px;margin-bottom: 25px;box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;display: inline-block;width:100%;" '.$param_delete_post.'>
             <div style="border-bottom: solid 1px;padding:10px;padding-left:0px;">
@@ -91,10 +118,13 @@
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
             echo '<form id="foo" action="" method="post">
                   <input name="idPost" value="'.$post['idPost'].'" hidden>
-                  <button id="submit_button" name="delete_post" class="close-button" aria-label="Dismiss alert" type="submit" data-close>
+                  <button style="outline:none;" id="submit_button" name="delete_post" class="close-button" aria-label="Dismiss alert" type="submit" data-close>
                   <span aria-hidden="true">&times;</span>
-                </button>
-                </form>';
+                  </button>
+                  </form>';
+
+            $type1='name="like" type="button"';
+            $type2='name="dislike" type="button"';  
             }
             echo'</div>
             <div style="margin-top:15px;width:100%;overflow:hidden;">
@@ -103,14 +133,30 @@
             
             <div style="display:inline-block;width:100%;height:40px;">
                 <button class="button" data-toggle="toggle2" style="width:50%;float:right;margin:1%;height:100%;">Voir commentaires</button>
-                <button type="button" class="button" style="width:20%;float:left;margin:1%;padding:1%;height:100%">J&#8216aime</button>
-                <button type=" button " class="alert button " style="width:20%;float:left;margin:1%;padding:1%height:100%">Je n&#8216aime pas</button>
+                <form action="" method="post">
+                <div>
+                <input name="id-post-like" value="'.$post['idPost'].'" hidden>
+                <button "'.$type1.'" style="float:left;margin:1%;outline:none;">
+                  <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
+                  <span>'.$post['likes'].'</span>
+                </button>
+                </div>';
+                $id++;
+            echo '<div>
+                <input name="id-post-dislike" value="'.$post['idPost'].'" hidden>
+                <button "'.$type2.'" style="float:left;margin:1%;outline:none;">
+                  <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
+                  <span>'.$post['dislikes'].'</span>
+                </button>
+                </div>
+                </form>
             </div>
             <div class="callout" id="toggle2" data-toggler data-animate="fade-in fade-out" style="display:none;margin-top:20px;">
                 <h4>Simon le thug</h4>
                 <p>Respect or die</p>
             </div>
         </div>';
+          $id++;
         }
         ?>  
     </div>
