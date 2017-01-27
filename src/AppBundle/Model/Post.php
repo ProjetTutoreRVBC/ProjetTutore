@@ -94,22 +94,65 @@ class Post
 		  $this->titlePost = $titlePost;
     }
   	*/
-		public function setLike($id){
+		public function setLike($id,$idNostreamer,$type){
 			$db = Database::getInstance();
-		  $sql = "UPDATE `Post` set likes = likes + 1 where idPost = :id";
+		  $sql = "UPDATE `Post` set likes = likes + 1,dislikes=dislikes-1 where idPost = :id";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute();
+			if($type == "insert"){
+		  $sql = "INSERT INTO `Post`(idNostreamer,idPost,likes,dislikes) VALUES (:idN,:idP,:like,:dislike)";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':idP',$id);
+			$stmt->bindParam(':likes',1);
+			$stmt->bindParam(':dislikes',0);
+			 $stmt->execute();	
+			}
+			if($type == "update"){
+			$sql = "UPDATE `votePost` set dislikes = 0, likes = 1 where idPost = :id and idNostreamer=:idN";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+			$stmt->bindParam(':idN',$idNostreamer);
+		  $stmt->execute();
+			}
+		 
 		}
 	
-		public function setDislike($id){
+		public function setDislike($id,$idNostreamer,$type){
 			$db = Database::getInstance();
-		  $sql = "UPDATE `Post` set dislikes = dislikes + 1  where idPost = :id";
+		  $sql = "UPDATE `Post` set dislikes = dislikes + 1, like = like-1 where idPost = :id";
 			$stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute();
+			if($type == "insert"){
+			$sql = "INSERT INTO `Post`(idNostreamer,idPost,likes,dislikes) VALUES (:idN,:idP,:like,:dislike)";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':idP',$id);
+			$stmt->bindParam(':likes',0);
+			$stmt->bindParam(':dislikes',1);
+			$stmt->execute();	
+			}
+			if($type == "update"){
+			$sql = "UPDATE `votePost` set dislikes = 1, likes = 0 where idPost = :id and idNostreamer=:idN";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+			$stmt->bindParam(':idN',$idNostreamer);
+		  $stmt->execute();
+			}
 		}
 	
+		public function getVote($idNostreamer,$idPost){
+			$db = Database::getInstance();
+			$sql = "SELECT * `Post` WHERE idNostreamer = :idN and idPost = :idP";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':idP',$idPost);
+		  $stmt->execute();
+		  $vote = $stmt->fetchAll();
+			return $vote;
+		}
 	
     public function add($idPage,$idChannel,$messagePost)
     {

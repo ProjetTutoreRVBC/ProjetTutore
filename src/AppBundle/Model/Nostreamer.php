@@ -108,6 +108,20 @@ class Nostreamer
 			return $this->birthNostreamer
 		}
   	*/
+	
+		public function getId($pseudoNostreamer)
+    {
+      $db = Database::getInstance();
+		  $sql = "SELECT idNostreamer FROM Nostreamer WHERE pseudoNostreamer = :pseudo";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':pseudo',$pseudoNostreamer);
+		  $stmt->execute(); 
+		  $result = $stmt->fetch();
+			return $result;
+    }
+		
+	
+	
     public function getChannels($pseudoNostreamer)
     {
       $db = Database::getInstance();

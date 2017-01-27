@@ -106,8 +106,8 @@
             
             }
         $id = 0;
-        $type1='';
-        $type2='';  
+        $type1="";
+        $type2="";  
         foreach($posts as $post){
           
         echo '
@@ -123,8 +123,8 @@
                   </button>
                   </form>';
 
-            $type1='name="like" type="button"';
-            $type2='name="dislike" type="button"';  
+            $type1='name="like" type="submit" ';
+            $type2='name="dislike" type="submit" ';  
             }
             echo'</div>
             <div style="margin-top:15px;width:100%;overflow:hidden;">
@@ -136,7 +136,7 @@
                 <form action="" method="post">
                 <div>
                 <input name="id-post-like" value="'.$post['idPost'].'" hidden>
-                <button "'.$type1.'" style="float:left;margin:1%;outline:none;">
+                <button '.$type1.' style="float:left;margin:1%;outline:none;">
                   <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
                   <span>'.$post['likes'].'</span>
                 </button>
@@ -144,7 +144,7 @@
                 $id++;
             echo '<div>
                 <input name="id-post-dislike" value="'.$post['idPost'].'" hidden>
-                <button "'.$type2.'" style="float:left;margin:1%;outline:none;">
+                <button '.$type2.' style="float:left;margin:1%;outline:none;">
                   <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
                   <span>'.$post['dislikes'].'</span>
                 </button>

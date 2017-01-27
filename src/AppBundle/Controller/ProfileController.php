@@ -48,13 +48,24 @@ class ProfileController extends Controller
         
         if(isset($_POST['like'])){
          $post = new Post();
-         $post->setLike($_POST['id-post-like']);
+         $user = new Nostreamer();
+         $user_i = $user->getId($_COOKIE['pseudo']); 
+         $vote = $post->getVote($user_i,$_POST['id-post-like']); 
+         $type = "insert"; 
+         if($vote != null) 
+           $type = "update";
+         $post->setLike($_POST['id-post-like'],$user_i['idNostreamer'],$type);
          $info_post = $user_post->getListPost($info_page["idPage"]);
         }
         
         if(isset($_POST['dislike'])){
          $post = new Post();
-         $post->setDislike($_POST['id-post-dislike']); 
+         $user_i = $user->getId($_COOKIE['pseudo']); 
+         $vote = $post->getVote($user_i,$_POST['id-post-dislike']); 
+         $type = "insert"; 
+         if($vote != null) 
+           $type = "update"; 
+         $post->setDislike($_POST['id-post-dislike'],$user_i['idNostreamer'],$type); 
          $info_post = $user_post->getListPost($info_page["idPage"]);
         }
         
