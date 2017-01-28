@@ -116,8 +116,8 @@ class Nostreamer
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':pseudo',$pseudoNostreamer);
 		  $stmt->execute(); 
-		  $result = $stmt->fetch();
-			return $result;
+		  $result = $stmt->fetchAll();
+			return $result[0];
     }
 		
 	

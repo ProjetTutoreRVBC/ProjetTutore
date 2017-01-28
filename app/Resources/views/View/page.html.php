@@ -1,6 +1,8 @@
 <!-- app/Resources/views/View/page.html.php-->  
 <!doctype html>
+<?php
 
+?>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -34,7 +36,7 @@
             icon.src = "/web/bundles/framework/images/thumb-down.png";  
         }
         
-        
+      
     </script>
 </head>
 
@@ -111,7 +113,7 @@
         foreach($posts as $post){
           
         echo '
-        <div style="margin-top:25px;margin-bottom: 25px;box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;display: inline-block;width:100%;" '.$param_delete_post.'>
+        <div id="bloc" style="margin-top:25px;margin-bottom: 25px;box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;display: inline-block;width:100%;" '.$param_delete_post.'>
             <div style="border-bottom: solid 1px;padding:10px;padding-left:0px;">
                 <h>Publié le '.$post['datePost'].' </h>';
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
@@ -132,28 +134,48 @@
             </div>
             
             <div style="display:inline-block;width:100%;height:40px;">
-                <button class="button" data-toggle="toggle2" style="width:50%;float:right;margin:1%;height:100%;">Voir commentaires</button>
-                <form action="" method="post">
+                <button class="button" data-toggle="'.$post['idPost'].'" style="width:50%;float:right;margin:1%;height:100%;">Voir commentaires</button>
+                <form  action="" method="post">
                 <div>
-                <input name="id-post-like" value="'.$post['idPost'].'" hidden>
-                <button '.$type1.' style="float:left;margin:1%;outline:none;">
-                  <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
-                  <span>'.$post['likes'].'</span>
-                </button>
-                </div>';
+                <input id="data" name="id-post-like" value="'.$post['idPost'].'" hidden>';
+                if(!isset($vote[$post['idPost']]['like']) || $vote[$post['idPost']]['like'] == false)
+                  echo '<button '.$type1.' style="float:left;margin:1%;outline:none;">
+                    <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
+                    <span id="content">'.$post['likes'].'</span>
+                  </button>
+                  </div>';
+                if(isset($vote[$post['idPost']]['like']) && $vote[$post['idPost']]['like'] == true)
+                  echo '<button  style="float:left;margin:1%;outline:none;" disabled>
+                    <img  style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up-hand-symbol.png" alt="">
+                    <span id="content">'.$post['likes'].'</span>
+                  </button>
+                  </div>';  
                 $id++;
-            echo '<div>
-                <input name="id-post-dislike" value="'.$post['idPost'].'" hidden>
-                <button '.$type2.' style="float:left;margin:1%;outline:none;">
-                  <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
-                  <span>'.$post['dislikes'].'</span>
-                </button>
-                </div>
+                echo '<div>
+                <input id="data" name="id-post-dislike" value="'.$post['idPost'].'" hidden>';
+                if(!isset($vote[$post['idPost']]['dislike']) || $vote[$post['idPost']]['dislike'] == false)
+                  echo '<button '.$type2.' style="float:left;margin:1%;outline:none;">
+                    <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
+                    <span id="content">'.$post['dislikes'].'</span>
+                  </button>';
+                if(isset($vote[$post['idPost']]['dislike']) && $vote[$post['idPost']]['dislike'] == true)
+                  echo '<button  style="float:left;margin:1%;outline:none;" disabled>
+                    <img style="max-width:30px;max-height:30px;"  id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-down-silhouette.png" alt="">
+                    <span id="content">'.$post['dislikes'].'</span>
+                  </button>';
+                  
+                  
+            echo '</div>
                 </form>
             </div>
-            <div class="callout" id="toggle2" data-toggler data-animate="fade-in fade-out" style="display:none;margin-top:20px;">
-                <h4>Simon le thug</h4>
-                <p>Respect or die</p>
+            <div class="callout" id="'.$post['idPost'].'" data-toggler data-animate="fade-in fade-out" style="display:none;margin:2%;">
+                <textarea placeholder="Votre message..." rows="2" cols="50"></textarea>
+                <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-bottom:20px;">
+                    <p> Ceci est un commentaire. Il est assez long pour tenir sur deux lignes : ffffffffffffffffffffffffffffffffffffffffffffffjjjjddddddddddddddddddddddddddkkkkkkkkkkkkkkkkkkkkkkkkk</p>
+                </div>
+                <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;">
+                    <p> Ceci est un commentaire.</p>
+                </div>
             </div>
         </div>';
           $id++;
