@@ -1,6 +1,9 @@
 <?php
+namespace AppBundle\Model;
+
 class Comment
 {
+	/*
     private $idComment;
     private $post;
     private $nostreamer;
@@ -45,7 +48,6 @@ class Comment
 		$stmt->execute();
 		return $stmt->fetch();
 			}
-    }
   
     public function getTitleComment()
     {
@@ -69,16 +71,37 @@ class Comment
       $this->titleComment = $titleComment;
 			  
     }
-  
-    public function setMessageComment($messageComment)
+  */
+    public function setCommentPost($messageComment,$idPost,$idNostreamer,$idPage,$idChannel)
     {
       $db = Database::getInstance();
-			$sql = "UPDATE Comment SET messageComment = :message WHERE idComment = :id";
-			$stmt = $db->prepare($sql);
-			$stmt->setFetchMode(PDO::FETCH_ASSOC);
-			$stmt->bindParam(':message',$messageComment);
-			$stmt->bindParam(':id',$idComment);
-			$stmt->execute();
-			$this->messageComment = $messageComment;
+			$date = date("Y/m/d H:i:s");
+			$sql = "INSERT INTO Comment
+						(dateComment,messageComment,idPost,idNostreamer,idPage,idChannel)
+						VALUES
+						('".$date."',
+						 '".$messageComment."',
+						 ".$idPost.", 
+						 ".$idNostreamer.",
+						 ".$idPage." ,
+						 ".$idChannel.")";
+			$db->query($sql);
     }
+		
+		public function setCommentVideo($messageComment,$idVideo,$idNostreamer,$idChannel)
+    {
+      $db = Database::getInstance();
+			$date = date("Y/m/d H:i:s");
+			$sql = "INSERT INTO Comment
+						(dateComment,messageComment,idVideo,idNostreamer,idChannel)
+						VALUES
+						('".$date."',
+						 '".$messageComment."',
+						 ".$idVideo.", 
+						 ".$idNostreamer.",
+						 ".$idChannel.")";
+			$db->query($sql);
+    }
+	
+	
 }

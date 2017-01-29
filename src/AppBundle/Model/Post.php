@@ -185,6 +185,10 @@ class Post
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$idPost);
 		  $stmt->execute();
+			$sql = "DELETE FROM Comment where idPost= :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idPost);
+		  $stmt->execute();
     }
     /*                   
     public function setImagePost($imagePost)
@@ -208,5 +212,16 @@ class Post
 		  $posts = $stmt->fetchAll();
 			return $posts;
 		}
+		
+		
 	
+		public function getComments($id){
+			$db = Database::getInstance();
+		  $sql = "SELECT * FROM Comment WHERE idPage = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute();
+		  $posts = $stmt->fetchAll();
+			return $posts;
+		}
 }

@@ -202,13 +202,22 @@
                     </div> 
                   </div>
                   <div class="callout" id="commentaires" data-toggler data-animate="fade-in fade-out" style="border:none;margin-left:20px;margin-top:20px;;width:874px;display:none;box-shadow: 1px 1px 10px 1px #CDD3E1;">
-                    <textarea placeholder="Votre message..." rows="2" cols="50"></textarea>
-                    <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-bottom:20px;">
-                        <p> Ceci est un commentaire. Il est assez long pour tenir sur deux lignes : ffffffffffffffffffffffffffffffffffffffffffffffjjjjddddddddddddddddddddddddddkkkkkkkkkkkkkkkkkkkkkkkkk</p>
-                    </div>
-                    <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;">
-                        <p> Ceci est un commentaire.</p>
-                    </div>
+                    <?php
+                    echo '<form action="" method="post" style="margin-bottom:20px;display: inline-block;">
+                          <div style="width:843px;">
+                          <textarea name="comment" placeholder="Votre message..." rows="2" cols="50"></textarea>
+                          </div>
+                          <div>
+                          <button name="send_comment" type ="submit" class="button" style="float: right;">Envoyez</button>
+                          </div>
+                          </form>';
+                       foreach($comments as $comment) {
+                             echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;">
+                                    <p>'.$comment['messageComment'].'</p>
+                                  </div>';
+                       }
+
+                    ?>
                   </div>
                   </div>
                   <script>

@@ -35,7 +35,6 @@
           var icon = document.getElementById(id);
             icon.src = "/web/bundles/framework/images/thumb-down.png";  
         }
-        
       
     </script>
 </head>
@@ -167,15 +166,28 @@
                   
             echo '</div>
                 </form>
-            </div>';
-            '<div class="callout" id="'.$post['idPost'].'" data-toggler data-animate="fade-in fade-out" style="display:none;margin:2%;">
-                <textarea placeholder="Votre message..." rows="2" cols="50"></textarea>';
-             foreach($comments as $comment)   
-                '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-bottom:20px;">
-                    <p>'..'</p>
-                </div>';
+            </div>
+            <div class="callout" id="'.$post['idPost'].'" data-toggler data-animate="fade-in fade-out" style="display:none;margin:2%;">
+                <form action="" method="post" style="margin-bottom:20px;display: inline-block;">
+                <div style="width:675px;">
+                <input name="post_id" value="'.$post['idPost'].'" hidden>
+                <textarea name="comment" placeholder="Votre message..." rows="2" cols="50"></textarea>
+                </div>
+                <div>
+                <button name="send_comment" type ="submit" class="button" style="float: right;">Envoyez</button>
+                </div>
+                </form>';
+             foreach($comments as $key => $value) {
+                if($key== $post['idPost']){
+                 foreach($value as $comment){
+                   echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;">
+                          <p>'.$comment['text'].'</p>
+                        </div>';
+                  }
+                }
+             }
             echo '</div>
-        </div>';
+          </div>';
           $id++;
         }
         ?>  

@@ -165,6 +165,17 @@ class Video
 		  $stmt->execute();
 		 
 		}
+		
+		public function getComments($id){
+			$db = Database::getInstance();
+		  $sql = "SELECT * FROM Comment WHERE idVideo = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute();
+		  $posts = $stmt->fetchAll();
+			return $posts;
+		}
+	
 		/*
 			$tabextImg = array('jpg','jpeg','png','gif');
 			$tabextVideo = array('mp4','wma','avi','mpg','mpeg','webm');

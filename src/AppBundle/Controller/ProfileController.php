@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Comment;
 use AppBundle\Model\Post;
 use AppBundle\Model\Page;
 use AppBundle\Model\Nostreamer;
@@ -28,18 +29,23 @@ class ProfileController extends Controller
       $user = new Nostreamer();
       $info_page = $user_page->getPage($slug); 
       $user_post = new Post();
-      $recurence = false;
+      $recurence_post = false;
+      $recurence_comment =false;
       $info_vote = array();
       if(isset($_COOKIE['pseudo'])){
         if(isset($_POST) && $_POST != null){
          if(isset($_COOKIE['last_post']) && isset($_POST['new_post'])){
           if($_COOKIE['last_post'] == $_POST['new_post'])
-           $recurence = true;
+           $recurence_post = true;
          }
-         if(isset($_POST['new_post']) && $recurence == false){
+         if(isset($_COOKIE['last_comment']) && isset($_POST['comment'])){
+          if($_COOKIE['last_comment'] == $_POST['comment'])
+           $recurence_comment = true;
+         } 
+         if(isset($_POST['new_post']) && $recurence_post == false){
            $post = new Post();
            $post->add($info_page['idPage'],$info_page['idChannel'],$_POST['new_post']);
-           setcookie("last_post",$_POST['new_post']);;
+           setcookie("last_post",$_POST['new_post']);
           }
           if(isset($_POST['delete_post'])){
            $post = new Post();
@@ -65,6 +71,18 @@ class ProfileController extends Controller
              $type = "update";
             $post->setVote($_POST['id-post-dislike'],$user_id['idNostreamer'],0,1,$type);
           }
+          
+          if(isset($_POST['send_comment']) && $recurence_comment == false){
+           $com = new Comment();
+           $user_id = $user->getId($_COOKIE['pseudo']);
+           $message = $_POST['comment'];
+           $page_id =  $info_page['idPage'];
+           $post_id =  $_POST['post_id'];
+           $page_ch =  $info_page['idChannel'];
+           setcookie("last_comment",$_POST['comment']); 
+           $com->setCommentPost($message,$post_id,$user_id['idNostreamer'],$page_id,$page_ch);
+          }
+          
         }
           $user_id = $user->getId($_COOKIE['pseudo']);  
           $list = $user_post->getListVote($user_id['idNostreamer']);
@@ -75,7 +93,12 @@ class ProfileController extends Controller
            // update page
       }
       $info_post = $user_post->getListPost($info_page["idPage"]);
-      return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post,"vote"=>$info_vote));
+      $info_post_comment = $user_post->getComments($info_page["idPage"]);
+      $comments = array();
+      for($i=0;$i < sizeof($info_post_comment); $i++){
+            $comments[$info_post_comment[$i]['idPost']][$info_post_comment[$i]['idComment']]['text'] = $info_post_comment[$i]['messageComment'];
+          }
+      return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments));
     }
   
     
