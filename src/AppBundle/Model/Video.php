@@ -110,6 +110,61 @@ class Video
 			$video = $result[0];
 			return $video;	
 		}
+	
+		public function getVote($id,$idNostreamer){
+			$db = Database::getInstance();
+			$sql = "SELECT * from voteVideo where idVideo = :id and idNostreamer = :idN";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':idN', $idNostreamer);
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			return $result;
+		}
+	
+		public function setVote($id,$idNostreamer,$like,$dislike,$type){
+			$db = Database::getInstance();
+			if($type == "insert"){
+		  $sql = "INSERT INTO voteVideo(idNostreamer,idVideo,likes,dislikes) VALUES (:idN,:idP,:like,:dislike)";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':idP',$id);
+			$stmt->bindParam(':like',$like);
+			$stmt->bindParam(':dislike',$dislike);
+			$stmt->execute();	
+			}
+			if($type == "update"){
+			$sql = "UPDATE voteVideo set dislikes = :dislike, likes = :like where idVideo = :id and idNostreamer=:idN";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+			$stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':like',$like);
+			$stmt->bindParam(':dislike',$dislike);	
+		  $stmt->execute();
+			}
+			
+			$sql = "select sum(likes) from voteVideo where idVideo = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute();
+			$result = $stmt->fetchAll();
+			$post_like = $result[0]['sum(likes)'] ? $result[0]['sum(likes)'] : 0;
+			
+			$sql = "select sum(dislikes) from voteVideo where idVideo = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute();
+			$result = $stmt->fetchAll();
+			$post_dislike = $result[0]['sum(dislikes)'] ? $result[0]['sum(dislikes)'] : 0;
+			
+		  $sql = "UPDATE `Video` set likes = :like,dislikes=:dislike where idVideo = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+			$stmt->bindParam(':like',$post_like);
+			$stmt->bindParam(':dislike',$post_dislike);
+		  $stmt->execute();
+		 
+		}
 		/*
 			$tabextImg = array('jpg','jpeg','png','gif');
 			$tabextVideo = array('mp4','wma','avi','mpg','mpeg','webm');

@@ -167,16 +167,14 @@
                   
             echo '</div>
                 </form>
-            </div>
-            <div class="callout" id="'.$post['idPost'].'" data-toggler data-animate="fade-in fade-out" style="display:none;margin:2%;">
-                <textarea placeholder="Votre message..." rows="2" cols="50"></textarea>
-                <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-bottom:20px;">
-                    <p> Ceci est un commentaire. Il est assez long pour tenir sur deux lignes : ffffffffffffffffffffffffffffffffffffffffffffffjjjjddddddddddddddddddddddddddkkkkkkkkkkkkkkkkkkkkkkkkk</p>
-                </div>
-                <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;">
-                    <p> Ceci est un commentaire.</p>
-                </div>
-            </div>
+            </div>';
+            '<div class="callout" id="'.$post['idPost'].'" data-toggler data-animate="fade-in fade-out" style="display:none;margin:2%;">
+                <textarea placeholder="Votre message..." rows="2" cols="50"></textarea>';
+             foreach($comments as $comment)   
+                '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-bottom:20px;">
+                    <p>'..'</p>
+                </div>';
+            echo '</div>
         </div>';
           $id++;
         }

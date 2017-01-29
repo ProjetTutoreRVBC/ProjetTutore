@@ -2,7 +2,7 @@
 .video-js .vjs-control:before,
 .video-js .vjs-modal-dialog,
 .vjs-modal-dialog .vjs-modal-dialog-content {
-    position: relative;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
     top: 0;
