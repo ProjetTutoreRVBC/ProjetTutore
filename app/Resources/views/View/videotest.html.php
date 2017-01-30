@@ -82,12 +82,12 @@
         </div>
 
     <!-------------------------------------------------------TOP BAR------------------------------------------------------>
-    <div class="page-container" style="margin-top:50px;height:100%;">
-    <div class="video-principale" style="position:initial;margin-top:20px;margin-left:20px;display:inline-block;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
-        <div class="video-titre" style="position:initial;width:854px;">
-               <h3 style="padding-left:20px;"><?php echo substr($title,0,45); ?></h3>
-        </div>  
-        <div class="video-container " style="height:480px;width:854px;">
+    <div class="video-titre" style="height:5%;width:70%;top:55px;">
+      <h3 style="padding-left:20px;"><?php echo substr($title,0,45); ?></h3>
+    </div>  
+    <div class="video-principale" style="height: 95%;width: 100%;top:110px;">
+        
+        <div class="video-container " style="height:70%;width:65%!important;margin-left:20px;">
             <video id="my-video " class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="atlas.jpg " data-setup="{} ">
                 <source src="<?php echo '/web/bundles/framework/mp4/'.$v.'.mp4';?>" type='video/mp4'>
                 <p class="vjs-no-js ">
@@ -96,10 +96,9 @@
                 </p>
             </video>
         </div>
-    </div>
-        <div style="text-align:center;overflow-y:hidden;overflow-x:visible;height:551px;padding:10px;position: absolute;margin-left:914px;top:71px;margin-right:20px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
-            <div class=" " style="display:inline-block;height:100%;overflow-y:scroll;overflow-x:visible;">
-                <h6 style="text-align:center; ">Autres vidéos de la chaîne</h6>
+      
+        <div style="text-align:center;overflow-y:hidden;overflow-x:visible;height:70%">
+            <div class=" " style="display:inline-block;width:60%;height:100%;overflow-y:scroll;overflow-x:visible;margin-left:50px;margin-right:50px;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
                  <?php
               foreach($video as $v)
                 {
@@ -145,7 +144,7 @@
                     </div>
                 </div>-->
 
-                <div style="margin-left:20px;margin-bottom:20px;margin-top:20px;width:874px;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
+                <div style="margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
                       <div style="text-align:center;width:100%;"><span><?php echo $views." vues"; ?></span></div>
                       <div style="width:100%;">
                         <form action="" method="post">
