@@ -168,7 +168,7 @@
                 </form>
             </div>
             <div class="callout" id="'.$post['idPost'].'" data-toggler data-animate="fade-in fade-out" style="display:none;margin:2%;">
-                <form action="" method="post" style="wudth:100%;margin-bottom:20px;display: inline-block;">
+                <form action="" method="post" style="width:100%;margin-bottom:20px;display: inline-block;">
                 <div>
                 <input name="post_id" value="'.$post['idPost'].'" hidden>
                 <textarea name="comment" placeholder="Votre message..." rows="2" cols="50"></textarea>
