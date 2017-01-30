@@ -68,6 +68,7 @@ class VideoController extends Controller
       $list_c = $video->getListChannelByIdVideo();
       $list_p = $video->getListPageByIdVideo();
       $comments = $video->getComments($id);
+      $v = $video->getVideo($id);
       return $this->render('View/videotest.html.php',
       array(
           "dislikes"=>$v['dislikes'],

@@ -97,7 +97,7 @@
             </video>
         </div>
     </div>
-        <div style="text-align:center;overflow-y:hidden;overflow-x:visible;width:600px;height:551px;padding:10px;position: absolute;margin-left:914px;top:71px;margin-right:20px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
+        <div style="text-align:center;overflow-y:hidden;overflow-x:visible;height:551px;padding:10px;position: absolute;margin-left:914px;top:71px;margin-right:20px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
             <div class=" " style="display:inline-block;height:100%;overflow-y:scroll;overflow-x:visible;">
                 <h6 style="text-align:center; ">Autres vidéos de la chaîne</h6>
                  <?php
