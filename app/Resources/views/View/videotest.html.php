@@ -62,7 +62,7 @@
                             <ul id="menu" class="menu">';
                             
                              echo '<li id="signed"><a href="gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-                            echo '<li id="signed-1"><a href="profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+                            echo '<li id="signed-1"><a href="profile/'.$user_page.'"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
                           }else
                           {
                             echo '<div id ="right-log" style="float:right;">
@@ -144,7 +144,7 @@
                     </div>
                 </div>-->
 
-                <div style="margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
+                <div id="info_video" style="margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
                       <div style="text-align:center;width:100%;"><span><?php echo $views." vues"; ?></span></div>
                       <div style="width:100%;">
                         <form action="" method="post">
@@ -211,9 +211,21 @@
                           </div>
                           </form>';
                        foreach($comments as $comment) {
-                             echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;">
-                                    <p>'.$comment['messageComment'].'</p>
-                                  </div>';
+                           echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-top:15px;" class="callout" data-closable>
+                                  <div style="border-bottom: solid 1px;">
+                                    <img style="width:30px;height:30px;" src="met.jpg">
+                                    <span style="margin-left:10px;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                                    if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
+                                    echo '<form action="" method="post">
+                                        <input name="idComment" value="'.$comment['idComment'].'" hidden>
+                                        <button style="outline:none;" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </form>';  
+                         
+                               echo '</div>
+                                  <p>'.$comment['messageComment'].'</p>
+                                </div>';
                        }
 
                     ?>

@@ -86,4 +86,15 @@ class Page
 		 	$page = $stmt->fetchAll();
 			return $page[0];
 		}
+		
+		public function getMainPage($id){
+			$db = Database::getInstance();
+		  $sql = "SELECT * FROM Page WHERE idNostreamer = :id and mainPage=1";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute(); 
+		 	$page = $stmt->fetchAll();
+			return $page;
+		}
+	
 }

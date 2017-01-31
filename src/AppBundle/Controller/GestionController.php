@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Page;
 use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
@@ -27,7 +28,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 class GestionController extends Controller
 {
     /**
-     * @Route("/gestion")
+     * @Route("/gestion/")
      */
     public function indexAction(Request $request)
     { 
@@ -35,7 +36,10 @@ class GestionController extends Controller
         $user = new Nostreamer();
         $list_p = $user->getPages($_COOKIE["pseudo"]);
         $list_c = $user->getChannels($_COOKIE["pseudo"]);
-        return $this->render('View/gestion.html.php',array("pages" => $list_p,"channels"=>$list_c));
+        $user_id = $user->getId($_COOKIE["pseudo"]);
+        $user_page = new Page();
+        $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
+        return $this->render('View/gestion.html.php',array("pages" => $list_p,"channels"=>$list_c,"user_page"=>$current_user_page[0]['namePage']));
       }
       redirectToRoute('home');
     }

@@ -168,7 +168,7 @@ class Video
 		
 		public function getComments($id){
 			$db = Database::getInstance();
-		  $sql = "SELECT * FROM Comment WHERE idVideo = :id";
+		  $sql = "SELECT * FROM Comment,Nostreamer WHERE idVideo = :id and Nostreamer.idNostreamer = Comment.idNostreamer order by dateComment desc";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute();

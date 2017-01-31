@@ -46,8 +46,8 @@
                             echo '<div id ="right-log" style="float:right;">
                             <ul id="menu" class="menu">';
                             
-                             echo '<li id="signed"><a href="gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-                            echo '<li id="signed-1"><a href="profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+                             echo '<li id="signed"><a href="../gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
+                            echo '<li id="signed-1"><a href="../profile/'.$user_page.'"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
                           }else
                           {
                             echo '<div id ="right-log" style="float:right;">
@@ -89,7 +89,7 @@
                     $Channel = $channel[$titre];
                 echo '<div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
                     <div style="width:50%;float:left;overflow:hidden;">
-                        <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;">
+                        <a href="../watch?v='.$id.'"><img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"></a>
                         <font style="font-size:110%;margin-left:10px;overflow:hidden; ">'.$titre.'</font>
                     </div>
                     <table style="float:left;height:100%;width:30%;">
@@ -100,10 +100,10 @@
                         </tr>
                         <tr>
                             <td style="text-align:center;background-color:#2199e8;">
-                                24 543 likes
+                                '.$v['likes'].' likes
                             </td>
                             <td style="background-color:#da3116;text-align:center;">
-                                456 dislikes
+                                '.$v['dislikes'].' dislikes
                             </td>
                         </tr>
                         <tr>

@@ -61,7 +61,7 @@
                             <ul id="menu" class="menu">';
                             
                              echo '<li id="signed"><a href="gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-                            echo '<li id="signed-1"><a href="../profile"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+                            echo '<li id="signed-1"><a href="../profile/'.$user_page.'"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
                           }else
                           {
                             echo '<div id ="right-log" style="float:right;">
@@ -104,7 +104,6 @@
           </form>  
         </div>'; 
         $param_delete_post = ' class ="callout" data-closable';
-            
             }
         $id = 0;
         $type1="";
@@ -180,7 +179,18 @@
              foreach($comments as $key => $value) {
                 if($key== $post['idPost']){
                  foreach($value as $comment){
-                   echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;">
+                   echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-top:15px;" '.$param_delete_post.'>
+                          <div style="border-bottom: solid 1px;">
+                            <img style="width:30px;height:30px;" src="met.jpg">
+                            <span style="margin-left:10px;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                            if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
+                          echo '<form action="" method="post">
+                              <input name="idComment" value="'.key($value).'" hidden>
+                              <button style="outline:none;" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                            </form>';
+                     echo    '</div>
                           <p>'.$comment['text'].'</p>
                         </div>';
                   }

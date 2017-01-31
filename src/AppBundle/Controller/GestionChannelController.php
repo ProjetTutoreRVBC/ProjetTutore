@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Page;
 use AppBundle\Model\Channel;
 use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
@@ -42,7 +43,11 @@ class GestionChannelController extends Controller
         $list_p = $video->getListPageByIdVideo();
         $user = new Channel();
         $info_c = $user->getChannel($slug);
-        return $this->render('View/gestionchannel.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p,"name_channel"=>$info_c['nameChannel']));
+        $user = new Nostreamer();
+        $user_id = $user->getId($_COOKIE["pseudo"]);
+        $user_page = new Page();
+        $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
+        return $this->render('View/gestionchannel.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p,"name_channel"=>$info_c['nameChannel'], "user_page"=>$current_user_page[0]['namePage']));
       }
       redirectToRoute('home');
     }

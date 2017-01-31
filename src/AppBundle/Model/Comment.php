@@ -76,6 +76,24 @@ class Comment
     {
       $db = Database::getInstance();
 			$date = date("Y/m/d H:i:s");
+			$sql = "SELECT * FROM Comment WHERE idPost = :id and idNostreamer =:idN and idPage=:idP";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idPost);
+			$stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':idP',$idPage);
+		  $stmt->execute();
+			$result = $stmt->fetchAll();
+			
+			if($result) {
+			$sql = "DELETE FROM Comment WHERE idPost = :id and idNostreamer =:idN and idPage=:idP";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idPost);
+			$stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':idP',$idPage);
+		  $stmt->execute();
+				
+			}
+			
 			$sql = "INSERT INTO Comment
 						(dateComment,messageComment,idPost,idNostreamer,idPage,idChannel)
 						VALUES
@@ -92,6 +110,20 @@ class Comment
     {
       $db = Database::getInstance();
 			$date = date("Y/m/d H:i:s");
+			$sql = "SELECT * FROM Comment WHERE idVideo = :id and idNostreamer =:idN";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idVideo);
+			$stmt->bindParam(':idN',$idNostreamer);
+		  $stmt->execute();
+			$result = $stmt->fetchAll();
+			
+			if($result) {
+			$sql = "DELETE FROM Comment WHERE idVideo = :id and idNostreamer =:idN";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idVideo);
+			$stmt->bindParam(':idN',$idNostreamer);
+		  $stmt->execute();
+			}		
 			$sql = "INSERT INTO Comment
 						(dateComment,messageComment,idVideo,idNostreamer,idChannel)
 						VALUES
@@ -102,6 +134,14 @@ class Comment
 						 ".$idChannel.")";
 			$db->query($sql);
     }
-	
-	
+		
+		public function deleteComment($idComment, $idNostreamer){
+			$db = Database::getInstance();
+			$sql = "DELETE FROM Comment WHERE idComment = :id and idNostreamer =:idN";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idComment);
+			$stmt->bindParam(':idN',$idNostreamer);
+		  $stmt->execute();
+			
+		}
 }

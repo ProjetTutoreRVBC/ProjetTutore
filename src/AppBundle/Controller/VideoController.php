@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Page;
 use AppBundle\Model\Comment;
 use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
@@ -24,9 +25,11 @@ class VideoController extends Controller
     { 
       $id = $request->query->get('v');
       $video = new Video();
+      $user_page = new Page();
       $info_vote = array();
       $recurence_comment = false;
       $v = $video->getVideo($id);
+      $current_user_page = array(0=>array("namePage" => ""));
       if(isset($_COOKIE['pseudo'])){
         $info_u = new Nostreamer();  
         $user_id = $info_u->getId($_COOKIE['pseudo']);
@@ -57,8 +60,14 @@ class VideoController extends Controller
            $com->setCommentVideo($message,$id,$user_id['idNostreamer'],$video_ch);
           }
         
-        $info_vote = $video->getVote($id,$user_id['idNostreamer']);
+        if(isset($_POST['delete_comment'])){
+           $com = new Comment();
+           $message = $_POST['idComment'];
+           $com->deleteComment($_POST['idComment'],$user_id['idNostreamer']);
+          }
         
+        $info_vote = $video->getVote($id,$user_id['idNostreamer']);
+         $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
         
       }
       if(!isset($info_vote[0]))
@@ -79,6 +88,7 @@ class VideoController extends Controller
           "description" => $v['descriptionVideo'],
           "video_channel"=>$user['nameChannel'],
           "video_page"=>$user['namePage'],
+          "user_page"=>$current_user_page[0]['namePage'],
           "v"=>$id,
           "video" => $list_v,
           "channel"=>$list_c,

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 //...
+use AppBundle\Model\Page;
 use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
@@ -35,6 +36,13 @@ class HomeController extends Controller
       $list_v = $video->getListVideo();
       $list_c = $video->getListChannelByIdVideo();
       $list_p = $video->getListPageByIdVideo();
-      return $this->render('View/homepageTest.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
+      $current_user_page = array(0=>array("namePage" => ""));
+      if(isset($_COOKIE['pseudo'])){
+      $user = new Nostreamer();
+      $user_id = $user->getId($_COOKIE["pseudo"]);
+      $user_page = new Page();
+      $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
+      }
+      return $this->render('View/homepageTest.html.php',array("video" => $list_v,"channel"=>$list_c,"page"=>$list_p,"user_page"=>$current_user_page[0]['namePage']));
     }
 }

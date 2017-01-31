@@ -117,7 +117,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             // app_gestion_index
-            if ($pathinfo === '/gestion') {
+            if (rtrim($pathinfo, '/') === '/gestion') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'app_gestion_index');
+                }
+
                 return array (  '_controller' => 'AppBundle\\Controller\\GestionController::indexAction',  '_route' => 'app_gestion_index',);
             }
 

@@ -32,6 +32,7 @@ class ProfileController extends Controller
       $recurence_post = false;
       $recurence_comment =false;
       $info_vote = array();
+      $current_user_page = array(0=>array("namePage" => ""));
       if(isset($_COOKIE['pseudo'])){
         if(isset($_POST) && $_POST != null){
          if(isset($_COOKIE['last_post']) && isset($_POST['new_post'])){
@@ -83,6 +84,13 @@ class ProfileController extends Controller
            $com->setCommentPost($message,$post_id,$user_id['idNostreamer'],$page_id,$page_ch);
           }
           
+          if(isset($_POST['delete_comment'])){
+           $com = new Comment();
+           $user_id = $user->getId($_COOKIE['pseudo']);
+           $message = $_POST['idComment'];
+           $com->deleteComment($_POST['idComment'],$user_id['idNostreamer']);
+          }
+          
         }
           $user_id = $user->getId($_COOKIE['pseudo']);  
           $list = $user_post->getListVote($user_id['idNostreamer']);
@@ -90,15 +98,17 @@ class ProfileController extends Controller
             $info_vote[$list[$i]['idPost']]['like'] = $list[$i]['likes'];
             $info_vote[$list[$i]['idPost']]['dislike'] = $list[$i]['dislikes'];
           }
-           // update page
+        $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
       }
       $info_post = $user_post->getListPost($info_page["idPage"]);
       $info_post_comment = $user_post->getComments($info_page["idPage"]);
       $comments = array();
       for($i=0;$i < sizeof($info_post_comment); $i++){
+            $comments[$info_post_comment[$i]['idPost']][$info_post_comment[$i]['idComment']]['dateComment'] = $info_post_comment[$i]['dateComment'];
+            $comments[$info_post_comment[$i]['idPost']][$info_post_comment[$i]['idComment']]['pseudoNostreamer'] = $info_post_comment[$i]['pseudoNostreamer'];
             $comments[$info_post_comment[$i]['idPost']][$info_post_comment[$i]['idComment']]['text'] = $info_post_comment[$i]['messageComment'];
           }
-      return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments));
+      return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments,"user_page"=>$current_user_page[0]['namePage']));
     }
   
     
