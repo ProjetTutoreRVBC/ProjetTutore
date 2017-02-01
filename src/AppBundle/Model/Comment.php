@@ -76,7 +76,7 @@ class Comment
     {
       $db = Database::getInstance();
 			$date = date("Y/m/d H:i:s");
-			$sql = "SELECT * FROM Comment WHERE idPost = :id and idNostreamer =:idN and idPage=:idP";
+			/*$sql = "SELECT * FROM Comment WHERE idPost = :id and idNostreamer =:idN and idPage=:idP";
 			$stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$idPost);
 			$stmt->bindParam(':idN',$idNostreamer);
@@ -93,7 +93,7 @@ class Comment
 		  $stmt->execute();
 				
 			}
-			
+			*/
 			$sql = "INSERT INTO Comment
 						(dateComment,messageComment,idPost,idNostreamer,idPage,idChannel)
 						VALUES
@@ -110,7 +110,7 @@ class Comment
     {
       $db = Database::getInstance();
 			$date = date("Y/m/d H:i:s");
-			$sql = "SELECT * FROM Comment WHERE idVideo = :id and idNostreamer =:idN";
+			/*$sql = "SELECT * FROM Comment WHERE idVideo = :id and idNostreamer =:idN";
 			$stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$idVideo);
 			$stmt->bindParam(':idN',$idNostreamer);
@@ -123,7 +123,7 @@ class Comment
 		  $stmt->bindParam(':id',$idVideo);
 			$stmt->bindParam(':idN',$idNostreamer);
 		  $stmt->execute();
-			}		
+			}		*/
 			$sql = "INSERT INTO Comment
 						(dateComment,messageComment,idVideo,idNostreamer,idChannel)
 						VALUES

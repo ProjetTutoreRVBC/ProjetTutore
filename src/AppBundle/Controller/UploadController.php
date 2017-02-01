@@ -17,10 +17,11 @@ class UploadController extends Controller
     {
       $size ="";
       $msg="";
-      if(isset($_FILES['file'])) {
+      if(isset($_FILES['file']) && isset($_POST)) {
         $file = new Upload();
         $msg = $file->add($_FILES);
         $size = $_FILES["file"]["size"] / 1024;
+        
       }
       return $this->render('View/upload.html.php',array("size"=>$size,"status"=>$msg));
       
