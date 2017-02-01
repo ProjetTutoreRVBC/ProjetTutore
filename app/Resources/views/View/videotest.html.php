@@ -145,9 +145,12 @@
                 </div>-->
 
                 <div id="info_video" style="margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
-                      <div style="text-align:center;width:100%;"><span><?php echo $views." vues"; ?></span></div>
                       <div style="width:100%;">
-                        <form action="" method="post">
+                        <div style="width:20%;">
+                          
+                        <div style="text-align:center;width:100%;margin-bottom:15px;"><span><?php echo $views." vues"; ?></span></div>
+
+                        <form action="" method="post" style="text-align:center;">
                         <?php
                         $id = 0;
                         $type1="";
@@ -178,7 +181,8 @@
                                   <span id="content">'.$dislikes.'</span>
                                 </button></span>';
                         ?>
-                        </form>  
+                        </form>
+                          </div>
                     </div>
                     <div style="width:100%;">
                         <span> Mise en ligne le <?php echo $info_date;?> </span>
@@ -196,13 +200,10 @@
                             <span style="margin-left:10px;"><?php echo $video_page;?></span>
                         </div>
                     </div>
-                    <div style="margin-bottom:0">
-                      <button class="button" data-toggle="commentaires" style="width:100%;height:30%;">Voir commentaires</button>  
-                    </div> 
                   </div>
-                  <div class="callout" id="commentaires" data-toggler data-animate="fade-in fade-out" style="border:none;margin-left:20px;margin-top:20px;;width:65%;display:none;box-shadow: 1px 1px 10px 1px #CDD3E1;">
+                  <div id="commentaires" style="border:none;margin-left:20px;margin-top:20px;width:65%;height:inherit;box-shadow: 1px 1px 10px 1px #CDD3E1;">
                     <?php
-                    echo '<form action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;">
+                    echo '<form action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-left:20px;margin-top:20px;">
                           <div style="width:70%;float:left;">
                           <textarea name="comment" placeholder="Votre message..." rows="2" cols="50"></textarea>
                           </div>
@@ -211,7 +212,7 @@
                           </div>
                           </form>';
                        foreach($comments as $comment) {
-                           echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-top:15px;" class="callout" data-closable>
+                           echo '<div style="border:none;padding:10px;margin-left:20px;margin-bottom:10px;width:80%;overflow:hidden;" class="callout" data-closable>
                                   <div style="border-bottom: solid 1px;">
                                     <img style="width:30px;height:30px;" src="met.jpg">
                                     <span style="margin-left:10px;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
