@@ -200,13 +200,13 @@
                       <button class="button" data-toggle="commentaires" style="width:100%;height:30%;">Voir commentaires</button>  
                     </div> 
                   </div>
-                  <div class="callout" id="commentaires" data-toggler data-animate="fade-in fade-out" style="border:none;margin-left:20px;margin-top:20px;;width:874px;display:none;box-shadow: 1px 1px 10px 1px #CDD3E1;">
+                  <div class="callout" id="commentaires" data-toggler data-animate="fade-in fade-out" style="border:none;margin-left:20px;margin-top:20px;;width:65%;display:none;box-shadow: 1px 1px 10px 1px #CDD3E1;">
                     <?php
-                    echo '<form action="" method="post" style="margin-bottom:20px;display: inline-block;">
-                          <div style="width:843px;">
+                    echo '<form action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;">
+                          <div style="width:70%;float:left;">
                           <textarea name="comment" placeholder="Votre message..." rows="2" cols="50"></textarea>
                           </div>
-                          <div>
+                          <div style="float:left;margin-left:20px;margin-top:5px;">
                           <button name="send_comment" type ="submit" class="button" style="float: right;">Envoyez</button>
                           </div>
                           </form>';
