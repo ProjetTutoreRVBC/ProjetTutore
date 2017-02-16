@@ -78,15 +78,24 @@
               </div>
             </div>
           </div>
-    <div style="padding:1px;display:inline-block;width:100%;">
-        <img src="/web/bundles/framework/images/banner.jpeg" style="height:400px;width:100%;"><br>
-        <img src="metstudio.jpg " style="top:40%;left:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
-        <img src="met.jpg " style="top:40%;right:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
-        <h2 style="margin-left:250px;position:absolute;"><?php echo $profile["namePage"];?></h2>
-        <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
+
+    <div style="height:40%;position:absolute;width:100%;top:49px;">
+    <div style="height:75%;padding:1px;width:100%;">
+        <img src="/web/bundles/framework/images/banner.jpeg" style="height:100%;width:100%;text-align:center;"><br>
+        <img src="/web/bundles/framework/images/met.jpg" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
     </div>
 
-        <div style="margin-left:auto;margin-right:auto;margin-top:9%;width:50%;height:10%;background-color:white;">
+    <div style="padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;width:100%;height:30%;">
+        <div style="float:left;margin-left:30px;">
+            <h2 style="">Nom de la page</h2>
+            <h6 style="margin-top:-5%;float:left;"> abonnés</h6>
+        </div>
+        <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>
+    </div>
+      </div>
+
+
+        <div style="margin-left:auto;margin-right:auto;margin-top:25%;width:50%;height:10%;background-color:white;">
         <?php
           $param_delete_post = "";
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
