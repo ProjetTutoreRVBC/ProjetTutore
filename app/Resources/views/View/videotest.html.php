@@ -137,6 +137,10 @@
               ?>
             </div>
         </div>
+      
+      <!--<div style="float:right;height:20%;width:20%;">
+        <img src="https://iletaitunepub.fr/wp-content/uploads/2016/02/maxresdefault-2.jpg" style="width:100%;height:100%;">
+      </div> -->
             <!--<div style="margin-left:20px;height:20%;width:65%;margin-top:0px!important; ">
                 <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="89" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
                     <div class="progress-meter" style="width: 89%">
@@ -144,10 +148,30 @@
                     </div>
                 </div>-->
 
-                <div id="info_video" style="margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
-                      <div style="width:100%;">
-                        <div style="width:20%;">
-                          
+                <div id="info_video" style="display:inline-block;height:20%;margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
+                      <div style="width:100%;height:100%;">
+                        <div style="width:40%;height:90%;float:left;">
+                        <div style="margin-left:15px;width:50%;">
+                          <span> Mise en ligne le <?php echo $info_date;?> </span>
+                        </div>
+                          <div style="margin-left:15px;width:100%;height:85%;margin-top:10px;font:16px/26px Georgia, Garamond, Serif;overflow-y: scroll;overflow-x: hidden;">
+                            <p>
+                              <?php echo $description; ?>
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div style="width:20%;height:90%;float:left;margin-top:15px;margin-left:20px;">
+                        <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
+                            <img style="width:50px;height:50px;" src="met.jpg">
+                            <span style="margin-left:10px;"><?php echo $video_channel;?></span>
+                        </div>
+                        <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
+                            <img style="width:50px;height:50px;" src="metstudio.jpg">
+                            <span style="margin-left:10px;"><?php echo $video_page;?></span>
+                        </div>
+                    </div>
+                
                         <div style="text-align:center;width:100%;margin-bottom:15px;"><span><?php echo $views." vues"; ?></span></div>
 
                         <form action="" method="post" style="text-align:center;">
@@ -184,23 +208,7 @@
                         </form>
                           </div>
                     </div>
-                    <div style="width:100%;">
-                        <span> Mise en ligne le <?php echo $info_date;?> </span>
-                        <div style="width:100%;margin-top:10px;font:16px/26px Georgia, Garamond, Serif;overflow-y: scroll;overflow-x: hidden;">
-                            <?php echo $description; ?>
-                        </div>
-                    </div>
-                    <div style="width:100%;">
-                        <div style="margin-top:15px;margin-left:10%;display:inline;">
-                            <img style="width:50px;height:50px;" src="met.jpg">
-                            <span style="margin-left:10px;"><?php echo $video_channel;?></span>
-                        </div>
-                        <div style="margin-top:15px;margin-left:10%;display:inline;">
-                            <img style="width:50px;height:50px;" src="metstudio.jpg">
-                            <span style="margin-left:10px;"><?php echo $video_page;?></span>
-                        </div>
-                    </div>
-                  </div>
+                    
                   <div id="commentaires" style="border:none;margin-left:20px;margin-top:20px;width:65%;height:inherit;box-shadow: 1px 1px 10px 1px #CDD3E1;">
                     <?php
                     echo '<form action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-left:20px;margin-top:20px;">

@@ -53,17 +53,27 @@
               </div>
             </div>
           </div>
-
-    <div style="height:40%;padding:1px;border-bottom:1px solid #021a40;border-color:grey;">
-        <img src="/web/bundles/framework/images/banner.jpeg " style="z-index:1;height:300px;width:100%;text-align:center;"><br>
-        <img src="/web/bundles/framework/images/metstudio.jpg " style="z-index:1;top:225px;left:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
-        <img src="/web/bundles/framework/images/met.jpg " style="top:225px;right:75px;position:absolute;padding:1px;border:1px solid;background-color:grey;height:150px;width:150px;text-align:center;">
-        <h2 style="margin-left:250px;position:absolute;"><?php echo $name_channel; ?></h2>
-        <h2 style="right:250px;position:absolute;">MetallicaTV</h2>
+    <div style="height:40%;position:absolute;width:100%;top:49px;">
+    <div style="height:75%;padding:1px;width:100%;">
+        <img src="/web/bundles/framework/images/banner.jpeg" style="height:100%;width:100%;text-align:center;"><br>
+        <img src="/web/bundles/framework/images/metstudio.jpg" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
     </div>
 
+    <div style="padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;width:100%;height:30%;">
+        <div style="float:left;margin-left:30px;">
+            <h2 style=""><?php echo $name_channel; ?></</h2>
+            <h6 style="margin-top:-5%;float:left;">1 500 000 abonnés</h6>
+        </div>
+        <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>
+        <div style="float:right;margin-top:1%;margin-right:50px;height:50px; ">
+            <img style="width:50px;height:50px; " src="/web/bundles/framework/images/met.jpg  ">
+            <span style="margin-left:10px;font-size:115% ">MetallicaTV</span>
+        </div>
+    </div>
+      </div>
 
-        <div style="margin-top:5%;margin-left:auto;margin-right:auto;text-align:center;width:65%;height:1000%;background-color:white;padding:1px;">
+
+        <div style="top:50%;position:absolute;left:0;right:0;margin:0 auto;text-align:center;width:65%;height:1000%;background-color:white;padding:1px;">
             <div  class="tabs-panel is-active " id="tab1" >
               <div class ="defilement-video" style="text-align: center;">
                 <?php
@@ -88,10 +98,10 @@
                         </div>
 
                         <div style="width:225px;">
-                            <a href="" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
+                            <a href="" class="button tiny" style="margin-left:none;margin-right:none;width:48.5%;height:100%;">
                                 <font size="1">'.$Channel.'</font>
                             </a>
-                            <a href="../profile/'.$Page.'" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
+                            <a href="../profile/'.$Page.'" class="button tiny" style="margin-left:none;margin-right:none;width:48.5%;height:100%;">
                                 <font size="1">'.$Page.'</font>
                             </a>
                         </div>
@@ -107,5 +117,4 @@
               </div>  
             </div>
         </div>
-</div>
 </body>
