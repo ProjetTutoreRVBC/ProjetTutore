@@ -120,10 +120,10 @@
                       </div>
 
                       <div style="width:225px;">
-                          <a href="channel/'.$Channel.'" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
+                          <a href="channel/'.$Channel.'" class="button tiny" style="margin-left:none;margin-right:none;width:48.5%;height:100%;">
                               <font size="1">'.$Channel.'</font>
                           </a>
-                          <a href="profile/'.$Page.'" class="button tiny" style="margin-left:none;margin-right:none;width:49%;height:100%;">
+                          <a href="profile/'.$Page.'" class="button tiny" style="margin-left:none;margin-right:none;width:48.5%;height:100%;">
                               <font size="1">'.$Page.'</font>
                           </a>
                       </div>

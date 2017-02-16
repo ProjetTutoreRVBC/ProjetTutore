@@ -30,6 +30,6 @@ class ChannelController extends Controller
       $list_v = $video->getListVideo();
       $list_c = $video->getListChannelByIdVideo();
       $list_p = $video->getListPageByIdVideo();
-      return $this->render('View/channel.html.php',array("name_channel"=>$info_c['nameChannel'],"video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
+      return $this->render('View/channel.html.php',array("name_channel"=>$info_c['nameChannel'],"subs_channel"=>$info_c['subscribersChannel'],"video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
     }
 }

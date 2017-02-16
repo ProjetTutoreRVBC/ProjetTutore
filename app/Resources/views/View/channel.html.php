@@ -62,7 +62,7 @@
     <div style="padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;width:100%;height:30%;">
         <div style="float:left;margin-left:30px;">
             <h2 style=""><?php echo $name_channel; ?></</h2>
-            <h6 style="margin-top:-5%;float:left;">1 500 000 abonnés</h6>
+            <h6 style="margin-top:-5%;float:left;"><?php echo $subs_channel;?> abonnés</h6>
         </div>
         <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>
         <div style="float:right;margin-top:1%;margin-right:50px;height:50px; ">
