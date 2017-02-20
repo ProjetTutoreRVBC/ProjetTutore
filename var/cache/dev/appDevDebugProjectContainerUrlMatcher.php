@@ -100,6 +100,15 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // app_ajoutchaine_index
+        if (rtrim($pathinfo, '/') === '/ajout_chaine') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'app_ajoutchaine_index');
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\AjoutChaineController::indexAction',  '_route' => 'app_ajoutchaine_index',);
+        }
+
         // channel_index
         if (0 === strpos($pathinfo, '/channel') && preg_match('#^/channel/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'channel_index')), array (  '_controller' => 'AppBundle\\Controller\\ChannelController::showAction',));

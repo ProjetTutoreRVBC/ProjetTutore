@@ -74,8 +74,10 @@
             </div>
 
             <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
+                <a href="../upload">
                 <div style="float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
                 </div>
+                </a>  
                 <?php
                 
               foreach($video as $v)

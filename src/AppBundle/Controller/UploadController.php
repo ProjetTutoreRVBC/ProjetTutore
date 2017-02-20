@@ -19,7 +19,7 @@ class UploadController extends Controller
       $msg="";
       if(isset($_FILES['file']) && isset($_POST)) {
         $file = new Upload();
-        $msg = $file->add($_FILES);
+        $msg = $file->add($_FILES,"video");
         $size = $_FILES["file"]["size"] / 1024;
         
       }

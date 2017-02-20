@@ -85,7 +85,7 @@
                       </div></a>';
                 }
                 ?>
-                <a href="#">
+                <a href="../ajout_chaine">
                   <div class="selection" style="width:100%;display:inline-block;margin-top:3%;">
                       <div style="float:left;border: 1px solid grey; border-radius:20%;height:125px;width:125px;text-align:center;background-color:white;">
                       </div>

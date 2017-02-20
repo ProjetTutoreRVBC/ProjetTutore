@@ -14,12 +14,24 @@ class Channel
 	
 		public function getChannel($name){
 			$db = Database::getInstance();
-		  $sql = "SELECT * FROM Nostreamer,Channel WHERE Channel.idNostreamer = Nostreamer.idNostreamer and Channel.nameChannel = :name";
+		  $sql = "SELECT * FROM Nostreamer,Channel WHERE Channel.idNostreamer = Nostreamer.idNostreamer and nameChannel = :name";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':name',$name);
 		  $stmt->execute(); 
 		 	$channel = $stmt->fetchAll();
 			return $channel[0];
+		}
+	
+		public function add($nameChannel,$idNostreamer,$descriptionChannel){
+			$db = Database::getInstance();
+			$date = date("Y/m/d H:i:s");
+		  $sql = "INSERT INTO Channel(nameChannel,idNostreamer,descriptionChannel,creationDateChannel) VALUES(:name,:idN,:desc,:dateC)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':name',$nameChannel);
+			$stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':desc',$descriptionChannel);
+			$stmt->bindParam(':dateC',$date);
+			$stmt->execute();
 		}
 		/*public function __construct($nameChannel, $idNostreamer, $descriptionChannel)
     {
@@ -39,6 +51,7 @@ class Channel
 		  return $stmt->fetchAll();
     }
 	
+	
 			public function addChannel($nameChannel,$avatarChannel,$banniereChannel,$descriptionChannel)
 		{
 			$tabext = array('jpg','jpeg','png','gif');
@@ -56,12 +69,13 @@ class Channel
 		  	$stmt->bindParam(':bann', $banniereChannel);
 				$stmt->bindParam(':desc', $descriptionChannel);
 		  	$stmt->execute();
+			
 				mkdir('http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/'.$pseudoNostreamer.'/'.$nameChannel,0755);
 				move_uploaded_file($avatarChannel, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$nameChannel.'_avatar');
 				move_uploaded_file($banniereChannel, 'http://nostream-heliais77127491608.codeanyapp.com/public_html/Nostream/web/bundles/framework/Users/$pseudoNostreamer/'.$nameChannel.'_banniere');
+			
 			}
 		}
-	
     public function getOwnerName()
     {
       return $this->nostreamer;
