@@ -108,7 +108,9 @@ class ProfileController extends Controller
             $comments[$info_post_comment[$i]['idPost']][$info_post_comment[$i]['idComment']]['pseudoNostreamer'] = $info_post_comment[$i]['pseudoNostreamer'];
             $comments[$info_post_comment[$i]['idPost']][$info_post_comment[$i]['idComment']]['text'] = $info_post_comment[$i]['messageComment'];
           }
-      return $this->render('View/page.html.php',array("profile"=>$info_page,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments,"user_page"=>$current_user_page[0]['namePage']));
+      
+      $subsPage = $user_page->getSubsPage($info_page["idPage"]);
+      return $this->render('View/page.html.php',array("profile"=>$info_page,"subs"=>$subsPage,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments,"user_page"=>$current_user_page[0]['namePage']));
     }
   
     

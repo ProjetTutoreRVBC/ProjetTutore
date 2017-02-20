@@ -86,6 +86,16 @@ class Page
 		 	$page = $stmt->fetchAll();
 			return $page[0];
 		}
+	
+	public function getSubsPage($id){
+			$db = Database::getInstance();
+		  $sql = "SELECT COUNT(*) FROM SubscribedPage WHERE idPage = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute(); 
+		 	$page = $stmt->fetchAll();
+			return $page[0];
+		}
 		
 		public function getMainPage($id){
 			$db = Database::getInstance();

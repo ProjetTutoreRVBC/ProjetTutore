@@ -87,8 +87,8 @@
 
     <div style="padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;width:100%;height:30%;">
         <div style="float:left;margin-left:30px;">
-            <h2 style="">Nom de la page</h2>
-            <h6 style="margin-top:-5%;float:left;"> abonnés</h6>
+            <h2 style=""><?php echo $user_page; ?></h2>
+            <h6 style="margin-top:-5%;float:left;"><?php echo $subs[0]; ?> abonnés</h6>
         </div>
         <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>
     </div>
