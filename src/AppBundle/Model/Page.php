@@ -96,6 +96,15 @@ class Page
 		 	$page = $stmt->fetchAll();
 			return $page[0];
 		}
+	
+	public function addSubPage($idNs,$idPage) {
+		$db = Database::getInstance();
+		$sql = "INSERT INTO SubscribedChannel VALUES(:idNs,:idPage)";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':idNs',$idNs);
+		$stmt->bindParam(':idPage',$idPage);
+		$stmt->execute();
+	}
 		
 		public function getMainPage($id){
 			$db = Database::getInstance();
