@@ -162,14 +162,18 @@
                         </div>
                         
                         <div style="width:20%;height:90%;float:left;margin-top:15px;margin-left:20px;">
-                        <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
-                            <img style="width:50px;height:50px;" src="met.jpg">
+                        <a href="../channel/<?php echo $video_channel;?>">  
+                          <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
+                            <img style="width:50px;height:50px;" src="/web/bundles/framework/images/metstudio.jpg" >
                             <span style="margin-left:10px;"><?php echo $video_channel;?></span>
-                        </div>
-                        <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
-                            <img style="width:50px;height:50px;" src="metstudio.jpg">
+                          </div>
+                        </a>
+                        <a href="../profile/<?php echo $video_page;?>">  
+                          <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
+                            <img style="width:50px;height:50px;" src="/web/bundles/framework/images/met.jpg">
                             <span style="margin-left:10px;"><?php echo $video_page;?></span>
-                        </div>
+                          </div>
+                        </a>
                     </div>
                 
                         <div style="text-align:center;width:100%;margin-bottom:15px;"><span><?php echo $views." vues"; ?></span></div>
