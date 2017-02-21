@@ -11,6 +11,15 @@ class Channel
     private $creationDateChannel;
     private $viewsChannel;
     
+		public function getSubsChannel($id){
+			$db = Database::getInstance();
+		  $sql = "SELECT COUNT(*) FROM SubscribedChannel WHERE idChannel = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute(); 
+		 	$channel = $stmt->fetchAll();
+			return $channel[0];
+		}
 	
 		public function getChannel($name){
 			$db = Database::getInstance();
@@ -22,15 +31,16 @@ class Channel
 			return $channel[0];
 		}
 	
-		public function add($nameChannel,$idNostreamer,$descriptionChannel){
+		public function add($nameChannel,$idNostreamer,$descriptionChannel,$banniere){
 			$db = Database::getInstance();
 			$date = date("Y/m/d H:i:s");
-		  $sql = "INSERT INTO Channel(nameChannel,idNostreamer,descriptionChannel,creationDateChannel) VALUES(:name,:idN,:desc,:dateC)";
+		  $sql = "INSERT INTO Channel(nameChannel,idNostreamer,descriptionChannel,creationDateChannel,banniere_img) VALUES(:name,:idN,:desc,:dateC,:ban)";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':name',$nameChannel);
 			$stmt->bindParam(':idN',$idNostreamer);
 			$stmt->bindParam(':desc',$descriptionChannel);
 			$stmt->bindParam(':dateC',$date);
+			$stmt->bindParam(':ban',$banniere);
 			$stmt->execute();
 		}
 		/*public function __construct($nameChannel, $idNostreamer, $descriptionChannel)

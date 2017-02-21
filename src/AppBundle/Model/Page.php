@@ -94,6 +94,8 @@ class Page
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute(); 
 		 	$page = $stmt->fetchAll();
+			if(!$page)
+				$page[0] = 0;
 			return $page[0];
 		}
 		

@@ -29,10 +29,15 @@ class AjoutChaineController extends Controller
       if(isset($_POST) && $_POST != null && isset($_FILES['file'])){
         $file = new Upload();
         //$file->add($_FILES['profile'],$_POST['nom'],"profile");
+        $banniere = "";
         $f = array("file"=>$_FILES['file']);
-        var_dump($f);
+        if($f['file']['type'] == "image/png")
+          $banniere = $_POST['nom'].".png";
+        if($f['file']['type'] == "image/jpeg")
+          $banniere = $_POST['nom'].".jpeg";
         $file->add($f,$_POST['nom'],"banniere");
-        $c->add($_POST['nom'],$user_id['idNostreamer'],$_POST['description']);        
+        $c->add($_POST['nom'],$user_id['idNostreamer'],$_POST['description'],$banniere);       
+        return $this->render("View/gestion.html.php");
       }
       
       return $this->render("View/AjoutChaine.html.php");

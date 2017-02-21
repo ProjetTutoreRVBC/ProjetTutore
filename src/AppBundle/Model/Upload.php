@@ -41,14 +41,8 @@ class Upload
             }
           }
         }
-      else
-        {
-        	return "Invalid file";
-          
-        }
-				echo 'OOO';
-				if ( ($_FILE["file"]["type"] == "image/jpeg") && in_array($extension, $allowedExts) && $temp == "banniere") {
-					echo 'okokoko';
+				if ( ($_FILE["file"]["type"] == "image/jpeg" || $_FILE["file"]["type"] == "image/png") 
+						&& in_array($extension, $allowedExts) && $temp == "banniere") {
         if ($_FILE["file"]["error"] > 0)
           {
           return "Return Code: " . $_FILE["file"]["error"] . "<br />";
@@ -64,21 +58,21 @@ class Upload
             {
 						$PATH = "/home/cabox/workspace/web/bundles/framework/images-banniere/";	
             $c = new Channel();
-            $id = $name."jpeg";  
-            move_uploaded_file($_FILE["file"]["tmp_name"],
-            $PATH . $id);
+						$type = "";	
+						if($_FILE["file"]["type"] == "image/jpeg")
+							$type = ".jpeg";
+						if($_FILE["file"]["type"] == "image/png")
+							$type = ".png";	
+            $id = $name.$type;	
+            move_uploaded_file($_FILE["file"]["tmp_name"],$PATH . $id);
             chmod($PATH . $id, $perm);  
             return "Stored in: " . $PATH . $id;
             }
           }
         }
-      else
-        {
-        	return "Invalid file";
-          
-        }
 			
-			if (($_FILE["file"]["type"] == "image/jpeg") && in_array($extension, $allowedExts) && $temp == "profile") {
+			if (($_FILE["file"]["type"] == "image/jpeg" || $_FILE["file"]["type"] == "image/png") 
+					&& in_array($extension, $allowedExts) && $temp == "profile") {
         if ($_FILE["file"]["error"] > 0)
           {
           return "Return Code: " . $_FILE["file"]["error"] . "<br />";
@@ -94,18 +88,17 @@ class Upload
             {
 						$PATH = "/home/cabox/workspace/web/bundles/framework/images-profile/";	
             $c = new Nostreamer();
-            $id = $name."jpeg";  
-            move_uploaded_file($_FILE["file"]["tmp_name"],
-            $PATH . $id);
+						$type = "";	
+						if($_FILE["file"]["type"] == "image/jpeg")
+							$type = ".jpeg";
+						if($_FILE["file"]["type"] == "image/png")
+							$type = ".png";	
+            $id = $name.$type;  
+            move_uploaded_file($_FILE["file"]["tmp_name"],$PATH . $id);
             chmod($PATH . $id, $perm);  
             return "Stored in: " . $PATH . $id;
             }
           }
-        }
-      else
-        {
-        	return "Invalid file";
-          
         }
 		}
 }

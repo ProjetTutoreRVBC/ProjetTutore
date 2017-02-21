@@ -67,8 +67,8 @@
     <div style="width:100%;height:90%;display:inline-block;">
         <div style="text-align:center;width:100%;margin-top:5%;">
             <h2 style="font-family='proxima_novalight'">Bienvenue, <?php echo $channels[0]['pseudoNostreamer'];?>!</h2>
-            <h5> <?php echo $channels[0]['subscribersChannel'];?> personnes suivent votre page principale </h5>
-            <h5> <?php echo $channels[0]['subscribersChannel'];?> sont abonnés à votre chaîne la plus importante </h5>
+            <!--<h5> <?php //echo $channels[0]['subscribersChannel'];?> personnes suivent votre page principale </h5>
+            <h5> <?php //echo $channels[0]['subscribersChannel'];?> sont abonnés à votre chaîne la plus importante </h5>-->
         </div>
         <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:0%;width:40%;height:60%;">
             <div style="width:100%;height:10%;margin-top:5px;">
@@ -81,7 +81,7 @@
                 echo '<a href="../gestion_channel/'.$channel['nameChannel'].'">
                       <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
                         <img src="/web/bundles/framework/images/metstudio.jpg " style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
-                        <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$channel['subscribersChannel'].' abonnés</small></font>
+                        <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$subs[$channel['idChannel']].' abonnés</small></font>
                       </div></a>';
                 }
                 ?>

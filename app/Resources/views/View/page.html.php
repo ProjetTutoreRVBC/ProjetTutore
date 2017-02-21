@@ -81,7 +81,7 @@
 
     <div style="height:40%;position:absolute;width:100%;top:49px;">
     <div style="height:75%;padding:1px;width:100%;">
-        <img src="/web/bundles/framework/images/banner.jpeg" style="height:100%;width:100%;text-align:center;"><br>
+        <img src="<?php echo '/web/bundles/framework/images-banniere/'.$user_page ?>" style="height:100%;width:100%;text-align:center;"><br>
         <img src="/web/bundles/framework/images/met.jpg" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
     </div>
 

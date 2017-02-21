@@ -26,10 +26,11 @@ class ChannelController extends Controller
     { 
       $user = new Channel();
       $info_c = $user->getChannel($slug);
+      $subs =  $user->getSubsChannel($info_c['idChannel']);
       $video = new Video(); 
       $list_v = $video->getListVideo();
       $list_c = $video->getListChannelByIdVideo();
       $list_p = $video->getListPageByIdVideo();
-      return $this->render('View/channel.html.php',array("name_channel"=>$info_c['nameChannel'],"subs_channel"=>$info_c['subscribersChannel'],"video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
+      return $this->render('View/channel.html.php',array("banniere"=>$info_c['banniere_img'],"name_channel"=>$info_c['nameChannel'],"subs_channel"=>$subs['COUNT(*)'],"video" => $list_v,"channel"=>$list_c,"page"=>$list_p));
     }
 }
