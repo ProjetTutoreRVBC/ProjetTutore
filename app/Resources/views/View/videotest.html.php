@@ -148,7 +148,7 @@
                     </div>
                 </div>-->
 
-                <div id="info_video" style="display:inline-block;height:20%;margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
+                <div id="info_video" style="display:inline-block;margin-left:20px;margin-bottom:20px;margin-top:20px;width:65%;padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;">
                       <div style="width:100%;height:100%;">
                         <div style="width:40%;height:90%;float:left;">
                         <div style="margin-left:15px;width:50%;">
