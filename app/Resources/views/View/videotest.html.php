@@ -161,7 +161,7 @@
                           </div>
                         </div>
                         
-                        <div style="width:20%;height:90%;float:left;margin-top:15px;margin-left:20px;">
+                        <div style="width:20%;height:90%;float:left;margin-top:0px;margin-left:20px;">
                         <a href="../channel/<?php echo $video_channel;?>">  
                           <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
                             <img style="width:50px;height:50px;" src="/web/bundles/framework/images/metstudio.jpg" >
