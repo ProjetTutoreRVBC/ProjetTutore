@@ -31,16 +31,17 @@ class Channel
 			return $channel[0];
 		}
 	
-		public function add($nameChannel,$idNostreamer,$descriptionChannel,$banniere){
+		public function add($nameChannel,$idNostreamer,$descriptionChannel,$banniere,$profile){
 			$db = Database::getInstance();
 			$date = date("Y/m/d H:i:s");
-		  $sql = "INSERT INTO Channel(nameChannel,idNostreamer,descriptionChannel,creationDateChannel,banniere_img) VALUES(:name,:idN,:desc,:dateC,:ban)";
+		  $sql = "INSERT INTO Channel(nameChannel,idNostreamer,descriptionChannel,creationDateChannel,banniere_img,profile_img) VALUES(:name,:idN,:desc,:dateC,:ban,:prof)";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':name',$nameChannel);
 			$stmt->bindParam(':idN',$idNostreamer);
 			$stmt->bindParam(':desc',$descriptionChannel);
 			$stmt->bindParam(':dateC',$date);
 			$stmt->bindParam(':ban',$banniere);
+			$stmt->bindParam(':prof',$profile);
 			$stmt->execute();
 		}
 		/*public function __construct($nameChannel, $idNostreamer, $descriptionChannel)

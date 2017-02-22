@@ -48,6 +48,6 @@ class GestionController extends Controller
         }
         return $this->render('View/gestion.html.php',array("subs"=>$subs,"pages" => $list_p,"channels"=>$list_c,"user_page"=>$current_user_page[0]['namePage']));
       }
-      redirectToRoute('home');
+      $this->redirectToRoute('home');
     }
 }

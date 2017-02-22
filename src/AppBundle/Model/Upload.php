@@ -49,13 +49,6 @@ class Upload
           }
         else
           {
-
-          if ($video->exist($_FILE["file"]["name"]))
-            {
-            	return $_FILE["file"]["name"] . " already exists. ";
-            }
-          else
-            {
 						$PATH = "/home/cabox/workspace/web/bundles/framework/images-banniere/";	
             $c = new Channel();
 						$type = "";	
@@ -67,7 +60,6 @@ class Upload
             move_uploaded_file($_FILE["file"]["tmp_name"],$PATH . $id);
             chmod($PATH . $id, $perm);  
             return "Stored in: " . $PATH . $id;
-            }
           }
         }
 			
@@ -79,15 +71,8 @@ class Upload
           }
         else
           {
-
-          if ($video->exist($_FILE["file"]["name"]))
-            {
-            	return $_FILE["file"]["name"] . " already exists. ";
-            }
-          else
-            {
 						$PATH = "/home/cabox/workspace/web/bundles/framework/images-profile/";	
-            $c = new Nostreamer();
+            $c = new Channel();
 						$type = "";	
 						if($_FILE["file"]["type"] == "image/jpeg")
 							$type = ".jpeg";
@@ -97,7 +82,6 @@ class Upload
             move_uploaded_file($_FILE["file"]["tmp_name"],$PATH . $id);
             chmod($PATH . $id, $perm);  
             return "Stored in: " . $PATH . $id;
-            }
           }
         }
 		}
