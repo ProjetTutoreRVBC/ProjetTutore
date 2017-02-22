@@ -4,6 +4,9 @@ app:
 channel:
     path:      /channel/{slug}
     defaults:  { _controller: AppBundle:Channel:show }
+upload:
+    path:      /upload/{slug}
+    defaults:  { _controller: AppBundle:Upload:show } 
 profile:
     path:      /profile/{slug}
     defaults:  { _controller: AppBundle:Profile:show }    

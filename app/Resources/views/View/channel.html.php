@@ -56,7 +56,7 @@
     <div style="height:40%;position:absolute;width:100%;top:49px;">
     <div style="height:75%;padding:1px;width:100%;">
         <img src="<?php echo "/web/bundles/framework/images-banniere/".$banniere; ?>" style="height:100%;width:100%;text-align:center;"><br>
-        <img src="/web/bundles/framework/images/metstudio.jpg" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
+        <img src="<?php echo "/web/bundles/framework/images-banniere/".$profile; ?>" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
     </div>
 
     <div style="padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;width:100%;height:30%;">
@@ -92,7 +92,7 @@
                         <div style="height:35px;overflow:hidden;">
                             <font size="2" class="titres"><strong>'.$titre.'</strong></font><br>
                         </div>
-                        <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"><br>
+                        <img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px;text-align:center;"><br>
                         <div>
 
                         </div>

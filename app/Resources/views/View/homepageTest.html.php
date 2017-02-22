@@ -80,7 +80,7 @@
                       <div style="height:35px;overflow:hidden;">
                           <font size="2" class="titres"><strong>'.$titre.'</strong></font><br>
                       </div>
-                      <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"><br>
+                      <img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px;text-align:center;"><br>
                       <div>
 
                       </div>

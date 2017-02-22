@@ -10,6 +10,7 @@
     <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/display/upload.js') ?>"></script>
     <!--<style>
       
       body { padding: 30px }
@@ -29,21 +30,22 @@
             <h4 style="text-align:center;">Ajouter une vidéo</h4>
         </div>
         <div style="width:100%;height:100%;">
-            <form action="upload" method="post" enctype="multipart/form-data" style="text-align:center">
-                <label for=" nom ">Nom de la vidéo :</label>
-                <input type="text " name="nom " id="nom " /><br /><br>
-
-                <label for="file" class="button">Upload File</label>
-                <input style="text-align:center;" class="show-for-sr" type="file" name="file" id="file" /><br><br>
-                  
+            <form action="" method="post" enctype="multipart/form-data" style="text-align:center">
+                <label for="nom">Nom de la vidéo :</label>
+                <input type="text" name="video_name" id="nom"/><br><br>
+                
+                <label>Vidéo :</label>
+                <label for="file" class="button">Importer</label>
+                <input style="text-align:center;" class="show-for-sr" type="file" name="video" id="file"/><br><br>
+                              
                  <label>Image de miniature :</label>
-                <label for="exampleFileUpload" class="button">Choisir image (125x225)</label>
-                <input type='file' name="profile" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
-                <span id="display-parent"></span><br><br>
+                <label for="exampleFileUpload" class="button">Importer</label>
+                <input type='file' name="miniature" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this,1);" />
+                <span id="display-parent-1"></span><br><br>
 
                 
                 <label for="description ">Description :</label>
-                <textarea name="description " id="description " style="display:inline-block;width:50%;text-align:center;"></textarea><br />
+                <textarea name="description"  style="display:inline-block;width:50%;text-align:center;"></textarea><br />
 
                 <fieldset class="">
                     <label>Commentaires :</label>

@@ -19,13 +19,17 @@ class Video
       $this->descriptionVideo = $descriptionVideo;
     }
   */
-		public function addVideo($nameVideo,$fileVideo,$miniVideo,$descriptionVideo)
+		public function addVideo($nameVideo,$descriptionVideo,$miniature,$idChannel)
 		{
 			$db = Database::getInstance();
-		  $sql = "INSERT INTO Video (nameVideo, descriptionVideo) VALUES (:name, :desc)";
+		  $sql = "INSERT INTO Video (idChannel,nameVideo, descriptionVideo,miniature,dateVideo) VALUES (:id,:name, :desc,:miniature, :dateV)";
 		  $stmt = $db->prepare($sql);
+			$date = date("Y/m/d H:i:s");
 		  $stmt->bindParam(':name', $nameVideo);
 			$stmt->bindParam(':desc', $descriptionVideo);
+			$stmt->bindParam(':miniature', $miniature);
+			$stmt->bindParam(':dateV', $date);
+			$stmt->bindParam(':id', $idChannel);
 		  $stmt->execute();
 			$sql = "SELECT idVideo from Video where nameVideo = :name";
 			$stmt = $db->prepare($sql);

@@ -17,10 +17,10 @@
         background-color: #2199e8;
         }
       
-      a {
+      .link {
         color: black;
       }
-      a:hover {
+      .link:hover {
         color: white;
       }
     </style>
@@ -78,14 +78,15 @@
                 <?php
                 $space= "&nbsp;&nbsp;&nbsp;&nbsp;";
                 foreach($channels as $channel){
-                echo '<a href="../gestion_channel/'.$channel['nameChannel'].'">
-                      <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
-                        <img src="/web/bundles/framework/images/metstudio.jpg " style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
-                        <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$subs[$channel['idChannel']].' abonnés</small></font>
-                      </div></a>';
+                echo '<a class="link" href="../gestion_channel/'.$channel['nameChannel'].'">
+                        <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
+                            <img src="/web/bundles/framework/images/metstudio.jpg " style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
+                          <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$subs[$channel['idChannel']].' abonnés</small></font>
+                        </div>
+                      </a>';
                 }
                 ?>
-                <a href="../ajout_chaine">
+                <a class="link" href="../ajout_chaine">
                   <div class="selection" style="width:100%;display:inline-block;margin-top:3%;">
                       <div style="float:left;border: 1px solid grey; border-radius:20%;height:125px;width:125px;text-align:center;background-color:white;">
                       </div>
@@ -108,15 +109,15 @@
                 </div>
                 */
                 foreach($pages as $page){
-                echo '<a href="../profile/'.$page['namePage'].'">
+                echo '<a class="link" href="../profile/'.$page['namePage'].'">
                       <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
                         <img src="/web/bundles/framework/images/met.jpg" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
                         <font style="font-size:150%;margin-left:10px; ">'.$page['namePage'].'<small></small></font>
                       </div></a>';
                 }
                 ?>
-                <a href="">
-                  <div class="selection" style="width:100%;display:inline-block;margin-top:3%;">
+                <a class="link" href="">
+                  <div class="link" style="width:100%;display:inline-block;margin-top:3%;">
                       <div style="float:left;border: 1px solid grey; border-radius:20%;height:125px;width:125px;text-align:center;background-color:white;">
                       </div>
                   </div>

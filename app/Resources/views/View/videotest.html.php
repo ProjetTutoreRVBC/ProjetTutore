@@ -89,7 +89,7 @@
         
         <div class="video-container " style="height:70%;width:65%!important;margin-left:20px;">
             <video id="my-video " class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="atlas.jpg " data-setup="{} ">
-                <source src="<?php echo '/web/bundles/framework/mp4/'.$v.'.mp4';?>" type='video/mp4'>
+                <source src="<?php echo '/web/bundles/framework/video/'.$v.'.mp4';?>" type='video/mp4'>
                 <p class="vjs-no-js ">
                   To view this video please enable JavaScript, and consider upgrading to a web browser that
                   <a href="http://videojs.com/html5-video-support/ " target="_blank ">supports HTML5 video</a>
@@ -114,7 +114,7 @@
                       <div style="height:35px;overflow:hidden;">
                           <font size="2" class="titres"><strong>'.$titre.'</strong></font><br>
                       </div>
-                      <img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"><br>
+                      <img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px;text-align:center;"><br>
                       <div>
 
                       </div>

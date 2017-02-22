@@ -74,7 +74,7 @@
             </div>
 
             <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
-                <a href="../upload">
+                <a href="<?php echo "../upload/".$name_channel;?>">
                 <div style="float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
                 </div>
                 </a>  
@@ -91,7 +91,7 @@
                     $Channel = $channel[$titre];
                 echo '<div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
                     <div style="width:50%;float:left;overflow:hidden;">
-                        <a href="../watch?v='.$id.'"><img src="/web/bundles/framework/images/atlas.jpg " style="height:125px;width:225px;text-align:center;"></a>
+                        <a href="../watch?v='.$id.'"><img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px;text-align:center;"></a>
                         <font style="font-size:110%;margin-left:10px;overflow:hidden; ">'.$titre.'</font>
                     </div>
                     <table style="float:left;height:100%;width:30%;">

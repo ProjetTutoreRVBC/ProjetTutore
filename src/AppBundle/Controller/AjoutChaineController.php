@@ -34,6 +34,7 @@ class AjoutChaineController extends Controller
         
         $f = array("file"=>$_FILES['file']);
         $f2 =  array("file"=>$_FILES['file2']);
+        
         if($f['file']['type'] == "image/png")
           $banniere = $_POST['nom'].".png";
         if($f['file']['type'] == "image/jpeg")
@@ -48,7 +49,7 @@ class AjoutChaineController extends Controller
         $file->add($f2,$_POST['nom'],"profile");
         
         $c->add($_POST['nom'],$user_id['idNostreamer'],$_POST['description'],$banniere,$profile);       
-        $this->redirectToRoute('gestion');
+        return $this->redirectToRoute('gestion');
       }
       
       return $this->render("View/AjoutChaine.html.php");

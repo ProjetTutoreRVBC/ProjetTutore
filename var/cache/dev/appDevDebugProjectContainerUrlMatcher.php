@@ -159,9 +159,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // app_upload_upload
-        if ($pathinfo === '/upload') {
-            return array (  '_controller' => 'AppBundle\\Controller\\UploadController::uploadAction',  '_route' => 'app_upload_upload',);
+        // upload_index
+        if (0 === strpos($pathinfo, '/upload') && preg_match('#^/upload/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'upload_index')), array (  '_controller' => 'AppBundle\\Controller\\UploadController::showAction',));
         }
 
         // app_video_show
@@ -172,6 +172,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         // channel
         if (0 === strpos($pathinfo, '/channel') && preg_match('#^/channel/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'channel')), array (  '_controller' => 'AppBundle\\Controller\\ChannelController::showAction',));
+        }
+
+        // upload
+        if (0 === strpos($pathinfo, '/upload') && preg_match('#^/upload/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'upload')), array (  '_controller' => 'AppBundle\\Controller\\UploadController::showAction',));
         }
 
         // profile
