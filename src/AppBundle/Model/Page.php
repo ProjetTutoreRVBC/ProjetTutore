@@ -8,20 +8,20 @@ class Page
     private $idPage;
     private $nostreamer;
     private $descriptionPage;
-		private $idChannel;
-    public function __construct($idPage, $idNostreamer, $descriptionPage,$idChannel) //WATCH OUT WATCH OUT WATCH OUT
+		private $idChannel;*/
+    public function add($namePage,$idNostreamer,$descriptionPage,$banniere,$profile) //WATCH OUT WATCH OUT WATCH OUT
     {
-      $this->nostreamer = $nostreamer;
-			$this->idChannel = $idChannel;
-		  $this->description = $description;
-		  $db = Database::getInstance();
-		  $sql = "INSERT INTO page VALUES (:idNostreamer, :description);"
-		  $stmt = $db->prepare($sql);
-		  $stmt->bindParam(':idNostreamer', $idNostreamer);
-		  $stmt->bindParam(':description', $description);
-		  return $stmt->execute();
+			$db = Database::getInstance();
+		  $sql = "INSERT INTO Page(namePage,idNostreamer,descriptionPage,banniere_img,profile_img) VALUES(:name,:idN,:desc,:ban,:prof)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':name',$namePage);
+			$stmt->bindParam(':idN',$idNostreamer);
+			$stmt->bindParam(':desc',$descriptionPage);
+			$stmt->bindParam(':ban',$banniere);
+			$stmt->bindParam(':prof',$profile);
+			$stmt->execute();
     }
-  
+  	/*
     public function getFromIdNostreamer($idNostreamer)
     {
 			$db = Database::getInstance();
@@ -110,7 +110,7 @@ class Page
 		
 		public function getMainPage($id){
 			$db = Database::getInstance();
-		  $sql = "SELECT * FROM Page WHERE idNostreamer = :id and mainPage=1";
+		  $sql = "SELECT * FROM Page WHERE idNostreamer = :id";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute(); 

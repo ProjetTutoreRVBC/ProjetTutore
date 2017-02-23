@@ -47,7 +47,7 @@
                             <ul id="menu" class="menu">';
                             
                              echo '<li id="signed"><a href="../gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-                            echo '<li id="signed-1"><a href="profile/'.$user_page.'"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+                            echo '<li id="signed-1"><a href="../profile/'.$user_page.'"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
                           }else
                           {
                             echo '<div id ="right-log" style="float:right;">
@@ -66,7 +66,7 @@
           </div>
     <div style="width:100%;height:90%;display:inline-block;">
         <div style="text-align:center;width:100%;margin-top:5%;">
-            <h2 style="font-family='proxima_novalight'">Bienvenue, <?php echo $channels[0]['pseudoNostreamer'];?>!</h2>
+            <h2 style="font-family='proxima_novalight'">Bienvenue, <?php echo $pseudo;?>!</h2>
             <!--<h5> <?php //echo $channels[0]['subscribersChannel'];?> personnes suivent votre page principale </h5>
             <h5> <?php //echo $channels[0]['subscribersChannel'];?> sont abonnés à votre chaîne la plus importante </h5>-->
         </div>
@@ -77,13 +77,15 @@
             <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
                 <?php
                 $space= "&nbsp;&nbsp;&nbsp;&nbsp;";
-                foreach($channels as $channel){
-                echo '<a class="link" href="../gestion_channel/'.$channel['nameChannel'].'">
-                        <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
-                            <img src="/web/bundles/framework/images/metstudio.jpg " style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
-                          <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$subs[$channel['idChannel']].' abonnés</small></font>
-                        </div>
-                      </a>';
+                if($channels != 0) {
+                  foreach($channels as $channel){
+                  echo '<a class="link" href="../gestion_channel/'.$channel['nameChannel'].'">
+                          <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
+                              <img src="/web/bundles/framework/images/metstudio.jpg " style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
+                            <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$subs[$channel['idChannel']].' abonnés</small></font>
+                          </div>
+                        </a>';
+                  }
                 }
                 ?>
                 <a class="link" href="../ajout_chaine">
@@ -108,12 +110,14 @@
                     <font style="font-size:150%;margin-left:10px; ">MetallicaStudio</font>
                 </div>
                 */
+                if($pages != 0){
                 foreach($pages as $page){
-                echo '<a class="link" href="../profile/'.$page['namePage'].'">
-                      <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
-                        <img src="/web/bundles/framework/images/met.jpg" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
-                        <font style="font-size:150%;margin-left:10px; ">'.$page['namePage'].'<small></small></font>
-                      </div></a>';
+                  echo '<a class="link" href="../profile/'.$page['namePage'].'">
+                        <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
+                          <img src="/web/bundles/framework/images/met.jpg" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
+                          <font style="font-size:150%;margin-left:10px; ">'.$page['namePage'].'<small></small></font>
+                        </div></a>';
+                  }
                 }
                 ?>
                 <a class="link" href="">

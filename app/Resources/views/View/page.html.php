@@ -81,13 +81,13 @@
 
     <div style="height:40%;position:absolute;width:100%;top:49px;">
     <div style="height:75%;padding:1px;width:100%;">
-        <img src="<?php echo '/web/bundles/framework/images-banniere/'.$user_page ?>" style="height:100%;width:100%;text-align:center;"><br>
-        <img src="/web/bundles/framework/images/met.jpg" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
+        <img src="<?php echo '/web/bundles/framework/images-banniere/'.$profile['banniere_img'] ?>" style="height:100%;width:100%;text-align:center;"><br>
+        <img src="<?php echo '/web/bundles/framework/images-profile/'.$profile['profile_img'] ?>" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
     </div>
 
     <div style="padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;width:100%;height:30%;">
         <div style="float:left;margin-left:30px;">
-            <h2 style=""><?php echo $user_page; ?></h2>
+            <h2 style=""><?php echo $profile['namePage']; ?></h2>
             <h6 style="margin-top:-5%;float:left;"><?php echo $subs[0]; ?> abonnés</h6>
         </div>
         <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>

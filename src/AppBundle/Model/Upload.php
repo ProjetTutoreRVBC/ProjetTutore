@@ -10,6 +10,7 @@ class Upload
       $perm = 777;
       $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
       $extension = pathinfo($_FILE['file']['name'], PATHINFO_EXTENSION);
+			if($temp == "video"){
       if (
       (($_FILE["file"]["type"] == "video/mp4")
       || ($_FILE["miniature"]["type"] == "image/pjpeg")
@@ -17,7 +18,7 @@ class Upload
 			|| ($_FILE["miniature"]["type"] == "image/jpg")
 			|| ($_FILE["miniature"]["type"] == "image/png"))
       //&& ($_FILE["file"]["size"] < $max_file_size) PAS DE LIMITE*/
-      && in_array($extension, $allowedExts) && $temp == "video") {
+      && in_array($extension, $allowedExts)) {
         if ($_FILE["file"]["error"] > 0)
           {
           return "Return Code: " . $_FILE["file"]["error"] . "<br />";
@@ -48,6 +49,7 @@ class Upload
             }
           }
         }
+			}
 				if ( ($_FILE["file"]["type"] == "image/jpeg" || $_FILE["file"]["type"] == "image/png") 
 						&& in_array($extension, $allowedExts) && $temp == "banniere") {
         if ($_FILE["file"]["error"] > 0)

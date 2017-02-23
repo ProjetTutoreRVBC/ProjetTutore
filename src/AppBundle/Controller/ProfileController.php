@@ -113,5 +113,11 @@ class ProfileController extends Controller
       return $this->render('View/page.html.php',array("profile"=>$info_page,"subs"=>$subsPage,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments,"user_page"=>$current_user_page[0]['namePage']));
     }
   
+     /**
+      * @Route("/profile/")
+      */
+      public function errorAction(){
+        return $this->render("View/error.html.php");
+      }
     
 }

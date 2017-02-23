@@ -19,3 +19,6 @@ home:
 gestion:
     path:     /gestion/
     defaults: { _controller: AppBundle:Gestion:index }
+ajout_page:
+    path:     /ajout_page/
+    defaults: { _controller: AppBundle:AjoutPage:index }

@@ -117,7 +117,10 @@
                     <div style="text-align:center;width:18%;margin-left:20px;float:left;height:100%;">
                         <a class="button" style="width:100%;margin-bottom:2px;">Désactiver commentaires</a>
                         <a class="button" style="width:100%;margin-bottom:2px;">Désactiver le chat</a>
-                        <a class="alert button" style="width:100%;margin-bottom:2px;">Supprimer la vidéo</a>
+                        <form method="post" action="" >
+                        <input name="supprimer" value="'.$id.'" hidden/>
+                        <button type="submit" class="alert button" style="width:100%;margin-bottom:2px;">Supprimer la vidéo</button>
+                        </form>
                     </div>
                 </div>';
                   }

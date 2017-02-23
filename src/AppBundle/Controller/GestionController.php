@@ -39,14 +39,22 @@ class GestionController extends Controller
         $list_p = $user->getPages($_COOKIE["pseudo"]);
         $list_c = $user->getChannels($_COOKIE["pseudo"]);
         $user_id = $user->getId($_COOKIE["pseudo"]);
-        $user_page = new Page();
-        $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
-        $subs;
+        $subs = array();
+        $page = "";
         foreach($list_c as $value){
           $result =  $channel->getSubsChannel($value['idChannel']);
           $subs[$value['idChannel']] = $result['COUNT(*)'];
         }
-        return $this->render('View/gestion.html.php',array("subs"=>$subs,"pages" => $list_p,"channels"=>$list_c,"user_page"=>$current_user_page[0]['namePage']));
+        if(!$subs) 
+          $subs = 0;
+        if(!$list_p)
+          $list_p = 0;
+        else
+          $page = $list_p[0]['namePage'];
+        if(!$list_c)
+          $list_c = 0;
+        
+        return $this->render('View/gestion.html.php',array("subs"=>$subs,"pages" => $list_p,"channels"=>$list_c,"user_page"=>$page,"pseudo"=>$_COOKIE["pseudo"]));
       }
       $this->redirectToRoute('home');
     }

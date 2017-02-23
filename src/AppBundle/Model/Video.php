@@ -19,6 +19,38 @@ class Video
       $this->descriptionVideo = $descriptionVideo;
     }
   */
+		public function delete($id)
+		{
+			$dir = "/home/cabox/workspace/web/bundles/framework/";
+			$file = $id.".mp4";
+			$db = Database::getInstance();
+			$sql = "SELECT miniature from Video where idVideo = :id";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+			$miniature = $stmt->fetch();
+			$file2 = $miniature['miniature'];
+			
+			if(file_exists($dir."miniature/".$file2))
+				unlink($dir."miniature/".$file2);
+			if(file_exists($dir."video/".$file))
+				unlink($dir."video/".$file);
+			
+		  $sql = "DELETE FROM Video where idVideo = :id";
+		  $stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id);
+		  $stmt->execute();
+			$sql = "DELETE FROM Comment where idVideo = :id";
+		  $stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id);
+		  $stmt->execute();
+			$sql = "DELETE FROM voteVideo where idVideo = :id";
+		  $stmt = $db->prepare($sql);
+			$stmt->bindParam(':id', $id);
+		  $stmt->execute();
+		}
+	
+	
 		public function addVideo($nameVideo,$descriptionVideo,$miniature,$idChannel)
 		{
 			$db = Database::getInstance();

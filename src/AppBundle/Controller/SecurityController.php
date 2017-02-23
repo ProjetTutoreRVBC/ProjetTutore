@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Controller;
-
+use AppBundle\Model\Page;
 use AppBundle\Model\Video;
 use AppBundle\Model\Nostreamer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -46,7 +46,14 @@ class SecurityController extends Controller
           $user->signIn($pseudo,$password);
           if($user->signIn($pseudo,$password) == true)
           {
-            return $this->redirectToRoute('gestion');
+             $user_id = $user->getId($pseudo);      
+             $page = new Page(); 
+             $user_page = $page->getMainPage($user_id['idNostreamer']);
+             if(!$user_page){
+               return $this->redirectToRoute("ajout_page");
+             }
+             else
+             return $this->redirectToRoute('gestion');
           }
           else
             $error = "Wrong username or password. Try again.";

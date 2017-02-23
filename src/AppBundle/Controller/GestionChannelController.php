@@ -37,7 +37,12 @@ class GestionChannelController extends Controller
     public function indexAction($slug)
     { 
       if(isset($_COOKIE["pseudo"])) {
-        $video = new Video(); 
+        $video = new Video();
+        if(isset($_POST) && $_POST != null){
+          if(isset($_POST['supprimer'])){
+            $video->delete($_POST['supprimer']); 
+          }
+        }
         $list_v = $video->getListVideo();
         $list_c = $video->getListChannelByIdVideo();
         $list_p = $video->getListPageByIdVideo();
