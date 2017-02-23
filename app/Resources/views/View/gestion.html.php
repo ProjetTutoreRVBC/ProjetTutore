@@ -81,7 +81,7 @@
                   foreach($channels as $channel){
                   echo '<a class="link" href="../gestion_channel/'.$channel['nameChannel'].'">
                           <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
-                              <img src="/web/bundles/framework/images/metstudio.jpg " style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
+                              <img src="/web/bundles/framework/images-profile/'.$channel[6].'" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
                             <font style="font-size:150%;margin-left:10px; ">'.$channel['nameChannel'].''.$space.'<small>'.$subs[$channel['idChannel']].' abonnés</small></font>
                           </div>
                         </a>';
@@ -114,7 +114,7 @@
                 foreach($pages as $page){
                   echo '<a class="link" href="../profile/'.$page['namePage'].'">
                         <div class="selection" style="width:100%;display:inline-block;margin-top:3%; ">
-                          <img src="/web/bundles/framework/images/met.jpg" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
+                          <img src="/web/bundles/framework/images-profile/'.$page[7].'" style=" border-radius:20%;height:125px;width:125px;text-align:center; ">
                           <font style="font-size:150%;margin-left:10px; ">'.$page['namePage'].'<small></small></font>
                         </div></a>';
                   }

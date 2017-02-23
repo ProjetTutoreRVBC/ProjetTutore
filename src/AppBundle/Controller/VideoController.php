@@ -80,6 +80,7 @@ class VideoController extends Controller
       $v = $video->getVideo($id);
       return $this->render('View/videotest.html.php',
       array(
+          "miniature"=>$v['miniature'],
           "dislikes"=>$v['dislikes'],
           "likes"=>$v['likes'],
           "title" => $v['nameVideo'],

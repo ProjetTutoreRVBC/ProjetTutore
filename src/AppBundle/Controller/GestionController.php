@@ -51,6 +51,7 @@ class GestionController extends Controller
           $list_p = 0;
         else
           $page = $list_p[0]['namePage'];
+          
         if(!$list_c)
           $list_c = 0;
         

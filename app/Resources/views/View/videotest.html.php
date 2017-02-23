@@ -88,7 +88,7 @@
     <div class="video-principale" style="height: 95%;width: 100%;top:110px;">
         
         <div class="video-container " style="height:70%;width:65%!important;margin-left:20px;">
-            <video id="my-video " class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="atlas.jpg " data-setup="{} ">
+            <video id="my-video " class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="<?php echo '/web/bundles/framework/miniature/'.$miniature;?>" data-setup="{} ">
                 <source src="<?php echo '/web/bundles/framework/video/'.$v.'.mp4';?>" type='video/mp4'>
                 <p class="vjs-no-js ">
                   To view this video please enable JavaScript, and consider upgrading to a web browser that
@@ -108,6 +108,7 @@
                   $vues = $v['viewsVideo'];
                   $Page = $page[$titre];
                   $Channel = $channel[$titre];
+                  if($v['nameVideo'] != $title)
                   echo '
                   <a href ="watch?v='.$id.'">
                     <div style="height:125px;width:225px;display:inline-block;margin:4px;">
