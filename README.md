@@ -3,7 +3,7 @@ nostream
 
 A Symfony project created on October 19, 2016, 1:21 am.
 
-Truc à faire :
+TODO
 
 2 : formulaire modifications des infos (changer mdp, nom, etc)
 
