@@ -45,7 +45,7 @@ class ProfileController extends Controller
          } 
          if(isset($_POST['new_post']) && $recurence_post == false){
            $post = new Post();
-           $post->add($info_page['idPage'],$info_page['idChannel'],$_POST['new_post']);
+           $post->add($info_page['idPage'],$_POST['new_post']);
            setcookie("last_post",$_POST['new_post']);
           }
           if(isset($_POST['delete_post'])){

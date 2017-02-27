@@ -34,6 +34,7 @@ class VideoController extends Controller
         $info_u = new Nostreamer();  
         $user_id = $info_u->getId($_COOKIE['pseudo']);
         $info_vote = $video->getVote($id,$user_id['idNostreamer']);
+        $video->addView($user_id['idNostreamer'],$id);
         if(isset($_POST['likes'])){ 
            $type = "insert"; 
            if($info_vote) 

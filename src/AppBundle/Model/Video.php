@@ -51,6 +51,47 @@ class Video
 		}
 	
 	
+		public function addView($idNostreamer, $idVideo){
+			$db = Database::getInstance();
+			$sql = "SELECT * from Views where idVideo = :idV and idNostreamer = :idN";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':idN', $idNostreamer);
+			$stmt->bindParam(':idV', $idVideo);
+			$stmt->execute();
+			$view = $stmt->fetch();
+			
+			if(!$view){
+				$sql = "INSERT INTO Views (idNostreamer,idVideo,user_views) VALUES (:idN, :idV,1)";
+				$stmt = $db->prepare($sql);
+				$stmt->bindParam(':idN', $idNostreamer);
+				$stmt->bindParam(':idV', $idVideo);
+				$stmt->execute();			
+			}
+			else {
+				$sql = "UPDATE Views SET user_views = user_views + 1 WHERE idVideo = :idV and idNostreamer = :idN";
+				$stmt = $db->prepare($sql);
+				$stmt->bindParam(':idN', $idNostreamer);
+				$stmt->bindParam(':idV', $idVideo);
+				$stmt->execute();
+				
+			}
+			
+			$sql = "SELECT SUM(user_views) from Views where idVideo = :idV";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':idV', $idVideo);
+			$stmt->execute();
+			$result = $stmt->fetch();
+			$count = $result['SUM(user_views)'];
+			
+			$sql = "UPDATE Video SET viewsVideo = :count WHERE idVideo = :idV";
+		  $stmt = $db->prepare($sql);
+			$stmt->bindParam(':count', $count);
+			$stmt->bindParam(':idV', $idVideo);
+		  $stmt->execute();
+			
+		}
+	
+	
 		public function addVideo($nameVideo,$descriptionVideo,$miniature,$idChannel)
 		{
 			$db = Database::getInstance();

@@ -90,7 +90,9 @@
             <h2 style=""><?php echo $profile['namePage']; ?></h2>
             <h6 style="margin-top:-5%;float:left;"><?php echo $subs[0]; ?> abonnés</h6>
         </div>
-        <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>
+        <form action="" method="post">
+          <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>
+        </form>  
     </div>
       </div>
 

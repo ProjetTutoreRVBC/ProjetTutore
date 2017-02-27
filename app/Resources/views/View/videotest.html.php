@@ -12,8 +12,10 @@
     <script type="text/javascript" src="/web/bundles/framework/js/top-bar.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
     <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
+  <link href="/web/bundles/framework/js/tchat.js" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
+  
      <script type="text/javascript">
         function changeIconUp(id){
           var icon = document.getElementById(id);

@@ -161,14 +161,13 @@ class Post
 	
 		
 	
-    public function add($idPage,$idChannel,$messagePost)
+    public function add($idPage,$messagePost)
     {
       $db = Database::getInstance();
-		  $sql = "INSERT INTO `Post`(`idPage`, `idChannel`, `datePost`, `messagePost`) VALUES (:idPage,:idChannel,:datePost,:messagePost)";
+		  $sql = "INSERT INTO `Post`(`idPage`, `datePost`, `messagePost`) VALUES (:idPage,:datePost,:messagePost)";
 			$datePost = date("Y/m/d H:i:s");
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':idPage',$idPage);
-		  $stmt->bindParam(':idChannel',$idChannel);
 			$stmt->bindParam(':datePost',$datePost);
 			$stmt->bindParam(':messagePost',$messagePost);
 		  $stmt->execute();
