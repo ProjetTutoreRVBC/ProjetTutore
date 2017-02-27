@@ -27,13 +27,25 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
         $context = $this->context;
         $request = $this->request;
 
-        // app_ajoutchaine_index
-        if (rtrim($pathinfo, '/') === '/ajout_chaine') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'app_ajoutchaine_index');
+        if (0 === strpos($pathinfo, '/ajout_')) {
+            // app_ajoutchaine_index
+            if (rtrim($pathinfo, '/') === '/ajout_chaine') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'app_ajoutchaine_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\AjoutChaineController::indexAction',  '_route' => 'app_ajoutchaine_index',);
             }
 
-            return array (  '_controller' => 'AppBundle\\Controller\\AjoutChaineController::indexAction',  '_route' => 'app_ajoutchaine_index',);
+            // app_ajoutpage_index
+            if (rtrim($pathinfo, '/') === '/ajout_page') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'app_ajoutpage_index');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\AjoutPageController::indexAction',  '_route' => 'app_ajoutpage_index',);
+            }
+
         }
 
         // channel_index
@@ -63,9 +75,21 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
 
         }
 
-        // profile_index
-        if (0 === strpos($pathinfo, '/profile') && preg_match('#^/profile/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'profile_index')), array (  '_controller' => 'AppBundle\\Controller\\ProfileController::showAction',));
+        if (0 === strpos($pathinfo, '/profile')) {
+            // profile_index
+            if (preg_match('#^/profile/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'profile_index')), array (  '_controller' => 'AppBundle\\Controller\\ProfileController::showAction',));
+            }
+
+            // app_profile_error
+            if (rtrim($pathinfo, '/') === '/profile') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'app_profile_error');
+                }
+
+                return array (  '_controller' => 'AppBundle\\Controller\\ProfileController::errorAction',  '_route' => 'app_profile_error',);
+            }
+
         }
 
         // app_security_register
@@ -86,9 +110,9 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
 
         }
 
-        // app_upload_upload
-        if ($pathinfo === '/upload') {
-            return array (  '_controller' => 'AppBundle\\Controller\\UploadController::uploadAction',  '_route' => 'app_upload_upload',);
+        // upload_index
+        if (0 === strpos($pathinfo, '/upload') && preg_match('#^/upload/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'upload_index')), array (  '_controller' => 'AppBundle\\Controller\\UploadController::showAction',));
         }
 
         // app_video_show
@@ -99,6 +123,11 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
         // channel
         if (0 === strpos($pathinfo, '/channel') && preg_match('#^/channel/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'channel')), array (  '_controller' => 'AppBundle\\Controller\\ChannelController::showAction',));
+        }
+
+        // upload
+        if (0 === strpos($pathinfo, '/upload') && preg_match('#^/upload/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'upload')), array (  '_controller' => 'AppBundle\\Controller\\UploadController::showAction',));
         }
 
         // profile
@@ -131,6 +160,15 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
             }
 
             return array (  '_controller' => 'AppBundle\\Controller\\GestionController::indexAction',  '_route' => 'gestion',);
+        }
+
+        // ajout_page
+        if (rtrim($pathinfo, '/') === '/ajout_page') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'ajout_page');
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\AjoutPageController::indexAction',  '_route' => 'ajout_page',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

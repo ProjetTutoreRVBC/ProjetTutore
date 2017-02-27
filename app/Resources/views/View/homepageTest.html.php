@@ -11,6 +11,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/validation/form.js') ?>"></script>
     <script type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/display/upload.js') ?>"></script>
+    <script> 
+      function suggest(str) {
+      if (str.length == 0) { 
+        document.getElementById("completion").innerHTML = "";
+        return;
+      } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("completion").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "/web/bundles/framework/php/gethint.php?q=" + str, true);
+        xmlhttp.send();
+        }
+      }
+    </script>  
     <link rel="stylesheet" href="/web/bundles/framework/css/top-bar.css">
 </head>
 
@@ -20,8 +37,8 @@
               <div id="left-search" style="float:left;">
                 <ul id="menu" class="menu">
                     <li><a href="/web/app_dev.php/" ><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></a></li>
-                    <li><input id ="search-bar" class="search-bar" type="search" placeholder="Search Here"></li>
-                    <li><button class="button" type="button">Search</button></li>
+                    <li><input id ="search-bar" class="search-bar" type="input" placeholder="Search Here" onkeyup="suggest(this.value)"></li>
+                    <li><button id="search" class="button" type="button">Search</button></li>
                 </ul>
               </div>
                         <?php
