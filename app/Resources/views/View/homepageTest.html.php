@@ -14,17 +14,29 @@
     <script> 
       function suggest(str) {
       if (str.length == 0) { 
-        document.getElementById("completion").innerHTML = "";
+        document.getElementById("sugg_list").style.display = "none";
         return;
       } else {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("completion").innerHTML = this.responseText;
+              var reponse = JSON.parse(this.responseText);
+              document.getElementById("sugg_list").style.display = "";
+              while( document.getElementById("sugg_list").firstChild ){
+                document.getElementById("sugg_list").removeChild( document.getElementById("sugg_list").firstChild );
+              }
+              reponse.forEach(function(el){
+                var newLI = document.createElement('li');
+                newLI.appendChild(document.createTextNode(el.nameVideo));
+                document.getElementById("sugg_list").appendChild(newLI);
+                
+              })
+             // 
             }
         };
         xmlhttp.open("GET", "/web/bundles/framework/php/gethint.php?q=" + str, true);
         xmlhttp.send();
+      
         }
       }
     </script>  
@@ -68,6 +80,12 @@
                 </ul>
             </div>
           </div>
+
+          <div id="suggestions" style="background-color:white;width:500px;margin-left:87px;margin-top:-5px;position:fixed;z-index:1;border-style: ridge 1px;">
+            <ul id="sugg_list" style="list-style:none;background-color:white;margin-left:0.25em;display:none;">
+              
+            </ul>
+          </div>
             <div id="liste" class="liste">
               <ul class="tabs " data-tabs id="tabs_example">
                 <li class="tabs-title "><a href="#tab2">Vidéastes</a></li>
@@ -80,6 +98,9 @@
         </div>
         <div  id="videos" class="tabs-content " data-tabs-content="tabs_example"  style="margin-top:130px;">
         <!------------------------------------------------------------Section Tendances---------------------------->
+          <h4 id="completion">
+            
+          </h4>
           <div  class="tabs-panel is-active " id="tab1" >
             <div class ="defilement-video" style="text-align: center;">
               <?php
