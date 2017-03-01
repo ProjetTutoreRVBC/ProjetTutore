@@ -60,7 +60,7 @@ class Video
 			$stmt->execute();
 			$view = $stmt->fetch();
 			
-			if(!$view){
+			if(!$view && $idNostreamer != 0){
 				$sql = "INSERT INTO Views (idNostreamer,idVideo,user_views) VALUES (:idN, :idV,1)";
 				$stmt = $db->prepare($sql);
 				$stmt->bindParam(':idN', $idNostreamer);
@@ -71,6 +71,19 @@ class Video
 				$sql = "UPDATE Views SET user_views = user_views + 1 WHERE idVideo = :idV and idNostreamer = :idN";
 				$stmt = $db->prepare($sql);
 				$stmt->bindParam(':idN', $idNostreamer);
+				$stmt->bindParam(':idV', $idVideo);
+				$stmt->execute();
+				
+			}
+			if(!$view && $idNostreamer == 0){
+				$sql = "INSERT INTO Views (idNostreamer,idVideo,user_views) VALUES (0, :idV,0)";
+				$stmt = $db->prepare($sql);
+				$stmt->bindParam(':idV', $idVideo);
+				$stmt->execute();			
+			}
+			else {
+				$sql = "UPDATE Views SET user_views = user_views + 1 WHERE idVideo = :idV and idNostreamer = 0";
+				$stmt = $db->prepare($sql);
 				$stmt->bindParam(':idV', $idVideo);
 				$stmt->execute();
 				

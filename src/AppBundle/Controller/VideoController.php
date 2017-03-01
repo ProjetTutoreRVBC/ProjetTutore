@@ -29,6 +29,7 @@ class VideoController extends Controller
       $info_vote = array();
       $recurence_comment = false;
       $v = $video->getVideo($id);
+      $video->addView(0,$id);
       $current_user_page = array(0=>array("namePage" => ""));
       if(isset($_COOKIE['pseudo'])){
         $info_u = new Nostreamer();  
