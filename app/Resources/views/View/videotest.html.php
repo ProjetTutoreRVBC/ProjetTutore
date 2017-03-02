@@ -89,7 +89,7 @@
                   <a href="http://videojs.com/html5-video-support/ " target="_blank ">supports HTML5 video</a>
                 </p>
             </video>
-              <div id="info_video" style="display:inline-block;margin-bottom:20px;margin-top:20px;width:100%;padding:10px;border-radius:8px;border: 2px ridge black;">
+              <div id="info_video" style="background-color:#dddddd;display:inline-block;margin-bottom:20px;margin-top:20px;height:35%;width:100%;padding:10px;border-radius:8px;border: 2px ridge black;">
                 <div style="width:100%;height:100%;">
                   <div style="width:40%;height:90%;float:left;">
                     <div style="margin-left:15px;width:50%;">
@@ -104,15 +104,15 @@
 
                   <div style="width:20%;height:90%;float:left;margin-top:0px;margin-left:20px;">
                     <a href="../channel/<?php echo $video_channel;?>">
-                      <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
-                        <img style="width:50px;height:50px;" src="/web/bundles/framework/images/metstudio.jpg">
-                        <span style="margin-left:10px;"><?php echo $video_channel;?></span>
+                      <div style="margin-top:15px;margin-left:10%;width:50%;display:table;">
+                        <img style="width:50px;height:50px;;border-radius:8px;border: 1px ridge black;" src="/web/bundles/framework/images/metstudio.jpg">
+                        <font style="font-size:100%;padding-left:10px;display:table-cell;vertical-align:middle;text-decoration:none"><?php echo $video_channel;?></font>
                       </div>
                     </a>
                     <a href="../profile/<?php echo $video_page;?>">
-                      <div style="margin-top:15px;margin-left:10%;width:100%;display:inline-block;">
-                        <img style="width:50px;height:50px;" src="/web/bundles/framework/images/met.jpg">
-                        <span style="margin-left:10px;"><?php echo $video_page;?></span>
+                      <div style="margin-top:15px;margin-left:10%;width:50%;display:table;">
+                        <img style="width:50px;height:50px;;border-radius:8px;border: 1px ridge black;" src="/web/bundles/framework/images/met.jpg">
+                        <font style="font-size:100%;padding-left:10px;display:table-cell;vertical-align:middle;text-decoration:none"><?php echo $video_page;?></font>
                       </div>
                     </a>
                   </div>
@@ -129,23 +129,23 @@
                           $type2='name="dislikes" type="submit" ';
                         }
                         if(!isset($vote['likes']) || $vote['likes'] == false)
-                          echo '<span><button '.$type1.' style="margin:1%;outline:none;">
+                          echo '<span><button '.$type1.' style="margin:1%;outline:none;background-color:transparent;border:none">
                                   <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
                                   <span id="content">'.$likes.'</span>
                                 </button></span>';
                         if(isset($vote['likes']) && $vote['likes'] == true)
-                          echo '<span><button  style="margin:1%;outline:none;" disabled>
+                          echo '<span><button  style="margin:1%;outline:none;background-color:transparent;border:none" disabled>
                                   <img  style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up-hand-symbol.png" alt="">
                                   <span id="content">'.$likes.'</span>
                                 </button></span>'; 
                         $id++;
                         if(!isset($vote['dislikes']) || $vote['dislikes'] == false)
-                          echo '<span><button '.$type2.' style="margin:1%;outline:none;">
+                          echo '<span><button '.$type2.' style="margin:1%;outline:none;background-color:transparent;border:none">
                                   <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
                                   <span id="content">'.$dislikes.'</span>
                                 </button></span>';
                         if(isset($vote['dislikes']) && $vote['dislikes'] == true)
-                          echo '<span><button  style="margin:1%;outline:none;" disabled>
+                          echo '<span><button  style="margin:1%;outline:none;background-color:transparent;border:none" disabled>
                                   <img style="max-width:30px;max-height:30px;"  id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-down-silhouette.png" alt="">
                                   <span id="content">'.$dislikes.'</span>
                                 </button></span>';
@@ -154,6 +154,35 @@
                 </div>
               </div>
             </div>
+             <div style="position:absolute;top:100%;border-radius: 8px;border: 2px ridge black;width:65%;background-color:;">
+              <?php
+                    echo '<form action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-left:20px;margin-top:20px;">
+                          <div style="width:70%;float:left;">
+                          <textarea name="comment" placeholder="Votre message..." rows="2" cols="50"></textarea>
+                          </div>
+                          <div style="float:left;margin-left:20px;margin-top:5px;">
+                          <button name="send_comment" type ="submit" class="button" style="float: right;">Envoyez</button>
+                          </div>
+                          </form>';
+                       foreach($comments as $comment) {
+                           echo '<div style="background-color: #dddddd;border: 1px ridge black;padding:10px;margin-left:20px;margin-bottom:10px;width:80%;overflow:hidden;" class="callout" data-closable>
+                                  <div style="border-bottom: solid 1px;">
+                                    <img style="width:30px;height:30px;" src="met.jpg">
+                                    <span style="margin-left:10px;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                                    if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
+                                    echo '<form action="" method="post">
+                                        <input name="idComment" value="'.$comment['idComment'].'" hidden>
+                                        <button style="outline:none;" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </form>';  
+                         
+                               echo '</div>
+                                  <p>'.$comment['messageComment'].'</p>
+                                </div>';
+                       }
+                    ?>
+          </div>
           </div>
           <div class="recommandations" style="margin-left:-20px;border-radius:8px;border: 2px ridge black;text-align:center;width:20%;height:100%;float:left;display:inline-block;overflow-y:scroll;overflow-x:visible;">
             <?php
@@ -200,7 +229,8 @@
           </div>
           <!--<div style="border-radius:8px;border: 2px ridge black;width:1%;height:100%;float:right">
           </div>-->
-      </div>
+         
+        
 
 
       <section>
