@@ -8,13 +8,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nostream</title>
-    <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
-    <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
-    <link rel="stylesheet" href="/web/bundles/framework/css/top-bar.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
-    <script type="text/javascript" src="/web/bundles/framework/js/top-bar.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
+  <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
     <script type="text/javascript">
         function changeIconUp(id){
           var icon = document.getElementById(id);
@@ -40,70 +39,129 @@
 </head>
 
 <body onresize="handleWindow()" onload="handleWindow()">
-    <div>
-        <div class="top-bar" style="z-index: 2;">
-              <div style="display: inline-block;width:100%;">
-                <div id="left-search" style="float:left;">
-                  <ul id="menu" class="menu" style="">
-                      <li><a href="/web/app_dev.php/" ><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></a></li>
-                      <li><input id ="search-bar" class="search-bar" type="search" placeholder="Search Here"></li>
-                      <li><button id="button-search-bar" class="button" type="button">Search</button></li>
-                  </ul>
-               </div>
-                     <?php
-                          $href="login";
-                          $log="Login";
-                          if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
-                          {
-                            $href = "logout";
-                            $log = "Logout";
-                            echo '<div id ="right-log" style="float:right;">
-                            <ul id="menu" class="menu">';
-                            
-                             echo '<li id="signed"><a href="../gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-                            echo '<li id="signed-1"><a href="../profile/'.$user_page.'"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
-                          }else
-                          {
-                            echo '<div id ="right-log" style="float:right;">
-                            <ul id="menu" class="menu">';
-                            echo '<li id="signIn" ><a href="register"><button class="button" type="button">Sign Up</button></a></li>';
-                          }
-                            
-                          echo '<li id ="logIn">';
-                          echo '<a href=../'.$href.'>';
-                          echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
-                        ?>
-                    </li>  
-                </ul>
-              </div>
-            </div>
+
+
+    <script>
+    $(document).ready(function() {
+      var item_num = $('nav li').length + 1;
+      var btn_state = true;
+
+      $('nav li').hover(function() {
+        $(this).addClass('hover');
+      }, function() {
+        $(this).removeClass('hover');
+      });
+
+      $('nav li').on('click', function() {
+        if (btn_state) {
+          btn_state = !btn_state;
+          $('nav li').removeClass('currentPage');
+
+          $(this).addClass('currentPage');
+
+          var i = $('nav li').index(this);
+          $('article').removeClass('show');
+          $('article').addClass('hide');
+          $('article').eq(i).addClass('show');
+
+          setTimeout(function() {
+            btn_state = !btn_state;
+          }, 500);
+        }
+      });
+
+
+    });
+  </script>
+  <!--<script> 
+      function suggest(str) {
+      if (str.length == 0) { 
+        document.getElementById("sugg_list").style.display = "none";
+        return;
+      } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var reponse = JSON.parse(this.responseText);
+              document.getElementById("sugg_list").style.display = "";
+              while( document.getElementById("sugg_list").firstChild ){
+                document.getElementById("sugg_list").removeChild( document.getElementById("sugg_list").firstChild );
+              }
+              reponse.forEach(function(el){
+                var newLI = document.createElement('li');
+                newLI.appendChild(document.createTextNode(el.nameVideo));
+                document.getElementById("sugg_list").appendChild(newLI);
+                
+              })
+             // 
+            }
+        };
+        xmlhttp.open("GET", "/web/bundles/framework/php/gethint.php?q=" + str, true);
+        xmlhttp.send();
+      
+        }
+      }
+    </script>  -->
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <a href="/web/app_dev.php/" style="width:100px;height:100px;border-radius: 8px;"><img id="logo" class="nostream" src="/web/bundles/framework/images/logo.png" alt="logo"></a>
+      <input type="text" class="searchbar" name="search" placeholder="Search..">
+      <?php
+          $href = "login";
+          $log  = "Login";
+          if (isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])) {
+              $href = "logout";
+              $log  = "Logout";
+              echo '<a href="gestion"><img style="margin-top:10px;width:40px;height:40px;float:right;margin-right:10px" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
+              echo '<a href="profile/' . $user_page . '"><img style="margin-top:10px;width:40px;height:40px;float:right;margin-right:10px" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+          } else {
+              echo '<a href="../register"><button class="btn-11" type="button">Sign Up</button></a>';
+          }
+          echo '<a href="../' . $href . '">';
+          echo '<button id="log" type ="button" class="btn-11" >' . $log . '</button></a>';
+        ?>
+        <!--<a href="register"><button class="btn-11" type="button">Sign Up</button></a>
+        <a href="login"><button class="btn-11" type="button">Login</button></a>-->
+    </div>
+    <nav>
+      <ul>
+        <li class="gnav1"><?php echo $profile['namePage']; ?></li>
+        <li class="gnav2">Chaîne 1</li>
+        <li class="gnav3">Chaîne 2</li>
+        <li class="gnav4">Chaînes</li>
+      </ul>
+    </nav>
+    <div class="contents" id="contents">
+      <div class="container">
+        <article id="page1" class="show top" style="overflow-y:scroll;">
+          <div style="border-radius:8px;border: 1px solid #000;background-size: 100% 100%;text-align:center;margin-right:auto;margin-left:auto;width:80%;height:20%;background-image:url(//yt3.ggpht.com/v1TmYBYX-Vu9QposRqHSp-rqcns5OhG3iriSPzDLWiT1-0kEkBx-iyBMGa8iaHgV0cA0j1A7Ng=w1060-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no);">
+          <?php //echo '/web/bundles/framework/images-profile/'.$profile['profile_img'] ?>
+            
           </div>
-
-    <div style="height:40%;position:absolute;width:100%;top:49px;">
-    <div style="height:75%;padding:1px;width:100%;">
-        <img src="<?php echo '/web/bundles/framework/images-banniere/'.$profile['banniere_img'] ?>" style="height:100%;width:100%;text-align:center;"><br>
-        <img src="<?php echo '/web/bundles/framework/images-profile/'.$profile['profile_img'] ?>" style="position:relative;padding:1px;height:45%;padding-left:45%;text-align:center;top:-50%;left:-45%;margin-left:30px;">
-    </div>
-
-    <div style="padding:10px;box-shadow: 1px 1px 10px 1px #CDD3E1;width:100%;height:30%;">
-        <div style="float:left;margin-left:30px;">
-            <h2 style=""><?php echo $profile['namePage']; ?></h2>
-            <h6 style="margin-top:-5%;float:left;"><?php echo $subs[0]; ?> abonnés</h6>
-        </div>
-        <form action="" method="post">
-          <a class="button" style="float:left;margin-left:25px;margin-top:10px;">S'abonner</a>
-        </form>  
-    </div>
-      </div>
-
-
-        <div style="margin-left:auto;margin-right:auto;margin-top:25%;width:50%;height:10%;background-color:white;">
+          <div style="display:table;border-radius:8px;border: 1px solid #000;background-color:grey;margin-right:auto;margin-left:auto;width:80%;height:10%;line-height:10%">
+            <div style="display:table-cell;vertical-align:middle;">
+              <font style="color:white;font-size:200%;margin-left:5px;float:left;margin-top:-1%;"><?php echo $profile['namePage']; ?></font>
+            </div>
+            <div style="display:table-cell;vertical-align:middle;">
+              <font style="color:white;font-size:100%;margin-left:5px;float:right;"><?php echo $subs[0]; ?> abonnés</font>
+            </div>
+            <div style="display:table-cell;vertical-align:middle;width:20%;">
+              <button class="myButt one" style="margin-right:15px;float:right">
+                <div class="insider"></div>
+                <p style="margin-top:4px;font-size:10px;">Abonne toi !</p>
+              </button>
+            </div>            
+          </div>
+          <div style="margin-left:auto;margin-right:auto;margin-top:10px;width:50%;height:10%;">
         <?php
           $param_delete_post = "";
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
             echo '
-        <div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;display: inline-block;width:100%;">
+        <div style="border: 1px ridge black;padding:10px;display: inline-block;width:100%;background-color:#808080">
           <form action="" method="post">
           <div>
           <input name="slug" id="slug" value="'.$profile['namePage'].'" hidden>
@@ -122,18 +180,18 @@
         foreach($posts as $post){
           
         echo '
-        <div id="bloc" style="margin-top:25px;margin-bottom: 25px;box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;display: inline-block;width:100%;" '.$param_delete_post.'>
+        <div id="bloc" style="margin-top:25px;margin-bottom: 25px;border: 1px ridge black;padding:10px;display: inline-block;width:100%;background-color:#dddddd;" '.$param_delete_post.'>
             <div style="border-bottom: solid 1px;padding:10px;padding-left:0px;">
                 <h>Publié le '.$post['datePost'].' </h>';
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
-            echo '<form id="foo" action="" method="post">
+            echo '<form id="foo" action="" method="post" style="float:right;margin-top:-20px;">
                   <input name="idPost" value="'.$post['idPost'].'" hidden>
-                  <button style="outline:none;" id="submit_button" name="delete_post" class="close-button" aria-label="Dismiss alert" type="submit" data-close>
-                  <span aria-hidden="true">&times;</span>
+                  <div class="circCont">
+                    <button class="circle" data-animation="showShadow" data-remove="3000" style="float:right;margin-top:5px;"></button>
+                  </div>
                   </button>
                   </form>';
-
             $type1='name="like" type="submit" ';
             $type2='name="dislike" type="submit" ';  
             }
@@ -148,13 +206,13 @@
                 <div>
                 <input id="data" name="id-post-like" value="'.$post['idPost'].'" hidden>';
                 if(!isset($vote[$post['idPost']]['like']) || $vote[$post['idPost']]['like'] == false)
-                  echo '<button '.$type1.' style="float:left;margin:1%;outline:none;">
+                  echo '<button '.$type1.' style="float:left;margin:1%;outline:none;background-color:transparent;border:none">
                     <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
                     <span id="content">'.$post['likes'].'</span>
                   </button>
                   </div>';
                 if(isset($vote[$post['idPost']]['like']) && $vote[$post['idPost']]['like'] == true)
-                  echo '<button  style="float:left;margin:1%;outline:none;" disabled>
+                  echo '<button  style="float:left;margin:1%;outline:none;background-color:transparent;border:none" disabled>
                     <img  style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up-hand-symbol.png" alt="">
                     <span id="content">'.$post['likes'].'</span>
                   </button>
@@ -163,12 +221,12 @@
                 echo '<div>
                 <input id="data" name="id-post-dislike" value="'.$post['idPost'].'" hidden>';
                 if(!isset($vote[$post['idPost']]['dislike']) || $vote[$post['idPost']]['dislike'] == false)
-                  echo '<button '.$type2.' style="float:left;margin:1%;outline:none;">
+                  echo '<button '.$type2.' style="float:left;margin:1%;outline:none;background-color:transparent;border:none">
                     <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
                     <span id="content">'.$post['dislikes'].'</span>
                   </button>';
                 if(isset($vote[$post['idPost']]['dislike']) && $vote[$post['idPost']]['dislike'] == true)
-                  echo '<button  style="float:left;margin:1%;outline:none;" disabled>
+                  echo '<button  style="float:left;margin:1%;outline:none;background-color:transparent;border:none" disabled>
                     <img style="max-width:30px;max-height:30px;"  id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-down-silhouette.png" alt="">
                     <span id="content">'.$post['dislikes'].'</span>
                   </button>';
@@ -190,7 +248,7 @@
              foreach($comments as $key => $value) {
                 if($key== $post['idPost']){
                  foreach($value as $comment){
-                   echo '<div style="box-shadow: 1px 1px 10px 1px #CDD3E1;padding:10px;margin-top:15px;" '.$param_delete_post.'>
+                   echo '<div style="border: 1px ridge black;padding:10px;margin-top:15px;" '.$param_delete_post.'>
                           <div style="border-bottom: solid 1px;">
                             <img style="width:30px;height:30px;" src="met.jpg">
                             <span style="margin-left:10px;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
@@ -212,11 +270,42 @@
           $id++;
         }
         ?>  
+          </div>
+          
+          
+          <section>
+            
+            
+            
+          </section>
+        </article>
+        
+        <article id="page2" style="overflow-y:scroll;">
+          <section>
+            <h1>Tab2 Title</h1>
+            <p>This is tab two.</p>
+          </section>
+        </article>
+        <article id="page3" style="overflow-y:scroll;">
+          <section>
+            <h1>Tab3 Title</h1>
+            <p>This is tab three.</p>
+          </section>
+        </article>
+        <article id="page4" style="overflow-y:scroll;">
+          <section>
+            <h1>Tab4 Title</h1>
+            <p>This is tab four.</p>
+          </section>
+        </article>
+        <article id="page5" style="overflow-y:scroll;">
+          <section>
+            <h1>Tab5 Title</h1>
+            <p>This is tab five</p>
+          </section>
+        </article>
+      </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            $(document).foundation();
-        })
-    </script>
+  </div>
 
 </body>
