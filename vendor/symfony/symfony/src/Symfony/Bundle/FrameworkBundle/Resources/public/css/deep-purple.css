@@ -1,15 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
 body,
 html {
   height: 100%;
   padding: 1.5rem;
   box-sizing: border-box;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
-  background: -webkit-radial-gradient(50% 16% circle, #c36fd4 32%, #332bab 88%);
-  background: radial-gradient(circle at 50% 16%, #c36fd4 32%, #332bab 88%);
+  background: -webkit-radial-gradient(50% 16% circle, #4997D0 32%, #002366 88%);
+  background: radial-gradient(circle at 50% 16%, #4997D0 32%, #002366 88%);
 }
+
+a,span {
+  text-decoration:none;
+}
+
 
 .wrapper {
   width: 100%;
@@ -59,6 +66,14 @@ body {
   width:60%;
 }
 
+.recommandations::-webkit-scrollbar { 
+    display: none; 
+}
+
+.descrvideo::-webkit-scrollbar { 
+    display: none; 
+}
+
 header h1 {
   background: #f0f0f0;
   color: #555;
@@ -73,8 +88,8 @@ nav {
   width: 100%;
   position:relative;
   z-index:7;
-  background: -webkit-linear-gradient(315deg, #fcc274 0%, #eb48a1 100%);
-  background: linear-gradient(135deg, #fcc274 0%, #eb48a1 100%);
+  background: -webkit-linear-gradient(315deg, #2199e8 0%, #0038A8 100%);
+  background: linear-gradient(135deg, #2199e8 0%, #0038A8 100%);
   margin-top: -22px;
 }
 
@@ -143,8 +158,8 @@ nav li.currentPage {
   left: 0;
   border-radius: 0 0 8px 0;
   overflow: hidden;
-  background: -webkit-linear-gradient(315deg, #1c1a30 0%, #38335d 100%);
-  background: linear-gradient(135deg, #1c1a30 0%, #38335d 100%);
+  background: -webkit-linear-gradient(315deg, #333333 0%, #333333 100%);
+  background: linear-gradient(135deg, #333333 0%, #333333 100%);
 }
 
 @media (min-width: 769px) {
@@ -162,8 +177,8 @@ article {
   width: 100%;
   padding: 2rem;
   box-sizing: border-box;
-  background: -webkit-linear-gradient(315deg, #38335d 0%, #1c1a30 100%);
-  background: linear-gradient(135deg, #38335d 0%, #1c1a30 100%);
+  background: -webkit-linear-gradient(315deg, #333333 0%, #333333 100%);
+  background: linear-gradient(135deg, #333333 0%, #333333 100%);
   top: 0;
   left: -100%;
 }

@@ -26,6 +26,7 @@
         if (btn_state) {
           btn_state = !btn_state;
           $('nav li').removeClass('currentPage');
+
           $(this).addClass('currentPage');
 
           var i = $('nav li').index(this);
@@ -105,52 +106,73 @@
     </nav>
     <div class="contents" id="contents">
       <div class="container">
-        <article id="page1" class="show top">
+        <article id="page1" class="show top" style="overflow-y:scroll;">
           <section>
             <div class="defilement-video" style="text-align: center;">
-
-              <div style="height:125px;width:225px;display:inline-block;">
-                <div style="height:35px;overflow:hidden;">
-                  <font class="titres" style="font-size:12px;"><strong>Metallica - Atlas, Rise! Teaser from Hardwired...To self Destruct</strong></font><br>
-                </div>
-                <img src="/web/bundles/framework/images/atlas.jpg" style="border-radius:8px;height:125px;width:225px;text-align:center;"><br>
-                <div style="width:225px;margin-top:-2px;">
-                  <button class='myButt one'>
-                    <div class='insider'></div>
-                    <p style="margin-top:4px;font-size:10px;">Hover over me</p>
-                </button>
-                  <button class='myButt one'>
-                    <div class='insider'></div>
-                     <p style="margin-top:4px;font-size:10px;">Hover over me</p>
-                </button>
-                </div>
-                <div style="text-align:center;">
-                  <font size="1 ">1 234 992 vues -</font>
-                  <font size="1 ">le 29/10/16</font>
-                </div>
-              </div>
+              <?php
+              foreach($video as $v)
+                {
+                  $titre= $v['nameVideo'];
+                  $id = $v['idVideo'];
+                  $date = $v['dateVideo'];
+                  $vues = $v['viewsVideo'];
+                  $Page = $page[$titre];
+                  $Channel = $channel[$titre];
+                  echo '
+                  <a href ="watch?v='.$id.'" style="color:white;line-height:none;margin-bottom:20px;">
+                    <div style="height:125px;width:225px;display:inline-block;margin:4px;">
+                      <div style="height:35px;overflow:hidden;">
+                          <font class="titres" style="font-size:12px;line-height:none;color:white;"><strong>'.$titre.'</strong></font><br>
+                      </div>
+                      <img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="border-radius:8px;height:125px;width:225px;text-align:center;"><br>
+                      <div>
+                      </div>
+                      </a>
+                      <div style="width:225px;margin-top:-2px;">
+                      <a href="channel/">
+                          <button href="channel/'.$Channel.'" class="myButt one">
+                          <div class="insider"></div>
+                          <p style="margin-top:4px;font-size:10px;">'.$Channel.'</p>
+                          </button>
+                      </a>
+                      <a href="profile/'.$Page.'">
+                          <button class="myButt one">
+                          <div class="insider"></div>
+                          <p style="margin-top:4px;font-size:10px;">'.$Page.'</p>
+                          </button>
+                      </a>
+                      </div>
+                      <div style="text-align:center;">
+                          <font size="1 ">'.$vues.' vues -</font>
+                          <font size="1 ">le '.$date.'</font>
+                      </div>
+                  </div>
+                ';
+                }
+              ?>
             </div>
           </section>
         </article>
-        <article id="page2">
+        
+        <article id="page2" style="overflow-y:scroll;">
           <section>
             <h1>Tab2 Title</h1>
             <p>This is tab two.</p>
           </section>
         </article>
-        <article id="page3">
+        <article id="page3" style="overflow-y:scroll;">
           <section>
             <h1>Tab3 Title</h1>
             <p>This is tab three.</p>
           </section>
         </article>
-        <article id="page4">
+        <article id="page4" style="overflow-y:scroll;">
           <section>
             <h1>Tab4 Title</h1>
             <p>This is tab four.</p>
           </section>
         </article>
-        <article id="page5">
+        <article id="page5" style="overflow-y:scroll;">
           <section>
             <h1>Tab5 Title</h1>
             <p>This is tab five</p>
