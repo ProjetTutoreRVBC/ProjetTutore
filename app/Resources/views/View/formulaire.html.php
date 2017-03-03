@@ -115,18 +115,18 @@
               <div class="register">
                 <h2>Se connecter</h2>
 
-                <form action="" method="post" class="form">
+                <form method="POST" action="login" id="contact_form" class="form">
 
                   <div class="form__field">
-                    <input type="email" placeholder="info@mailaddress.com">
+                    <input name="_pseudo" type="text" style="width:100%;" placeholder="info@mailaddress.com">
                   </div>
 
                   <div class="form__field">
-                    <input type="password" placeholder="••••••••••••">
+                    <input name="_password" type="password" placeholder="••••••••••••">
                   </div>
 
                   <div class="form__field">
-                    <input type="submit" value="Sign Up" style="background: linear-gradient(135deg, #2199e8 0%, #0038A8 100%);margin-top:15px;">
+                    <input type="submit" name="login" id="submitForm" value="Sign Up" style="background: linear-gradient(135deg, #2199e8 0%, #0038A8 100%);margin-top:15px;">
                   </div>
 
                 </form>
