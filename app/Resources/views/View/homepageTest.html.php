@@ -1,3 +1,5 @@
+<!-- VERIFIED -->
+
 <!-- app/Resources/views/View/homepageTest.html.php-->
 <!doctype html>
 
@@ -129,8 +131,8 @@
                       </div>
                       </a>
                       <div style="width:225px;margin-top:-2px;">
-                      <a href="channel/">
-                          <button href="channel/'.$Channel.'" class="myButt one">
+                      <a href="channel/'.$Channel.'">
+                          <button class="myButt one">
                           <div class="insider"></div>
                           <p style="margin-top:4px;font-size:10px;">'.$Channel.'</p>
                           </button>

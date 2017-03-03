@@ -115,26 +115,26 @@
               <div class="register">
                 <h2>S'inscrire</h2>
 
-                <form action="" method="post" class="form">
+                <form class="form" action="register" method="POST" enctype="multipart/form-data">
 
                   <div class="form__field">
                     <label for="email">Email</label>
-                    <input style="width: 100%;background-color: rgb(250, 255, 189);" type="email" placeholder="info@mailaddress.com">
+                    <input style="width: 100%;background-color: rgb(250, 255, 189);" type="email" id="user_email" name="email" onchange="checkEmail();" required="required">
                   </div>
                   
                   <div class="form__field">
                     <label>Pseudo</label>
-                    <input style="width: 100%;background-color: rgb(250, 255, 189);" type="text" id="user_name" name="name"  onchange="checkName();" required="required">
+                    <input style="width: 100%;background-color: rgb(250, 255, 189);"  type="text" id="user_name" name="name"  onchange="checkName();" required="required">
                   </div>
                   
                   <div class="form__field">
                     <label for="password">Mot de passe</label>
-                    <input type="password" placeholder="••••••••••••" style="width: 100%;background-color: rgb(250, 255, 189);">
+                    <input type="password" id="user_plainPassword_first" name="passwd" onkeyup="checkPassImg(); return false;" required="required" placeholder="••••••••••••" style="width: 100%;background-color: rgb(250, 255, 189);">
                   </div>
                   
                   <div class="form__field">
                     <label for="password">Confirmer mot de passe</label>
-                    <input type="password" placeholder="••••••••••••" style="width: 100%;background-color: rgb(250, 255, 189);">
+                    <input type="password" id="user_plainPassword_second" name="user[plainPassword][second]" onkeyup="checkPassImg(); return false;" required="required" placeholder="••••••••••••" style="width: 100%;background-color: rgb(250, 255, 189);">
                   </div>
                   
                   <div class="form__field">
@@ -145,12 +145,12 @@
                   <div class="row">
                     <label>Avatar</label>
                     <label for="exampleFileUpload" class="button">Upload File</label>
-                    <input style="width: 100%;background-color: rgb(250, 255, 189);" type='file' name="avatar" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this);" />
+                    <input style="width: 100%;background-color: rgb(250, 255, 189);" type='file' name="avatar" id="exampleFileUpload" onchange="readURL(this);" />
                     <span id="display-parent" ></span> 
                   </div>
 
                   <div class="form__field">
-                    <input type="submit" value="Sign Up" style="background: linear-gradient(135deg, #2199e8 0%, #0038A8 100%);margin-top:15px;">
+                    <input name="register" id="submit-button" class="expanded button" type="submit" value="Sign Up" style="background: linear-gradient(135deg, #2199e8 0%, #0038A8 100%);margin-top:15px;">
                   </div>
 
                 </form>

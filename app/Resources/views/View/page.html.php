@@ -1,3 +1,5 @@
+<!-- Fix abonne toi -->
+
 <!-- app/Resources/views/View/page.html.php-->  
 <!doctype html>
 <?php

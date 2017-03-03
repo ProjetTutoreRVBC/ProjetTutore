@@ -1,4 +1,7 @@
-<!-- app/Resources/views/View/page.html.php-->  
+<!-- Fix href to channel (miniature) -->
+<!-- Fix abonne toi -->
+
+<!-- app/Resources/views/View/channel.html.php-->  
 <!doctype html>
 <?php
 
@@ -167,7 +170,7 @@
                   $Page = $page[$titre];
                   $Channel = $channel[$titre];
                   echo '
-                  <a href ="watch?v='.$id.'" style="color:white;line-height:none;margin-bottom:20px;">
+                  <a href ="../watch?v='.$id.'" style="color:white;line-height:none;margin-bottom:20px;">
                     <div style="height:125px;width:225px;display:inline-block;margin:4px;">
                       <div style="height:35px;overflow:hidden;">
                           <font class="titres" style="font-size:12px;line-height:none;color:white;"><strong>'.$titre.'</strong></font><br>
@@ -177,13 +180,13 @@
                       </div>
                       </a>
                       <div style="width:225px;margin-top:-2px;">
-                      <a href="channel/">
-                          <button href="channel/'.$Channel.'" class="myButt one">
+                      <a href="../channel/'.$Channel.'">
+                          <button class="myButt one">
                           <div class="insider"></div>
                           <p style="margin-top:4px;font-size:10px;">'.$Channel.'</p>
                           </button>
                       </a>
-                      <a href="profile/'.$Page.'">
+                      <a href="../profile/'.$Page.'">
                           <button class="myButt one">
                           <div class="insider"></div>
                           <p style="margin-top:4px;font-size:10px;">'.$Page.'</p>
