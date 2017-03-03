@@ -131,10 +131,10 @@
     </div>
     <nav>
       <ul>
-        <li class="gnav1">To page</li>
-        <li class="gnav2">Chaîne 1</li>
-        <li class="gnav3">Chaîne 2</li>
-        <li class="gnav4">Chaînes</li>
+        <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav1"><?php echo $name_channel;?></li>
+        <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav2"><img style="margin-top:15px;width:20px;height:20px;float:right" alt="" src="/web/bundles/framework/images/param.png"> <?php echo $name_channel;?></li>
+        <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav3">Chaîne 2</li>
+        <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav4">Chaînes</li>
       </ul>
     </nav>
     <div class="contents" id="contents">
@@ -215,8 +215,71 @@
         
         <article id="page2" style="overflow-y:scroll;">
           <section>
-            <h1>Tab2 Title</h1>
-            <p>This is tab two.</p>
+           <div style="width:100%;height:90%;display:inline-block;">
+        <div style="text-align:center;width:100%;">
+            <h5> <?php echo $subs_channel;?> personnes sont abonnés à <?php echo $name_channel;?> </h5>
+        </div>
+        <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:5%;width:85%;height:60%;">
+            <div style="width:100%;height:10%;margin-top:5px;">
+                <h4 style="text-align:center;">Vos Vidéos</h4>
+            </div>
+
+            <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
+                <a href="<?php echo "../upload/".$name_channel;?>">
+                <div style="float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
+                </div>
+                </a>  
+                <?php
+                
+              foreach($video as $v)
+                {
+                  if($channel[$v['nameVideo']] == $name_channel){
+                    $titre = $v['nameVideo'];
+                    $id = $v['idVideo'];
+                    $date = $v['dateVideo'];
+                    $vues = $v['viewsVideo'];
+                    $Page = $page[$titre];
+                    $Channel = $channel[$titre];
+                echo '<div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
+                    <div style="width:50%;float:left;overflow:hidden;">
+                        <a href="../watch?v='.$id.'"><img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px;text-align:center;"></a>
+                        <font style="font-size:110%;margin-left:10px;overflow:hidden; ">'.$titre.'</font>
+                    </div>
+                    <table style="float:left;height:100%;width:30%;">
+                        <tr>
+                            <th class="tg-yw4l" colspan="2">
+                                '.$vues.' vues
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;background-color:#2199e8;">
+                                '.$v['likes'].' likes
+                            </td>
+                            <td style="background-color:#da3116;text-align:center;">
+                                '.$v['dislikes'].' dislikes
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;" colspan=" 2 ">
+                                143 commentaires
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="text-align:center;width:18%;margin-left:20px;float:left;height:100%;">
+                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver commentaires</a>
+                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver le chat</a>
+                        <form method="post" action="" >
+                        <input name="supprimer" value="'.$id.'" hidden/>
+                        <button type="submit" class="alert button" style="width:100%;margin-bottom:2px;">Supprimer la vidéo</button>
+                        </form>
+                    </div>
+                </div>';
+                  }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
           </section>
         </article>
         <article id="page3" style="overflow-y:scroll;">
