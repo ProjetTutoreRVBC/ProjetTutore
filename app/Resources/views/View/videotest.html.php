@@ -66,22 +66,20 @@
     </div>
     <nav>
       <ul>
-        <li class="gnav1">Vers Page</li>
-        <li class="gnav2">Vers Chaîne</li>
-        <li class="gnav3">Chaîne 2</li>
-        <li class="gnav4">Chaînes</li>
+        <a href="../profile/<?php echo $video_page;?>"><li class="gnav1"><?php echo $video_page;?></li></a>
+        <a href="../channel/<?php echo $video_channel;?>"><li class="gnav2"><?php echo $video_channel;?></li></a>
       </ul>
     </nav>
     <div class="contents" id="contents">
       <div class="container">
         <article id="page1" class="show top" style="overflow-y:scroll;">
-          <div class="video-principale" style="height:100%;width:80%;float:left;">
+          <div class="video-principale" style="height:100%;width:75%;float:left;">
             <div class="video-titre" style="height:5%;width:100%;text-align:center">
               <font style="font-size:150%;color:white;">
                 <?php echo substr($title,0,45); ?>
               </font>
             </div>
-            <div class="video-container " style="height:70%;width:85%!important;margin-left:4S%;">
+            <div class="video-container " style="height:70%;width:85%!important;margin-left:auto;margin-right:auto;">
               <video id="my-video " class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="<?php echo '/web/bundles/framework/miniature/'.$miniature;?>" data-setup="{} ">
                 <source src="<?php echo '/web/bundles/framework/video/'.$v.'.mp4';?>" type='video/mp4'>
                 <p class="vjs-no-js ">
@@ -158,10 +156,13 @@
               <?php
                     echo '<form action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-left:20px;margin-top:20px;">
                           <div style="width:70%;float:left;">
-                          <textarea name="comment" placeholder="Votre message..." rows="2" cols="50"></textarea>
+                          <textarea name="comment" style="resize:none;width:85%;height:200px;border-radius:8px;background-color:#dddddd"></textarea>
                           </div>
                           <div style="float:left;margin-left:20px;margin-top:5px;">
-                          <button name="send_comment" type ="submit" class="button" style="float: right;">Envoyez</button>
+                          <button name="send_comment" type ="submit" class="myButt one" style="float: right;width:100%">
+                          <div class="insider"></div>
+                          <p style="margin-top:4px;font-size:10px;">Envoyer</p>
+                          </button>
                           </div>
                           </form>';
                        foreach($comments as $comment) {
@@ -184,7 +185,7 @@
                     ?>
           </div>
           </div>
-          <div class="recommandations" style="margin-left:-20px;border-radius:8px;border: 2px ridge black;text-align:center;width:20%;height:100%;float:left;display:inline-block;overflow-y:scroll;overflow-x:visible;">
+          <div class="recommandations" style="margin-left:-20px;border-radius:8px;border: 2px ridge black;text-align:center;width:25%;height:100%;float:left;display:inline-block;overflow-y:scroll;overflow-x:visible;">
             <?php
               foreach($video as $v)
                 {
