@@ -66,8 +66,8 @@
     </div>
     <nav>
       <ul>
-        <a href="../profile/<?php echo $video_page;?>"><li class="gnav1"><?php echo $video_page;?></li></a>
-        <a href="../channel/<?php echo $video_channel;?>"><li class="gnav2"><?php echo $video_channel;?></li></a>
+        <a href="profile/<?php echo $video_page;?>"><li class="gnav1"><?php echo $video_page;?></li></a>
+        <a href="channel/<?php echo $video_channel;?>"><li class="gnav2"><?php echo $video_channel;?></li></a>
       </ul>
     </nav>
     <div class="contents" id="contents">
