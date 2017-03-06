@@ -101,7 +101,7 @@ class Page
 	
 	public function addSubPage($idNs,$idPage) {
 		$db = Database::getInstance();
-		$sql = "INSERT INTO SubscribedChannel VALUES(:idNs,:idPage)";
+		$sql = "INSERT INTO SubscribedPage(idNostreamer,idPage) VALUES(:idNs,:idPage)";
 		$stmt = $db->prepare($sql);
 		$stmt->bindParam(':idNs',$idNs);
 		$stmt->bindParam(':idPage',$idPage);

@@ -91,6 +91,10 @@ class ProfileController extends Controller
            $com->deleteComment($_POST['idComment'],$user_id['idNostreamer']);
           }
           
+          if(isset($_POST['abonnement'])){
+            $user_id = $user->getId($_COOKIE['pseudo']);
+            $user_page->addSubPage($user_id['idNostreamer'],$_POST['abonnement']);
+          }
         }
           $user_id = $user->getId($_COOKIE['pseudo']);  
           $list = $user_post->getListVote($user_id['idNostreamer']);
