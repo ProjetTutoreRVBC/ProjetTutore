@@ -151,10 +151,19 @@
               <font style="color:white;font-size:100%;margin-left:5px;float:right;"><?php echo $subs[0]; ?> abonnés</font>
             </div>
             <div style="display:table-cell;vertical-align:middle;width:20%;">
-              <button class="myButt one" style="margin-right:15px;float:right">
+              <?php
+                $end_form = "";
+                if(isset($_COOKIE['pseudo'])){
+                  echo '<form action="" method="post">';
+                  echo '<input name="abonnement" value="'.$profile['idPage'].'" hidden>';
+                  $end_form = '</form>';
+                }
+                ?>
+                <button class="myButt one" type="submit" style="margin-right:15px;float:right">
                 <div class="insider"></div>
                 <p style="margin-top:4px;font-size:10px;">Abonne toi !</p>
               </button>
+             <?php echo $end_form; ?>  
             </div>            
           </div>
           <div style="margin-left:auto;margin-right:auto;margin-top:10px;width:50%;height:10%;">
