@@ -119,7 +119,7 @@
               $href = "logout";
               $log  = "Logout";
               echo '<a href="gestion"><img style="margin-top:10px;width:40px;height:40px;float:right;margin-right:10px" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-              echo '<a href="profile/' . $user_page . '"><img style="margin-top:10px;width:40px;height:40px;float:right;margin-right:10px" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+              echo '<a href="../profile/"><img style="margin-top:10px;width:40px;height:40px;float:right;margin-right:10px" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
           } else {
               echo '<a href="../register"><button class="btn-11" type="button">Sign Up</button></a>';
           }
@@ -242,8 +242,9 @@
                     $Channel = $channel[$titre];
                 echo '<div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
                     <div style="width:50%;float:left;overflow:hidden;">
-                        <a href="../watch?v='.$id.'"><img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px;text-align:center;"></a>
-                        <font style="font-size:110%;margin-left:10px;overflow:hidden; ">'.$titre.'</font>
+                        <a href="../watch?v='.$id.'"><div style="background-image:url(\'/web/bundles/framework/miniature/'.$v['miniature'].'\');background-size: 100% 100%; height:125px;width:225px;text-align:center;"></a>
+                        <div style="background:rgba(255,255,255,0.5);">
+                        <font style="color:black;font-size:110%;margin-left:10px;overflow:hidden; ">'.$titre.'</font></div></div>
                     </div>
                     <table style="float:left;height:100%;width:30%;">
                         <tr>
@@ -252,16 +253,16 @@
                             </th>
                         </tr>
                         <tr>
-                            <td style="text-align:center;background-color:#2199e8;">
+                            <td style="text-align:center;background-color:#2199e8;width:50%;">
                                 '.$v['likes'].' likes
                             </td>
-                            <td style="background-color:#da3116;text-align:center;">
+                            <td style="background-color:#da3116;text-align:center;width:50%;">
                                 '.$v['dislikes'].' dislikes
                             </td>
                         </tr>
                         <tr>
                             <td style="text-align:center;" colspan=" 2 ">
-                                143 commentaires
+                                0 commentaires
                             </td>
                         </tr>
                     </table>
