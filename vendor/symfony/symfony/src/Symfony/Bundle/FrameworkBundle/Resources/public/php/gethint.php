@@ -12,7 +12,7 @@ $q = $_REQUEST["q"];
 $hint = "";
 
 $db = new PDO("mysql:host=$host;dbname=$servername",$username,$password);
-$sql = "SELECT nameVideo FROM Video WHERE nameVideo LIKE '%".$q."%' ORDER BY nameVideo DESC LIMIT 0,20";
+$sql = "SELECT idVideo, nameVideo FROM Video WHERE nameVideo LIKE '%".$q."%' ORDER BY nameVideo DESC LIMIT 0,20";
 $stmt = $db->prepare($sql);
 //$stmt->bindParam(':q',$q);
 $stmt->execute(); 

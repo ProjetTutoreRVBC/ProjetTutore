@@ -100,21 +100,6 @@
                     </div>
                   </div>
 
-                  <div style="width:20%;height:90%;float:left;margin-top:0px;margin-left:20px;">
-                    <a href="../channel/<?php echo $video_channel;?>">
-                      <div style="margin-top:15px;margin-left:10%;width:50%;display:table;">
-                        <img style="width:50px;height:50px;;border-radius:8px;border: 1px ridge black;" src="/web/bundles/framework/images/metstudio.jpg">
-                        <font style="font-size:100%;padding-left:10px;display:table-cell;vertical-align:middle;text-decoration:none"><?php echo $video_channel;?></font>
-                      </div>
-                    </a>
-                    <a href="../profile/<?php echo $video_page;?>">
-                      <div style="margin-top:15px;margin-left:10%;width:50%;display:table;">
-                        <img style="width:50px;height:50px;;border-radius:8px;border: 1px ridge black;" src="/web/bundles/framework/images/met.jpg">
-                        <font style="font-size:100%;padding-left:10px;display:table-cell;vertical-align:middle;text-decoration:none"><?php echo $video_page;?></font>
-                      </div>
-                    </a>
-                  </div>
-
                   <div style="text-align:center;width:100%;margin-bottom:15px;"><span><?php echo $views." vues"; ?></span></div>
 
                   <form action="" method="post" style="text-align:center;">

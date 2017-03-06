@@ -45,7 +45,7 @@
 
     });
   </script>
-  <!--<script> 
+  <script> 
       function suggest(str) {
       if (str.length == 0) { 
         document.getElementById("sugg_list").style.display = "none";
@@ -61,8 +61,11 @@
               }
               reponse.forEach(function(el){
                 var newLI = document.createElement('li');
+                var a = document.createElement('a');
                 newLI.appendChild(document.createTextNode(el.nameVideo));
-                document.getElementById("sugg_list").appendChild(newLI);
+                a.href = "watch?v="+el.idVideo;
+                a.appendChild(newLI);
+                document.getElementById("sugg_list").appendChild(a);
                 
               })
              // 
@@ -73,14 +76,14 @@
       
         }
       }
-    </script>  -->
+    </script>
 </head>
 
 <body>
   <div class="wrapper">
     <div class="header">
       <a href="/web/app_dev.php/" style="width:100px;height:100px;border-radius: 8px;"><img id="logo" class="nostream" src="/web/bundles/framework/images/logo.png" alt="logo"></a>
-      <input type="text" class="searchbar" name="search" placeholder="Search..">
+      <input type="text" class="searchbar" name="search" placeholder="Search.." onkeyup="suggest(this.value)">
       <?php
           $href = "login";
           $log  = "Login";
@@ -108,6 +111,11 @@
     </nav>
     <div class="contents" id="contents">
       <div class="container">
+        <div style="width:500px;position:absolute;z-index:99;margin-left:5rem;border: 1px ridge black">
+          <ul id="sugg_list" style="list-style:none;background-color:white;display:none;margin-bottom:0px;margin-top:0px;overflow:hidden">
+ -              
+ -        </ul>
+        </div>
         <article id="page1" class="show top" style="overflow-y:scroll;">
           <section>
             <div class="defilement-video" style="text-align: center;">
