@@ -219,14 +219,13 @@
         <div style="text-align:center;width:100%;">
             <h5> <?php echo $subs_channel;?> personnes sont abonnés à <?php echo $name_channel;?> </h5>
         </div>
-        <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:5%;width:85%;height:60%;">
             <div style="width:100%;height:10%;margin-top:5px;">
                 <h4 style="text-align:center;">Vos Vidéos</h4>
             </div>
 
-            <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
+            <div class="gestion" style="margin-left:15px;height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
                 <a href="<?php echo "../upload/".$name_channel;?>">
-                <div style="float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
+                <div style="margin-left:15px;float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
                 </div>
                 </a>  
                 <?php
@@ -240,10 +239,10 @@
                     $vues = $v['viewsVideo'];
                     $Page = $page[$titre];
                     $Channel = $channel[$titre];
-                echo '<div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
+                echo '<div style="margin-left:15px;width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
                     <div style="width:50%;float:left;overflow:hidden;">
-                        <a href="../watch?v='.$id.'"><div style="background-image:url(\'/web/bundles/framework/miniature/'.$v['miniature'].'\');background-size: 100% 100%; height:125px;width:225px;text-align:center;"></a>
-                        <div style="background:rgba(255,255,255,0.5);">
+                        <a href="../watch?v='.$id.'"><div style="overflow:hidden;background-image:url(\'/web/bundles/framework/miniature/'.$v['miniature'].'\');background-size: 100% 100%; height:125px;width:225px;text-align:center;"></a>
+                        <div style="background:rgba(255,255,255,0.5);overflow:hidden;">
                         <font style="color:black;font-size:110%;margin-left:10px;overflow:hidden; ">'.$titre.'</font></div></div>
                     </div>
                     <table style="float:left;height:100%;width:30%;">
@@ -280,7 +279,6 @@
                 ?>
             </div>
         </div>
-    </div>
           </section>
         </article>
         <article id="page3" style="overflow-y:scroll;">
