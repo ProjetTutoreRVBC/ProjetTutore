@@ -191,7 +191,7 @@
         foreach($posts as $post){
           
         echo '
-        <div id="bloc" style="margin-top:25px;margin-bottom: 25px;border: 1px ridge black;padding:10px;display: inline-block;width:100%;background-color:#dddddd;" '.$param_delete_post.'>
+        <div id="bloc" style="margin-top:25px;margin-bottom: 25px;border: 1px ridge black;padding:10px;display: inline-block;width:100%;box-shadow: 0 0 70px #000;" '.$param_delete_post.'>
             <div style="border-bottom: solid 1px;padding:10px;padding-left:0px;">
                 <h>Publié le '.$post['datePost'].' </h>';
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
