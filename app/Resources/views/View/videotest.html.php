@@ -74,7 +74,7 @@
       <div class="container">
         <article id="page1" class="show top" style="overflow-y:scroll;">
           <div class="video-principale" style="height:100%;width:75%;float:left;">
-            <div class="video-titre" style="height:5%;width:100%;text-align:center">
+            <div class="video-titre" style="height:5%;width:100%;text-align:center;margin-bottom:10px;">
               <font style="font-size:150%;color:white;">
                 <?php echo substr($title,0,45); ?>
               </font>
@@ -94,7 +94,7 @@
                       <span> Mise en ligne le <?php echo $info_date;?> </span>
                     </div>
                     <div class="descrvideo" style="margin-left:15px;width:100%;height:85%;margin-top:10px;font:16px/26px Georgia, Garamond, Serif;overflow-y: scroll;overflow-x: hidden;">
-                      <p>
+                      <p style="color:black;">
                         <?php echo $description; ?>
                       </p>
                     </div>

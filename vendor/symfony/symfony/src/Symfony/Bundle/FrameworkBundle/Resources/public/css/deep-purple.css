@@ -13,9 +13,11 @@ body {
   background: radial-gradient(circle at 50% 16%, #4997D0 32%, #002366 88%);
 }
 
-a,span {
+p,font,h,a {
   text-decoration:none;
+  color:white;
 }
+
 
 
 .wrapper {
@@ -43,6 +45,73 @@ a,span {
   float: left;
 }
 
+.slidingdiv {
+  height:100%;
+  width:1rem;
+  background-color:white;
+  position:absolute;
+  top:0;
+  right:15px;
+  border-left:2px ridge black;
+  z-index:1;
+  /*background: linear-gradient(135deg, #333333 0%, #333333 100%);
+  */
+}
+
+.slidingdiv:hover {
+  width:25%;
+  background: linear-gradient(135deg, #333333 0%, #333333 100%);
+}
+
+.slidename {
+  height:15%;
+  width:100%;
+  box-shadow: 0px 24px 3px -24px black;
+  text-align:center;
+  display:table;
+}
+
+.slidechannel {
+  width:100%;
+  box-shadow: 0px 24px 3px -24px black;
+  text-align:center;
+  display:table;
+}
+
+.listchannel {
+  width:100%;
+  box-shadow: 0px 24px 3px -24px black;
+  text-align:center;
+}
+
+.slidenotif {
+  margin-top:20px;
+  width:100%;
+  text-align:center;
+}
+
+.listnotif {
+  width:80%;
+  box-shadow: 0px 24px 3px -24px black;
+  text-align:center;
+  border:0.5px ridge #222222;
+  margin:auto;
+  margin-top: 10px;
+}
+
+.show_hide {
+    display:none;
+  height:100%;
+  width:1rem;
+  background-color:white;
+  position:absolute;
+  top:0;
+  right:19px;
+}
+
+#infocompte.clicked {
+    width: 40%;
+} 
 .gestion::-webkit-scrollbar { 
     display: none; 
 }
@@ -185,6 +254,7 @@ article {
   background: linear-gradient(135deg, #333333 0%, #333333 100%);
   top: 0;
   left: -100%;
+  overflow-x:hidden;
 }
 
 article.hide {

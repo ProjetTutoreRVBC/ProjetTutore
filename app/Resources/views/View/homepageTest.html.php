@@ -14,6 +14,21 @@
   <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
   <script>
+    $(document).ready(function () {
+
+    $(".slidingDiv").hide();
+    $(".show_hide").show();
+
+    $('.show_hide').click(function () {
+      alert('bjr');
+        $(".slidingDiv").toggle("slide");
+      alert('bjrs');
+    });
+
+});
+  </script>
+  
+  <script>
     $(document).ready(function() {
       var item_num = $('nav li').length + 1;
       var btn_state = true;
@@ -64,6 +79,7 @@
                 var a = document.createElement('a');
                 newLI.appendChild(document.createTextNode(el.nameVideo));
                 a.href = "watch?v="+el.idVideo;
+                a.style.color = "black";
                 a.appendChild(newLI);
                 document.getElementById("sugg_list").appendChild(a);
                 
@@ -113,11 +129,53 @@
       <div class="container">
         <div style="width:500px;position:absolute;z-index:99;margin-left:5rem;border: 1px ridge black">
           <ul id="sugg_list" style="list-style:none;background-color:white;display:none;margin-bottom:0px;margin-top:0px;overflow:hidden">
- -              
- -        </ul>
+               
+         </ul>
         </div>
         <article id="page1" class="show top" style="overflow-y:scroll;">
           <section>
+            <a href="#" class="show_hide" style="text-decoration:none;border:none;background-color:transparent;width:1rem;height:100%;"></a>
+              <div class="slidingdiv">
+                <a href="#">
+                  <div class="slidename">
+                    <font style="display:table-cell;vertical-align:middle;font-size:200%">ScarGamer91</font>
+                  </div>
+                </a>
+                <div class="slidechannel">
+                  <a href="#">
+                    <div class="listchannel">
+                      <font style="font-size:150%">Ma chaine 1</font>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="listchannel">
+                      <font style="font-size:150%">Ma chaine 1</font>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="listchannel">
+                      <font style="font-size:150%">Ma chaine 1</font>
+                    </div>
+                  </a>
+                </div>
+                <div class="slidenotif">
+                  <a href="#">
+                    <div class="listnotif">
+                      <font style="font-size:100%">Le Joueur du Grenier a sorti une nouvelle vidéo</font>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="listnotif">
+                      <font style="font-size:100%">Le Joueur du Grenier a posté un message sur sa page</font>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="listnotif">
+                      <font style="font-size:100%">Antoine Daniel a sorti une nouvelle vidéo... Non je déconne</font>
+                    </div>
+                  </a>
+                </div>
+              </div>
             <div class="defilement-video" style="text-align: center;">
               <?php
               foreach($video as $v)
