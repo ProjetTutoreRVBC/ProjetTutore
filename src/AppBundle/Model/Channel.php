@@ -42,6 +42,16 @@ class Channel
 			return $channel[0];
 		}
 	
+		public function getChannelOfNostreamer($id){
+			$db = Database::getInstance();
+		  $sql = "SELECT * FROM Channel WHERE Channel.idNostreamer = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute(); 
+		 	$channel = $stmt->fetchAll();
+			return $channel;
+		}
+	
 		public function add($nameChannel,$idNostreamer,$descriptionChannel,$banniere,$profile){
 			$db = Database::getInstance();
 			$date = date("Y/m/d H:i:s");

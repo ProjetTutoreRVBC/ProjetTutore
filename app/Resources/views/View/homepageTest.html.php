@@ -13,20 +13,6 @@
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
   <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
-  <script>
-    $(document).ready(function () {
-
-    $(".slidingDiv").hide();
-    $(".show_hide").show();
-
-    $('.show_hide').click(function () {
-      alert('bjr');
-        $(".slidingDiv").toggle("slide");
-      alert('bjrs');
-    });
-
-});
-  </script>
   
   <script>
     $(document).ready(function() {
@@ -131,33 +117,35 @@
           <ul id="sugg_list" style="list-style:none;background-color:white;display:none;margin-bottom:0px;margin-top:0px;overflow:hidden">
                
          </ul>
+          
         </div>
-        <article id="page1" class="show top" style="overflow-y:scroll;">
-          <section>
-            <a href="#" class="show_hide" style="text-decoration:none;border:none;background-color:transparent;width:1rem;height:100%;"></a>
-              <div class="slidingdiv">
-                <a href="#">
-                  <div class="slidename">
-                    <font style="display:table-cell;vertical-align:middle;font-size:200%">ScarGamer91</font>
-                  </div>
-                </a>
-                <div class="slidechannel">
-                  <a href="#">
-                    <div class="listchannel">
-                      <font style="font-size:150%">Ma chaine 1</font>
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div class="listchannel">
-                      <font style="font-size:150%">Ma chaine 1</font>
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div class="listchannel">
-                      <font style="font-size:150%">Ma chaine 1</font>
-                    </div>
-                  </a>
-                </div>
+        <div class="slidingdiv">
+                <?php
+                  if (isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])) {
+                      echo '<a href="profile/'.$user_page.'">
+                        <div class="slidename">
+                          <font style="display:table-cell;vertical-align:middle;font-size:200%">'.$user_page.'</font>
+                        </div>
+                      </a>';
+                      echo '<div class="slidechannel">';
+                      if($listChannel != 0) {
+                    foreach($listChannel as $c){
+                        echo '<a href="channel/'.$c["nameChannel"].'">
+                        <div class="listchannel">
+                          <font style="font-size:150%">'.$c["nameChannel"].'</font>
+                        </div>
+                      </a>';
+                      }
+                      }
+                    echo '</div>';
+                  } else {
+                      echo '<a href="login/">
+                        <div class="slidename">
+                          <font style="display:table-cell;vertical-align:middle;font-size:200%">Login</font>
+                        </div>
+                      </a>';
+                  }
+                  ?>
                 <div class="slidenotif">
                   <a href="#">
                     <div class="listnotif">
@@ -176,6 +164,10 @@
                   </a>
                 </div>
               </div>
+        <article id="page1" class="show top" style="overflow-y:scroll;">
+          <section>
+            <a href="#" class="show_hide" style="text-decoration:none;border:none;background-color:transparent;width:1rem;height:100%;"></a>
+              
             <div class="defilement-video" style="text-align: center;">
               <?php
               foreach($video as $v)
