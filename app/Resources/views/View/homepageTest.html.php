@@ -11,6 +11,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
   <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
   
@@ -46,39 +47,7 @@
 
     });
   </script>
-  <script> 
-      function suggest(str) {
-      if (str.length == 0) { 
-        document.getElementById("sugg_list").style.display = "none";
-        return;
-      } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-              var reponse = JSON.parse(this.responseText);
-              document.getElementById("sugg_list").style.display = "";
-              while( document.getElementById("sugg_list").firstChild ){
-                document.getElementById("sugg_list").removeChild( document.getElementById("sugg_list").firstChild );
-              }
-              reponse.forEach(function(el){
-                var newLI = document.createElement('li');
-                var a = document.createElement('a');
-                newLI.appendChild(document.createTextNode(el.nameVideo));
-                a.href = "watch?v="+el.idVideo;
-                a.style.color = "black";
-                a.appendChild(newLI);
-                document.getElementById("sugg_list").appendChild(a);
-                
-              })
-             // 
-            }
-        };
-        xmlhttp.open("GET", "/web/bundles/framework/php/gethint.php?q=" + str, true);
-        xmlhttp.send();
-      
-        }
-      }
-    </script>
+
 </head>
 
 <body>
@@ -113,7 +82,7 @@
     </nav>
     <div class="contents" id="contents">
       <div class="container">
-        <div style="width:500px;position:absolute;z-index:99;margin-left:5rem;border: 1px ridge black">
+        <div class="divsuggestlist">
           <ul id="sugg_list" style="list-style:none;background-color:white;display:none;margin-bottom:0px;margin-top:0px;overflow:hidden">
                
          </ul>

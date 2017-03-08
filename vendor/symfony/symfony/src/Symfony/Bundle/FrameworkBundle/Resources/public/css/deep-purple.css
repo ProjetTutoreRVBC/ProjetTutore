@@ -20,7 +20,22 @@ p,font,h,a {
   color:white;
 }
 
+.divsuggestlist {
+  width:500px;
+  position:absolute;
+  z-index:99;
+  margin-left:5rem;
+  border: 1px ridge black;
+}
 
+.sugg_list {
+  list-style:none;
+  background-color:white;
+  display:none;
+  margin-bottom:0px;
+  margin-top:0px;
+  overflow:hidden
+}
 
 .wrapper {
   width: 100%;

@@ -8,6 +8,7 @@ use AppBundle\Model\Post;
 use AppBundle\Model\Page;
 use AppBundle\Model\Nostreamer;
 use AppBundle\Entity\User;
+use AppBundle\Model\Model;
 
 //Others
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -27,7 +28,9 @@ class ProfileController extends Controller
     { 
       $user_page = new Page();
       $user = new Nostreamer();
-      $info_page = $user_page->getPage($slug); 
+      $info_page = $user_page->getPage($slug);
+      $pseudo = $user_page->getPseudoNostreamer($info_page['idPage']);
+      $list_channel = $user->getChannels($pseudo[0]);
       $user_post = new Post();
       $recurence_post = false;
       $recurence_comment =false;
@@ -114,7 +117,7 @@ class ProfileController extends Controller
           }
       
       $subsPage = $user_page->getSubsPage($info_page["idPage"]);
-      return $this->render('View/page.html.php',array("profile"=>$info_page,"subs"=>$subsPage,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments,"user_page"=>$current_user_page[0]['namePage']));
+      return $this->render('View/page.html.php',array("listChannel"=>$list_channel,"profile"=>$info_page,"subs"=>$subsPage,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments,"user_page"=>$current_user_page[0]['namePage']));
     }
   
      /**

@@ -107,6 +107,16 @@ class Page
 		$stmt->bindParam(':idPage',$idPage);
 		$stmt->execute();
 	}
+	
+	public function getPseudoNostreamer($id) {
+		$db = Database::getInstance();
+		  $sql = "SELECT N.pseudoNostreamer FROM Nostreamer N, Page P WHERE P.idNostreamer = N.idNostreamer AND P.idNostreamer = :id";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute(); 
+		 	$pseudo = $stmt->fetchAll();
+			return $pseudo[0];
+	}
 		
 		public function getMainPage($id){
 			$db = Database::getInstance();
