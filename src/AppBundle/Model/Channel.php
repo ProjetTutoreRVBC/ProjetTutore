@@ -13,12 +13,23 @@ class Channel
     
 		public function getSubsChannel($id){
 			$db = Database::getInstance();
-		  $sql = "SELECT COUNT(*) FROM SubscribedChannel WHERE idChannel = :id";
+		  $sql = "SELECT COUNT(*) FROM SubscribedPage WHERE idPage = :id";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute(); 
 		 	$channel = $stmt->fetchAll();
 			return $channel[0];
+		}
+	
+	
+		public function getPageId($nameChannel){
+			$db = Database::getInstance();
+		  $sql = "SELECT idPage FROM Channel,Page WHERE Page.idChannel = Channel.idChannel";
+		  $stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$id);
+		  $stmt->execute(); 
+		 	$page = $stmt->fetchAll();
+			return $page[0];
 		}
 	
 		public function getChannel($name){
