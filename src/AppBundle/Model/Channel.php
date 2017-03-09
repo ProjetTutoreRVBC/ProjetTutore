@@ -13,7 +13,7 @@ class Channel
     
 		public function getSubsChannel($id){
 			$db = Database::getInstance();
-		  $sql = "SELECT COUNT(*) FROM SubscribedPage WHERE idPage = :id";
+		  $sql = "SELECT COUNT(*) FROM SubscribedChannel WHERE idChannel = :id";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':id',$id);
 		  $stmt->execute(); 
@@ -65,6 +65,16 @@ class Channel
 			$stmt->bindParam(':prof',$profile);
 			$stmt->execute();
 		}
+	
+		public function addSubChannel($idNs,$idChannel) {
+			$db = Database::getInstance();
+			$sql = "INSERT INTO SubscribedChannel(idNostreamer,idChannel) VALUES(:idNs,:idC)";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':idNs',$idNs);
+			$stmt->bindParam(':idC',$idChannel);
+			$stmt->execute();
+		}	
+	
 		/*public function __construct($nameChannel, $idNostreamer, $descriptionChannel)
     {
       $this->nameChannel = $nameChannel;

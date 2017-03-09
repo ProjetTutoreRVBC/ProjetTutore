@@ -132,9 +132,23 @@
     <nav>
       <ul>
         <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav1"><?php echo $name_channel;?></li>
-        <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav2"><img style="margin-top:15px;width:20px;height:20px;float:right" alt="" src="/web/bundles/framework/images/param.png"> <?php echo $name_channel;?></li>
-        <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav3">Chaîne 2</li>
-        <li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav4">Chaînes</li>
+        <?php
+        if(isset($_COOKIE['pseudo'])){
+          if($_COOKIE['pseudo'] == $owner_channel){
+            echo '<li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav2">
+                  <img style="margin-top:15px;width:20px;height:20px;float:right" alt="" src="/web/bundles/framework/images/param.png">'
+                  .$name_channel.
+                  '</li>';
+            $i = 2;
+            foreach($user_channels as $c){
+              if($c['nameChannel'] != $name_channel){
+                $i++;
+                echo '<li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav'.$i.'">'.$c['nameChannel'].'</li>';
+              }
+            }
+          }
+        }
+        ?>
       </ul>
     </nav>
     <div class="contents" id="contents">
@@ -290,6 +304,7 @@
         </div>
           </section>
         </article>
+        
         <article id="page3" style="overflow-y:scroll;">
           <section>
             <h1>Tab3 Title</h1>

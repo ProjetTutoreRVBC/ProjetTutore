@@ -53,7 +53,7 @@ class SecurityController extends Controller
                return $this->redirectToRoute("ajout_page");
              }
              else
-             return $this->redirectToRoute('gestion');
+             return $this->redirectToRoute('home');
           }
           else
             $error = "Wrong username or password. Try again.";
