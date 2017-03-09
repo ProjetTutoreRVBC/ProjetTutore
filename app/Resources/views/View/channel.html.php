@@ -143,7 +143,7 @@
             foreach($user_channels as $c){
               if($c['nameChannel'] != $name_channel){
                 $i++;
-                echo '<li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav'.$i.'">'.$c['nameChannel'].'</li>';
+                echo '<a href="../channel/'.$c['nameChannel'].'"><li style="overflow-x:hidden;overflow-y:hidden;height:50px;" class="gnav'.$i.'">'.$c['nameChannel'].'</li></a>';
               }
             }
           }
@@ -289,8 +289,6 @@
                         </tr>
                     </table>
                     <div style="text-align:center;width:18%;margin-left:20px;float:left;height:100%;">
-                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver commentaires</a>
-                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver le chat</a>
                         <form method="post" action="" >
                         <input name="supprimer" value="'.$id.'" hidden/>
                         <button type="submit" class="alert button" style="width:100%;margin-bottom:2px;">Supprimer la vidéo</button>
@@ -304,25 +302,62 @@
         </div>
           </section>
         </article>
-        
         <article id="page3" style="overflow-y:scroll;">
-          <section>
-            <h1>Tab3 Title</h1>
-            <p>This is tab three.</p>
-          </section>
-        </article>
-        <article id="page4" style="overflow-y:scroll;">
-          <section>
-            <h1>Tab4 Title</h1>
-            <p>This is tab four.</p>
-          </section>
-        </article>
-        <article id="page5" style="overflow-y:scroll;">
-          <section>
-            <h1>Tab5 Title</h1>
-            <p>This is tab five</p>
-          </section>
-        </article>
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page4" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page5" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page6" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page7" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+      
       </div>
     </div>
   </div>

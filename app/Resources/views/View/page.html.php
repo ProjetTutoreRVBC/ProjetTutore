@@ -300,30 +300,72 @@
           </section>
         </article>
         
-        <article id="page2" style="overflow-y:scroll;">
-          <section>
-            <h1>Tab2 Title</h1>
-            <p>This is tab two.</p>
-          </section>
-        </article>
-        <article id="page3" style="overflow-y:scroll;">
-          <section>
-            <h1>Tab3 Title</h1>
-            <p>This is tab three.</p>
-          </section>
-        </article>
-        <article id="page4" style="overflow-y:scroll;">
-          <section>
-            <h1>Tab4 Title</h1>
-            <p>This is tab four.</p>
-          </section>
-        </article>
-        <article id="page5" style="overflow-y:scroll;">
-          <section>
-            <h1>Tab5 Title</h1>
-            <p>This is tab five</p>
-          </section>
-        </article>
+         <article id="page2" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+       <article id="page3" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page4" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page5" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page6" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
+         <article id="page7" style="overflow-y:scroll;">
+        <section>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
+        </section>
+      </article>
       </div>
     </div>
   </div>

@@ -66,8 +66,9 @@
     </div>
     <nav>
       <ul>
-        <a href="profile/<?php echo $video_page;?>"><li class="gnav1"><?php echo $video_page;?></li></a>
-        <a href="channel/<?php echo $video_channel;?>"><li class="gnav2"><?php echo $video_channel;?></li></a>
+        <a><li class="gnav1" style="height:0px;display:none;overflow:hidden;"></li></a>
+        <a href="profile/<?php echo $video_page;?>"><li class="gnav2"><?php echo $video_page;?></li></a>
+        <a href="channel/<?php echo $video_channel;?>"><li class="gnav3"><?php echo $video_channel;?></li></a>
       </ul>
     </nav>
     <div class="contents" id="contents">
@@ -225,28 +226,27 @@
 
       <article id="page2" style="overflow-y:scroll;">
         <section>
-          <h1>Tab2 Title</h1>
-          <p>This is tab two.</p>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
         </section>
       </article>
-      <article id="page3" style="overflow-y:scroll;">
+       <article id="page3" style="overflow-y:scroll;">
         <section>
-          <h1>Tab3 Title</h1>
-          <p>This is tab three.</p>
+          <div style="display:table;width:100%;height:100%;text-align:center;">
+            <div style="display:table-cell;vertical-align:middle;text-align:center">
+              <h1>
+                Redirection...
+              </h1>
+            </div>
+          </div>
         </section>
       </article>
-      <article id="page4" style="overflow-y:scroll;">
-        <section>
-          <h1>Tab4 Title</h1>
-          <p>This is tab four.</p>
-        </section>
-      </article>
-      <article id="page5" style="overflow-y:scroll;">
-        <section>
-          <h1>Tab5 Title</h1>
-          <p>This is tab five</p>
-        </section>
-      </article>
+
     </div>
   </div>
   </div>
