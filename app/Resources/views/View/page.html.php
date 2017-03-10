@@ -181,14 +181,17 @@
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
             echo '
-        <div style="border: 1px ridge black;padding:10px;display: inline-block;width:100%;background-color:#808080">
+        <div style="border: 1px ridge black;padding:10px;display: inline-block;width:100%;background: linear-gradient(135deg, #333333 0%, #333333 100%);box-shadow: 0 0 70px #000;">
           <form action="" method="post">
           <div>
           <input name="slug" id="slug" value="'.$profile['namePage'].'" hidden>
          <textarea name="new_post" id="message_post" style="resize:none;width:85%;height:100px;border-radius:8px;background-color:#dddddd"></textarea>
           </div>
           <div style="float:right;">
-          <button style="margin:0;" type="submit" class="button">Envoyer</button>
+          <button class="myButt one" type="submit" style="margin-top:-40%;width:100%;margin-right:15px;float:right">
+            <div class="insider"></div>
+            <p style="margin-top:4px;font-size:10px;;">Envoyer</p>
+          </button>
           </div>
           </form>  
         </div>'; 
@@ -221,8 +224,6 @@
             </div>
             
             <div style="display:inline-block;width:100%;height:40px;">
-                <label for="toggle-1"> Voir Commentaires </label>
-                <input type="checkbox" id="toggle-1">
                 <form  action="" method="post">
                 <div>
                 <input id="data" name="id-post-like" value="'.$post['idPost'].'" hidden>';
@@ -257,13 +258,16 @@
                 </form>
             </div>
             <div class="coms" id="'.$post['idPost'].'">
-                <form action="" method="post" style="width:100%;margin-bottom:20px;display: inline-block;">
+                <form action="" method="post" style="width:100%;margin-top:20px;margin-bottom:20px;display: inline-block;">
                 <div>
                 <input name="post_id" value="'.$post['idPost'].'" hidden>
                 <textarea name="comment" style="resize:none;width:85%;height:100px;border-radius:8px;background-color:#dddddd"></textarea>
                 </div>
                 <div>
-                <button name="send_comment" type ="submit" class="button" style="float: right;margin-top:-25px;">Envoyez</button>
+                <button name="send_comment" class="myButt one" type="submit" style="margin-top:-4%;width:10%;margin-right:15px;float:right">
+                  <div class="insider"></div>
+                  <p style="margin-top:4px;font-size:10px;;">Envoyer</p>
+                </button>
                 </div>
                 </form>';
              foreach($comments as $key => $value) {
@@ -271,7 +275,7 @@
                  foreach($value as $comment){
                    echo '<div style="border: 1px ridge black;padding:10px;margin-top:15px;" '.$param_delete_post.'>
                           <div style="border-bottom: solid 1px;">
-                            <span style="margin-left:10px;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                            <span style="margin-left:10px;color:white;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
                             if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
                           echo '<form action="" method="post">
                               <input name="idComment" value="'.key($value).'" hidden>

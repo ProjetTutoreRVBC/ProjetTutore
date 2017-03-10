@@ -20,6 +20,18 @@ p,font,h,a {
   color:white;
 }
 
+.coms {
+  height:10px;
+  border-radius:8px;
+  overflow:hidden;
+  background: linear-gradient(135deg, #2199e8 0%, #0038A8 100%) !important;
+}
+
+.coms:hover {
+  height:initial;
+  background: linear-gradient(135deg, #333333 0%, #333333 100%) !important;
+}
+
 .divsuggestlist {
   width:500px;
   position:absolute;

@@ -61,8 +61,8 @@
           if (isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])) {
               $href = "logout";
               $log  = "Logout";
-              echo '<a href="gestion"><img style="margin-top:10px;width:40px;height:40px;float:right;margin-right:10px" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-              echo '<a href="profile/' . $user_page . '"><img style="margin-top:10px;width:40px;height:40px;float:right;margin-right:10px" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
+              echo '<a href="profile/' . $user_page . '">';
+              echo '<button id="" type ="button" class="btn-11" >' . $user_page . '</button></a>';
           } else {
               echo '<a href="register"><button class="btn-11" type="button">Sign Up</button></a>';
           }
