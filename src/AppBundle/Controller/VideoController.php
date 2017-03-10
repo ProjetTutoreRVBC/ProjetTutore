@@ -30,7 +30,7 @@ class VideoController extends Controller
       $recurence_comment = false;
       $v = $video->getVideo($id);
       $current_user_page = array(0=>array("namePage" => ""));
-      if(isset($_COOKIE['pseudo'])){
+      if(isset($_COOKIE['pseudo']) && $_COOKIE['pseudo'] != null ){
         $info_u = new Nostreamer();  
         $user_id = $info_u->getId($_COOKIE['pseudo']);
         $info_vote = $video->getVote($id,$user_id['idNostreamer']);
@@ -71,7 +71,7 @@ class VideoController extends Controller
          $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
         
       }
-      if(!isset($_COOKIE['pseudo']))
+      else
         $video->addView(0,$id);
       
       if(!isset($info_vote[0]))

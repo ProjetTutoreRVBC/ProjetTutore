@@ -67,7 +67,7 @@ class Video
 				$stmt->bindParam(':idV', $idVideo);
 				$stmt->execute();			
 			}
-			else {
+			if($view && $idNostreamer != 0){
 				$sql = "UPDATE Views SET user_views = user_views + 1 WHERE idVideo = :idV and idNostreamer = :idN";
 				$stmt = $db->prepare($sql);
 				$stmt->bindParam(':idN', $idNostreamer);
@@ -81,7 +81,7 @@ class Video
 				$stmt->bindParam(':idV', $idVideo);
 				$stmt->execute();			
 			}
-			else {
+			if($view && $idNostreamer == 0){
 				$sql = "UPDATE Views SET user_views = user_views + 1 WHERE idVideo = :idV and idNostreamer = 0";
 				$stmt = $db->prepare($sql);
 				$stmt->bindParam(':idV', $idVideo);
