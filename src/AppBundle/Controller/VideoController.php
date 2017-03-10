@@ -71,7 +71,7 @@ class VideoController extends Controller
          $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
         
       }
-      else
+      if(!isset($_COOKIE['pseudo']))
         $video->addView(0,$id);
       
       if(!isset($info_vote[0]))
