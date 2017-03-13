@@ -1,9 +1,12 @@
-$(document).ready(function(){
-    var idVideo = $("video").attr('id');
-    $("button[name='likes']").on("click",function(){
-        $("#vote").on("submit",function(ev){
-        ev.preventDefault();    
-        });  
+
+function likes(){
+        var idVideo = $("video").attr('id');
+        var nbLikes = $("button[name='likes'] #content").html();
+        var nbDislikes = $("button[name='dislikes'] #content").html();
+        nbLikes++;
+        nbDislikes--;
+        $("button[name='likes'] #content").html(nbLikes);
+        $("button[name='dislikes'] #content").html(nbDislikes);
         $("button[name='likes']").prop('disabled', true);
         $("button[name='dislikes']").removeAttr("disabled");
         $("#icon0").attr('onmouseover','');
@@ -15,14 +18,18 @@ $(document).ready(function(){
         
         var like = 1;
         var dislike = 0;
-        /*$.post("/web/bundles/framework/php/likes.php", {like : 1, dislike : 0, idVideo : idVideo}, function(data, status){
+        $.post("/web/bundles/framework/php/likes.php", {like : 1, dislike : 0, idVideo : idVideo}, function(data, status){
         alert("Data: " + data + "\nStatus: " + status);
-    });*/
-      });
-    $("button[name='dislikes']").on("click",function(){
-        $("#vote").on("submit",function(ev){
-        ev.preventDefault();    
-        });  
+          });
+    }
+    function dislikes(){  
+        var idVideo = $("video").attr('id');
+        var nbLikes = $("button[name='likes'] #content").html();
+        var nbDislikes = $("button[name='dislikes'] #content").html();
+        nbLikes--;
+        nbDislikes++;
+        $("button[name='likes'] #content").html(nbLikes);
+        $("button[name='dislikes'] #content").html(nbDislikes);
         $("button[name='dislikes']").prop('disabled', true);
         $("button[name='likes']").removeAttr("disabled");
         $("#icon1").attr('onmouseover','');
@@ -33,8 +40,7 @@ $(document).ready(function(){
         $("#icon1").attr('src','/web/bundles/framework/images/thumbs-down-silhouette.png');
         var like = 0;
         var dislike = 1;
-        /*$.post("/web/bundles/framework/php/likes.php", {dislike : 1, like : 0, idVideo : idVideo}, function(data, status){
+        $.post("/web/bundles/framework/php/likes.php", {dislike : 1, like : 0, idVideo : idVideo}, function(data, status){
         alert("Data: " + data + "\nStatus: " + status);
-    });*/
-      });
-});
+    });
+    }

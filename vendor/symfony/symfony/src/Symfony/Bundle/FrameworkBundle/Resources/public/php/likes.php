@@ -4,14 +4,17 @@
       $username="brassele";
       $password="Il est mort";
 
-      $db = new PDO("mysql:host=$host;dbname=$servername",$username,$password);
+     
+			if(isset($_COOKIE['pseudo'])){ // si nostreamer
+      
+			$pseudoNostreamer = $_COOKIE['pseudo'];      
+			$db = new PDO("mysql:host=$host;dbname=$servername",$username,$password);
 
       $like = $_POST["like"];
       $dislike = $_POST["dislike"];
       $type = "insert";
       $id = $_POST['idVideo'];
-      $pseudoNostreamer = $_COOKIE['pseudo'];      
-
+				
       $sql = "SELECT idNostreamer FROM Nostreamer WHERE pseudoNostreamer = :pseudo";
 		  $stmt = $db->prepare($sql);
 		  $stmt->bindParam(':pseudo',$pseudoNostreamer);
@@ -68,4 +71,4 @@
 			$stmt->bindParam(':like',$post_like);
 			$stmt->bindParam(':dislike',$post_dislike);
 		  $stmt->execute();
-		 
+			}

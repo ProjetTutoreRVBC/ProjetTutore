@@ -39,7 +39,7 @@ class SecurityController extends Controller
       $error = "";
       $pseudo="";
       if(isset($_POST) && $_POST != null){
-        if(isset($_POST['login'])){
+        if($_POST['_pseudo'] != null && $_POST['_password'] != null){
           $user = new Nostreamer();
           $pseudo = $_POST['_pseudo'];
           $password = $_POST['_password'];

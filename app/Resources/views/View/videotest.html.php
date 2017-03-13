@@ -13,10 +13,26 @@
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>  
+    <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
+    <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
+  <style>
+    
 
+    button::-moz-focus-inner {
+      border: 0;
+    }
+
+
+    button, img:focus{
+      outline:0;
+    }  
+    button:active{
+      outline:0;
+    }
+  </style>
   <script type="text/javascript">
     function changeIconUp(id) {
       var icon = document.getElementById(id);
@@ -102,39 +118,38 @@
                   </div>
 
                   <div style="text-align:center;width:100%;margin-bottom:15px;"><span><?php echo $views." vues"; ?></span></div>
-
-                  <form id="vote" action="" method="post" style="text-align:center;">
+                  <div style="text-align:center;"> 
                     <?php
                         $id = 0;
                         $type1="";
                         $type2="";  
                         if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
-                          $type1='name="likes" type="submit" ';
-                          $type2='name="dislikes" type="submit" ';
+                          $type1='name="likes"';
+                          $type2='name="dislikes"';
                         }
-                        if(!isset($vote['likes']) || $vote['likes'] == false)
-                          echo '<span><button '.$type1.' style="margin:1%;outline:none;background-color:transparent;border:none">
+                        if(!isset($vote['likes']) || $vote['likes'] == 0)
+                          echo '<span><button '.$type1.' style="margin:1%;outline:none;background-color:transparent;border:none;outline:0;" onclick="likes();">
                                   <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
                                   <span id="content">'.$likes.'</span>
                                 </button></span>';
-                        if(isset($vote['likes']) && $vote['likes'] == true)
-                          echo '<span><button  style="margin:1%;outline:none;background-color:transparent;border:none" disabled>
+                        if(isset($vote['likes']) && $vote['likes'] == 1)
+                          echo '<span><button  style="margin:1%;outline:none;background-color:transparent;border:none;outline:0;" disabled>
                                   <img  style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up-hand-symbol.png" alt="">
                                   <span id="content">'.$likes.'</span>
                                 </button></span>'; 
                         $id++;
-                        if(!isset($vote['dislikes']) || $vote['dislikes'] == false)
-                          echo '<span><button '.$type2.' style="margin:1%;outline:none;background-color:transparent;border:none">
+                        if(!isset($vote['dislikes']) || $vote['dislikes'] == 0)
+                          echo '<span><button '.$type2.' style="margin:1%;outline:none;background-color:transparent;border:none;outline:0;" onclick="dislikes();">
                                   <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
                                   <span id="content">'.$dislikes.'</span>
                                 </button></span>';
-                        if(isset($vote['dislikes']) && $vote['dislikes'] == true)
-                          echo '<span><button  style="margin:1%;outline:none;background-color:transparent;border:none" disabled>
+                        if(isset($vote['dislikes']) && $vote['dislikes'] == 1)
+                          echo '<span><button  style="margin:1%;outline:none;background-color:transparent;border:none;outline:0;" disabled>
                                   <img style="max-width:30px;max-height:30px;"  id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-down-silhouette.png" alt="">
                                   <span id="content">'.$dislikes.'</span>
                                 </button></span>';
                         ?>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
