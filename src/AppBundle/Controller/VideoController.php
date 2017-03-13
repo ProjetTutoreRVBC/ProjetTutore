@@ -35,7 +35,7 @@ class VideoController extends Controller
         $user_id = $info_u->getId($_COOKIE['pseudo']);
         $info_vote = $video->getVote($id,$user_id['idNostreamer']);
         $video->addView($user_id['idNostreamer'],$id);
-        if(isset($_POST['likes'])){ 
+        /*if(isset($_POST['likes'])){ 
            $type = "insert"; 
            if($info_vote) 
              $type = "update";
@@ -46,7 +46,7 @@ class VideoController extends Controller
            if($info_vote) 
              $type = "update";
            $video->setVote($id,$user_id['idNostreamer'],0,1,$type);
-        }
+        }*/
         
         if(isset($_COOKIE['last_comment_video']) && isset($_POST['comment'])){
           if($_COOKIE['last_comment_video'] == $_POST['comment'])

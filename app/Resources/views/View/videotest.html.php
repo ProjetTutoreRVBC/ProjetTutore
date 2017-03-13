@@ -1,6 +1,5 @@
-<!-- app/Resources/views/View/videotest.html.php-->
-<!doctype html>
-
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -13,6 +12,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>  
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
@@ -81,7 +81,7 @@
               </font>
             </div>
             <div class="video-container " style="height:70%;width:85%!important;margin-left:auto;margin-right:auto;">
-              <video id="my-video " class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="<?php echo '/web/bundles/framework/miniature/'.$miniature;?>" data-setup="{} ">
+              <video id="<?php echo $v;?>" class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="<?php echo '/web/bundles/framework/miniature/'.$miniature;?>" data-setup="{} ">
                 <source src="<?php echo '/web/bundles/framework/video/'.$v.'.mp4';?>" type='video/mp4'>
                 <p class="vjs-no-js ">
                   To view this video please enable JavaScript, and consider upgrading to a web browser that
@@ -103,7 +103,7 @@
 
                   <div style="text-align:center;width:100%;margin-bottom:15px;"><span><?php echo $views." vues"; ?></span></div>
 
-                  <form action="" method="post" style="text-align:center;">
+                  <form id="vote" action="" method="post" style="text-align:center;">
                     <?php
                         $id = 0;
                         $type1="";
@@ -251,3 +251,4 @@
   </div>
   </div>
 </body>
+</html> 
