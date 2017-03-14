@@ -3,8 +3,8 @@ function likes(){
         var idVideo = $("video").attr('id');
         var nbLikes = $("button[name='likes'] #content").html();
         var nbDislikes = $("button[name='dislikes'] #content").html();
-        var like = 0;
-        var dislike = 0;
+        var like;
+        var dislike;
         if($("#icon0").attr('src') != '/web/bundles/framework/images/thumbs-up-hand-symbol.png'){
           if($("#icon1").attr('src') == '/web/bundles/framework/images/thumbs-down-silhouette.png'){
             nbLikes++; 
@@ -13,8 +13,6 @@ function likes(){
             dislike = 0;
           }
           else {
-            
-            
             nbLikes++;
             like = 1;
             dislike = 0;
@@ -40,14 +38,14 @@ function likes(){
 
         $("button[name='likes'] #content").html(nbLikes);
         $("button[name='dislikes'] #content").html(nbDislikes);
-        $.post("/web/bundles/framework/php/likes.php", {like : like, dislike : dislike, idVideo : idVideo});
+        $.post("/web/bundles/framework/php/likes.php", {likes : like, dislikes : dislike, idVideo : idVideo});
     }
     function dislikes(){  
         var idVideo = $("video").attr('id');
         var nbLikes = $("button[name='likes'] #content").html();
         var nbDislikes = $("button[name='dislikes'] #content").html();
-        var like = 0;
-        var dislike = 0;
+        var like;
+        var dislike;
         if($("#icon1").attr('src') != '/web/bundles/framework/images/thumbs-down-silhouette.png'){
           if($("#icon0").attr('src') == '/web/bundles/framework/images/thumbs-up-hand-symbol.png'){
             nbLikes--; 

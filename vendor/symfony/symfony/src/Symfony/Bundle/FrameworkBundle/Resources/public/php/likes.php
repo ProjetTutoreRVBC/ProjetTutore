@@ -10,8 +10,8 @@
 			$pseudoNostreamer = $_COOKIE['pseudo'];      
 			$db = new PDO("mysql:host=$host;dbname=$servername",$username,$password);
 
-      $like = $_POST["like"];
-      $dislike = $_POST["dislike"];
+      $like = $_POST["likes"];
+      $dislike = $_POST["dislikes"];
       $type = "insert";
       $id = $_POST['idVideo'];
 				
