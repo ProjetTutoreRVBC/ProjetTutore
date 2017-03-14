@@ -77,5 +77,5 @@ function likes(){
 
         $("button[name='likes'] #content").html(nbLikes);
         $("button[name='dislikes'] #content").html(nbDislikes);
-        $.post("/web/bundles/framework/php/likes.php", {dislike : dislike, like : like, idVideo : idVideo});
+        $.post("/web/bundles/framework/php/likes.php", {dislikes : dislike, likes : like, idVideo : idVideo});
     }
