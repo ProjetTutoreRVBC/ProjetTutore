@@ -88,6 +88,17 @@
          </ul>
           
         </div>
+        
+      <?php  foreach($abonnement as $abo){
+                            echo '<a href="watch?v='.$abo['idVideo'].'">
+                              <div class="listnotif">
+                                <font style="font-size:100%">'.$abo['nameChannel'].'a sorti une nouvelle vidéo</font>
+                              </div>
+                            </a>';
+                      }
+      ?>
+      
+      
         <div class="slidingdiv">
                 <?php
                   if (isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])) {
@@ -107,6 +118,17 @@
                       }
                       }
                     echo '</div>';
+                    echo '<div class="slidenotif">';
+                    foreach($abonnement as $abo){
+                            echo '<a href="watch?v='.$abo['idVideo'].'">
+                              <div class="listnotif">
+                                <font style="font-size:100%">'.$abo['nameChannel'].' a sorti une nouvelle vidéo</font></br>
+                                <font style="font-size:100%">'.$abo['nameVideo'].'</font>
+                              </div>
+                            </a>';
+                    }
+                    echo '</div>';
+                    
                   } else {
                       echo '<a href="login/">
                         <div class="slidename">
@@ -115,22 +137,7 @@
                       </a>';
                   }
                   ?>
-                <div class="slidenotif">
-                  <a href="#">
-                    <div class="listnotif">
-                      <font style="font-size:100%">Le Joueur du Grenier a sorti une nouvelle vidéo</font>
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div class="listnotif">
-                      <font style="font-size:100%">Le Joueur du Grenier a posté un message sur sa page</font>
-                    </div>
-                  </a>
-                  <a href="#">
-                    <div class="listnotif">
-                      <font style="font-size:100%">Antoine Daniel a sorti une nouvelle vidéo... Non je déconne</font>
-                    </div>
-                  </a>
+                  
                 </div>
               </div>
         <article id="page1" class="show top" style="overflow-y:scroll;">

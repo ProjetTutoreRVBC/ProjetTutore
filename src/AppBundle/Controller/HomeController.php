@@ -42,10 +42,11 @@ class HomeController extends Controller
       if(isset($_COOKIE['pseudo'])){
       $user = new Nostreamer();
       $user_id = $user->getId($_COOKIE["pseudo"]);
+      $abonnement = $user->getAbonnementsVideos($user_id['idNostreamer']);
       $user_page = new Page();
       $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
       $list_channel = $user->getChannels($_COOKIE["pseudo"]);
       }
-      return $this->render('View/homepageTest.html.php',array("listChannel" => $list_channel, "video" => $list_v,"channel"=>$list_c,"page"=>$list_p,"user_page"=>$current_user_page[0]['namePage']));
+      return $this->render('View/homepageTest.html.php',array("abonnement" => $abonnement,"listChannel" => $list_channel, "video" => $list_v,"channel"=>$list_c,"page"=>$list_p,"user_page"=>$current_user_page[0]['namePage']));
     }
 }

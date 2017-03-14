@@ -25,10 +25,13 @@ p,font,h,a {
   border-radius:8px;
   overflow:hidden;
   background: linear-gradient(135deg, #2199e8 0%, #0038A8 100%) !important;
+   transition: all 1s linear;
+   -webkit-transition: all 1s linear;
 }
 
 .coms:hover {
-  height:initial;
+  height:auto;
+  
   background: linear-gradient(135deg, #333333 0%, #333333 100%) !important;
 }
 

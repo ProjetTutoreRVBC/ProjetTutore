@@ -19,6 +19,11 @@ class Video
       $this->descriptionVideo = $descriptionVideo;
     }
   */
+	
+	
+	/* 	
+	*/
+	
 		public function delete($id)
 		{
 			$dir = "/home/cabox/workspace/web/bundles/framework/";

@@ -109,6 +109,23 @@ class Nostreamer
 		}
   	*/
 	
+	public function getAbonnementsVideos($idNostreamer) {
+		$db = Database::getInstance();
+		$sql = "SELECT DISTINCT V.idVideo, V.nameVideo, C.nameChannel 
+						FROM Video V, Nostreamer N, SubscribedChannel S, Channel C 
+						WHERE S.idNostreamer = :id 
+							AND S.idChannel = V.idChannel 
+							AND S.idChannel = C.idChannel 
+							AND V.dateVideo >= date_sub(now(), interval 15 day)
+							AND NOT EXISTS(SELECT id FROM Views Vi WHERE Vi.idNostreamer = S.idNostreamer AND Vi.idVideo = V.idVideo)";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(':id',$idNostreamer);
+		$stmt->execute(); 
+		$result = $stmt->fetchAll();
+		//var_dump($result);
+		return $result;
+	}
+	
 		public function getId($pseudoNostreamer)
     {
       $db = Database::getInstance();
