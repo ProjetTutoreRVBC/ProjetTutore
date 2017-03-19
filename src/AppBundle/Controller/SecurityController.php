@@ -71,6 +71,7 @@ class SecurityController extends Controller
     {
       setcookie("pseudo","");
       setcookie("channel","");
+      
       return $this->redirectToRoute('home');
     }
 }

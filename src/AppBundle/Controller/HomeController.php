@@ -39,6 +39,7 @@ class HomeController extends Controller
       $list_p = $video->getListPageByIdVideo();
       $current_user_page = array(0=>array("namePage" => ""));
       $list_channel = [];
+      $abonnement = [];
       if(isset($_COOKIE['pseudo'])){
       $user = new Nostreamer();
       $user_id = $user->getId($_COOKIE["pseudo"]);

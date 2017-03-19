@@ -123,8 +123,8 @@
                         $type1="";
                         $type2="";  
                         if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
-                          $type1='autocomplete="off" name="likes" onclick="likes();"';
-                          $type2='autocomplete="off" name="dislikes" onclick="dislikes();"';
+                          $type1='autocomplete="off" name="likes"';
+                          $type2='autocomplete="off" name="dislikes"';
                         }
                         else{
                           $type2 = 'disabled=""';

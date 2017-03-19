@@ -30,13 +30,14 @@ class ProfileController extends Controller
       $user = new Nostreamer();
       $info_page = $user_page->getPage($slug);
       $pseudo = $user_page->getPseudoNostreamer($info_page['idPage']);
-      $list_channel = $user->getChannels($pseudo[0]);
       $user_post = new Post();
       $recurence_post = false;
       $recurence_comment =false;
       $info_vote = array();
       $current_user_page = array(0=>array("namePage" => ""));
+      $list_channel = [0=>""];
       if(isset($_COOKIE['pseudo'])){
+      $list_channel = $user->getChannels($_COOKIE['pseudo']);
         if(isset($_POST) && $_POST != null){
          if(isset($_COOKIE['last_post']) && isset($_POST['new_post'])){
           if($_COOKIE['last_post'] == $_POST['new_post'])
@@ -56,7 +57,7 @@ class ProfileController extends Controller
            $post->delete($_POST['idPost']);
           }
 
-          if(isset($_POST['like'])){
+         /* if(isset($_POST['like'])){
            $post = new Post();
            $user_id = $user->getId($_COOKIE['pseudo']); 
            $vote = $post->getVote($user_id['idNostreamer'],$_POST['id-post-like']); 
@@ -74,7 +75,7 @@ class ProfileController extends Controller
            if($vote) 
              $type = "update";
             $post->setVote($_POST['id-post-dislike'],$user_id['idNostreamer'],0,1,$type);
-          }
+          }*/
           
           if(isset($_POST['send_comment']) && $recurence_comment == false){
            $com = new Comment();

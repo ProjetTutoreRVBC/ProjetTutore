@@ -13,7 +13,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>$
+    <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes_page.js') ?>"></script>
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
   <link rel="stylesheet" href="/web/bundles/framework/css/callout.css">
@@ -42,7 +43,7 @@
     </script>
 </head>
 
-<body onresize="handleWindow()" onload="handleWindow()">
+<body>
 
 
     <script>
@@ -133,7 +134,9 @@
     <nav>
       <ul>
         <li class="gnav1"><?php echo $profile['namePage']; ?></li>
-        <?php if($listChannel != 0) {
+        <?php 
+             if (isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])) {  
+            if($listChannel != 0) {
                 foreach($listChannel as $c){
                   echo '<a href="../channel/'.$c["nameChannel"].'">
                     <li class="">
@@ -142,6 +145,7 @@
                   </a>';
                 }
               }
+             }
         ?>
       </ul>
     </nav>
@@ -215,8 +219,11 @@
                   </div>
                   </button>
                   </form>';
-            $type1='name="like" type="submit" ';
-            $type2='name="dislike" type="submit" ';  
+            $disabled=''; 
+            }
+            else {
+              
+            $disabled='disabled';
             }
             echo'</div>
             <div style="margin-top:15px;width:100%;overflow:hidden;">
@@ -224,38 +231,36 @@
             </div>
             
             <div style="display:inline-block;width:100%;height:40px;">
-                <form  action="" method="post">
                 <div>
-                <input id="data" name="id-post-like" value="'.$post['idPost'].'" hidden>';
+                <input id="'.$id.'-post-like" value="'.$post['idPost'].'" hidden>';
                 if(!isset($vote[$post['idPost']]['like']) || $vote[$post['idPost']]['like'] == false)
-                  echo '<button '.$type1.' style="float:left;margin:1%;outline:none;background-color:transparent;border:none">
-                    <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" onmouseover="changeIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
+                  echo '<button onclick="likes('.$id.')" id="'.$id.'" autocomplete="off" style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
+                    <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
                     <span id="content">'.$post['likes'].'</span>
                   </button>
                   </div>';
                 if(isset($vote[$post['idPost']]['like']) && $vote[$post['idPost']]['like'] == true)
-                  echo '<button  style="float:left;margin:1%;outline:none;background-color:transparent;border:none" disabled>
+                  echo '<button onclick="likes('.$id.')" id="'.$id.'" autocomplete="off" style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
                     <img  style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up-hand-symbol.png" alt="">
                     <span id="content">'.$post['likes'].'</span>
                   </button>
                   </div>';  
                 $id++;
                 echo '<div>
-                <input id="data" name="id-post-dislike" value="'.$post['idPost'].'" hidden>';
+                <input id="'.$id.'-post-dislike" value="'.$post['idPost'].'" hidden>';
                 if(!isset($vote[$post['idPost']]['dislike']) || $vote[$post['idPost']]['dislike'] == false)
-                  echo '<button '.$type2.' style="float:left;margin:1%;outline:none;background-color:transparent;border:none">
-                    <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);" onmouseover="changeIconDown(&#34icon'.$id.'&#34);" id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
+                  echo '<button onclick="dislikes('.$id.')"  id="'.$id.'" autocomplete="off" style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
+                    <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);"  id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
                     <span id="content">'.$post['dislikes'].'</span>
                   </button>';
                 if(isset($vote[$post['idPost']]['dislike']) && $vote[$post['idPost']]['dislike'] == true)
-                  echo '<button  style="float:left;margin:1%;outline:none;background-color:transparent;border:none" disabled>
+                  echo '<button onclick="dislikes('.$id.')"  id="'.$id.'" autocomplete="off"style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
                     <img style="max-width:30px;max-height:30px;"  id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-down-silhouette.png" alt="">
                     <span id="content">'.$post['dislikes'].'</span>
                   </button>';
                   
                   
             echo '</div>
-                </form>
             </div>
             <div class="coms" id="'.$post['idPost'].'">
                 <form action="" method="post" style="width:100%;margin-top:20px;margin-bottom:20px;display: inline-block;">

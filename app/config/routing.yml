@@ -13,6 +13,9 @@ profile:
 login:
     path:      /login/
     defaults:  { _controller: AppBundle:Security:login }
+logout:
+    path:      /logout/
+    defaults:  { _controller: AppBundle:Security:logout }    
 home:
     path: /
     defaults: { _controller: AppBundle:Home:index }

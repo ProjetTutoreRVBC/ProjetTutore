@@ -22,7 +22,7 @@
 		  $result = $stmt->fetchAll();
 			$idNostreamer = $result[0]['idNostreamer'];
         
-      $sql = "SELECT * from voteVideo where idVideo = :id and idNostreamer = :idN";
+      $sql = "SELECT id from voteVideo where idVideo = :id and idNostreamer = :idN";
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':id', $id);
 			$stmt->bindParam(':idN', $idNostreamer);
