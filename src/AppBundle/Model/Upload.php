@@ -6,7 +6,7 @@ class Upload
 	  public function add($_FILE,$name,$temp){
       $video = new Video();
 			$max_file_size = 1024*5000;
-      $PATH = "http://dwarves.iut-fbleau.fr/~brassele/Octave/ProjetTutore/";
+      $PATH = "/home/cabox/workspace/web/bundles/framework/video/";
       $perm = 777;
       $allowedExts = array("jpg", "jpeg", "gif", "png", "mp3", "mp4", "wma");
       $extension = pathinfo($_FILE['file']['name'], PATHINFO_EXTENSION);
