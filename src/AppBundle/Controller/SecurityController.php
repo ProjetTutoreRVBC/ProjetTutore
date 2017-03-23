@@ -69,8 +69,8 @@ class SecurityController extends Controller
      */
     public function logoutAction()
     {
-      setcookie("pseudo","");
-      setcookie("channel","");
+      setcookie("pseudo","",time() - 3600, '/');
+      setcookie("channel","",time() - 3600, '/');
       
       return $this->redirectToRoute('home');
     }
