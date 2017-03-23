@@ -47,9 +47,7 @@ function likes(idButton){
 
         $("#"+idButton+" #content").html(nbLikes);
         $("#"+idButtonDislike+" #content").html(nbDislikes);
-        $.post("/web/bundles/framework/php/likes_page.php", {likes : like, dislikes : dislike, idPost : idPost}, function(data, success){
-          alert(" "+data+"\n"+success);
-        });
+        $.post("/web/bundles/framework/php/likes_page.php", {likes : like, dislikes : dislike, idPost : idPost});
     }
     function dislikes(idButton){ 
         var idPost = $('#'+idButton+'-post-dislike').val();

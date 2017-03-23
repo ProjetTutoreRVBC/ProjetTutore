@@ -2,9 +2,6 @@
 
 <!-- app/Resources/views/View/page.html.php-->  
 <!doctype html>
-<?php
-
-?>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
