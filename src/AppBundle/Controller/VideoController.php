@@ -53,14 +53,14 @@ class VideoController extends Controller
            $recurence_comment = true;
          } 
         
-        if(isset($_POST['send_comment']) && $recurence_comment == false){
+        /*if(isset($_POST['send_comment']) && $recurence_comment == false){
            $com = new Comment();
            $message = $_POST['comment'];
            $video_ch = $v['idChannel'];
            setcookie("last_comment_video",$_POST['comment']); 
            $com->setCommentVideo($message,$id,$user_id['idNostreamer'],$video_ch);
           }
-        
+        */
         if(isset($_POST['delete_comment'])){
            $com = new Comment();
            $message = $_POST['idComment'];
