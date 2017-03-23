@@ -1,4 +1,4 @@
-azerty
+lellllelelazerty
 ATTENTION !!!
 
 Si le projet ne s'affiche pas correctement au premier lancement, il s'agit surement d'un problème de permission.
