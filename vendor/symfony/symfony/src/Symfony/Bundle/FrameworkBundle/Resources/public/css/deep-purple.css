@@ -80,9 +80,11 @@ p,font,h,a {
 }
 
 .slidingdiv {
+  display:none;
+  overflow:hidden;
   height:100%;
-  width:1rem;
-  background-color:white;
+  width:25%;
+  background: linear-gradient(135deg, #333333 0%, #333333 100%);
   position:absolute;
   top:0;
   right:0;
@@ -93,8 +95,7 @@ p,font,h,a {
 }
 
 .slidingdiv:hover {
-  width:25%;
-  background: linear-gradient(135deg, #333333 0%, #333333 100%);
+  
 }
 
 .slidename {

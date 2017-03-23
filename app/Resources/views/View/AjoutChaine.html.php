@@ -119,6 +119,17 @@
                   <div class="form__field">
                     <input style="background-color: rgb(250, 255, 189);" type="text " name="nom" id="nom " /><br />
                   </div>
+                  <div class="form__field">
+                    <input type='file' name="file2" id="exampleFileUpload" class="show-for-sr" onchange="readURL(this,1);" />
+                    <span id="display-parent-1"></span>   
+                  </div>
+                  <div class="form__field">
+                    <input type='file' name="file" id="exampleFileUpload2" class="show-for-sr" onchange="readURL(this,2);" />
+                    <span id="display-parent-2"></span> 
+                  </div>
+                  <div class="form__field">
+                    <textarea name="description" id="description " style="display:inline-block;width:50%;text-align:center;"></textarea><br />
+                  </div>
                   <button type="submit" class="button">Créer ma chaine !</button>
             </form>
 

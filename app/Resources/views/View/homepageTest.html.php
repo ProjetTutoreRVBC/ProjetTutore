@@ -12,7 +12,9 @@
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/hamburger.js') ?>"></script>
   <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
+  <link rel="stylesheet" href="/web/bundles/framework/css/hamburger.css">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
   
   <script>
@@ -55,6 +57,8 @@
     <div class="header">
       <a href="/web/app_dev.php/" style="width:100px;height:100px;border-radius: 8px;"><img id="logo" class="nostream" src="/web/bundles/framework/images/logo.png" alt="logo"></a>
       <input type="text" class="searchbar" name="search" placeholder="Search.." onkeyup="suggest(this.value)">
+      <button class="hamburger">&#9776;</button>
+        <button class="cross">&#735;</button>
       <?php
           $href = "login";
           $log  = "Login";
@@ -71,6 +75,7 @@
         ?>
         <!--<a href="register"><button class="btn-11" type="button">Sign Up</button></a>
         <a href="login"><button class="btn-11" type="button">Login</button></a>-->
+        
     </div>
     <nav>
       <ul>
