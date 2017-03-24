@@ -148,7 +148,7 @@ class Video
 		public function getListVideo(){
 			
 			$db = Database::getInstance();
-			$sql = "SELECT * from Video";
+			$sql = "SELECT * from Video ORDER BY Video.viewsVideo DESC";
 			$stmt = $db->prepare($sql);
 			$stmt->execute();
 			$result = $stmt->fetchAll();

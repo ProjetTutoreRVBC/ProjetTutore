@@ -1,19 +1,6 @@
 $(document).ready(function() {
   $(".cross").hide();
-  $(".menu").hide();
   $(".hamburger").click(function() {
-    $(".slidingdiv").slideToggle("slow", function() {
-      
-      $(".hamburger").hide();
-      $(".cross").show();
-    });
+    $(".slidingdiv").slideToggle();
   });
-
-  $(".cross").click(function() {
-    $(".slidingdiv").slideToggle("slow", function() {
-      $(".cross").hide();
-      $(".hamburger").show();
-    });
-  });
-
 });

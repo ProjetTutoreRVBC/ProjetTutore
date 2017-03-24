@@ -149,7 +149,7 @@
     <div class="contents" id="contents">
       <div class="container">
         <article id="page1" class="show top" style="overflow-y:scroll;">
-          <div style="border-radius:8px;border: 1px solid #000;background-size: 100% 100%;text-align:center;margin-right:auto;margin-left:auto;width:80%;height:20%;background-image:url(//yt3.ggpht.com/v1TmYBYX-Vu9QposRqHSp-rqcns5OhG3iriSPzDLWiT1-0kEkBx-iyBMGa8iaHgV0cA0j1A7Ng=w1060-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no);">
+          <div style="border-radius:8px;border: 1px solid #000;background-size: 100% 100%;text-align:center;margin-right:auto;margin-left:auto;width:80%;height:20%;background-image:url(http://wowslider.com/sliders/demo-10/data/images/creek.jpg);">
           <?php //echo '/web/bundles/framework/images-profile/'.$profile['profile_img'] ?>
             
           </div>
@@ -233,13 +233,13 @@
                 if(!isset($vote[$post['idPost']]['like']) || $vote[$post['idPost']]['like'] == false)
                   echo '<button onclick="likes('.$id.')" id="'.$id.'" autocomplete="off" style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
                     <img onmouseout="resetIconUp(&#34icon'.$id.'&#34);" style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up.png" alt="">
-                    <span id="content">'.$post['likes'].'</span>
+                    <span id="content" style="color:white;">'.$post['likes'].'</span>
                   </button>
                   </div>';
                 if(isset($vote[$post['idPost']]['like']) && $vote[$post['idPost']]['like'] == true)
                   echo '<button onclick="likes('.$id.')" id="'.$id.'" autocomplete="off" style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
                     <img  style="max-width:30px;max-height:30px;" id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-up-hand-symbol.png" alt="">
-                    <span id="content">'.$post['likes'].'</span>
+                    <span id="content" style="color:white;">'.$post['likes'].'</span>
                   </button>
                   </div>';  
                 $id++;
@@ -248,12 +248,12 @@
                 if(!isset($vote[$post['idPost']]['dislike']) || $vote[$post['idPost']]['dislike'] == false)
                   echo '<button onclick="dislikes('.$id.')"  id="'.$id.'" autocomplete="off" style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
                     <img style="max-width:30px;max-height:30px;" onmouseout="resetIconDown(&#34icon'.$id.'&#34);"  id="icon'.$id.'" src="/web/bundles/framework/images/thumb-down.png" alt="">
-                    <span id="content">'.$post['dislikes'].'</span>
+                    <span id="content" style="color:white;">'.$post['dislikes'].'</span>
                   </button>';
                 if(isset($vote[$post['idPost']]['dislike']) && $vote[$post['idPost']]['dislike'] == true)
                   echo '<button onclick="dislikes('.$id.')"  id="'.$id.'" autocomplete="off"style="float:left;margin:1%;outline:none;background-color:transparent;border:none" '.$disabled.'>
                     <img style="max-width:30px;max-height:30px;"  id="icon'.$id.'" src="/web/bundles/framework/images/thumbs-down-silhouette.png" alt="">
-                    <span id="content">'.$post['dislikes'].'</span>
+                    <span id="content" style="color:white;">'.$post['dislikes'].'</span>
                   </button>';
                   
                   

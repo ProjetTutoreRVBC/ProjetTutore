@@ -8,7 +8,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>nostream</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script!-->
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
@@ -63,15 +65,16 @@
           $href = "login";
           $log  = "Login";
           if (isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])) {
-              $href = "logout";
+              /*$href = "logout";
               $log  = "Logout";
               echo '<a href="profile/' . $user_page . '">';
-              echo '<button id="" type ="button" class="btn-11" >' . $user_page . '</button></a>';
+              echo '<button id="" type ="button" class="btn-11" >' . $user_page . '</button></a>';*/
           } else {
               echo '<a href="register"><button class="btn-11" type="button">Sign Up</button></a>';
-          }
-          echo '<a href="' . $href . '">';
+            echo '<a href="' . $href . '">';
           echo '<button id="log" type ="button" class="btn-11" >' . $log . '</button></a>';
+          }
+          
         ?>
         <!--<a href="register"><button class="btn-11" type="button">Sign Up</button></a>
         <a href="login"><button class="btn-11" type="button">Login</button></a>-->
@@ -133,12 +136,22 @@
                             </a>';
                     }
                     echo '</div>';
+                    echo '<a href="logout">
+                          <div class="slidename" style="bottom:0;position:absolute">
+                            <font style="display:table-cell;vertical-align:middle;font-size:200%">Logout</font>
+                          </div>
+                      </a>';
                     
                   } else {
                       echo '<a href="login/">
                         <div class="slidename">
                           <font style="display:table-cell;vertical-align:middle;font-size:200%">Login</font>
                         </div>
+                      </a>';
+                      echo '<a href="register">
+                          <div class="slidename">
+                            <font style="display:table-cell;vertical-align:middle;font-size:200%">SignUp</font>
+                          </div>
                       </a>';
                   }
                   ?>
