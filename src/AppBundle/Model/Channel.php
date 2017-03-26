@@ -10,6 +10,21 @@ class Channel
     private $descriptionChannel;
     private $creationDateChannel;
     private $viewsChannel;
+	
+		
+		public function isSubscribed($idNostreamer, $idChannel){
+			$db = Database::getInstance();
+		  $sql = "SELECT idChannel FROM SubscribedChannel WHERE idNostreamer = :id and idChannel = :idC";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idNostreamer);
+			$stmt->bindParam(':idC',$idChannel);
+			$stmt->execute(); 
+		 	$res = $stmt->fetchAll();
+			if($res != null)
+				return true;
+			else
+				return false;
+		}
     
 		public function getSubsChannel($id){
 			$db = Database::getInstance();
@@ -19,17 +34,6 @@ class Channel
 		  $stmt->execute(); 
 		 	$channel = $stmt->fetchAll();
 			return $channel[0];
-		}
-	
-	
-		public function getPageId($nameChannel){
-			$db = Database::getInstance();
-		  $sql = "SELECT idPage FROM Channel,Page WHERE Page.idChannel = Channel.idChannel";
-		  $stmt = $db->prepare($sql);
-		  $stmt->bindParam(':id',$id);
-		  $stmt->execute(); 
-		 	$page = $stmt->fetchAll();
-			return $page[0];
 		}
 	
 		public function getChannel($name){

@@ -128,4 +128,18 @@ class Page
 			return $page;
 		}
 	
+		public function isSubscribed($idNostreamer, $idPage){
+			$db = Database::getInstance();
+		  $sql = "SELECT idPage FROM SubscribedPage WHERE idNostreamer = :id and idPage = :idP";
+			$stmt = $db->prepare($sql);
+		  $stmt->bindParam(':id',$idNostreamer);
+			$stmt->bindParam(':idP',$idPage);
+			$stmt->execute(); 
+		 	$res = $stmt->fetchAll();
+			if($res != null)
+				return true;
+			else
+				return false;
+		}
+	
 }

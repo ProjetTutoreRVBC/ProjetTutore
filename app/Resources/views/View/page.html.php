@@ -9,13 +9,14 @@
     <title>nostream</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>$
+    <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/deep-purple.js') ?>"></script>
+    <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/cool-buttons.js') ?>"></script>
     <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes_page.js') ?>"></script>
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
-  <link rel="stylesheet" href="/web/bundles/framework/css/callout.css">
-  <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
+    <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/subs.js') ?>"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/web/bundles/framework/css/deep-purple.css">
+    <link rel="stylesheet" href="/web/bundles/framework/css/callout.css">
+    <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
     <script type="text/javascript">
         function changeIconUp(id){
           var icon = document.getElementById(id);
@@ -158,22 +159,28 @@
               <font style="color:white;font-size:200%;margin-left:5px;float:left;margin-top:-1%;"><?php echo $profile['namePage']; ?></font>
             </div>
             <div style="display:table-cell;vertical-align:middle;">
-              <font style="color:white;font-size:100%;margin-left:5px;float:right;"><?php echo $subs[0]; ?> abonnés</font>
+              <font style="color:white;font-size:100%;margin-left:5px;float:right;"><?php echo '<span id="nb-abonnes" >'.$subs[0].'</span> abonnés'; ?> </font>
             </div>
-            <div style="display:table-cell;vertical-align:middle;width:20%;">
+            <div id="abonnement" style="display:table-cell;vertical-align:middle;width:20%;">
               <?php
                 $end_form = "";
                 if(isset($_COOKIE['pseudo'])){
-                  echo '<form action="" method="post">';
+                  //echo '<form id="abonnement" action="" method="post">';
                   echo '<input name="abonnement" value="'.$profile['idPage'].'" hidden>';
                   $end_form = '</form>';
                 }
+                  if(isset($isSubscribed)  && $isSubscribed == true){
+                    echo '<button id="button-des" style="background-color:red;margin-left:10px;" class="myButt one" style="margin-right:15px;float:right">';
+                    echo '<div class="insider"></div>';
+                    echo '<p style="margin-top:4px;font-size:10px;">se désabonner</p></button>';
+                  }
+                  else{
+                    echo '<button id="button-ab" style="margin-left:10px;" class="myButt one" style="margin-right:15px;float:right">';
+                    echo '<div class="insider"></div>';
+                    echo "<p style='margin-top:4px;font-size:10px;'>s'abonner</p></button>";
+                  }
                 ?>
-                <button class="myButt one" type="submit" style="margin-right:15px;float:right">
-                <div class="insider"></div>
-                <p style="margin-top:4px;font-size:10px;">Abonne toi !</p>
-              </button>
-             <?php echo $end_form; ?>  
+             <?php //echo $end_form; ?>  
             </div>            
           </div>
           <div style="margin-left:auto;margin-right:auto;margin-top:10px;width:50%;height:10%;">

@@ -95,12 +95,13 @@ class ProfileController extends Controller
            $com->deleteComment($_POST['idComment'],$user_id['idNostreamer']);
           }
           
-          if(isset($_POST['abonnement'])){
+          /*if(isset($_POST['abonnement'])){
             $user_id = $user->getId($_COOKIE['pseudo']);
             $user_page->addSubPage($user_id['idNostreamer'],$_POST['abonnement']);
-          }
+          }*/
         }
           $user_id = $user->getId($_COOKIE['pseudo']);  
+          $isSubscribed = $user_page->isSubscribed($user_id['idNostreamer'],$info_page["idPage"]);
           $list = $user_post->getListVote($user_id['idNostreamer']);
           for($i=0;$i < sizeof($list); $i++){
             $info_vote[$list[$i]['idPost']]['like'] = $list[$i]['likes'];
@@ -118,7 +119,14 @@ class ProfileController extends Controller
           }
       
       $subsPage = $user_page->getSubsPage($info_page["idPage"]);
-      return $this->render('View/page.html.php',array("listChannel"=>$list_channel,"profile"=>$info_page,"subs"=>$subsPage,"posts"=>$info_post,"vote"=>$info_vote,"comments"=>$comments,"user_page"=>$current_user_page[0]['namePage']));
+      return $this->render('View/page.html.php',array("isSubscribed"=>$isSubscribed,
+                                                      "listChannel"=>$list_channel,
+                                                      "profile"=>$info_page,
+                                                      "subs"=>$subsPage,
+                                                      "posts"=>$info_post,
+                                                      "vote"=>$info_vote,
+                                                      "comments"=>$comments,
+                                                      "user_page"=>$current_user_page[0]['namePage']));
     }
   
      /**
