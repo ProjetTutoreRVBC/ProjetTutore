@@ -37,7 +37,7 @@ class ProfileController extends Controller
       $current_user_page = array(0=>array("namePage" => ""));
       $list_channel = [0=>""];
       if(isset($_COOKIE['pseudo'])){
-      $list_channel = $user->getChannels($_COOKIE['pseudo']);
+      $list_channel = $user->getChannels($info_page['pseudoNostreamer']);
         if(isset($_POST) && $_POST != null){
          if(isset($_COOKIE['last_post']) && isset($_POST['new_post'])){
           if($_COOKIE['last_post'] == $_POST['new_post'])
