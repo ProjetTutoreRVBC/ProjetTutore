@@ -40,12 +40,12 @@ class HomeController extends Controller
       $current_user_page = array(0=>array("namePage" => ""));
       $list_channel = [];
       $abonnement = [];
+      $user_page = new Page();
       if(isset($_COOKIE['pseudo'])){
       $user = new Nostreamer();
       $user_id = $user->getId($_COOKIE["pseudo"]);
-      $page = new Page();
-      $user_page = $page->getMainPage($user_id['idNostreamer']);
-      if(!$user_page)
+      $page = $user_page->getMainPage($user_id['idNostreamer']);
+      if(!$page)
         return $this->redirectToRoute('logout');  
       $abonnement = $user->getAbonnementsVideos($user_id['idNostreamer']);
       $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
