@@ -33,7 +33,7 @@ class ChannelController extends Controller
       $list_c = $video->getListChannelByIdVideo();
       $list_p = $video->getListPageByIdVideo();
       $user_channels = [];
-      $isSubscribed = 0;
+      $isSubscribed;
       if(isset($_COOKIE['pseudo'])){
         $owner_page = new Nostreamer();
         $user_channels = $owner_page->getChannels($_COOKIE['pseudo']);

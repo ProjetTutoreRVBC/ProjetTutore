@@ -173,21 +173,19 @@
                   //echo '<form action="" method="post">';
                   echo '<input name="abonnement" value="'.$idChannel.'" hidden>';
                   //$end_form = '</form>';
-                  if(isset($isSubscribed)  && $isSubscribed == true && $isSubscribed != 0){
+              
+                  if(isset($isSubscribed)  && $isSubscribed == true){
                     echo '<button id="button-des" style="background-color:red;margin-left:10px;" class="myButt one" style="margin-right:15px;float:right">';
                     echo '<div class="insider"></div>';
                     echo '<p style="margin-top:4px;font-size:10px;">se désabonner</p></button>';
                   }
-                  if(isset($isSubscribed)  && $isSubscribed == false && $isSubscribed != 0){
+                  if(isset($isSubscribed)  && $isSubscribed == false){
                     echo '<button id="button-ab" style="margin-left:10px;" class="myButt one" style="margin-right:15px;float:right">';
                     echo '<div class="insider"></div>';
                     echo "<p style='margin-top:4px;font-size:10px;'>s'abonner</p></button>";
-                  }                 
-                  
+                  }  
                 }
-                
-                  
-                  if($isSubscribed == 0){
+                 else{
                     
                     echo '<a href="../login"><button style="margin-left:10px;" class="myButt one" style="margin-right:15px;float:right">';
                     echo '<div class="insider"></div>';

@@ -36,7 +36,7 @@ class ProfileController extends Controller
       $info_vote = array();
       $current_user_page = array(0=>array("namePage" => ""));
       $list_channel = [0=>""];
-      $isSubscribed=-1;
+      $isSubscribed;
       if(isset($_COOKIE['pseudo'])){
       $list_channel = $user->getChannels($info_page['pseudoNostreamer']);
         if(isset($_POST) && $_POST != null){
