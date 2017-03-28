@@ -29,12 +29,19 @@ class VideoController extends Controller
       $info_vote = array();
       $recurence_comment = false;
       $v = $video->getVideo($id);
-      $current_user_page = array(0=>array("namePage" => ""));
+      $current_user_page[0]['namePage']="";
+      
       if(isset($_COOKIE['pseudo']) && $_COOKIE['pseudo'] != null ){
         $info_u = new Nostreamer();  
         $user_id = $info_u->getId($_COOKIE['pseudo']);
         $info_vote = $video->getVote($id,$user_id['idNostreamer']);
         $video->addView($user_id['idNostreamer'],$id);
+        
+        
+        $user = new Nostreamer();
+        $mainpage = $user_page->getMainPage($user_id['idNostreamer']);
+        if(!$mainpage)
+          return $this->redirectToRoute('logout'); 
         /*if(isset($_POST['likes'])){ 
            $type = "insert"; 
            if($info_vote) 
