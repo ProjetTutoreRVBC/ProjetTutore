@@ -38,6 +38,17 @@ class SecurityController extends Controller
     { 
       $error = "";
       $pseudo="";
+      
+      if(isset($_COOKIE['pseudo'])){
+      $user = new Nostreamer();
+      $user_id = $user->getId($_COOKIE["pseudo"]);
+      $page = new Page();
+      $user_page = $page->getMainPage($user_id['idNostreamer']);
+      if(!$user_page)
+        return $this->redirectToRoute('logout'); 
+      }
+      
+      
       if(isset($_POST) && $_POST != null){
         if($_POST['_pseudo'] != null && $_POST['_password'] != null){
           $user = new Nostreamer();

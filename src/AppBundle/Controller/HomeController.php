@@ -43,8 +43,11 @@ class HomeController extends Controller
       if(isset($_COOKIE['pseudo'])){
       $user = new Nostreamer();
       $user_id = $user->getId($_COOKIE["pseudo"]);
+      $page = new Page();
+      $user_page = $page->getMainPage($user_id['idNostreamer']);
+      if(!$user_page)
+        return $this->redirectToRoute('logout');  
       $abonnement = $user->getAbonnementsVideos($user_id['idNostreamer']);
-      $user_page = new Page();
       $current_user_page = $user_page->getMainPage($user_id['idNostreamer']);
       $list_channel = $user->getChannels($_COOKIE["pseudo"]);
       }
