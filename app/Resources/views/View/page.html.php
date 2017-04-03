@@ -217,7 +217,7 @@
         foreach($posts as $post){
           
         echo '
-        <div id="bloc" style="margin-top:25px;margin-bottom: 25px;border: 1px ridge black;padding:10px;display: inline-block;width:100%;box-shadow: 0 0 70px #000;" '.$param_delete_post.'>
+        <div id="bloc" style="margin-top:25px;margin-bottom: 25px;padding:10px;display: inline-block;width:100%;box-shadow: 0 0 5px #000;" '.$param_delete_post.'>
             <div style="border-bottom: solid 1px;padding:10px;padding-left:0px;">
                 <h>Publié le '.$post['datePost'].' </h>';
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
@@ -288,9 +288,9 @@
              foreach($comments as $key => $value) {
                 if($key== $post['idPost']){
                  foreach($value as $comment){
-                   echo '<div style="border: 1px ridge black;padding:10px;margin-top:15px;" '.$param_delete_post.'>
+                   echo '<div style="padding:10px;margin-top:5px;" '.$param_delete_post.'>
                           <div style="border-bottom: solid 1px;">
-                            <span style="margin-left:10px;color:white;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                            <span style="color:white;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
                             if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
                           echo '<form action="" method="post">
                               <input name="idComment" value="'.key($value).'" hidden>
@@ -299,7 +299,7 @@
                               </button>
                             </form>';
                      echo    '</div>
-                          <p>'.$comment['text'].'</p>
+                          <p style="margin-top:5px;">'.$comment['text'].'</p>
                         </div>';
                   }
                 }

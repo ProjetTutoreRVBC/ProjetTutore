@@ -90,7 +90,7 @@
     <div class="contents" id="contents">
       <div class="container">
         <article id="page1" class="show top" style="overflow-y:scroll;">
-          <div class="video-principale" style="height:100%;width:75%;float:left;">
+          <div class="video-principale" style="height:100%;width:75%;float:left;margin-left:-5%">
             <div class="video-titre" style="height:5%;width:100%;text-align:center;margin-bottom:10px;">
               <font style="font-size:150%;color:white;">
                 <?php echo substr($title,0,45); ?>
@@ -157,13 +157,13 @@
                 </div>
               </div>
             </div>
-             <div style="position:absolute;top:100%;border-radius: 8px;border: 2px ridge black;width:65%;background-color:;">
+             <div style="position:absolute;margin-left:5%;top:100%;border-radius: 8px;width:60%;background-color:;">
               <?php
                     echo '<form id="comment" action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-left:20px;margin-top:20px;">
                           <div style="width:70%;float:left;">
-                          <textarea name="comment" style="resize:none;width:85%;height:200px;border-radius:8px;background-color:#dddddd"></textarea>
+                          <textarea name="comment" style="resize:none;width:100%;height:200px;border-radius:8px;background-color:#dddddd"></textarea>
                           </div>
-                          <div style="float:left;margin-left:20px;margin-top:5px;">
+                          <div style="float:left;margin-left:20px;margin-top:5px;width:25%">
                           <button name="send_comment" type ="submit" class="myButt one" style="float: right;width:100%">
                           <div class="insider"></div>
                           <p style="margin-top:4px;font-size:10px;">Envoyer</p>
@@ -171,14 +171,14 @@
                           </div>
                           </form>';
                        foreach($comments as $comment) {
-                           echo '<div id="'.$comment['idComment'].'" style="background-color: #dddddd;border: 1px ridge black;padding:10px;margin-left:20px;margin-bottom:10px;width:80%;overflow:hidden;" class="callout" data-closable>
+                           echo '<div id="'.$comment['idComment'].'" style=";padding:10px;margin-left:20px;margin-bottom:10px;width:95%;overflow:hidden;" class="callout" data-closable>
                                   <div style="border-bottom: solid 1px;">
                                     <img style="width:30px;height:30px;" src="met.jpg">
-                                    <span style="margin-left:10px;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                                    <span style="margin-left:10px;color:white;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
                                     if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
                                     echo '
                                         <input name="idComment" value="'.$comment['idComment'].'" hidden>
-                                        <button style="outline:none;" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
+                                        <button style="outline:none;float:right" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
                                         <span aria-hidden="true">&times;</span>
                                         </button>';  
                          
