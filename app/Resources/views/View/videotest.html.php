@@ -90,13 +90,13 @@
     <div class="contents" id="contents">
       <div class="container">
         <article id="page1" class="show top" style="overflow-y:scroll;">
-          <div class="video-principale" style="height:100%;width:75%;float:left;margin-left:-5%">
+          <div class="video-principale" style="height:100%;width:100%;float:left;margin-left:;">
             <div class="video-titre" style="height:5%;width:100%;text-align:center;margin-bottom:10px;">
               <font style="font-size:150%;color:white;">
                 <?php echo substr($title,0,45); ?>
               </font>
             </div>
-            <div class="video-container " style="height:70%;width:85%!important;margin-left:auto;margin-right:auto;">
+            <div class="video-container " style="height:75%;width:85%!important;margin-left:auto;margin-right:auto;">
               <video id="<?php echo $v; ?>" class="video-js " controls preload="auto " style="width:100%;height:100%;" poster="<?php echo '/web/bundles/framework/miniature/'.$miniature;?>" data-setup="{} ">
                 <source src="<?php echo '/web/bundles/framework/video/'.$v.'.mp4';?>" type='video/mp4'>
                 <p class="vjs-no-js ">
@@ -104,7 +104,7 @@
                   <a href="http://videojs.com/html5-video-support/ " target="_blank ">supports HTML5 video</a>
                 </p>
             </video>
-              <div id="info_video" style="background-color:#dddddd;display:inline-block;margin-bottom:20px;margin-top:20px;height:35%;width:100%;padding:10px;border-radius:8px;border: 2px ridge black;">
+              <div id="info_video" style="background-color:#dddddd;display:inline-block;margin-bottom:20px;margin-top:20px;height:25%;width:75%;padding:10px;border-radius:8px;border: 2px ridge black;">
                 <div style="width:100%;height:100%;">
                   <div style="width:40%;height:90%;float:left;">
                     <div style="margin-left:15px;width:50%;">
@@ -156,40 +156,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-             <div style="position:absolute;margin-left:5%;top:100%;border-radius: 8px;width:60%;background-color:;">
-              <?php
-                    echo '<form id="comment" action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-left:20px;margin-top:20px;">
-                          <div style="width:70%;float:left;">
-                          <textarea name="comment" style="resize:none;width:100%;height:200px;border-radius:8px;background-color:#dddddd"></textarea>
-                          </div>
-                          <div style="float:left;margin-left:20px;margin-top:5px;width:25%">
-                          <button name="send_comment" type ="submit" class="myButt one" style="float: right;width:100%">
-                          <div class="insider"></div>
-                          <p style="margin-top:4px;font-size:10px;">Envoyer</p>
-                          </button>
-                          </div>
-                          </form>';
-                       foreach($comments as $comment) {
-                           echo '<div id="'.$comment['idComment'].'" style=";padding:10px;margin-left:20px;margin-bottom:10px;width:95%;overflow:hidden;" class="callout" data-closable>
-                                  <div style="border-bottom: solid 1px;">
-                                    <img style="width:30px;height:30px;" src="met.jpg">
-                                    <span style="margin-left:10px;color:white;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
-                                    if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
-                                    echo '
-                                        <input name="idComment" value="'.$comment['idComment'].'" hidden>
-                                        <button style="outline:none;float:right" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>';  
-                         
-                               echo '</div>
-                                  <p>'.$comment['messageComment'].'</p>
-                                </div>';
-                       }
-                    ?>
-          </div>
-          </div>
-          <div class="recommandations" style="margin-left:-20px;border-radius:8px;border: 2px ridge black;text-align:center;width:25%;height:100%;float:left;display:inline-block;overflow-y:scroll;overflow-x:visible;">
+              <div class="recommandations" style="margin-left:-20px;border-radius:8px;text-align:center;width:25%;height:100%;float:right;display:inline-block;overflow-y:scroll;overflow-x:visible;">
             <?php
               foreach($video as $v)
                 {
@@ -233,12 +200,39 @@
                 }
               ?>
           </div>
-          <!--<div style="border-radius:8px;border: 2px ridge black;width:1%;height:100%;float:right">
-          </div>-->
-         
-        
-
-
+            </div>
+             <div style="position:absolute;margin-left:5%;top:100%;border-radius: 8px;width:60%;background-color:;">
+              <?php
+                    echo '<form id="comment" action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-left:20px;margin-top:20px;">
+                          <div style="width:70%;float:left;">
+                          <textarea name="comment" style="resize:none;width:100%;height:200px;border-radius:8px;background-color:#dddddd"></textarea>
+                          </div>
+                          <div style="float:left;margin-left:20px;margin-top:5px;width:25%">
+                          <button name="send_comment" type ="submit" class="myButt one" style="float: right;width:100%">
+                          <div class="insider"></div>
+                          <p style="margin-top:4px;font-size:10px;">Envoyer</p>
+                          </button>
+                          </div>
+                          </form>';
+                       foreach($comments as $comment) {
+                           echo '<div id="'.$comment['idComment'].'" style=";padding:10px;margin-left:20px;margin-bottom:10px;width:95%;overflow:hidden;" class="callout" data-closable>
+                                  <div style="border-bottom: solid 1px;">
+                                    <img style="width:30px;height:30px;" src="met.jpg">
+                                    <span style="margin-left:10px;color:white;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                                    if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
+                                    echo '
+                                        <input name="idComment" value="'.$comment['idComment'].'" hidden>
+                                        <button style="outline:none;float:right" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>';  
+                         
+                               echo '</div>
+                                  <p>'.$comment['messageComment'].'</p>
+                                </div>';
+                       }
+                    ?>
+          </div>
+          </div>
       <section>
       </section>
       </article>
