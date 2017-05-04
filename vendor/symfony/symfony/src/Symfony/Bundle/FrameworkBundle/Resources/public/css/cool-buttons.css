@@ -646,16 +646,16 @@ h4 {
 }
 
 .one {
-  border-color: #fff;
+  border-color: #cfd2da;
   overflow: hidden;
-  color: #fff;
+  color: #cfd2da;
   width:50%;
   height:25px;
   border-radius:8px;
   float:left;
 }
 .one .insider {
-  background-color: #fff;
+  background-color: #cfd2da;
   width: 100%;
   height: 20px;
   position: absolute;
@@ -668,8 +668,8 @@ h4 {
 }
 .one:hover {
   background-color: #4997D0;
-  border-color: #fff;
-  color: #fff;
+  border-color: #cfd2da;
+  color: #cfd2da;
 }
 .one:hover .insider {
   transition: all 0.3s ease;
