@@ -59,8 +59,9 @@
             <button class="bqe bqg brj" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
               <span class="aep">Toggle nav</span>
             </button>
-            <a class="brk bsi" href="/web/">
-              <h2 class="brx">NOSTREAM</h2>
+            <a class="brk bsi" style="display:table;" href="/web/">
+              <img id="logo" class="nostream" src="/web/bundles/framework/lelogo.png" alt="logo">
+              <h3 class="brx" style="display:table-cell;margin-top:auto;margin-bottom:auto;vertical-align:middle">NOSTREAM</h3>
             </a>
           </div>
 
@@ -121,13 +122,17 @@
             <h6 class="bry">Nostream</h6>
             <h2 class="brx">Inscription</h2>
             <div>
-              
+
             </div>
           </div>
 
           <div class="qb brz">
-            <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
-            <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            <a href="/web/register" style="color:white">
+              <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
+            <a href="/web/login" style="color:white">
+              <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
@@ -145,32 +150,32 @@
                     <label for="email">Email</label>
                     <input class="form-control" style="width:50%;margin-right:auto;margin-left:auto" type="email" id="user_email" name="email" onchange="checkEmail();" required="required">
                   </div>
-                  
+
                   <div class="form__field">
                     <label>Pseudo</label>
-                    <input class="form-control" style="width:50%;margin-right:auto;margin-left:auto"  type="text" id="user_name" name="name"  onchange="checkName();" required="required">
+                    <input class="form-control" style="width:50%;margin-right:auto;margin-left:auto" type="text" id="user_name" name="name" onchange="checkName();" required="required">
                   </div>
-                  
+
                   <div class="form__field">
                     <label for="password">Mot de passe</label>
                     <input class="form-control" style="width:50%;margin-right:auto;margin-left:auto" type="password" id="user_plainPassword_first" name="passwd" onkeyup="checkPassImg(); return false;" required="required" placeholder="••••••••••••">
                   </div>
-                  
+
                   <div class="form__field">
                     <label for="password">Confirmer mot de passe</label>
                     <input class="form-control" style="width:50%;margin-right:auto;margin-left:auto" type="password" id="user_plainPassword_second" name="user[plainPassword][second]" onkeyup="checkPassImg(); return false;" required="required" placeholder="••••••••••••">
                   </div>
-                  
+
                   <div class="form__field">
                     <label for="date">Date de naissance</label>
                     <input class="form-control" style="width:50%;margin-right:auto;margin-left:auto" id="user_birth" name="birth" required="required" type="date">
-                  </div>  
-                  
+                  </div>
+
                   <div class="row">
                     <label>Avatar</label>
                     <label for="exampleFileUpload" class="button">Upload File</label>
                     <input class="form-control" style="width:50%;margin-right:auto;margin-left:auto" type='file' name="avatar" id="exampleFileUpload" onchange="readURL(this);" />
-                    <span id="display-parent" ></span> 
+                    <span id="display-parent"></span>
                   </div>
 
                   <div class="form__field">

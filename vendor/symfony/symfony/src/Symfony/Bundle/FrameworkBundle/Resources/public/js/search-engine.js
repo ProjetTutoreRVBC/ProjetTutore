@@ -15,6 +15,7 @@ function suggest(str) {
               }
               reponse.forEach(function(el){
                 var newLI = document.createElement('li');
+                newLI.style.marginLeft = "-35px";
                  var a = document.createElement('a');
                  newLI.appendChild(document.createTextNode(el.nameVideo));
                  a.href = "watch?v="+el.idVideo;

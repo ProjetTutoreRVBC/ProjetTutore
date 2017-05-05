@@ -8,15 +8,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
-  <script src="https://use.fontawesome.com/1a55bab663.js"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/comments.js') ?>"></script>
-  <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
-  <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
   <title>
 
     nostream &middot;
@@ -24,19 +16,24 @@
 
   </title>
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+  <script src="https://use.fontawesome.com/1a55bab663.js"></script>
+  <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/black-sabbath.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/scrollspy.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/comments.js') ?>"></script>
 
+  <link rel="icon" type="image/png" href="/web/bundles/framework/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
   <link href="web/css/toolkit-inverse.css" rel="stylesheet">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
-
-
   <link rel="stylesheet" href="/web/bundles/framework/css/black-sabbath.css">
-
   <link href="assets/css/application.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
+  <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
 
   <style>
     /* note: this is a hack for ios iframe for bootstrap themes shopify page */
@@ -60,8 +57,9 @@
             <button class="bqe bqg brj" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
               <span class="aep">Toggle nav</span>
             </button>
-            <a class="brk bsi" href="/web/">
-              <h2 class="brx">NOSTREAM</h2>
+            <a class="brk bsi" style="display:table;" href="/web/">
+              <img id="logo" class="nostream" src="/web/bundles/framework/lelogo.png" alt="logo">
+              <h3 class="brx" style="display:table-cell;margin-top:auto;margin-bottom:auto;vertical-align:middle">NOSTREAM</h3>
             </a>
           </div>
 
@@ -119,14 +117,18 @@
       <div class="es bsk">
         <div class="brv">
           <div class="brw" id="tendances">
-            <a href="/web/channel/<?php echo $video_channel;?>"><h3 class="bry"><?php echo $video_channel;?></h3></a>
-            <h2 class="brx"><?php echo substr($title,0,45); ?></h2>
+            <a href="/web/channel/<?php echo $video_channel;?>"><h3 class="bry"><?php echo $video_channel;?></h3></a><br><br>
+            <h2 class="brx" style="margin-top:-19px;"><?php echo substr($title,0,45); ?></h2>
             <span> Mise en ligne le <?php echo $info_date;?> </span>
           </div>
 
           <div class="qb brz">
-            <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
-            <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            <a href="/web/register" style="color:white">
+              <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
+            <a href="/web/login" style="color:white">
+              <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
@@ -194,9 +196,9 @@
             </div>
 
           </div>
-          
+
           <div style="width:100%;">
-              <?php
+            <?php
                     echo '<form id="comment" action="" method="post" style="margin-bottom:20px;display:inline-block;width:100%;text-align:center;margin-top:20px;">
                           <div style="width:100%;float:left;">
                           <textarea name="comment" style="resize:none;width:100%;height:200px;border-radius:8px;background-color:#dddddd"></textarea>

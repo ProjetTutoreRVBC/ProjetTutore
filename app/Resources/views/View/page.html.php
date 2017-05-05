@@ -8,35 +8,35 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
-  <script src="https://use.fontawesome.com/1a55bab663.js"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/comments.js') ?>"></script>
-  <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
-  <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>
 
     nostream &middot;
-   <?php echo $profile['namePage']; ?>
+    <?php echo $profile['namePage']; ?>
 
   </title>
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+  <script src="https://use.fontawesome.com/1a55bab663.js"></script>
+  <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/black-sabbath.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/scrollspy.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/comments.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/subs.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes_page.js') ?>"></script>
 
+
+  <link rel="icon" type="image/png" href="/web/bundles/framework/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
   <link href="web/css/toolkit-inverse.css" rel="stylesheet">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
-
-
   <link rel="stylesheet" href="/web/bundles/framework/css/black-sabbath.css">
-
   <link href="assets/css/application.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
+  <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
 
   <style>
     /* note: this is a hack for ios iframe for bootstrap themes shopify page */
@@ -60,8 +60,9 @@
             <button class="bqe bqg brj" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
               <span class="aep">Toggle nav</span>
             </button>
-            <a class="brk bsi" href="/web/">
-              <h2 class="brx">NOSTREAM</h2>
+            <a class="brk bsi" style="display:table;" href="/web/">
+              <img id="logo" class="nostream" src="/web/bundles/framework/lelogo.png" alt="logo">
+              <h3 class="brx" style="display:table-cell;margin-top:auto;margin-bottom:auto;vertical-align:middle">NOSTREAM</h3>
             </a>
           </div>
 
@@ -120,9 +121,9 @@
         <div class="brv">
           <div class="brw" id="tendances">
             <h2 class="brx"><?php echo $profile['namePage']; ?></h2>
-            <div>
-            <?php echo '<span id="nb-abonnes" style="float:left;" >'.$subs[0].' abonnés</span>';?>
-            <?php
+            <div id="abonnement">
+              <?php echo '<span id="nb-abonnes" style="float:left;" >'.$subs[0].'&nbsp;</span><span style="float:left;"> abonnés</span>';?>
+              <?php
                 $end_form = "";
                 if(isset($_COOKIE['pseudo'])){
                   //echo '<form action="" method="post">';
@@ -130,12 +131,12 @@
                   //$end_form = '</form>';
               
                   if(isset($isSubscribed)  && $isSubscribed == true){
-                    echo '<button id="button-des" style="width:50px;float:left;cursor:pointer;margin-left:10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart" style="margin-right:15px;float:right">';
+                    echo '<button id="button-des" style="margin-top:4px;width:50px;float:left;cursor:pointer;margin-left:-10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart" style="margin-right:15px;float:right">';
                     echo '<div class="insider"></div>';
                     echo '</button>';
                   }
                   if(isset($isSubscribed)  && $isSubscribed == false){
-                    echo '<button id="button-ab" style="width:50px;float:left;cursor:pointer;margin-left:10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart-o" style="margin-right:15px;float:right">';
+                    echo '<button id="button-ab" style="margin-top:4px;width:50px;float:left;cursor:pointer;margin-left:-10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart-o" style="margin-right:15px;float:right">';
                     echo '<div class="insider"></div>';
                     echo "</button>";
                   }  
@@ -151,30 +152,33 @@
           </div>
 
           <div class="qb brz">
-            <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
-            <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            <a href="/web/register" style="color:white">
+              <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
+            <a href="/web/login" style="color:white">
+              <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
         <hr class="afx">
 
         <div class="di awt agl">
-          
+
           <div style="width:100%;">
-<?php
+            <?php
           $param_delete_post = "";
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
             echo '
-        <div style="padding:10px;display: inline-block;width:100%;background: linear-gradient(135deg, #333333 0%, #333333 100%);">
+        <div style="padding:10px;display: inline-block;width:100%;">
           <form action="" method="post">
           <div>
           <input name="slug" id="slug" value="'.$profile['namePage'].'" hidden>
-         <textarea name="new_post" id="message_post" style="resize:none;width:85%;height:100px;border-radius:8px;background-color:#dddddd"></textarea>
+         <textarea name="new_post" id="message_post" style="resize:none;width:100%;height:100px;border-radius:8px;background-color:#dddddd;float:left;"></textarea>
           </div>
-          <div style="float:right;">
-          <button class="myButt one" type="submit" style="margin-top:-40%;width:100%;margin-right:15px;float:right">
-            <div class="insider"></div>
+          <div style="float:right;width:100%;">
+          <button class="myButt one" type="submit" style="width:100%;">
             <p style="margin-top:4px;font-size:10px;;">Envoyer</p>
           </button>
           </div>
@@ -193,11 +197,10 @@
                 <span style="float:left;">'.$profile['namePage'].' <small> '.$post['datePost'].'</small> </span>';
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
-            echo '<form id="foo" action="" method="post" style="float:right;margin-top:-20px;">
+            echo '<form id="foo" action="" method="post" style="float:right;">
                   <input name="idPost" value="'.$post['idPost'].'" hidden>
-                  <div class="circCont">
-                    <button class="circle" data-animation="showShadow" data-remove="3000" style="float:right;margin-top:5px;"></button>
-                  </div>
+                    <button style="outline:none;float:right;" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
+                    <span aria-hidden="true">&times;</span>
                   </button>
                   </form>';
             $disabled=''; 
@@ -248,8 +251,7 @@
                 <form action="" method="post" style="width:100%;margin-top:20px;margin-bottom:20px;display: inline-block;">
                 <div style="position:relative">
                 <input name="post_id" value="'.$post['idPost'].'" hidden>
-                <textarea name="comment" style="resize:none;width:100%;height:50px;border-radius:8px;background-color:#dddddd">
-                </textarea>
+                <textarea name="comment" style="resize:none;width:100%;height:50px;border-radius:8px;background-color:#dddddd"></textarea>
                 <button name="send_comment" type="submit" style="cursor:pointer;position:absolute;bottom:10px;right:10px;outline:none;background-color:transparent;border:none">
                   <i class="fa fa-paper-plane fa-2x" aria-hidden="true" style="color:#434857;"></i>
                 </button>
@@ -262,17 +264,17 @@
                 if($key== $post['idPost']){
                  foreach($value as $comment){
                    echo '<div style="padding:10px;margin-top:5px;" '.$param_delete_post.'>
-                          <div style="border-bottom: solid 1px;">
-                            <span style="color:white;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                          <div style="border-bottom: solid 1px;width:100%;float:left;">
+                            <span style="color:white;float:left;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
                             if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
                           echo '<form action="" method="post">
                               <input name="idComment" value="'.key($value).'" hidden>
-                              <button style="outline:none;" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
+                              <button style="outline:none;float:right;" type="submit" name="delete_comment" class="close-button" aria-label="Dismiss alert" data-close>
                               <span aria-hidden="true">&times;</span>
                               </button>
                             </form>';
                      echo    '</div>
-                          <p style="margin-top:5px;">'.$comment['text'].'</p>
+                          <p style="margin-top:5px;float:left;">'.$comment['text'].'</p>
                         </div>';
                   }
                 }
@@ -281,35 +283,35 @@
           </div>';
           $id++;
         }
-        ?>         
-          </div>   
+        ?>
           </div>
-
-
-          <div class="di bsl">
-
-          </div>
-
-          <hr class="agl">
         </div>
 
 
+        <div class="di bsl">
+
+        </div>
+
+        <hr class="agl">
+      </div>
 
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/tether.min.js"></script>
-        <script src="assets/js/chart.js"></script>
-        <script src="assets/js/tablesorter.min.js"></script>
-        <script src="assets/js/toolkit.js"></script>
-        <script src="assets/js/application.js"></script>
-        <script>
-          // execute/clear BS loaders for docs
-          $(function() {
-            while (window.BS && window.BS.loader && window.BS.loader.length) {
-              (window.BS.loader.pop())()
-            }
-          })
-        </script>
+
+
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/tether.min.js"></script>
+      <script src="assets/js/chart.js"></script>
+      <script src="assets/js/tablesorter.min.js"></script>
+      <script src="assets/js/toolkit.js"></script>
+      <script src="assets/js/application.js"></script>
+      <script>
+        // execute/clear BS loaders for docs
+        $(function() {
+          while (window.BS && window.BS.loader && window.BS.loader.length) {
+            (window.BS.loader.pop())()
+          }
+        })
+      </script>
 </body>
 
 </html>

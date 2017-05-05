@@ -6,16 +6,18 @@ $(document).ready(function(){
     var nbAbonnes = $('#nb-abonnes').text();
     switch(self.attr('id')){
     case'button-ab':
-        self.find('p').text('se désabonner');
-        self.css('background-color','red');
+        //self.find('p').text('se désabonner');
+        self.removeClass("fa-heart-o");
+        self.addClass("fa-heart");
         self.attr('id','button-des');
         nbAbonnes++;
         $('#nb-abonnes').text(nbAbonnes);
         $.post('/web/bundles/framework/php/abonne_channel.php',{idChannel: idChannel});
         break;
     case'button-des':
-        self.find('p').text("s'abonner");
-        self.css('background-color','');
+       // self.find('p').text("s'abonner");
+        self.removeClass("fa-heart");
+        self.addClass("fa-heart-o");
         self.attr('id','button-ab');
         nbAbonnes--;
         $('#nb-abonnes').text(nbAbonnes);

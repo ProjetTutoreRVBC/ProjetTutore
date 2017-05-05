@@ -20,6 +20,35 @@ body {
 
 }
 
+textarea {
+  border-radius : 0.25em !important;
+}
+
+.divsuggestlist {
+  width:100%;
+  max-width:275px;
+  overflow-x:hidden;
+  position:absolute;
+  z-index:99;
+  border-radius:0.25em;
+}
+
+@media (max-width: 768px) {
+  .fa-user-plus, .fa-sign-in {
+    display:none;
+  }
+}
+
+
+.sugg_list {
+  /*list-style:none;
+  background-color:white;
+  display:none;
+  margin-bottom:0px;
+  margin-top:0px;
+  overflow:hidden*/
+}
+
 .video-principale {
   height:440px;
 }
@@ -9204,7 +9233,8 @@ canvas {
 
 .brm {
   position: relative;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  }
   .brm .form-control {
     padding-left: 15px;
     padding-right: 15px; }
@@ -9342,6 +9372,7 @@ canvas {
   margin-bottom: 5px;
   font-weight: normal;
   font-size: 115%;
+  float:left;
   color: #434857;
   letter-spacing: 1px;
   text-transform: uppercase; }

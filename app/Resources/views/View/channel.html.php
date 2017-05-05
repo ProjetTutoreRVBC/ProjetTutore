@@ -8,15 +8,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
-  <script src="https://use.fontawesome.com/1a55bab663.js"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
-  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/comments.js') ?>"></script>
-  <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
-  <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>
 
     nostream &middot;
@@ -24,19 +16,25 @@
 
   </title>
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+  <script src="https://use.fontawesome.com/1a55bab663.js"></script>
+  <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/black-sabbath.js') ?>"></script>
   <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/scrollspy.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/comments.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/subs_channel.js') ?>"></script>
 
+  <link rel="icon" type="image/png" href="/web/bundles/framework/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
   <link href="web/css/toolkit-inverse.css" rel="stylesheet">
   <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
-
-
   <link rel="stylesheet" href="/web/bundles/framework/css/black-sabbath.css">
-
   <link href="assets/css/application.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
+  <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
 
   <style>
     /* note: this is a hack for ios iframe for bootstrap themes shopify page */
@@ -60,8 +58,9 @@
             <button class="bqe bqg brj" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
               <span class="aep">Toggle nav</span>
             </button>
-            <a class="brk bsi" href="/web/">
-              <h2 class="brx">NOSTREAM</h2>
+            <a class="brk bsi" style="display:table;" href="/web/">
+              <img id="logo" class="nostream" src="/web/bundles/framework/lelogo.png" alt="logo">
+              <h3 class="brx" style="display:table-cell;margin-top:auto;margin-bottom:auto;vertical-align:middle">NOSTREAM</h3>
             </a>
           </div>
 
@@ -120,9 +119,9 @@
         <div class="brv">
           <div class="brw" id="tendances">
             <h2 class="brx"><?php echo $name_channel; ?></h2>
-            <div>
-            <?php echo '<span id="nb-abonnes" style="float:left;" >'.$subs_channel.' abonnés</span>';?>
-            <?php
+            <div id="abonnement">
+              <?php echo '<span id="nb-abonnes" style="float:left;" >'.$subs_channel.'&nbsp;</span><span style="float:left;"> abonnés</span>';?>
+              <?php
                 $end_form = "";
                 if(isset($_COOKIE['pseudo'])){
                   //echo '<form action="" method="post">';
@@ -130,12 +129,12 @@
                   //$end_form = '</form>';
               
                   if(isset($isSubscribed)  && $isSubscribed == true){
-                    echo '<button id="button-des" style="width:50px;float:left;cursor:pointer;margin-left:10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart" style="margin-right:15px;float:right">';
+                    echo '<button id="button-des" style="margin-top:4px;width:50px;float:left;cursor:pointer;margin-left:-10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart" style="margin-right:15px;float:right">';
                     echo '<div class="insider"></div>';
                     echo '</button>';
                   }
                   if(isset($isSubscribed)  && $isSubscribed == false){
-                    echo '<button id="button-ab" style="width:50px;float:left;cursor:pointer;margin-left:10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart-o" style="margin-right:15px;float:right">';
+                    echo '<button id="button-ab" style="margin-top:4px;width:50px;float:left;cursor:pointer;margin-left:-10px;color:white;background:transparent;outline:none;border:none" class="fa fa-heart-o" style="margin-right:15px;float:right">';
                     echo '<div class="insider"></div>';
                     echo "</button>";
                   }  
@@ -151,18 +150,22 @@
           </div>
 
           <div class="qb brz">
-            <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
-            <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            <a href="/web/register" style="color:white">
+              <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
+            <a href="/web/login" style="color:white">
+              <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
         <hr class="afx">
 
         <div class="di awt agl">
-          
+
           <div style="width:100%;">
             <div style="display:table;width:100%;">
-        <?php
+              <?php
               foreach($video as $v)
                 {
                   if($channel[$v['nameVideo']] == $name_channel){
@@ -206,7 +209,7 @@
                 }
                 }
               ?>
-          </div>   
+            </div>
           </div>
 
 

@@ -59,8 +59,9 @@
             <button class="bqe bqg brj" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
               <span class="aep">Toggle nav</span>
             </button>
-            <a class="brk bsi" href="/web/">
-              <h2 class="brx">NOSTREAM</h2>
+            <a class="brk bsi" style="display:table;" href="/web/">
+              <img id="logo" class="nostream" src="/web/bundles/framework/lelogo.png" alt="logo">
+              <h3 class="brx" style="display:table-cell;margin-top:auto;margin-bottom:auto;vertical-align:middle">NOSTREAM</h3>
             </a>
           </div>
 
@@ -118,16 +119,20 @@
       <div class="es bsk">
         <div class="brv">
           <div class="brw" id="tendances">
-            <h6 class="bry">Nostream</h6>
-            <h2 class="brx">Se connecter</h2>
+            <h6 class="bry">Nostream</h6><br><br>
+            <h2 class="brx" style="margin-top:-19px;">Se connecter</h2>
             <div>
               
             </div>
           </div>
 
           <div class="qb brz">
-            <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
-            <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            <a href="/web/register" style="color:white">
+              <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
+            <a href="/web/login" style="color:white">
+              <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 

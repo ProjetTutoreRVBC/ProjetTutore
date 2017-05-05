@@ -36,7 +36,9 @@ p,font,h,a {
 }
 
 .divsuggestlist {
-  width:500px;
+  width:100%;
+  max-width:275px;
+  overflow-x:hidden;
   position:absolute;
   z-index:99;
   margin-left:5rem;
