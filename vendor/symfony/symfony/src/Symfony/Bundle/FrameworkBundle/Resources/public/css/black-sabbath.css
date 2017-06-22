@@ -1,4 +1,4 @@
-@charset "UTF-8";
+com@charset "UTF-8";
 /*! normalize.bq v5.0.0 | MIT License | github.com/necolas/normalize.bq */
 html {
   font-family: sans-serif;
@@ -20,8 +20,16 @@ body {
 
 }
 
+p {
+  text-align: left;
+}
+
 textarea {
   border-radius : 0.25em !important;
+}
+
+.coms {
+  transition: display 150ms;
 }
 
 .divsuggestlist {

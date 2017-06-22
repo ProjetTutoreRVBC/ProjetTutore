@@ -188,22 +188,22 @@
                       <a href="channel/'.$Channel.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                              <div style="height:100%;width:5%;float:left;">
+                              <div style="height:100%;width:15%;float:left;">
                               <i class="fa fa-play-circle" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
                               </div>
-                              <div style="height:100%;width:90%;float:left;">
-                              <p style="margin-top:4px;font-size:10px;">'.$Channel.'</p>
+                              <div style="height:100%;width:85%;float:left;">
+                              <p style="margin-top:4px;font-size:10px;text-align:center;">'.$Channel.'</p>
                               </div>
                           </button>
                       </a>
                       <a href="profile/'.$Page.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                            <div style="height:100%;width:5%;float:left;">
+                            <div style="height:100%;width:15%;float:left;">
                             <i class="fa fa-book" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
                             </div>
-                            <div style="height:100%;width:90%;float:left;">
-                            <p style="margin-top:4px;font-size:10px;">'.$Page.'</p>
+                            <div style="height:100%;width:85%;float:left;">
+                            <p style="margin-top:4px;font-size:10px;text-align:center">'.$Page.'</p>
                             </div>
                           </button>
                       </a>
@@ -256,13 +256,23 @@
                       <a href="channel/'.$Channel.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                          <p style="margin-top:4px;font-size:10px;">'.$Channel.'</p>
+                              <div style="height:100%;width:15%;float:left;">
+                              <i class="fa fa-play-circle" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
+                              </div>
+                              <div style="height:100%;width:85%;float:left;">
+                              <p style="margin-top:4px;font-size:10px;text-align:center;">'.$Channel.'</p>
+                              </div>
                           </button>
                       </a>
                       <a href="profile/'.$Page.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                          <p style="margin-top:4px;font-size:10px;">'.$Page.'</p>
+                            <div style="height:100%;width:15%;float:left;">
+                            <i class="fa fa-book" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
+                            </div>
+                            <div style="height:100%;width:85%;float:left;">
+                            <p style="margin-top:4px;font-size:10px;text-align:center">'.$Page.'</p>
+                            </div>
                           </button>
                       </a>
                       </div>
@@ -315,13 +325,23 @@
                       <a href="channel/'.$Channel.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                          <p style="margin-top:4px;font-size:10px;">'.$Channel.'</p>
+                              <div style="height:100%;width:15%;float:left;">
+                              <i class="fa fa-play-circle" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
+                              </div>
+                              <div style="height:100%;width:85%;float:left;">
+                              <p style="margin-top:4px;font-size:10px;text-align:center;">'.$Channel.'</p>
+                              </div>
                           </button>
                       </a>
                       <a href="profile/'.$Page.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                          <p style="margin-top:4px;font-size:10px;">'.$Page.'</p>
+                            <div style="height:100%;width:15%;float:left;">
+                            <i class="fa fa-book" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
+                            </div>
+                            <div style="height:100%;width:85%;float:left;">
+                            <p style="margin-top:4px;font-size:10px;text-align:center">'.$Page.'</p>
+                            </div>
                           </button>
                       </a>
                       </div>
@@ -374,13 +394,23 @@
                       <a href="channel/'.$Channel.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                          <p style="margin-top:4px;font-size:10px;">'.$Channel.'</p>
+                              <div style="height:100%;width:15%;float:left;">
+                              <i class="fa fa-play-circle" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
+                              </div>
+                              <div style="height:100%;width:85%;float:left;">
+                              <p style="margin-top:4px;font-size:10px;text-align:center;">'.$Channel.'</p>
+                              </div>
                           </button>
                       </a>
                       <a href="profile/'.$Page.'">
                           <button class="myButt one">
                           <div class="insider"></div>
-                          <p style="margin-top:4px;font-size:10px;">'.$Page.'</p>
+                            <div style="height:100%;width:15%;float:left;">
+                            <i class="fa fa-book" style="cursor:pointer;float:left;font-size:15px;margin-top:3px;margin-left:-18px;" aria-hidden="true"></i>
+                            </div>
+                            <div style="height:100%;width:85%;float:left;">
+                            <p style="margin-top:4px;font-size:10px;text-align:center">'.$Page.'</p>
+                            </div>
                           </button>
                       </a>
                       </div>

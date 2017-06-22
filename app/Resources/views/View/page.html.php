@@ -74,19 +74,20 @@
               </button>
             </form>
             <ul class="nav qq nav-stacked xx">
-              <li class="ayx">Accès Rapide</li>
-              <li class="qp active">
-                <a class="qn" href="/web#tendances">Tendances</a>
-              </li>
-              <li class="qp">
-                <a class="qn " href="/web#abonnements">Abonnements</a>
-              </li>
-              <li class="qp">
-                <a class="qn " href="/web#videastes">Vidéastes</a>
-              </li>
-              <li class="qp">
-                <a class="qn " href="/web#chaines">Chaînes</a>
-              </li>
+              <li class="ayx">Chaînes de <?php echo $profile['namePage']; ?></li>
+              <?php 
+              if($listChannel != 0) {
+                foreach($listChannel as $c){
+                  echo '
+                    <li class="qp">
+                    <a class="qn" href="../channel/'.$c["nameChannel"].'">
+                      '.$c["nameChannel"].'
+                      </a>
+                    </li>
+                  ';
+                }
+              }
+             ?>
 
               <li class="ayx">Espace Nostreamer</li>
               <li class="qp">
@@ -119,7 +120,8 @@
       </div>
       <div class="es bsk">
         <div class="brv">
-          <div class="brw" id="tendances">
+          <div class="brw" style="width:80%" id="tendances">
+            <img src="https://yt3.ggpht.com/-iyVgJA85AAk/AAAAAAAAAAI/AAAAAAAAAAA/xPqZULToWm0/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" style="width: 40px;height: 40px;float:left;margin-right: 10px;border-radius:15px;">
             <h2 class="brx"><?php echo $profile['namePage']; ?></h2>
             <div id="abonnement">
               <?php echo '<span id="nb-abonnes" style="float:left;" >'.$subs[0].'&nbsp;</span><span style="float:left;"> abonnés</span>';?>
@@ -194,7 +196,7 @@
         echo '
         <div id="bloc" style="margin-bottom: 25px;padding:10px;display: inline-block;width:100%;" '.$param_delete_post.'>
             <div style="border-bottom: solid 1px;padding:10px;padding-left:0px;float:left;width:100%">
-                <span style="float:left;">'.$profile['namePage'].' <small> '.$post['datePost'].'</small> </span>';
+                <img src="https://yt3.ggpht.com/-iyVgJA85AAk/AAAAAAAAAAI/AAAAAAAAAAA/xPqZULToWm0/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" style="width: 20px;height: 20px;float:left;margin-right: 10px;border-radius:15px;"><span style="float:left;">'.$profile['namePage'].' <small> '.$post['datePost'].'</small> </span>';
             if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"])){
             if($_COOKIE["pseudo"] == $profile['pseudoNostreamer'])
             echo '<form id="foo" action="" method="post" style="float:right;">
@@ -252,7 +254,7 @@
                 <div style="position:relative">
                 <input name="post_id" value="'.$post['idPost'].'" hidden>
                 <textarea name="comment" style="resize:none;width:100%;height:50px;border-radius:8px;background-color:#dddddd"></textarea>
-                <button name="send_comment" type="submit" style="cursor:pointer;position:absolute;bottom:10px;right:10px;outline:none;background-color:transparent;border:none">
+                <button name="send_comment" type="submit" style="cursor:pointer;position:absolute;bottom:15px;right:10px;outline:none;background-color:transparent;border:none">
                   <i class="fa fa-paper-plane fa-2x" aria-hidden="true" style="color:#434857;"></i>
                 </button>
                 </div>
@@ -265,7 +267,7 @@
                  foreach($value as $comment){
                    echo '<div style="padding:10px;margin-top:5px;" '.$param_delete_post.'>
                           <div style="border-bottom: solid 1px;width:100%;float:left;">
-                            <span style="color:white;float:left;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
+                            <img src="https://yt3.ggpht.com/-iyVgJA85AAk/AAAAAAAAAAI/AAAAAAAAAAA/xPqZULToWm0/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" style="width: 20px;height: 20px;float:left;margin-right: 10px;border-radius:15px;"><span style="color:white;float:left;">'.$comment['pseudoNostreamer'].'<small> le '.$comment['dateComment'].'</small></span>';
                             if(isset($_COOKIE["pseudo"])  && $_COOKIE["pseudo"] == $comment['pseudoNostreamer'])
                           echo '<form action="" method="post">
                               <input name="idComment" value="'.key($value).'" hidden>

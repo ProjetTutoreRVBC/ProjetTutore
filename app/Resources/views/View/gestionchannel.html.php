@@ -1,83 +1,153 @@
-<!-- app/Resources/views/View/gestionchannel.html.php-->  
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nostream</title>
-    <link rel="stylesheet" href="/web/bundles/framework/css/foundation.css">
-    <link rel="stylesheet" href="/web/bundles/framework/css/top-bar.css">
-    <script type="text/javascript" src="/web/bundles/framework/js/top-bar.js"></script>
-    <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
-    <style>
-      .selection:hover { 
-        background-color: #2199e8;
-        }
-      
-      a {
-        color: black;
-      }
-      a:hover {
-        color: white;
-      }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <title>
+
+    nostream &middot;
+    <?php echo $name_channel; ?>
+
+  </title>
+
+  <script src="https://use.fontawesome.com/1a55bab663.js"></script>
+  <script src="http://vjs.zencdn.net/5.8.8/video.js "></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/black-sabbath.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/scrollspy.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/likes.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/search-engine.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/comments.js') ?>"></script>
+  <script language="JavaScript" type="text/javascript" src="<?php echo $view['assets']->getUrl('bundles/framework/js/subs_channel.js') ?>"></script>
+
+  <link rel="icon" type="image/png" href="/web/bundles/framework/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
+  <link href="web/css/toolkit-inverse.css" rel="stylesheet">
+  <link rel="stylesheet" href="/web/bundles/framework/css/cool-buttons.css">
+  <link rel="stylesheet" href="/web/bundles/framework/css/black-sabbath.css">
+  <link href="assets/css/application.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
+  <link href="/web/bundles/framework/css/video-js/video-js.css" rel="stylesheet">
+
+  <style>
+    /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+    /* this chunk of css is not part of the toolkit :) */
+    
+    body {
+      width: 1px;
+      min-width: 100%;
+      *width: 100%;
+    }
+  </style>
 </head>
 
-<body onresize="handleWindow()" onload="handleWindow()">
-        <div class="top-bar">
-              <div style="display: inline-block;width:100%;">
-                <div id="left-search" style="float:left;">
-                  <ul id="menu" class="menu" style="">
-                      <li><a href="/web/app_dev.php/" ><img id="logo" class="" src="/web/bundles/framework/images/logo.png" alt="logo"></a></li>
-                      <li><input id ="search-bar" class="search-bar" type="search" placeholder="Search Here"></li>
-                      <li><button id="button-search-bar" class="button" type="button">Search</button></li>
-                  </ul>
-               </div>
-                     <?php
-                          $href="login";
-                          $log="Login";
-                          if(isset($_COOKIE["pseudo"]) && !empty($_COOKIE["pseudo"]))
-                          {
-                            $href = "logout";
-                            $log = "Logout";
-                            echo '<div id ="right-log" style="float:right;">
-                            <ul id="menu" class="menu">';
-                            
-                             echo '<li id="signed"><a href="../gestion"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/param.png"></a></li>';
-                            echo '<li id="signed-1"><a href="../profile/'.$user_page.'"><img style="width:40px;height:40px;" alt="" src="/web/bundles/framework/images/met.jpg"></a></li>';
-                          }else
-                          {
-                            echo '<div id ="right-log" style="float:right;">
-                            <ul id="menu" class="menu">';
-                            echo '<li id="signIn" ><a href="register"><button class="button" type="button">Sign Up</button></a></li>';
-                          }
-                            
-                          echo '<li id ="logIn">';
-                          echo '<a href=../'.$href.'>';
-                          echo '<button  id="log" type ="button" class="button" >'.$log.'</button></a>';
-                        ?>
-                    </li>  
-                </ul>
-              </div>
+
+<body data-spy="scroll" data-target=".bro">
+  <div class="bw">
+    <div class="di">
+      <div class="em brh">
+        <nav class="bro">
+          <div class="bri">
+            <button class="bqe bqg brj" type="button" data-toggle="collapse" data-target="#nav-toggleable-md">
+              <span class="aep">Toggle nav</span>
+            </button>
+            <a class="brk bsi" style="display:table;" href="/web/">
+              <img id="logo" class="nostream" src="/web/bundles/framework/lelogo.png" alt="logo">
+              <h3 class="brx" style="display:table-cell;margin-top:auto;margin-bottom:auto;vertical-align:middle">NOSTREAM</h3>
+            </a>
+          </div>
+
+          <div class="collapse bql" id="nav-toggleable-md">
+            <form class="brm">
+              <input class="form-control" type="text" placeholder="Search...">
+              <button type="submit" class="po">
+                <span class=""><i class="fa fa-search" style="cursor:pointer;" aria-hidden="true"></i></span>
+              </button>
+            </form>
+            <ul class="nav qq nav-stacked xx">
+              <li class="ayx">Accès Rapide</li>
+              <li class="qp active">
+                <a class="qn" href="/web#tendances">Tendances</a>
+              </li>
+              <li class="qp">
+                <a class="qn " href="/web#abonnements">Abonnements</a>
+              </li>
+              <li class="qp">
+                <a class="qn " href="/web#videastes">Vidéastes</a>
+              </li>
+              <li class="qp">
+                <a class="qn " href="/web#chaines">Chaînes</a>
+              </li>
+
+              <li class="ayx">Espace Nostreamer</li>
+              <li class="qp">
+                <a class="qn" href="/web">
+                  Accueil
+                </a>
+              </li>
+              <li class="qp">
+                <a class="qn " href="docs/index.html">
+                  Mon compte
+                </a>
+              </li>
+              <li class="qp">
+                <a class="qn" href="http://getbootstrap.com" target="blank">
+                  Mes abonnements
+                </a>
+              </li>
+              <li class="qp">
+                <a class="qn " href="index-light/index.html">Se déconnecter</a>
+              </li>
+              <li class="qp">
+                <a class="qn" href="#docsModal" data-toggle="modal">
+                  Example modal
+                </a>
+              </li>
+            </ul>
+            <hr class="bsj afx">
+          </div>
+        </nav>
+      </div>
+      <div class="es bsk">
+        <div class="brv">
+          <div class="brw" id="tendances">
+            <h2 class="brx"><?php echo $name_channel; ?></h2>
+            <div id="abonnement">
+              <h5> <?php echo $subs_channel ?> personnes sont abonnés à <?php echo $name_channel;?> </h5>
             </div>
           </div>
-    <div style="width:100%;height:90%;display:inline-block;">
-        <div style="text-align:center;width:100%;">
-            <h5> 2 938 292 personnes sont abonnés à <?php echo $name_channel;?> </h5>
-        </div>
-        <div style="float:left;padding:0.01em 16px;border:1px solid #ccc!important;border-radius:16px!important;margin-left:5%;margin-top:5%;width:85%;height:60%;">
-            <div style="width:100%;height:10%;margin-top:5px;">
-                <h4 style="text-align:center;">Vos Vidéos</h4>
-            </div>
 
-            <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
-                <a href="<?php echo "../upload/".$name_channel;?>">
-                <div style="float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
-                </div>
-                </a>  
+          <div class="qb brz">
+            <a href="/web/register" style="color:white">
+              <i class="fa fa-user-plus fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
+            <a href="/web/login" style="color:white">
+              <i class="fa fa-sign-in fa-2x" style="cursor:pointer;" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <hr class="afx">
+
+        <div class="di awt agl">
+
+          <div style="width:100%;">
+              <div style="width:100%;height:10%;margin-top:5px;">
+                <h4 style="text-align:center;">Vidéos de la chaîne</h4>
+              </div>
+
+              <div style="height:80%;margin-top:20px;overflow-x:visible;overflow-y:scroll; ">
+                <a href="<?php echo " ../upload/ ".$name_channel;?>">
+                  <div style="float:left;border: 1px solid grey;height:125px;width:225px;text-align:center; ">
+                  </div>
+                </a>
                 <?php
                 
               foreach($video as $v)
@@ -89,44 +159,51 @@
                     $vues = $v['viewsVideo'];
                     $Page = $page[$titre];
                     $Channel = $channel[$titre];
-                echo '<div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden; ">
-                    <div style="width:50%;float:left;overflow:hidden;">
-                        <a href="../watch?v='.$id.'"><img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px;text-align:center;"></a>
-                        <font style="font-size:110%;margin-left:10px;overflow:hidden; ">'.$titre.'</font>
-                    </div>
-                    <table style="float:left;height:100%;width:30%;">
-                        <tr>
-                            <th class="tg-yw4l" colspan="2">
-                                '.$vues.' vues
-                            </th>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center;background-color:#2199e8;">
-                                '.$v['likes'].' likes
-                            </td>
-                            <td style="background-color:#da3116;text-align:center;">
-                                '.$v['dislikes'].' dislikes
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center;" colspan=" 2 ">
-                                143 commentaires
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="text-align:center;width:18%;margin-left:20px;float:left;height:100%;">
-                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver commentaires</a>
-                        <a class="button" style="width:100%;margin-bottom:2px;">Désactiver le chat</a>
+                echo '<div style="width:100%;height:125px;display:inline-block;margin-top:3%;overflow:hidden;">
+                        <div style="width:225px;height:125px;float:left;">
+                          <a href="../watch?v='.$id.'"><img src="/web/bundles/framework/miniature/'.$v['miniature'].'" style="height:125px;width:225px"></a>
+                        </div>
+                        <div style="float:left;height:35px;width:calc(100% - 225px);">
+                          <font style="margin-left:10px;font-size:200%;overflow:hidden;float:left;display:table-cell;vertical-align:center;">'.$titre.'</font>
+                        </div>
+                        <div style="float:left;height:105px;width:calc(100% - 225px);">
+                          <i style="margin-left:10px;color:white;width:initial;float:left;" class="fa-2x fa fa-eye" aria-hidden="true"></i><p> : '.$vues.'</p>
+                        </div>
                         <form method="post" action="" >
                         <input name="supprimer" value="'.$id.'" hidden/>
-                        <button type="submit" class="alert button" style="width:100%;margin-bottom:2px;">Supprimer la vidéo</button>
+                        <button type="submit" class="alert button" style="float:right;width:100%;margin-bottom:2px;">Supprimer la vidéo</button>
                         </form>
-                    </div>
                 </div>';
                   }
                 }
                 ?>
             </div>
-        </div>
-    </div>
+
+
+            <div class="di bsl">
+
+            </div>
+
+            <hr class="agl">
+          </div>
+
+
+
+
+          <script src="assets/js/jquery.min.js"></script>
+          <script src="assets/js/tether.min.js"></script>
+          <script src="assets/js/chart.js"></script>
+          <script src="assets/js/tablesorter.min.js"></script>
+          <script src="assets/js/toolkit.js"></script>
+          <script src="assets/js/application.js"></script>
+          <script>
+            // execute/clear BS loaders for docs
+            $(function() {
+              while (window.BS && window.BS.loader && window.BS.loader.length) {
+                (window.BS.loader.pop())()
+              }
+            })
+          </script>
 </body>
+
+</html>

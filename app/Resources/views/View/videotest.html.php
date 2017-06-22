@@ -106,7 +106,8 @@
               </li>
               <li class="qp">
                 <a class="qn" href="#docsModal" data-toggle="modal">
-                  Example modal
+                  <img src="https://yt3.ggpht.com/-iyVgJA85AAk/AAAAAAAAAAI/AAAAAAAAAAA/xPqZULToWm0/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" style="width: 20px;height: 20px;float:left;margin-right: 10px;border-radius:15px;">
+                  Cyprien
                 </a>
               </li>
             </ul>
@@ -116,7 +117,8 @@
       </div>
       <div class="es bsk">
         <div class="brv">
-          <div class="brw" id="tendances">
+          <div class="brw" style="width:80%" id="tendances">
+            <img src="https://yt3.ggpht.com/-iyVgJA85AAk/AAAAAAAAAAI/AAAAAAAAAAA/xPqZULToWm0/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" style="margin-right:10px;width:55px;height:55px;float:left;border-radius:15px">
             <a href="/web/channel/<?php echo $video_channel;?>"><h3 class="bry"><?php echo $video_channel;?></h3></a><br><br>
             <h2 class="brx" style="margin-top:-19px;"><?php echo substr($title,0,45); ?></h2>
             <span> Mise en ligne le <?php echo $info_date;?> </span>
